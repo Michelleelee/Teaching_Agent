@@ -1,129 +1,103 @@
-# Teaching Agent
+# Teaching Agent (Self-Evolving Teaching Agent for Adaptive Practice)
 
-An LLM-based teaching assistant designed to support adaptive learning from lecture materials.
-The system integrates retrieval, long-term memory, and agent-based reasoning to provide slide-aware explanations and personalized learning feedback.
+A self-evolving teaching LLM agent for adaptive practice, built with **PydanticAI**.  
+The system combines **agentic RAG**, **dual long-term memory**, and **assessment-driven feedback loops** to deliver slide-aware, student-tailored teaching and continuously improve quiz quality metrics.
 
 ---
 
 ## Overview
 
-Teaching Agent is an LLM-powered system designed to assist students in understanding course materials through document-grounded explanations and adaptive feedback.
+This project builds a **self-evolving teaching agent** that supports adaptive learning workflows:
 
-The system combines retrieval-augmented generation (RAG), long-term student memory, and agent-based orchestration to create a closed-loop learning workflow. By tracking student interactions and responses, the agent can generate explanations aligned with lecture materials and maintain a persistent student learning state.
+- **Slide-aware teaching**: grounds explanations and guidance in course materials.
+- **Student-tailored feedback**: conditions responses on a persistent student state.
+- **Continuous self-improvement**: uses automated assessment signals to refine memory and practice content over time.
 
-This project explores how LLM agents can support adaptive educational workflows through document understanding, retrieval, and feedback-driven reasoning.
-
----
-
-## System Architecture
-
-The system follows a modular agent-based architecture composed of several core components:
-
-* **Teaching Agent** – orchestrates reasoning, retrieval, and learning feedback.
-* **Retrieval Module** – retrieves relevant lecture content from indexed documents.
-* **Student Memory** – stores interaction history and student learning state.
-* **Assessment Module** – evaluates responses and updates the student model.
-
-Together these components form a closed learning loop:
-
-Student Question → Retrieval → Agent Reasoning → Explanation → Memory Update
+The agent is designed to function as a closed-loop system that learns from interactions and improves its instructional behavior and quiz-bank quality.
 
 ---
 
-## Key Features
+## Core Ideas
 
-**Document-Grounded Teaching**
-Responses are generated with retrieval support to ensure alignment with lecture materials.
+### Dual Long-Term Memory
 
-**Long-Term Student Memory**
-Stores interaction history and learning signals to support personalized explanations.
+The agent maintains two long-term memory stores:
 
-**Agent-Based Workflow**
-Implements an agent-driven pipeline that coordinates retrieval, reasoning, and feedback.
+- **In-class student memory**: persistent student-specific signals (e.g., recent questions, mistakes, inferred mastery).
+- **Cross-semester teaching memory**: persistent teaching knowledge and reusable instructional artifacts across cohorts.
 
-**Adaptive Feedback Generation**
-Student responses and interaction patterns are used to adjust explanations and guidance.
+These memories are updated through a feedback loop and are retrievable for downstream reasoning.
+
+---
+
+### Agentic RAG over Memory + Student-State Summaries
+
+The agent retrieves context from both course materials and memory:
+
+- **Retrieval workflows**: combines lexical and vector-based retrieval:
+  - **BM25** for keyword / sparse matching
+  - **HNSW-based ANN** retrieval for dense vector search
+- **Student-state compression**: maintains a compressed student-state summary that can be injected into prompts for in-context learning, reducing context length while preserving learning-relevant signals.
+
+---
+
+### Feedback-Driven Memory Update with Verification Guardrails
+
+The system implements a continuously updating memory pipeline:
+
+1. Generate response / guidance grounded on retrieved evidence
+2. Extract learning signals (e.g., errors, confidence, misconceptions)
+3. Update memory stores based on feedback
+4. Apply **fact-grounded verification guardrails** to reduce accumulation of incorrect memory entries
+
+This design aims to prevent “memory drift” by ensuring updates are supported by evidence.
+
+---
+
+## Quality Improvements (Automated Metrics)
+
+Through iterative agent evaluation and quiz refinement, the system improved automated quiz-bank quality metrics:
+
+- **Discrimination Score**: **0.17 → 0.24**
+- **Error Concentration**: **0.36 → 0.52**
+- **Confidence**: **0.12 → 0.05**
+
+> Metric definitions and the evaluation protocol should be documented in `evaluation/` (recommended) to ensure reproducibility.
 
 ---
 
 ## Tech Stack
 
-* **LLM**: OpenAI GPT models
-* **Agent Framework**: PydanticAI
-* **Vector Database**: Chroma
-* **Embedding Model**: OpenAI Embeddings
-* **Backend**: Python
+- **Language**: Python
+- **Agent Framework**: PydanticAI
+- **Retrieval**: BM25 + dense retrieval with HNSW-based ANN indexing
+- **Vector Store / Memory Store**: Chroma
+- **LLM / Embeddings**: OpenAI GPT models + OpenAI Embeddings
 
 ---
 
-## Workflow
+## High-Level Workflow
 
-1. Course materials are parsed and converted into structured text.
-2. Documents are chunked and indexed into a vector database.
-3. When a student asks a question, the retrieval module searches for relevant content.
-4. The teaching agent reasons over the retrieved context and generates an explanation.
-5. The system stores interaction history in student memory for future reasoning.
-
----
-
-## Installation
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/yourname/teaching-agent.git
-cd teaching-agent
-
-pip install -r requirements.txt
-```
+1. Ingest and index course materials / long-term memory
+2. Retrieve relevant context (materials + memory)
+3. Inject compressed student-state summary into the agent context
+4. Generate slide-aware explanation / practice / feedback
+5. Update memory with verification guardrails
+6. Periodically evaluate and refine quiz-bank items using automated metrics
 
 ---
 
-## Configuration
+## Repository Structure (Suggested)
 
-Create a `.env` file and configure the required API keys:
+> Adjust to match your repo structure.
 
-```
-OPENAI_API_KEY=your_api_key
-EMBEDDING_MODEL=text-embedding-3-large
-VECTOR_DB=chroma
-```
-
----
-
-## Usage
-
-Run the system:
-
-```bash
-python main.py
-```
-
----
-
-## Project Structure
-
-```
-teaching-agent
-│
-├── agents            # Agent definitions and orchestration
-├── memory            # Student memory management
-├── retrieval         # Document retrieval pipeline
-├── prompts           # Prompt templates
-├── services          # Core system services
-└── main.py           # Entry point
-```
-
----
-
-## Future Work
-
-* Improve student modeling using richer interaction signals
-* Introduce multi-agent teaching workflows
-* Add automated evaluation for question quality
-
----
-
-## License
-
-MIT License
+```text
+.
+├── agents/            # PydanticAI agent definitions and orchestration
+├── retrieval/         # BM25 / dense retrieval pipelines and indexing
+├── memory/            # long-term memory stores + update logic + summarization
+├── assessment/        # scoring / evaluation hooks and feedback signals
+├── evaluation/        # metric computation and evaluation scripts
+├── prompts/           # prompt templates
+├── config/            # configuration and env loading
+└── main.py            # entry point
