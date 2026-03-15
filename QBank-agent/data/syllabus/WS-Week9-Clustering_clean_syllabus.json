@@ -1,0 +1,83 @@
+{
+  "syllabus": [
+    {
+      "topic": "Introduction to Clustering in Pattern Recognition",
+      "page_range": [
+        1,
+        4
+      ],
+      "sub_points": [
+        "Positioning clustering within pattern representation learning and unsupervised pattern recognition",
+        "Core definition of clustering and typical objectives (discovering structure, grouping similar samples)",
+        "Common application motivations and how clustering differs from classification (no labels, exploratory)"
+      ]
+    },
+    {
+      "topic": "Clustering Taxonomy and Problem Formulations",
+      "page_range": [
+        5,
+        15
+      ],
+      "sub_points": [
+        "Hard clustering concept: exclusive assignment of each data point to exactly one cluster",
+        "Major families: partitional vs hierarchical clustering (and how outputs differ: partitions vs dendrograms)",
+        "Cluster notions/criteria: well-separated, center-based, contiguous (nearest-neighbor), and density-based clusters",
+        "Choosing the number of clusters (illustrated via two-cluster examples and separability intuition)"
+      ]
+    },
+    {
+      "topic": "Partitional Clustering with K-Means (Algorithm and Workflow)",
+      "page_range": [
+        16,
+        26
+      ],
+      "sub_points": [
+        "K-means objective as within-cluster compactness (distance to centroids) and iterative optimization",
+        "Algorithm steps: initialization, assignment step, centroid update step, and convergence/stopping conditions",
+        "Practical considerations: distance metrics (typically Euclidean), sensitivity to initialization, and local minima",
+        "Worked iterations/examples demonstrating how assignments and centroids change until no further changes occur"
+      ]
+    },
+    {
+      "topic": "Limitations and Failure Modes of K-Means",
+      "page_range": [
+        27,
+        36
+      ],
+      "sub_points": [
+        "Sensitivity to initialization and convergence to local optima; variability across runs",
+        "Assumption of roughly spherical, equal-variance clusters; difficulty with non-convex or elongated structures",
+        "Vulnerability to outliers and scale issues (features must often be normalized)",
+        "Requirement to pre-specify K and challenges when clusters overlap or have different densities/sizes"
+      ]
+    },
+    {
+      "topic": "Hierarchical Clustering: Agglomerative Methods and Linkage Criteria",
+      "page_range": [
+        37,
+        59
+      ],
+      "sub_points": [
+        "Hierarchical clustering overview (agglomerative bottom-up approach) and dendrogram interpretation",
+        "Single-link (MIN) linkage: cluster similarity defined by the closest pair across clusters; chaining effect",
+        "Complete-link (MAX) linkage: similarity defined by the farthest pair; produces tighter clusters",
+        "Group-average linkage: average pairwise proximity between clusters; trade-off between MIN and MAX behaviors",
+        "Centroid linkage: distance between cluster centroids; how centroid updates affect merge decisions"
+      ]
+    },
+    {
+      "topic": "Evaluating and Comparing Hierarchical Clustering; Limitations",
+      "page_range": [
+        60,
+        67
+      ],
+      "sub_points": [
+        "Limitations of agglomerative clustering (greedy/irreversible merges, computational cost, noise sensitivity)",
+        "Use of numerical measures to judge/compare clustering outcomes or linkage behaviors",
+        "Worked example with a small dataset (e.g., 6 points) comparing MIN, MAX, and Group Average merge behavior",
+        "Interpretation of distances/proximities and how linkage choice changes the resulting hierarchy"
+      ]
+    }
+  ],
+  "source_file": "WS-Week9-Clustering_clean.pdf"
+}

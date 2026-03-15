@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Knowledge Structure</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8f9fa; /* Light elegant gray */
+            color: #333;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            padding: 20px 40px;
+            background: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+
+        #viz-container {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+            position: relative;
+        }
+
+        #viz-container:active {
+            cursor: grabbing;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .node text {
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+            pointer-events: none;
+        }
+
+        /* Level-specific styling */
+        .node-level-0 circle { /* Root */
+            stroke: #2563eb;
+            fill: #2563eb;
+            r: 6;
+        }
+        .node-level-0 text {
+            font-weight: 700;
+            font-size: 14px;
+            fill: #1e293b;
+        }
+
+        .node-level-1 circle { /* Topic */
+            stroke: #0891b2; 
+            fill: #e0f2fe;
+            r: 5;
+        }
+        .node-level-1 text {
+            font-weight: 600;
+            fill: #0e7490;
+        }
+
+        .node-level-2 circle { /* Concept */
+            stroke: #7c3aed;
+            fill: #f3e8ff;
+            r: 4;
+        }
+        .node-level-2 text {
+            font-weight: 500;
+            fill: #6d28d9;
+        }
+
+        .node-level-3 circle { /* Fact/Intent */
+            stroke: #db2777;
+            fill: #fce7f3;
+            r: 3;
+        }
+        .node-level-3 text {
+            font-weight: 400;
+            fill: #be185d;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        .link {
+            fill: none;
+            stroke: #cbd5e1;
+            stroke-width: 1.5px;
+            opacity: 0.7;
+            transition: all 0.5s ease;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            line-height: 1.4;
+            z-index: 100;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: white;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .control-btn:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>Lecture Concept Map</h1>
+        <span class="subtitle">Topics • Concepts • Extraction Intents</span>
+    </div>
+</header>
+
+<div id="viz-container"></div>
+<div class="tooltip" id="tooltip"></div>
+
+<div class="controls">
+    <button class="control-btn" onclick="expandAll()">Expand All</button>
+    <button class="control-btn" onclick="collapseAll()">Collapse All</button>
+</div>
+
+<script>
+    // Embedded JSON Data
+    const rawData = {
+      "deck_id": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "topics": [
+        {
+          "topic": "Course logistics and administration",
+          "concepts": [
+            { "display_name": "Course identity", "extraction_intent": "Extract the course name/code and context." },
+            { "display_name": "Welcome and onboarding notes", "extraction_intent": "Extract welcome messages and expectations." },
+            { "display_name": "Lecture format", "extraction_intent": "Extract lecture format and consultation details." },
+            { "display_name": "Assessment components", "extraction_intent": "Extract assessment items, weightings, and grading rules." }
+          ]
+        },
+        {
+          "topic": "Pattern recognition and ML overview",
+          "concepts": [
+            { "display_name": "Definition of PR", "extraction_intent": "Extract definitions and characteristics of pattern recognition." },
+            { "display_name": "PR system diagram", "extraction_intent": "Extract components and data flow in the PR system." },
+            { "display_name": "PR vs ML", "extraction_intent": "Extract distinctions and overlaps between PR and ML." },
+            { "display_name": "AI vs ML vs DL", "extraction_intent": "Extract hierarchy and relationships." }
+          ]
+        },
+        {
+          "topic": "Probability foundations",
+          "concepts": [
+            { "display_name": "Interpretations of probability", "extraction_intent": "Extract the two interpretations of probability." },
+            { "display_name": "Bayes' rule", "extraction_intent": "Extract formula, named terms (prior, likelihood, posterior)." },
+            { "display_name": "Discrete vs Continuous RVs", "extraction_intent": "Extract differences (PMF vs PDF)." }
+          ]
+        },
+         {
+          "topic": "Core distributions",
+          "concepts": [
+            { "display_name": "Bernoulli & Binomial", "extraction_intent": "Extract definitions, parameters, and PMFs." },
+            { "display_name": "Gaussian distribution", "extraction_intent": "Extract definition, parameters, and PDF." },
+             { "display_name": "Softmax", "extraction_intent": "Extract softmax equation and properties." }
+          ]
+        },
+        {
+          "topic": "Model fitting (MLE & ERM)",
+          "concepts": [
+            { "display_name": "MLE", "extraction_intent": "Extract MLE objective and derivation steps." },
+            { "display_name": "ERM", "extraction_intent": "Extract ERM definition and risk minimization objective." }
+          ]
+        }
+      ]
+    };
+
+    // Transform Data for D3
+    const rootData = {
+        name: rawData.deck_id.replace('.pdf', ''),
+        children: rawData.topics.map(t => ({
+            name: t.topic,
+            children: t.concepts.map(c => ({
+                name: c.display_name,
+                children: [{ name: c.extraction_intent, isFact: true }]
+            }))
+        }))
+    };
+
+    // --- D3 Visualization Logic ---
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    
+    // Zoom behavior
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", (event) => {
+            g.attr("transform", event.transform);
+        });
+
+    const svg = d3.select("#viz-container").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(zoom)
+        .on("dblclick.zoom", null); // Disable double-click zoom
+
+    const g = svg.append("g").attr("transform", "translate(100,0)");
+
+    let i = 0,
+        duration = 500,
+        root;
+
+    const treeMap = d3.tree().nodeSize([30, 250]); // Height per node, Width per level
+
+    root = d3.hierarchy(rootData, d => d.children);
+    root.x0 = height / 2;
+    root.y0 = 0;
+
+    // Collapse after the second level initially
+    root.children.forEach(collapse);
+    
+    update(root);
+    
+    // Center the view initially
+    const initialTransform = d3.zoomIdentity.translate(150, height/2).scale(1);
+    svg.call(zoom.transform, initialTransform);
+
+
+    function collapse(d) {
+        if(d.children) {
+            d._children = d.children;
+            d._children.forEach(collapse);
+            d.children = null;
+        }
+    }
+
+    function expandAll() {
+        if (!root.children && !root._children) return;
+        expand(root);
+        update(root);
+    }
+    
+    function expand(d) {
+        if (d._children) {
+            d.children = d._children;
+            d._children = null;
+        }
+        if (d.children) d.children.forEach(expand);
+    }
+    
+    function collapseAll() {
+        if (root.children) {
+            root.children.forEach(collapse);
+            update(root);
+        }
+    }
+
+    function update(source) {
+        const treeData = treeMap(root);
+
+        // Compute the new tree layout
+        const nodes = treeData.descendants(),
+              links = treeData.links();
+
+        // Normalize for fixed-depth
+        nodes.forEach(d => { d.y = d.depth * 280; }); // Horizontal spacing
+
+        // ****************** Nodes ******************
+
+        const node = g.selectAll('g.node')
+            .data(nodes, d => d.id || (d.id = ++i));
+
+        const nodeEnter = node.enter().append('g')
+            .attr('class', d => `node node-level-${d.depth}`)
+            .attr("transform", d => `translate(${source.y0},${source.x0})`)
+            .on('click', click)
+            .on('mouseover', showTooltip)
+            .on('mouseout', hideTooltip);
+
+        nodeEnter.append('circle')
+            .attr('class', 'node')
+            .attr('r', 1e-6)
+            .style("fill", d => d._children ? "#fff" : null); // White center if collapsed
+
+        nodeEnter.append('text')
+            .attr("dy", ".35em")
+            .attr("x", d => d.children || d._children ? -13 : 13)
+            .attr("text-anchor", d => d.children || d._children ? "end" : "start")
+            .text(d => truncate(d.data.name, 40))
+            .style('fill-opacity', 1e-6);
+
+        // Update
+        const nodeUpdate = node.merge(nodeEnter).transition().duration(duration)
+            .attr("transform", d => `translate(${d.y},${d.x})`);
+
+        nodeUpdate.select('circle')
+            .attr('r', d => d.depth === 3 ? 3 : (d.depth === 0 ? 8 : 5))
+            .style("fill", d => d._children ? "#fff" : ""); // Ensure white fill if collapsed
+
+        nodeUpdate.select('text')
+            .style('fill-opacity', 1);
+
+        // Exit
+        const nodeExit = node.exit().transition().duration(duration)
+            .attr("transform", d => `translate(${source.y},${source.x})`)
+            .remove();
+
+        nodeExit.select('circle').attr('r', 1e-6);
+        nodeExit.select('text').style('fill-opacity', 1e-6);
+
+        // ****************** Links ******************
+
+        const link = g.selectAll('path.link')
+            .data(links, d => d.target.id);
+
+        const linkEnter = link.enter().insert('path', "g")
+            .attr('class', 'link')
+            .attr('d', d => {
+                const o = {x: source.x0, y: source.y0};
+                return diagonal(o, o);
+            });
+
+        // Update
+        const linkUpdate = link.merge(linkEnter).transition().duration(duration)
+            .attr('d', d => diagonal(d.source, d.target));
+
+        // Exit
+        const linkExit = link.exit().transition().duration(duration)
+            .attr('d', d => {
+                const o = {x: source.x, y: source.y};
+                return diagonal(o, o);
+            })
+            .remove();
+
+        // Store the old positions for transition
+        nodes.forEach(d => {
+            d.x0 = d.x;
+            d.y0 = d.y;
+        });
+
+        // Toggle children on click
+        function click(event, d) {
+            if (d.children) {
+                d._children = d.children;
+                d.children = null;
+            } else {
+                d.children = d._children;
+                d._children = null;
+            }
+            update(d);
+        }
+    }
+
+    function diagonal(s, d) {
+        return `M ${s.y} ${s.x}
+                C ${(s.y + d.y) / 2} ${s.x},
+                  ${(s.y + d.y) / 2} ${d.x},
+                  ${d.y} ${d.x}`;
+    }
+
+    function truncate(str, max) {
+        if (!str) return "";
+        return str.length > max ? str.substr(0, max-1) + '…' : str;
+    }
+    
+    function showTooltip(event, d) {
+        const tooltip = document.getElementById("tooltip");
+        tooltip.innerHTML = `<strong>${d.depth === 0 ? 'Lecture' : (d.depth === 1 ? 'Topic' : (d.depth === 2 ? 'Concept' : 'Fact/Intent'))}</strong><br>${d.data.name}`;
+        tooltip.style.opacity = 1;
+        tooltip.style.left = (event.pageX + 10) + "px";
+        tooltip.style.top = (event.pageY + 10) + "px";
+    }
+
+    function hideTooltip() {
+        const tooltip = document.getElementById("tooltip");
+        tooltip.style.opacity = 0;
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        svg.attr("width", window.innerWidth).attr("height", window.innerHeight);
+        // Force update if needed or re-center
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+{
+  "source_file": "WS-Week9-Clustering_clean.pdf",
+  "outline": [
+    "Pattern Recognition EE5907:",
+    "• Pattern Representation Learning",
+    "Clustering",
+    "What is Clustering?",
+    "• Hard Clustering",
+    "Hard Clustering",
+    "Partitional Clustering",
+    "Hierarchical Clustering",
+    "9",
+    "How many clusters? Two Clusters",
+    "• Well-separated clusters",
+    "• Well-Separated Cluster:",
+    "• Center-based Cluster:",
+    "• Contiguous Cluster (Nearest neighbor)",
+    "• Density-based Cluster",
+    "Partitional Clustering",
+    "What type of",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "No changes: Done",
+    "Limitations of K-Means",
+    "34",
+    "(i)",
+    "(ii)",
+    "Hierarchical Clustering",
+    "• More popular hierarchical clustering technique",
+    "p1 p2 p3 p4 p5 . ..",
+    "• Similarity of two clusters is based on the two most",
+    "(l1,l2) l3 l4 l5",
+    "Agglomerative Clustering: MIN",
+    "• Similarity of two clusters is based on the two least",
+    "(l1,l2) l3 l4 l5",
+    "Agglomerative Clustering: MAX",
+    "• Proximity of two clusters is the average of pairwise proximity",
+    "(l1,l2) l3 l4 l5",
+    "Agglomerative Clustering: Group Average",
+    "Distance Between Centroids",
+    "Agglomerative Clustering: Centroid",
+    "Limitations of Agglomerative Clustering",
+    "• Numerical measures that are applied to judge various",
+    "6 data points are",
+    "MIN:",
+    "MAX:",
+    "Group Average:",
+    "1.5 0 1 0.5 −1 2"
+  ],
+  "slides": [
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 1,
+      "title": "Pattern Recognition EE5907:",
+      "content": "EE5907: Pattern Recognition\n&\nMachine Learning\nEE5026:\nfor Data Analytics\nDr. WANG Si\nEmail: si.wang@nus.edu.sg\nOffice: E1a-04-01"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 2,
+      "title": "• Pattern Representation Learning",
+      "content": "– Unsupervised Representation Learning (week 7)\n– Supervised Representation Learning (week 8)\n– Unified Framework: Graph Embedding (week 8)\n• Patter Recognition Models\n– Clustering (K-means, Agglomerative)(week 9)\n– Gaussian Mixture Model and Boosting (week 10)\n– Support Vector Machines (week 11)\n• Deep Learning (week 12)\n• Revision and Q&A (week 13)\n2\nSome slides are from Shuicheng Yan, Henry Lin"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 3,
+      "title": "Clustering",
+      "content": "➢ We will discuss:\n➢ Definition and types of Clustering, and types of clusters\n➢ K-means clustering\n➢ Agglomerative clustering\n➢ At the end of this lecture, you should be able to:\n➢ Identify type of clustering and cluster\n➢ Perform K-means and Agglomerative clustering\n➢ Understand strengths and limitations\n3"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 4,
+      "title": "What is Clustering?",
+      "content": "• Process of grouping a set of objects into clusters based on\nsimilarity.\nInter-cluster\nIntra-cluster distances are\ndistances are maximized\nminimized\nHow is it different\nfrom LDA?\n4"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 5,
+      "title": "• Hard Clustering",
+      "content": "– Each data point belongs to a cluster completely or not.\n– Similarity measures, such as cosine similarity, Euclidean distance, etc.\n– e.g., K-means, Hierarchical, etc.\n• Soft Clustering\n– Each data point belongs to each cluster with a probability or degree of\nmembership.\n– e.g., Gaussian mixture model, Fuzzy C-means, etc.\nHard Soft\nData Points\nClusters P(C1) P(C2)\nA C1 0.91 0.09\nB C2 0.3 0.7\nC C2 0.17 0.83\nD C1 1 0\n5"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 6,
+      "title": "Hard Clustering",
+      "content": "• Partition-Based\n– Divide data into non-overlapping clusters such that each data\npoint belongs to exactly one cluster\n– e.g., K-Means, K-Medoids, CLARA, etc.\n• Hierarchical\n– Create a nested hierarchy of clusters but assigns each data point\nto only one cluster at any given level\n– e.g., Agglomerative, Divisive, etc.\n• Density-Based\n– Clusters are formed based on regions of high density, and points\nCluster number is\nthat don’t fit are considered noise.\ndetermined as you like\n– e.g., DBSCAN, OPTICS, etc.\n• Graph-Based\n– Clusters are identified using graph structures, where nodes\nrepresent data points, and edges represent similarity.\n– e.g., Spectral Clustering, Min-Cut Clustering, etc.\n6"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 7,
+      "title": "Partitional Clustering",
+      "content": "A division of data objects into non-overlapping subsets (clusters)\nsuch that each data object is in exactly one subset\nOriginal Points\nA Partitional Clustering\n7"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 8,
+      "title": "Hierarchical Clustering",
+      "content": "A set of nested clusters organized as a hierarchical tree\ndistance\n5\n6\n0.2\n4\n3 4\n0.15 2\n5\n2\n0.1\n1\n0.05\n1\n3\n0\n1 3 2 5 4 6\nDendrogram\nCluster number is\ndetermined as you like\n8"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 9,
+      "title": "9",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 10,
+      "title": "How many clusters? Two Clusters",
+      "content": "Four Clusters Six Clusters\n10"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 11,
+      "title": "• Well-separated clusters",
+      "content": "• Center-based clusters\n• Contiguous clusters\n• Density-based clusters\n11"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 12,
+      "title": "• Well-Separated Cluster:",
+      "content": "– A cluster is a set of points such that any point in a cluster is closer (or\nmore similar) to every other point in the cluster than to any point\nnot in the cluster.\n3 well-separated clusters\n12"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 13,
+      "title": "• Center-based Cluster:",
+      "content": "– A cluster is a set of objects such that a point in a cluster is closer\n(more similar) to the “center” of a cluster, than to the center of any\nother cluster\n– The center of a cluster is often a centroid, the average of all the\npoints in the cluster, or the most “representative” point of a cluster\n4 center-based clusters\nHow many well-\nseparated clusters?\n13"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 14,
+      "title": "• Contiguous Cluster (Nearest neighbor)",
+      "content": "– A cluster is a set of points such that a point in a cluster is closer (or\nmore similar) to one or more other points in the cluster than to any\npoint not in the cluster.\n8 contiguous clusters\nHow many well- How many center-\nseparated clusters? based clusters?\n14"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 15,
+      "title": "• Density-based Cluster",
+      "content": "– A cluster is a dense region of points, which is separated by low-\ndensity regions, from other regions of high density.\n– Used when noise and outliers are present.\n6 density-based clusters\n15"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 16,
+      "title": "Partitional Clustering",
+      "content": "K-means\n16"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 17,
+      "title": "What type of",
+      "content": "clusters?\n• Each cluster is associated with a centroid (center point)\n• Each point is assigned to the cluster with the closest centroid\n• Complexity is O( n * K * d * I)\n– n = number of points, K = number of clusters,\nI = number of iterations, d = number of features\n17"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 18,
+      "title": "18",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 19,
+      "title": "19",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 20,
+      "title": "20",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 21,
+      "title": "21",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 22,
+      "title": "22",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 23,
+      "title": "23",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 24,
+      "title": "24",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 25,
+      "title": "25",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 26,
+      "title": "No changes: Done",
+      "content": "26"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 27,
+      "title": "Limitations of K-Means",
+      "content": "▪ Need to predefine K\nElbow Method:\n1. K-means for different K\n2. For each K, calculate SSE\n3. Plot the curve of SSE over K\n4. “bend” or “knee”\nE\nS\nS\nWhat is the\noptimal K? K\n𝐾\n𝑆𝑢𝑚 𝑜𝑓 𝑆𝑞𝑢𝑎𝑟𝑒𝑑 𝐸𝑟𝑟𝑜𝑟 𝑆𝑆𝐸 = ෍ ෍ 𝑑𝑖𝑠𝑡2(𝒙,𝝁 )\n𝑖\n𝑖=1 𝒙∈𝐶\n𝑖\n27\nOther solutions: Average Silhouette, Gap Statistic\n\n▪ Sensitive to initial centroid selection\n28\n\n▪ Sensitive to initial centroid selection\n29\n\n▪ Sensitive to initial centroid selection\nPossible Solutions:\n• Multiple runs with different random initializations\n– Helps, but probability is not on your side\n• Use hierarchical clustering to determine initial centroids\n• Select more than K initial centroids and then select among these\ninitial centroids\n– Select most widely separated\n• Post-processing\n– Eliminate small clusters that may represent outliers\n– Split ‘loose’ clusters, i.e., clusters with relatively high SSE\n– Merge clusters that are ‘close’ and that have relatively low SSE\nK-Means++: Improved initialization for K-Means\n30\n\n▪ Assume spherical, equal-sized, similar-density clusters\nDiffer in size!\nOriginal Points K-means (3 Clusters)\nDiffer in Density!\nOriginal Points K-means (3 Clusters)\n31\n\n▪ Assume spherical, equal-sized, similar-density clusters\nPossible Solution: Use large K, then postprocess\nDiffer in size\nOriginal Points K-means (10 Clusters)\nDiffer in Density\nOriginal Points K-means (10 Clusters)\n32\n\n▪ Sensitive to outliers and noisy data\nPossible Solution: preprocessing\nK-Medoids: Use actual data points (medoids) as cluster centers\n33"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 34,
+      "title": "34",
+      "content": ""
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 35,
+      "title": "(i)",
+      "content": "Initialization: 2nd iteration:\n0 1\n𝝁 = ,𝝁 = 𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,⇒ 𝒙 𝜖𝐶\n1 2 1 1 1 2 1 1\n0 0\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5, ⇒ 𝒙 𝜖𝐶\n2 1 2 2 2 2\n1st iteration:\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,⇒ 𝒙 𝜖𝐶\n3 1 3 2 3 1\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,⇒ 𝒙 𝜖𝐶\n1 1 1 2 1 1\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,⇒ 𝒙 𝜖𝐶\n4 1 4 2 4 2\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0, ⇒ 𝒙 𝜖𝐶\n2 1 2 2 2 2\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.41,⇒ 𝒙 𝜖𝐶 Cluster assignment is unchanged, stop!\n3 1 3 2 3 1\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.41,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,⇒ 𝒙 𝜖𝐶\n4 1 4 2 4 2\n1 1\n0 1\n𝝁 = 𝒙 + 𝒙 = ,𝝁 = 𝒙 + 𝒙 =\n1 1 3 2 2 4\n2 0.5 2 0.5\n35"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 36,
+      "title": "(ii)",
+      "content": "Initialization: 2nd iteration:\n1 1\n𝝁 = ,𝝁 = 𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,⇒ 𝒙 𝜖𝐶\n1 2 1 1 1 2 1 1\n0 1\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12, ⇒ 𝒙 𝜖𝐶\n2 1 2 2 2 1\n1st iteration:\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,⇒ 𝒙 𝜖𝐶\n3 1 3 2 3 2\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.41,⇒ 𝒙 𝜖𝐶\n1 1 1 2 1 1\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.12,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0.5,⇒ 𝒙 𝜖𝐶\n4 1 4 2 4 2\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1, ⇒ 𝒙 𝜖𝐶\n2 1 2 2 2 1\nCluster assignment is unchanged, stop!\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1.41,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,⇒ 𝒙 𝜖𝐶\n3 1 3 2 3 2\n𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 1,𝑑𝑖𝑠𝑡 𝒙 ,𝝁 = 0,⇒ 𝒙 𝜖𝐶\n4 1 4 2 4 2\n1 1\n0.5 0.5\n𝝁 = 𝒙 + 𝒙 = ,𝝁 = 𝒙 + 𝒙 =\n1 1 2 2 3 4\n2 0 2 1\n36"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 37,
+      "title": "Hierarchical Clustering",
+      "content": "Agglomerative\n37"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 38,
+      "title": "• More popular hierarchical clustering technique",
+      "content": "• Basic algorithm is straightforward\n1. Let each data point be a cluster\n2. Compute the proximity/distance matrix\n3. Repeat\n4. Merge the two closest clusters\n5. Update the proximity/distance matrix\n6. Until only a single cluster remains\n• O(N2) space since it uses the proximity matrix.\n– N is the number of points.\n• O(N3) time\n– There are N-1 steps and at each step, the proximity matrix\nof size N2 must be updated and searched\n38"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 39,
+      "title": "p1 p2 p3 p4 p5 . ..",
+      "content": "p1\nSimilarity?\np2\np3\np4\np5\n.\nMIN\n⚫\n.\nMAX\n⚫ Proximity Matrix\n.\nGroup Average\n⚫\nDistance Between Centroids\n⚫\n39\n\np1\np2\np3\np4\np5\nMIN\n⚫\n.\nMAX\n⚫\n.\nGroup Average\n⚫\n.\nProximity Matrix\nDistance Between Centroids\n⚫\nWhat type of\nclusters?\n40\n\np1\np2\np3\np4\np5\nMIN\n⚫\n.\nMAX\n⚫\n.\nGroup Average\n⚫\n.\nProximity Matrix\nDistance Between Centroids\n⚫\nWhat type of\nclusters?\n41\n\np1\np2\np3\np4\np5\nMIN\n⚫\n.\nMAX\n⚫\n.\nGroup Average\n⚫\n.\nProximity Matrix\nDistance Between Centroids\n⚫\nWhat type of\nclusters?\n42\n\np1\n  p2\np3\np4\np5\nMIN\n⚫\n.\nMAX\n⚫\n.\nGroup Average\n⚫\n.\nProximity Matrix\nDistance Between Centroids\n⚫\nWhat type of\nclusters?\n43"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 44,
+      "title": "• Similarity of two clusters is based on the two most",
+      "content": "similar (closest) points in the different clusters\n– Determined by one pair of points\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20\nI2 1.00 0.70 0.60 0.50\nI3 1.00 0.40 0.30\nI4 1.00 0.80\nI5 1.00\nProximity (similarity) Matrix\n44\n\nsimilar (closest) points in the different clusters\n– Determined by one pair of points\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20 (l1,l2) l3 l4 l5\nI2 1.00 0.70 0.60 0.50 (l1,l2) 1.00 0.70 0.65 0.50\nI3 1.00 0.40 0.30 l3 1.00 0.40 0.30\nI4 1.00 0.80\nl4 1.00 0.80\nI5 1.00\nl5 1.00\nProximity (similarity) Matrix\n1 2 45"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 46,
+      "title": "(l1,l2) l3 l4 l5",
+      "content": "(l1,l2) l3 (l4,l5)\n(l1,l2) 1.00 0.70 0.65 0.50\n(l1,l2) 1.00 0.70 0.65\nl3 1.00 0.40 0.30\nl3 1.00 0.40\nl4 1.00 0.80\n(l4,l5) 1.00\nl5 1.00\n(l1,l2,l3) (l4,l5)\n(l1,l2,l3) 1.00 0.65\n(l4,l5) 1.00\n1 2 3 4 5\n46"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 47,
+      "title": "Agglomerative Clustering: MIN",
+      "content": "5\n1\ndistance\n3\n5\n0.2\n2\n1\n0.15\n2 3\n6\n0.1\n0.05\n4\n4\n0\n3 6 2 5 4 1\nDendrogram\nNested Clusters\n47"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 48,
+      "title": "• Similarity of two clusters is based on the two least",
+      "content": "similar (most distant) points in the different clusters\n– Determined by all pairs of points in the two clusters\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20\nI2 1.00 0.70 0.60 0.50\nI3 1.00 0.40 0.30\nI4 1.00 0.80\nI5 1.00\nProximity (Similarity) Matrix\n48\n\nsimilar (most distant) points in the different clusters\n– Determined by all pairs of points in the two clusters\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20\n(l1,l2) l3 l4 l5\nI2 1.00 0.70 0.60 0.50\n(l1,l2) 1.00 0.10 0.60 0.20\nI3 1.00 0.40 0.30\nl3 1.00 0.40 0.30\nI4 1.00 0.80 l4 1.00 0.80\nI5 1.00 l5 1.00\nProximity (Similarity) Matrix\n1 2 49"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 50,
+      "title": "(l1,l2) l3 l4 l5",
+      "content": "(l1,l2) l3 (l4,l5)\n(l1,l2) 1.00 0.10 0.60 0.20\n(l1,l2) 1.00 0.10 0.20\nl3 1.00 0.40 0.30\nl3 1.00 0.30\nl4 1.00 0.80\n(l4,l5) 1.00\nl5 1.00\n(l1,l2) (l3,l4,l5)\n(l1,l2) 1.00 0.10\n(l3,l4,l5) 1.00\n1 2 3 4 5\n50"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 51,
+      "title": "Agglomerative Clustering: MAX",
+      "content": "4\n1\ndistance\n2 5\n0.4\n0.35\n5\n2 0.3\n0.25\n3\n6 0.2\n3\n0.15\n1\n0.1\n4 0.05\n0\n3 6 4 1 2 5\nDendrogram\nNested Clusters\n51"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 52,
+      "title": "• Proximity of two clusters is the average of pairwise proximity",
+      "content": "between points in the two clusters.\n\nproximity(p ,p )\ni j\npCluster\ni i\npCluster\nproximity(Cluster ,Cluster ) = j j\ni j\n|Cluster ||Cluster |\ni j\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20\nI2 1.00 0.70 0.60 0.50\nI3 1.00 0.40 0.30\nI4 1.00 0.80\nI5 1.00\nProximity (Similarity) Matrix\n52\n\nbetween points in the two clusters.\n\nproximity(p ,p )\ni j\npCluster\ni i\npCluster\nproximity(Cluster ,Cluster ) = j j\ni j\n|Cluster ||Cluster |\ni j\nI1 I2 I3 I4 I5\nI1 1.00 0.90 0.10 0.65 0.20\n(l1,l2) l3 l4 l5\nI2 1.00 0.70 0.60 0.50 (l1,l2) 1.00 0.40 0.625 0.35\nI3 1.00 0.40 0.30 l3 1.00 0.40 0.30\nl4 1.00 0.80\nI4 1.00 0.80\nl5 1.00\nI5 1.00\nProximity (Similarity) Matrix\n1 2\n53"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 54,
+      "title": "(l1,l2) l3 l4 l5",
+      "content": "(l1,l2) l3 (l4,l5)\n(l1,l2) 1.00 0.40 0.625 0.35\n(l1,l2) 1.00 0.40 0.4875\nl3 1.00 0.40 0.30\nl3 1.00 0.35\nl4 1.00 0.80\n(l4,l5) 1.00\nl5 1.00\n(l1,l2,l4,l5) l3\n(l1,l2,l4,l5) 1.00 0.375\nl3 1.00\n1 2 4 5 3\n54"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 55,
+      "title": "Agglomerative Clustering: Group Average",
+      "content": "5\ndistance\n1\n2 0.25\n5\n2 0.2\n0.15\n3\n6\n3\n1 0.1\n4\n4 0.05\n0\n3 6 4 2 5 1\nNested Clusters Dendrogram\n55"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 56,
+      "title": "Distance Between Centroids",
+      "content": "• Centroid linkage\nSuppose l1=(1,1), l2=(1,2), l3=(4,4), l4=(5,4), l5=(5,5)\nI1 I2 I3 I4 I5\nI1 0.00 1.00 4.24 5.00 5.66\nI2 0.00 3.61 4.47 5.00\nI3 0.00 1.00 1.41\nI4 0.00 1.00\nI5 0.00\nDistance Matrix\n56\n\n• Centroid linkage\nSuppose l1=(1,1), l2=(1,2), l3=(4,4), l4=(5,4), l5=(5,5)\nI1 I2 I3 I4 I5 Centroid of (l1, l2)=(1,1.5)\nI1 0.00 1.00 4.24 5.00 5.66 (l1,l2) l3 l4 l5\nI2 0.00 3.61 4.47 5.00 (l1,l2) 0.00 3.91 4.72 5.32\nl3 0.00 1.00 1.41\nI3 0.00 1.00 1.41\nl4 0.00 1.00\nI4 0.00 1.00\nl5 0.00\nI5 0.00\nDistance Matrix\n1 2\n57\n\nSuppose l1=(1,1), l2=(1,2), l3=(4,4), l4=(5,4), l5=(5,5)\nCentroid of (l1, l2)=(1,1.5) Centroid of (l3, l4)=(4.5,4)\n(l1,l2) l3 l4 l5 (l1,l2) (l3,l4) l5\n(l1,l2) 0.00 3.91 4.72 5.32 (l1,l2) 0.00 4.30 5.32\nl3 0.00 1.00 1.41 (l3,l4) 0.00 1.12\nl4 0.00 1.00 l5 0.00\nl5 0.00\nCentroid of (l3, l4, l5)=(4.67,4.33)\n(l1,l2) (l3,l4,l5)\n(l1,l2) 0.00 4.63\n(l3,l4,l5) 0.00\n1 2 3 4 5\n58"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 59,
+      "title": "Agglomerative Clustering: Centroid",
+      "content": "5\ndistance\n1\n2 0.25\n5\n2 0.2\n0.15\n3\n6\n3\n1 0.1\n4\n4 0.05\n0\n3 6 4 2 5 1\nNested Clusters Dendrogram\n59"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 60,
+      "title": "Limitations of Agglomerative Clustering",
+      "content": "• No objective function is directly minimized\n• Different schemes have problems with one or more of the\nfollowing:\n– Sensitivity to noise and outliers\n– Difficulty handling different-sized clusters\nSensitivity to Handling Different-\nLinkage Cluster Shape\nNoise/Outliers sized clusters\nSingle elongated low poor\ncompact,\nComplete high moderate\nspherical\nmoderately\nAverage moderate moderate\ncompact\nCentroid spherical high poor\n61"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 61,
+      "title": "• Numerical measures that are applied to judge various",
+      "content": "aspects of cluster validity, are classified into the\nfollowing types.\n– External Index: Used to measure the extent to\nwhich cluster labels match externally supplied class\nlabels.\n𝑐\n• Entropy: − σ 𝑝 × 𝑙𝑜𝑔 (𝑝 )\n𝑖=1 𝑖 2 𝑖\n• Accuracy with major class label as cluster label\n– Internal Index: Used to measure the goodness of a\nclustering structure without respect to external\ninformation.\n• Sum of Squared Error (SSE)\n62"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 62,
+      "title": "6 data points are",
+      "content": "1.5 0 1 0.5 −1 2\n𝑥 = , 𝑥 = , 𝑥 = , 𝑥 = , 𝑥 = , 𝑥 =\n1 2 3 4 5 6\n4 0 −1 −2.1 0.9 −1.5\nPlease list the nested clusters by using agglomerative clustering based on MIN, MAX,\nGroup Average, and Centroid methods for inter-cluster Euclidean distance measure\nrespectively. Note that, for each method, list all the intermediate Euclidean distance\nmatrices.\n63\n\n1.5 0 1 0.5 −1 2\n𝑥 = , 𝑥 = , 𝑥 = , 𝑥 = , 𝑥 = , 𝑥 =\n1 2 3 4 5 6\n4 0 −1 −2.1 0.9 −1.5\nPlease list the nested clusters by using agglomerative clustering based on MIN, MAX,\nGroup Average, and Centroid methods for inter-cluster Euclidean distance measure\nrespectively. Note that, for each method, list all the intermediate Euclidean distance\nmatrices.\nx1 x2 x3 x4 x5 x6\nx1 0 4.27 5.02 6.18 3.98 5.52\nx2 0 1.41 2.16 1.35 2.5\nx3 0 1.21 2.76 1.12\nx4 0 3.35 1.62\nx5 0 3.84\nx6 0\n64"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 64,
+      "title": "MIN:",
+      "content": "x1 x2 x3 x4 x5 x6\nx1 x2 (x3,x6) x4 x5\nx1 0 4.27 5.02 6.18 3.98 5.52\nx1 0 4.27 5.02 6.18 3.98\nx2 0 1.41 2.16 1.35 2.5\nx2 0 1.41 2.16 1.35\nx3 0 1.21 2.76 1.12\n(x3,x6) 0 1.21 2.76\nx4 0 3.35 1.62\nx4 0 3.35\nx5 0 3.84\nx5 0\nx6 0\nx1 x2 (x3,x4,x6) x5\nx1 (x2,x5) (x3,x4,x6)\nx1 0 4.27 5.02 3.98\nx1 0 3.98 5.02\nx2 0 1.41 1.35\n(x2,x5) 0 1.41\n(x3,x4,x6) 0 2.76\n(x3,x4,x6) 0\nx5 0\nx1 (x2,x3,x4,x5,x6)\nx1 0 3.98\n(x2,x3,x4,x5,x6) 0\n65"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 65,
+      "title": "MAX:",
+      "content": "x1 x2 x3 x4 x5 x6\nx1 x2 (x3,x6) x4 x5\nx1 0 4.27 5.02 6.18 3.98 5.52\nx1 0 4.27 5.52 6.18 3.98\nx2 0 1.41 2.16 1.35 2.5\nx2 0 2.5 2.16 1.35\nx3 0 1.21 2.76 1.12\n(x3,x6) 0 1.62 3.84\nx4 0 3.35 1.62\nx4 0 3.35\nx5 0 3.84\nx5 0\nx6 0\nx1 (x2,x5) (x3,x6) x4\nx1 (x2,x5) (x3,x4,x6)\nx1 0 4.27 5.52 6.18\nx1 0 4.27 6.18\n(x2,x5) 0 3.84 3.35\n(x2,x5) 0 3.84\n(x3,x6) 0 1.62\n(x3,x4,x6) 0\nx4 0\nx1 (x2,x3,x4,x5,x6)\nx1 0 6.18\n(x2,x3,x4,x5,x6) 0\n66"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 66,
+      "title": "Group Average:",
+      "content": "x1 x2 x3 x4 x5 x6\nx1 x2 (x3,x6) x4 x5\nx1 0 4.27 5.02 6.18 3.98 5.52\nx1 0 4.27 5.27 6.18 3.98\nx2 0 1.41 2.16 1.35 2.5\nx2 0 1.96 2.16 1.35\nx3 0 1.21 2.76 1.12\n(x3,x6) 0 1.42 3.30\nx4 0 3.35 1.62\nx4 0 3.35\nx5 0 3.84\nx5 0\nx6 0\nx1 (x2,x5) (x3,x6) x4\nx1 (x2,x5) (x3,x4,x6)\nx1 0 4.13 5.27 6.18\nx1 0 4.13 5.57\n(x2,x5) 0 2.63 2.76\n(x2,x5) 0 2.66\n(x3,x6) 0 1.42\n(x3,x4,x6) 0\nx4 0\nx1 (x2,x3,x4,x5,x6)\nx1 0 4.99\n(x2,x3,x4,x5,x6) 0\n67"
+    },
+    {
+      "file": "WS-Week9-Clustering_clean.pdf",
+      "page": 67,
+      "title": "1.5 0 1 0.5 −1 2",
+      "content": "𝑥 = ,𝑥 = , 𝑥 = ,𝑥 = ,𝑥 = ,𝑥 =\n1 2 3 4 5 6\n4 0 −1 −2.1 0.9 −1.5\n1.5\nCentroid:\nCentroid of (x3,x6)=\n−1.25\nx1 x2 x3 x4 x5 x6\nx1 x2 (x3,x6) x4 x5\nx1 0 4.27 5.02 6.18 3.98 5.52\nx1 0 4.27 5.25 6.18 3.98\nx2 0 1.41 2.16 1.35 2.5\nx2 0 1.95 2.16 1.35\nx3 0 1.21 2.76 1.12\n(x3,x6) 0 1.31 3.30\nx4 0 3.35 1.62\nx4 0 3.35\nx5 0 3.84\nx5 0\nx6 0\n−0.5\nCentroid of (x2,x5)=\n0.45 x1 x2 (x3,x4,x6) x5\nx1 (x2,x5) (x3,x4,x6) x1 0 4.27 5.54 3.98\nx1 0 4.07 5.54 x2 0 1.93 1.35\n(x2,x5) 0 2.59 (x3,x4,x6) 0 3.26\n(x3,x4,x6) 0 x5 0\n1.17\nCentroid of (x3,x4,x6)=\n−1.53\nx1 (x2,x3,x4,x5,x6)\nx1 0 4.84\n0.5\nCentroid of (x2,x3,x4,x5,x6)=\n68\n(x2,x3,x4,x5,x6) 0 −0.74"
+    }
+  ]
+}

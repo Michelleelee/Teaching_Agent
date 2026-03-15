@@ -1,0 +1,111 @@
+{
+  "syllabus": [
+    {
+      "topic": "Tutorial Discussion and Review of Prior Material",
+      "page_range": [
+        1,
+        5
+      ],
+      "sub_points": [
+        "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+        "Reinforcement of core pattern recognition workflow: features → model → decision rule",
+        "Interpretation of classification results through examples and geometric intuition"
+      ]
+    },
+    {
+      "topic": "Foundations of Linear Classifiers: Discriminant Functions and Decision Geometry",
+      "page_range": [
+        6,
+        12
+      ],
+      "sub_points": [
+        "Role of linear classifiers as baseline models: simplicity, interpretability, and limits",
+        "Discriminant functions and how they induce decision regions/surfaces",
+        "Linear discriminant functions and the decision hyperplane representation",
+        "Geometric visualization of hyperplanes and classification in low-dimensional examples"
+      ]
+    },
+    {
+      "topic": "Perceptron Learning Algorithm: Formulation, Optimization View, and Variants",
+      "page_range": [
+        13,
+        28
+      ],
+      "sub_points": [
+        "Perceptron as an iterative update rule for learning a separating hyperplane",
+        "Optimization perspective: loss/cost formulation and relationship to gradient descent",
+        "Step-by-step dynamics via visualizations and worked examples",
+        "Implementation details and practical considerations (updates, convergence behavior)",
+        "Extensions: algorithmic variants and multi-class generalizations; conditions for linear separability"
+      ]
+    },
+    {
+      "topic": "Linear Classification via Least-Squares / MSE Criteria",
+      "page_range": [
+        29,
+        37
+      ],
+      "sub_points": [
+        "Using mean-square error (MSE) as an alternative objective for classification",
+        "Least-squares estimation (LSE): matrix form, solution concepts, and error-squares minimization",
+        "Over-determined vs under-determined systems and implications for solvability",
+        "Worked example of LSE-based classifier fitting",
+        "Capabilities and practical limits of linear classifiers under MSE/LSE training"
+      ]
+    },
+    {
+      "topic": "Generalization and the Bias–Variance Trade-off",
+      "page_range": [
+        38,
+        43
+      ],
+      "sub_points": [
+        "Definitions of bias and variance and how they relate to model complexity",
+        "Trade-off between underfitting and overfitting in supervised learning",
+        "Impact of training procedure and hypothesis class on expected generalization error",
+        "Motivation for moving beyond linear models when bias is too high"
+      ]
+    },
+    {
+      "topic": "Motivation for Nonlinear Classifiers: Limitations of Linear Decision Boundaries",
+      "page_range": [
+        44,
+        48
+      ],
+      "sub_points": [
+        "Recap of linear classifiers (perceptron, error minimization) as a starting point",
+        "Identifying failure cases for linear separability",
+        "XOR as a canonical example requiring non-linear decision boundaries",
+        "Problem framing for introducing multi-layer and basis-function methods"
+      ]
+    },
+    {
+      "topic": "Two-Layer Perceptron and Multi-Layer Perceptrons (MLPs): Representation and Training",
+      "page_range": [
+        49,
+        69
+      ],
+      "sub_points": [
+        "Two-layer perceptron architecture and how hidden layers enable non-linear separation",
+        "Biological inspiration and neuron model components (weights, bias, activation)",
+        "Activation function constraints: continuity/differentiability and implications for learning",
+        "Training MLPs by optimizing a cost function; motivation for smooth activations",
+        "Backpropagation: gradient computation through layers and iterative parameter updates; brief view beyond the basic MLP"
+      ]
+    },
+    {
+      "topic": "Radial Basis Function (RBF) Networks: Concepts and Hybrid Training",
+      "page_range": [
+        70,
+        77
+      ],
+      "sub_points": [
+        "RBF network structure and intuition: localized basis functions for non-linear modeling",
+        "Choice and behavior of radial basis functions (e.g., Gaussian-like responses)",
+        "Training pipeline as a hybrid process (e.g., selecting centers/widths then fitting output layer)",
+        "Example workflow incorporating model selection/validation (e.g., cross-validation) and performance considerations"
+      ]
+    }
+  ],
+  "source_file": "Lecture 3 Linear and nonlinear classifiers.pdf"
+}

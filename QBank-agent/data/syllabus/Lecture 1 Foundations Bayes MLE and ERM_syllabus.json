@@ -1,0 +1,127 @@
+{
+  "syllabus": [
+    {
+      "topic": "Course Orientation and Administrative Information",
+      "page_range": [
+        1,
+        14
+      ],
+      "sub_points": [
+        "Course overview: lecture format, consultation channels, and instructor introductions/backgrounds",
+        "Learning outcomes and expectations for student competencies in pattern recognition",
+        "Assessment structure and grading components; recommended references and study materials",
+        "Professional conduct: academic integrity/code of conduct and course policies",
+        "Updated syllabus highlights and newly introduced course elements"
+      ]
+    },
+    {
+      "topic": "Introduction to Pattern Recognition and the Machine Learning Landscape",
+      "page_range": [
+        15,
+        25
+      ],
+      "sub_points": [
+        "Definition and scope of pattern recognition; typical PR pipeline/system diagram and components",
+        "Relationship and distinctions among PR, machine learning, AI, and deep learning",
+        "Common ML framework: problem setup, data/labels, model learning vs inference, and output forms",
+        "Reasoning modes (deductive vs inductive) and how they map to learning from data",
+        "Learning paradigms (e.g., supervised/unsupervised and other common variants) and their goals"
+      ]
+    },
+    {
+      "topic": "Probability Foundations for Pattern Recognition",
+      "page_range": [
+        26,
+        31
+      ],
+      "sub_points": [
+        "Interpretations of probability (frequentist vs Bayesian) and implications for modeling",
+        "Core probability axioms and properties for events (union, intersection, complements)",
+        "Random variables: discrete vs continuous; PMF/PDF and basic usage in modeling",
+        "Linking probabilistic modeling to uncertainty handling in recognition systems"
+      ]
+    },
+    {
+      "topic": "Bayes’ Rule and Probabilistic Inference (with Worked Examples)",
+      "page_range": [
+        32,
+        39
+      ],
+      "sub_points": [
+        "Bayes’ rule formulation: priors, likelihoods, evidence, and posterior probabilities",
+        "Interpretation of Bayes’ rule as an inference/update mechanism from data to belief",
+        "Applying Bayes’ rule to practical scenarios (e.g., weather forecasting) to compute posteriors",
+        "Diagnostic testing example: sensitivity/specificity, base rates, and posterior risk intuition",
+        "Understanding how prior probabilities affect decisions under uncertainty"
+      ]
+    },
+    {
+      "topic": "Discrete Distributions for Classification: Bernoulli and Binomial",
+      "page_range": [
+        40,
+        47
+      ],
+      "sub_points": [
+        "Bernoulli distribution for binary outcomes: parameterization and expectation intuition",
+        "Binomial distribution as repeated Bernoulli trials: assumptions, PMF, and key properties",
+        "Connecting Bernoulli/Binomial models to counting events and label generation",
+        "Worked example using the binomial model to compute event probabilities",
+        "Recap consolidation of Bayes rule and discrete distribution concepts"
+      ]
+    },
+    {
+      "topic": "Predictive Modeling for Discrete Outputs: Sigmoid, Categorical/Multinomial, and Softmax",
+      "page_range": [
+        48,
+        54
+      ],
+      "sub_points": [
+        "Modeling binary targets using probabilistic prediction; role of the sigmoid/logistic link",
+        "Geometric/functional interpretation of the sigmoid and probability outputs in [0,1]",
+        "Categorical and multinomial distributions for multi-class outcomes and their parameters",
+        "Softmax function for multi-class probability prediction and normalization behavior",
+        "Key softmax properties and how they support stable multi-class inference"
+      ]
+    },
+    {
+      "topic": "Continuous Distributions and Parametric Modeling: Univariate Gaussian and Others",
+      "page_range": [
+        55,
+        59
+      ],
+      "sub_points": [
+        "Univariate Gaussian distribution: parameters (mean/variance) and shape/scale intuition",
+        "How Gaussian assumptions support modeling continuous-valued measurements/features",
+        "Overview of other common univariate distributions and when they may be appropriate",
+        "Comparing distributional choices and their impact on likelihood-based modeling"
+      ]
+    },
+    {
+      "topic": "Model Fitting via Maximum Likelihood Estimation (MLE)",
+      "page_range": [
+        60,
+        63
+      ],
+      "sub_points": [
+        "Probability model estimation as a fitting problem: choosing parameters to explain data",
+        "Maximum likelihood principle: likelihood, log-likelihood, and optimization perspective",
+        "Closed-form MLE for Bernoulli (estimating class probability) from sample statistics",
+        "Closed-form MLE for univariate Gaussian (estimating mean and variance) from data"
+      ]
+    },
+    {
+      "topic": "Learning as Optimization: Empirical Risk Minimization (ERM) and Misclassification Risk",
+      "page_range": [
+        64,
+        65
+      ],
+      "sub_points": [
+        "ERM framework: minimizing average loss on observed data as a proxy for expected risk",
+        "Choice of loss functions and how they encode learning objectives (e.g., classification error)",
+        "Minimizing misclassification rate and implications for decision boundaries",
+        "Positioning ERM as a foundation for later supervised learning algorithms"
+      ]
+    }
+  ],
+  "source_file": "Lecture 1 Foundations Bayes MLE and ERM.pdf"
+}

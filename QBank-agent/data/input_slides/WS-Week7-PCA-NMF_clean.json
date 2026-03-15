@@ -1,0 +1,252 @@
+{
+  "source_file": "WS-Week7-PCA-NMF_clean.pdf",
+  "outline": [
+    "Pattern Recognition EE5907:",
+    "Outlines",
+    "Continuous Assessments",
+    "Textbooks and References",
+    "Pattern Representation Learning",
+    "What are we doing with Pattern Recognition?",
+    "Representation Learning / Extraction",
+    "Why Feature Extraction?",
+    "Applications of Feature Extraction",
+    "Unsupervised Feature Learning",
+    "Principal Component Analysis (PCA)",
+    "What is Principal Component Analysis?",
+    "Geometric Picture of Principal Components",
+    "Algebraic Definition of PCs",
+    "Algebraic Derivation of PCs",
+    "Compute PCs",
+    "Examples: Compute PCs",
+    "Practical Computation of PCA",
+    "Visualize PCs",
+    "Reconstruction with PCs",
+    "PCA and Classification",
+    "PCA Remarks",
+    "PCA Limitations",
+    "Unsupervised Feature Learning",
+    "NMF: Motivation",
+    "NMF: Mathematical Formulation",
+    "NMF: Objective Function",
+    "NMF: Gradient Descent Solution",
+    "NMF: Multiplicative Update",
+    "Examples: Compute W, H",
+    "Visualize Basis Images",
+    "Reconstruction from W",
+    "Discussions",
+    "Summary",
+    "Papers to Read and Self-Study"
+  ],
+  "slides": [
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 1,
+      "title": "Pattern Recognition EE5907:",
+      "content": "EE5907: Pattern Recognition\n(Second Half)\n&\nMachine Learning\nEE5026:\nfor Data Analytics\nDr. WANG Si\nEmail: si.wang@nus.edu.sg\nOffice: E1a-04-01"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 2,
+      "title": "Outlines",
+      "content": "• Pattern Representation Learning\n– Unsupervised Representation Learning (week 7)\n– Supervised Representation Learning (week 8)\n– Unified Framework: Graph Embedding (week 8)\n• Patter Recognition Models\n– Clustering and Applications (week 9)\n– Gaussian Mixture Model and Boosting (week 10)\n– Support Vector Machines (week 11)\n• Deep Learning (week 12)\n• Revision and Q&A (week 13)\n2"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 3,
+      "title": "Continuous Assessments",
+      "content": "(20%) (40%)\n❑ EE5907 CA2 & EE5026 CA1: 9 Oct. 2025 - 14 Nov. 2025 1800 SGT\n(Thu. Week 8 - Fri. Week 13)\nPolicy on late submission:\n• Up to 12 hours late: 80% of your earned points\n• Up to 1 day late: 50% of your earned points\n• Up to 2 days late: 30% of your earned points\n• More than 2 days late: No marks (0%)\n❑ EE5907 & EE5026 Final Exam (60%): Closed book with one-page\ndouble-sided A4-sized cheat sheet\n3"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 4,
+      "title": "Textbooks and References",
+      "content": "(no fixed textbook)\n• Books\n– Gareth, J., et al. \"An Introduction to Statistical Learning: with\nApplications in Python.\" (2023)\n– Richard O. Duda, et al. “Pattern Classification.” (2001, Wiley)\n– Murphy, Kevin P., “Probabilistic Machine Learning: An Introduction.”\n(2022, MIT press)\n4"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 5,
+      "title": "Pattern Representation Learning",
+      "content": "➢ We will discuss:\n➢ What is pattern representation learning\n➢ Principal Component Analysis (PCA)\n➢ Non-negative Matrix Factorization (NMF)\n➢ At the end of this lecture, you should be able to:\n➢ Know what pattern representation learning is\n➢ Understand rationales behind PCA and NMF\n➢ Perform PCA and NMF\n5"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 6,
+      "title": "What are we doing with Pattern Recognition?",
+      "content": "Raw Data\nData Preprocessing\nGrayscale Normalization Augmentation\nExtract Informative Face Neck Legs\nPattern Representation Horse Long Long Long\nCat Round Short Short\nUnsupervised Supervised\nK-means\nPR Model (after training) Boosting\nHierarchical clustering\nSupport Vector Machine\nGaussian Mixture Model\nDeep Neural Network\nRecognition Results\nCluster assignment Classification / Regression\n6"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 7,
+      "title": "Representation Learning / Extraction",
+      "content": "• Representation learning refers to transforming the\nraw/preprocessed data into another (possibly lower-dimensional)\nspace.\n• Such that, in the new space, one can perform pattern recognition\nmore easily.\n• Criterion for good representation in different problem settings:\n– Unsupervised: minimize information loss (no class information)\n– Supervised: maximize discrimination (with class information)\nFace Neck Legs\nHorse Long Long Long\nCat Round Short Short\n7"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 8,
+      "title": "Why Feature Extraction?",
+      "content": "• Many traditional pattern recognition techniques may\nnot be effective for high-dimensional data\n– Curse of dimensionality\n8\n\n• Patterns may have small intrinsic dimension\nIntrinsic\ndimensions\n(50-100\ndimensions)\n400x400x3=480000\ndimensions\n9\n\n• Visualization: projecting high-dimensional data onto\n2D or 3D planes\n• Data compression: efficient storage and retrieval\n• Noise removal: positive effect on testing accuracy\n10"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 11,
+      "title": "Applications of Feature Extraction",
+      "content": "• Face recognition\n• Handwritten digit recognition\n• Text mining\n• Image retrieval\nText\n• Protein classification\nHandwritten digit\nImage database\nProteins\n11"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 12,
+      "title": "Unsupervised Feature Learning",
+      "content": "Principal Component Analysis"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 13,
+      "title": "Principal Component Analysis (PCA)",
+      "content": "• Probably the most widely-used and\nwell-known multivariate analysis\nmethod.\n• Introduced by Pearson (1901)\n• First applied in ecology by Goodall\n(1954) under the name “factor analysis”.\nKarl Pearson\nPearson, K. (1901). \"On Lines and Planesof Closest Fit to Systems of Points in Space\"\nPhilosophicalMagazine 2 (11): 559–572.\n13"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 14,
+      "title": "What is Principal Component Analysis?",
+      "content": "• Principal component analysis (PCA)\n– Reduce the dimensionality of a collection of observations by\nprojecting onto a new smaller set of variables, called principal\ncomponents (PCs), while preserving as much information as\npossible.\ny\n• What is PC?\n– Capture the big (principal) variability in the data\n– Ordered by captured variations from largest to smallest (e.g., 1st PC\ncaptures the largest variability)\n– PCs are uncorrelated (orthogonal to each other)\n14"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 15,
+      "title": "Geometric Picture of Principal Components",
+      "content": "15\n\nA B\nWhich one is the 1st PC?\n16\n\nHow to find this line?\nz\n• The 1st PC is parallel to the line minimum-distance fitted to the data\n1\npoints\nz\n• The 2nd PC is parallel to the line minimum-distance fitted to the\n2\nz\ndata points after has been taken into account\n1\n17\n\nhttps://people.duke.edu/~hpgavin/SystemID/CourseNotes/TotalLeastSquares.pdf 18"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 19,
+      "title": "Algebraic Definition of PCs",
+      "content": "Given a sample set of n observations on a vector of d variables\nDefine the first principal component (PC ) to be the normalized\n1\nlinear projection vector z =[z ,…, z ]T, such that\n1 1,1 d,1\n𝑇\n𝑦 = 𝐳 𝐱\n1 1\nvar[𝑦 ] is maximum, where 𝑦 is the projection along 1st PC axis\n1 1\n19"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 20,
+      "title": "Algebraic Derivation of PCs",
+      "content": "𝑇\nTo find z that maximizes var[𝑦 ], subject to 𝐳 𝐳 = 1\n1 1 1 1\n1 𝑛\n𝑇\nargmax var 𝑦 , 𝑠. 𝑡. , 𝐳 𝐳 = 1 𝐱ത = ෍ 𝐱\n1 1 1 𝑛 𝑖\n𝑖=1\n𝐳\n1 𝑛 𝑛\n1 1\nvar 𝑦 = 𝔼[(𝑦 − 𝑦 ) 2 ] = ෍(𝐳 𝑇 𝐱 − 𝐳 𝑇 𝐱ത) 2 = 𝐳 𝑇 ( ෍(𝐱 − 𝐱ത)(𝐱 − 𝐱ത) 𝑇 )𝐳\n1 1 1 1 𝑖 1 1 𝑖 𝑖 1\n𝑛 𝑛\n𝑖=1 𝑖=1\nCovariance matrix S\n𝑇 𝑇\n𝑓 = 𝐳 𝐒𝐳 , 𝑔 = 𝐳 𝐳 − 1\n1 1 1 1\nLet λ be a Lagrange multiplier,\nCov(A,B)= 𝔼[ 𝐴 − 𝔼 𝐴 𝐵 − 𝔼 𝐵 ]\n𝑇 𝑇\n∇ (𝐳 𝐒𝐳 ) = 𝜆∇ (𝐳 𝐳 − 1)\n𝐳 1 1 𝐳 1 1 Lagrange Multipliers:\n1 1\nGiven f to be optimized, subject\n𝐒𝐳 = 𝜆𝐳\n1 1 to the constraint g=0, then,\nsolve: ∇𝑓 = 𝜆∇𝑔\nTherefore, 𝐳 is an eigenvector of S,\n1\ncorresponding to the largest eigenvalue 𝜆 = 𝜆 Eigenvector:\n1\ndirection unchanged after\napplying a linear transformation S\n20\n\n𝑇 1 𝑛\nargmax var 𝑦 , 𝑠. 𝑡. , 𝐳 𝐳 = 1\n1 1 1 𝐱ത = ෍ 𝐱\n𝑖\n𝑛\n𝐳 𝑖=1\n1\n𝑛 𝑛\n1 1\nvar 𝑦 = 𝔼[(𝑦 − 𝑦 ) 2 ] = ෍(𝐳 𝑇 𝐱 − 𝐳 𝑇 𝐱ത) 2 = 𝐳 𝑇 ( ෍(𝐱 − 𝐱ത)(𝐱 − 𝐱ത) 𝑇 )𝐳\n1 1 1 1 𝑖 1 1 𝑖 𝑖 1\n𝑛 𝑛\n𝑖=1 𝑖=1\nCovariance matrix S\n𝑇 𝑇\n𝑓 = 𝐳 𝐒𝐳 , 𝑔 = 𝐳 𝐳 − 1\n1 1 1 1\nLagrange Multipliers:\nLet λ be a Lagrange multiplier, Given f to be optimized, subject\nto the constraint g=0, then,\n𝑇 𝑇\n∇ (𝐳 𝐒𝐳 ) = 𝜆∇ (𝐳 𝐳 − 1) solve: ∇𝑓 = 𝜆∇𝑔\n𝐳 1 1 𝐳 1 1\n1 1\n𝐒𝐳 = 𝜆𝐳\n1 1 Eigenvector:\ndirection unchanged after\nTherefore, 𝐳 is an eigenvector of S,\n1 applying a linear transformation S\ncorresponding to the largest eigenvalue 𝜆 = 𝜆\n1\n𝑇 𝑇\nvar 𝑦 = 𝐳 𝐒𝐳 = 𝐳 𝜆𝐳 = 𝜆\n1 1 1 1 1\nTherefore, 𝜆 is largest eigenvalue in order to maximize var 𝑦\n1\n21\n\nSimilarly, 𝐳 is also an eigenvector of S,\n2\nwhose eigenvalue 𝜆 = 𝜆 is the second largest\n2\nAre obtained PCs\nIn general, orthogonal?\n𝑇\nvar 𝑦 = 𝐳 𝐒𝐳 = 𝜆\n𝑘 𝑘 𝑘 𝑘\n• The kth largest eigenvalue of S is the variance of the kth PC projections.\n• The kth PC 𝐳 captures the kth greatest variation in the samples\n𝑘\n22\n\nProof: Obtained PCs are orthogonal to each other\n𝑺𝒛 = 𝜆 𝒛 , 𝑺𝒛 = 𝜆 𝒛 , … …\n1 1 1 2 2 2\n𝒛 𝑇 𝑺𝒛 = 𝜆 𝒛 𝑇 𝒛 𝒛 𝑇 𝑺𝒛 = 𝜆 𝒛 𝑇 𝒛\n2 1 1 2 1 1 2 2 1 2\n𝑇 𝑇 𝑇 𝑇\n(𝒛 𝑺𝒛 ) = 𝜆 (𝒛 𝒛 )\n1 2 2 1 2\n𝑇 𝑇 𝑇\n𝒛 𝑺 𝒛 = 𝜆 𝒛 𝒛\n2 1 2 2 1\n𝑇\n𝑺 = 𝑺\n𝑇 𝑇 𝑇\n𝒛 𝑺 𝒛 = 𝜆 𝒛 𝒛\n2 1 2 2 1\n𝜆 𝒛 𝑇 𝒛 = 𝜆 𝒛 𝑇 𝒛 𝒛 𝑇 𝒛 = 0\n1 2 1 2 2 1 2 1\n23"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 24,
+      "title": "Compute PCs",
+      "content": "• Main steps for computing PCs and Projections on PCs\n– Calculate the covariance matrix S. (𝐒 − 𝜆𝐈 )𝐳 = 0\n𝑑 𝑖\nSolve |𝐒 − 𝜆𝐈 | = 0, Get 𝜆\n𝑑\n– Compute its eigenvectors: 𝐳\n𝑖\nSubstitute each 𝜆 to , Get 𝐳\n𝑖\n𝑝\n– The first p eigenvectors 𝐳 form the p PCs\n𝑖 𝑖=1\n– The transformation matrix Z consists of the p PCs:\n𝐙 = 𝐳 , 𝐳 , … , 𝐳 ,\n1 2 𝑝\n𝑇\n𝐲 = 𝐙 𝐱\n24"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 25,
+      "title": "Examples: Compute PCs",
+      "content": "Given the following dataset, compute the first PC and its corresponding\nprojection for each data sample.\nObservations Feature 1 Feature 2\n1 1 2\n2 3 4\n3 5 6\n4 7 8\n25\n\nStep 1: Compute Covariance Matrix S n=4, d=2\n𝑛 1\n1 𝐱ത = σ𝑛 𝐱 = Observations Feature 1 Feature 2\n𝑖=1 𝑖\n𝐒 = ෍(𝐱 − 𝐱ത)(𝐱 − 𝐱ത)𝑇 𝑛\n𝑛 𝑖 𝑖 1 1 3 5 7 4 1 1 2\n( + + + ) =\n𝑖=1\n4 2 4 6 8 5\n2 3 4\n1 1 4 1 4 3 4 3 4\n= (( − )( − )𝑇 + ( − )( − )𝑇 + 3 5 6\n4 2 5 2 5 4 5 4 5\n5 4 5 4 7 4 7 4 5 5 4 7 8\n( − )( − )𝑇 + ( − )( − )𝑇) =\n6 5 6 5 8 5 8 5 5 5\nStep 2: Compute eigenvectors 𝐳\n𝑖 For 𝜆 = 10, (𝐒 − 𝜆𝐈 )𝐳 = 0\n1 𝑑 1\ndet(𝐒 − 𝜆𝐈 ) = 0 𝑧\n2 −5 5 1,1\n= 0\n𝑧\n5 5 1 0 5 −5 2,1\ndet( − 𝜆 ) = 0\n5 5 0 1\n𝑧 = 𝑧\n1,1 2,1\n5 − 𝜆 5 Since 𝐳 𝑇 𝐳 = 1, i.e., 𝑧 2 + 𝑧 2 = 1\ndet( ) = 0 1 1 1,1 2,1\n5 5 − 𝜆\n1\n5 − 𝜆 5 − 𝜆 − 5 × 5 = 0\n1 2\n𝑧 = 𝑧 = ± , 𝐳 =± , var[y ]= 𝜆 = 10\n1,1 2,1 2 1 1 1 1\n𝜆 = 10, 𝜆 = 0\n1 2\n2\nStep 3: Compute Projection 𝑦 on 𝐳\n1\n1\n1 1 3\n𝑇 𝑇 𝑇 𝑇\n𝑦 = 𝐳 𝐱 = ±[ , ] = ± , 𝑦 = 𝐳 𝐱 , 𝑦 = 𝐳 𝐱 , 𝑦 = 𝐳 𝐱\n1 1 1 2 1 2 3 1 3 4 1 4\n2 2 2 2\n26"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 27,
+      "title": "Practical Computation of PCA",
+      "content": "• In reality, we compute the PCs via Singular Value Decomposition\n(SVD) on the centered data matrix.\n𝑛 Centered data matrix:\n1\n𝑇\n𝐒 = ෍(𝐱 − 𝐱ത)(𝐱 − 𝐱ത)\n𝑖 𝑖\n𝑛\n𝑖=1\n1\nSVD of 𝐗 :\n= 𝐗 𝐗 𝑇 𝑑,𝑛\n𝑑×𝑛 𝑑×𝑛\n𝑛\n𝑇\n𝐗 = 𝐔 𝐃 𝐕\n𝑑×𝑛 𝑑×𝑑 𝑑×𝑛 𝑛×𝑛\n1\n= 𝐔 𝐃 𝐕 𝑇 (𝐔 𝐃 𝐕 𝑇 ) 𝑇 𝐔 𝐔 𝑇 = 𝐔 𝑇 𝐔 = 𝐈 ,\n𝑑×𝑑 𝑑×𝑛 𝑛×𝑛 𝑑×𝑑 𝑑×𝑛 𝑛×𝑛 𝑑×𝑑 𝑑×𝑑 𝑑×𝑑 𝑑×𝑑 𝑑\n𝑛\n𝐕 𝐕𝑇 = 𝐕𝑇 𝐕 = 𝐈 ,\n𝑛×𝑛 𝑛×𝑛 𝑛×𝑛 𝑛×𝑛 𝑛\n1 𝜎 ⋯ 0 0 ⋯ 0\n1\n𝑇 𝑇\n= 𝐔 𝐃 𝐃 𝐔 𝐃 = ⋮ ⋱ ⋮ ⋮ ⋱ ⋮\n𝑑×𝑑 𝑑×𝑛 𝑑×𝑛 𝑑×𝑑 𝑑×𝑛\n𝑛\n0 ⋯ 𝜎 0 ⋯ 0\n𝑑\nThen, the eigenvectors 𝐳 of S are the columns of U and the eigenvalues 𝜆\n𝒊 𝑖\nare the diagonal elements of 𝐃𝐃\n𝑇Τ\n𝑛\n27\n\n2\n𝜎\n1 ⋯ 0\n𝜎 ⋯ 0 0 ⋯ 0\n1 𝑛\nSuppose\n, 𝐔 = 𝐮 ,… , 𝐮 , 𝐃 = ⋮ ⋱ ⋮ ⋮ ⋱ ⋮ ,\n𝐃𝐃𝑇Τ\n= ⋮ ⋱ ⋮\n𝑑×𝑑 1 𝑑 𝑑×𝑛 𝑛\n0 ⋯ 𝜎 0 ⋯ 0 𝜎 2\n𝑑 0 ⋯ 𝑑\n𝑛\nProve: the eigenvectors 𝐳 of S are the columns of U and the eigenvalues 𝜆\n𝒊 𝑖\nare the diagonal elements of 𝐃𝐃\n𝑇Τ\n𝑛\n2\n𝜎\nProve: 𝐒𝐮 = 𝑖 𝐮\n𝑖 𝑖\n𝑛 𝑇\n𝑈 𝑈 = 𝐼\n1 𝑑,𝑑 𝑑,𝑑 𝑑\n𝑇 𝑇 𝑈 is an orthonormal matrix\n𝐒𝐮 = ( 𝐔 𝐃 𝐃 𝐔 )𝐮 𝑑,𝑑\n𝑖 𝑑×𝑑 𝑑×𝑛 𝑑×𝑛 𝑑×𝑑 𝑖\n𝑛\n𝜎2\n1\n⋯ 0\n𝑛 𝐮 1 𝑇 𝑢 𝑇 𝑢 = 1, 𝑢 𝑇 𝑢 = 0\n𝑖 𝑖 𝑗 𝑖\n= 𝐮 ,…,𝐮 ⋮ ⋱ ⋮ ⋮ 𝐮\n1 𝑑 𝑖\n𝜎2 𝐮𝑇\n𝑑 𝑑\n0 ⋯\n𝑛\ni-th entry\n0\n𝜎2\n1 0 ⋮\n⋯ 0\n𝑛 ⋮ 𝜎 2 𝜎 2\n= 𝐮 ,…,𝐮 ⋮ ⋱ ⋮ 1 = 𝐮 ,…,𝐮 𝑖 = 𝑖 𝒖\n1 𝑑 1 𝑑 𝑖\n𝑛 𝑛\n𝜎2 ⋮\n28\n𝑑 ⋮\n0 ⋯\n0\n𝑛 0\n\n• The new reconstructed sample using p PCs in original space is:\n𝑻\n𝐱ෝ = 𝐱 + 𝐔 𝐔 (𝐱 − 𝐱)\n𝒊 𝒅×𝒑 𝒅×𝒑 𝒊\nStep 1: project the original sample 𝐱 onto the p PCs\n𝑖\n𝑇\n𝐲 = 𝐔 (𝐱 − 𝐱)\n𝑑×𝑝 𝑖\nStep 2: map y back to the original d-dimensional space\n෢𝑐 𝑇\n𝐱 = 𝐔 𝐲 = 𝐔 𝐔 (𝐱 − 𝐱)\n𝑖 𝑑×𝑝 𝑑×𝑝 𝑑×𝑝 𝑖\n෢𝑐 𝑇\n𝐱ෝ = 𝐱 + 𝐱 = 𝐔 𝐔 𝐱 − 𝐱 + 𝐱\n𝑖 𝑖 𝑑×𝑝 𝑑×𝑝 𝑖\n29"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 30,
+      "title": "Visualize PCs",
+      "content": "Raw input grayscale\n𝑎𝑣𝑒(𝑟, 𝑔, 𝑏)\nKxK\nFlatten\nn images,\n𝐗\nsubtract mean\n𝑑×𝑛\nSingle feature vector\nd=K2\n𝑆𝑉𝐷\nEigenface images\n𝐔\n𝑑×𝑝\nReshape each\neigEeignevencftaocre 𝐮s, how to\n𝑖\ninto KpxlKot like this?\np eigenfaces\n30"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 31,
+      "title": "Reconstruction with PCs",
+      "content": "250 1000 4000\nImage Dimension: Original\nEigenfaces Eigenfaces Eigenfaces\n100x100x3\n𝑇\n𝐱ෝ = 𝐱 + 𝐔 𝐔 (𝐱 − 𝐱)\n𝑖 𝑑×𝑝 𝑑×𝑝 𝑖\n31"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 32,
+      "title": "PCA and Classification",
+      "content": "• Classification with PCA\n– Compute PCs using training dataset\n– Project both training and testing data into the obtained PCs space\n– For each testing data point, use K-Nearest-Neighbor (KNN) for classification\n– Issue: accuracy is sensitive to the number of PCs\nTesting data point\nHow to determine\nthe number of PCs?\nTo choose p based on percentage of variation to\nretain, we can use the following criterion (smallest p):\n𝑝\nσ 𝜆\n1 𝑖\n≥ 𝑇ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑 (𝑒. 𝑔. , 0.95)\n𝑑\nσ 𝜆\n1 𝑖\n32"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 33,
+      "title": "PCA Remarks",
+      "content": "• PCA\n– finds orthonormal basis for data\n– Sorts dimensions in order of “importance”\n– Discard low significance dimensions\n• Uses:\n– Get compact description\n– Ignore noise\n– Improve classification (hopefully)\n33"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 34,
+      "title": "PCA Limitations",
+      "content": "• PCA is not always an optimal feature extraction for classification\n– PCA is based on the sample covariance, irrespective of class-membership\n– The projection axes chosen by PCA might not provide good discrimination power\n34\n\n• PCA cannot capture NON-LINEAR structure\nNote: Curvilinear Component Analysis can solve this case. Study this work\nif you are interested.\n35\n\n• Lack of interpretability\n- Each PC projection is a linear combination of all input features\n𝑇\n𝑦 = 𝐳 𝐱\n𝑘 𝑘\nWhat does each PC actually represent?\ne.g., Face Recognition\nNot localized to a single feature\nsuch as “mouth”, “eyebrows”\ne.g., Topic Modelling from Text\nA PC projection is a linear combination of occurrence of many words\n“war”\n0.4\n−0.3 “education”\nPC=\n“government”\n0.2\n−0.1 “poem”\n36\n\n• Lack of interpretability\nEvery vector can be\nexpressed as the linear\n𝐱 = 𝑎 𝒛 + ⋯ + 𝑎 𝒛\ncombination of basis vectors\n1 1 𝑝 𝑝\n- Both PCs and coefficients can be positive or negative 2 1 0\n= 2 + 6\n6 0 1\nWhat does “negative” contribution mean? 1 1\n= 3 + (−1)\n4 6\ne.g., Face Recognition\nwhat does “subtracting an\neigenface” mean?\nPCs (Eigenfaces) Coefficients Reconstructed\ne.g., Topic Modelling from Text\n“war”\n0.4\n−0.3 “education”\nPC=\nwhat does a “negative occurrence” of a word mean?\n“government”\n0.2\n−0.1 “poem”\n37"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 38,
+      "title": "Unsupervised Feature Learning",
+      "content": "Non-negative Matrix Factorization\n(non-negative coefficients and basis vectors)\n38"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 39,
+      "title": "NMF: Motivation",
+      "content": "• Non-negative coefficients and basis vectors\n-More intuitive for non-negative datasets (e.g., images, word counts in\ndocuments, etc.)\n-Leads to basis vectors that represent parts\nBasis images Reconstructed\n39"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 40,
+      "title": "NMF: Mathematical Formulation",
+      "content": "• Matrix factorization: VWH\nAll entries in V, W, H≥0\n• V: (dn) Input data matrix, where d is the number of input features,\nn is the number of samples.\n𝐕 = [𝐱 ,𝐱 , … , 𝐱 ]\n𝑑×𝑛 1 2 𝑛\n• W: (dr) Basis matrix, where r is the number of basis vectors.\n𝐖 = [𝐰 , 𝐰 ,… , 𝐰 ]\n𝑑×𝑟 1 2 𝑟\n• H: (rn) Coefficient matrix, each column of H is called encoding.\n𝐡\n1\nℎ ⋯ ℎ\n1,1 1,𝑛\n𝐇 = ⋮ ⋱ ⋮ 𝐱 = ℎ 𝐰 + ℎ 𝐰 + ⋯+ ℎ 𝐰\n𝑟×𝑛 𝑖 1,𝑖 1 2,𝑖 2 𝑟,𝑖 𝑟\nℎ ⋯ ℎ\n𝑟,1 𝑟,𝑛 = 𝐖𝐡\n𝑖\nV: Each column is a flattened W: Each column is a non-negative H: Each column is a non-negative\nvectorized image basis image coefficient vector\n𝐱\n𝑖\n……\nn=8, d=KxK\n40\nBasis vector 𝐰\n𝑖"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 41,
+      "title": "NMF: Objective Function",
+      "content": "1\n2\nmin 𝐕 − 𝐖𝐇 , s.t. 𝐖 ≥ 0, 𝐇 ≥ 0\n𝐖,𝐇 2\n2\n෍(𝐕 − [𝐖𝐇] )\n𝑖,𝑗 𝑖,𝑗\n𝑖,𝑗\nNo closed form solution!\nGradient Descent!\nRecall Goal: argmin 𝐽(𝜃)\n𝜃\nInitialize 𝜃 and learning rate 𝜂\n0\nwhile true do\n𝜃 ← 𝜃 − 𝜂∇ 𝐽(𝜃 )\n𝑘+1 𝑘 𝜃 𝑘\nif converge then\nreturn 𝜃\n𝑘+1\nend\nend\n41"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 42,
+      "title": "NMF: Gradient Descent Solution",
+      "content": "1\n2\nmin 𝐕 − 𝐖𝐇 , s.t. 𝐖 ≥ 0, 𝐇 ≥ 0\n𝐖,𝐇 2\nNo closed form solution!\nGradient Descent!\n1 1\n𝐽 𝐖, 𝐇 = 𝐕 − 𝐖𝐇 2 = σ (𝐕 − σ 𝑟 𝐖 𝐇 ) 2\n𝑖,𝑗 𝑖,𝑗 𝑙=1 𝑖,𝑙 𝑙,𝑗\n2 2\n𝑟 𝑟\n𝜕\n∇ 𝐽 𝐖, 𝐇 = ෍(𝐕 − ෍ 𝐖 𝐇 )(− ෍ 𝐖 𝐇 )\n𝐖 𝑖,𝑗 𝑖,𝑙 𝑙,𝑗 𝑖,𝑙 𝑙,𝑗\n𝑝,𝑞 𝜕𝐖\n𝑝,𝑞\n𝑖,𝑗 𝑙=1 𝑙=1\nOnly when i=p, l=q,\n𝑑𝑓(𝐗) 𝑟\n∇ 𝑓 =\n𝐗\n𝑑𝐗 𝐖 depends on 𝐖\n𝜕𝑓 𝜕𝑓 = − ෍(𝐕 − ෍ 𝐖 𝐇 )𝐇 𝑖,𝑙 𝑝,𝑞\n⋯ 𝑝,𝑗 𝑝,𝑙 𝑙,𝑗 𝑞,𝑗\n𝜕𝑥 𝜕𝑥\n1,1 1,𝐾\n= ⋮ ⋱ ⋮ 𝑗 𝑙=1\n𝜕𝑓 𝜕𝑓\n⋯ = σ ( 𝐖𝐇 − 𝐕 )𝐇 = σ 𝐖𝐇 − 𝐕 𝐇 𝑇\n𝜕𝑥 𝑑,1 𝜕𝑥 𝑑,𝐾 𝑗 𝑝,𝑗 𝑝,𝑗 𝑞,𝑗 𝑗 𝑝,𝑗 𝑗,𝑞\n= 𝐖𝐇 − 𝐕 𝐇T\n𝑝,𝑞\nT\n∇ 𝐽 𝐖, 𝐇 = 𝐖𝐇 − 𝐕 𝐇\n𝐖\nT\nSimilarly, ∇ 𝐽 𝐖, 𝐇 = 𝐖 𝐖𝐇 − 𝐕\n𝐇\n42\n\nProcedures:\nStep 1. Initialize non-negative matrices W, H\nStep 2. Iteratively update W, H through gradient descent until convergence\nT\n𝐇 ← 𝐇 − η 𝐖 𝐖𝐇 − 𝐕\n𝒏𝒆𝒘 𝐇\nT How to ensure\n𝐖 ← 𝐖 − η 𝐖𝐇 − 𝐕 𝐇\n𝒏𝒆𝒘 𝐖 𝒏𝒆𝒘 𝒏𝒆𝒘\nnon-negativity?\nMethod 1:\nAfter each update, clip any negative values\n𝐖 ← max(𝐖, 𝟎), 𝐇 ← max(𝐇, 𝟎)\nMultiplicative\nMethod 2:\nUpdate\n𝐇 𝐖\n𝑝,𝑞 𝑝,𝑞\nSet η = , η = ,\n𝐇 𝑝,𝑞 [𝐖T𝐖𝐇] 𝐖 𝑝,𝑞 [𝐖𝐇 𝐇 T ]\n𝑝,𝑞 𝒏𝒆𝒘 𝒏𝒆𝒘 𝑝,𝑞\nProposed by D. Lee and\nH. Seung (NIPS 2000)\n[𝐖T𝐕]\n[𝐕𝐇\nT\n]\n(𝐇 ) ← 𝐇 𝑝,𝑞 , (𝐖 ) ← 𝐖 𝒏𝒆𝒘 𝑝,𝑞 .\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞 [𝐖T𝐖𝐇]\n𝑝,𝑞\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞\n[𝐖𝐇 𝒏𝒆𝒘 𝐇 𝒏𝒆𝒘\nT\n] 𝑝,𝑞\n43"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 44,
+      "title": "NMF: Multiplicative Update",
+      "content": "Procedures:\nStep 1. Initialize non-negative matrices W, H\nStep 2. Iteratively update W, H until convergence\nT\n[𝐖 𝐕]\n𝑝,𝑞\n(𝐇 ) ← 𝐇\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞\n[𝐖T𝐖𝐇]\nGlobal\n𝑝,𝑞\nMinimum?\nT\n[𝐕𝐇 ]\n𝒏𝒆𝒘 𝑝,𝑞\n(𝐖 ) ← 𝐖\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞\nT\n[𝐖𝐇 𝐇 ]\n𝒏𝒆𝒘 𝒏𝒆𝒘 𝑝,𝑞\n44"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 45,
+      "title": "Examples: Compute W, H",
+      "content": "Observations Feature 1 Feature 2\nSuppose r = 2,\n1 2 1 1 2\nW is initialized to ,\n2 1 2 3 4\n1 1 1 1\n3 5 6\nH is initialized to\n1 1 1 1\n4 7 8\nWhat are H and W after implementing 1 iteration of multiplicative update?\nWhat is the corresponding reconstructed data matrix V?\n45\n\nSuppose r = 2,\nn=4, d=2\n1 2\nW is initialized to , Observations Feature 1 Feature 2\n2 1\n1 1 2\n1 1 1 1\nH is initialized to\n2 3 4\n1 1 1 1\n3 5 6\n1st Iteration: 4 7 8\nT\n[𝐖 𝐕]\n𝑝,𝑞\n(𝐇 ) ← 𝐇\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞\n[𝐖T𝐖𝐇]\n𝑝,𝑞\n1 2 1 3 5 7\n1 1 1 1 0.56 1.22 1.89 2.56 𝐕 = 𝐖 𝐇 =\n2 1 2 4 6 8 𝑟𝑒𝑐𝑜𝑛𝑠𝑡 𝑛𝑒𝑤 𝑛𝑒𝑤\n𝐇 ← × =\n𝑛𝑒𝑤 1 1 1 1 1 2 1 2 1 1 1 1 0.44 1.11 1.78 2.44 1.33 3.17 5.01 6.85\n2 1 2 1 1 1 1 1\n1.68 3.84 5.99 8.15\nT\n[𝐕𝐇 ]\n𝒏𝒆𝒘 𝑝,𝑞\n(𝐖 ) ← 𝐖\nObservations Basis 1 Basis 2\n𝒏𝒆𝒘 𝑝,𝑞 𝑝,𝑞\nT\n[𝐖𝐇 𝐇 ]\n𝒏𝒆𝒘 𝒏𝒆𝒘 𝑝,𝑞\n1\n0.56 0.44 2\n1 3 5 7 1.22 1.11\n2 4 6 8 1.89 1.78 3\n1 2 0.92 1.84\n2.56 2.44\n𝐖 ← × =\n𝑛𝑒𝑤 2 1 0.56 0.44 2.16 1.08\n4\n1 2 0.56 1.22 1.89 2.56 1.22 1.11\n2 1 0.44 1.11 1.78 2.44 1.89 1.78\n46\n2.56 2.44"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 47,
+      "title": "Visualize Basis Images",
+      "content": "Raw input grayscale\n𝑎𝑣𝑒(𝑟, 𝑔, 𝑏)\nKxK\nFlatten\n𝑽\nn images\n𝑑×𝑛\nSingle feature vector\nd=K2\nNMF:𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑐𝑎𝑡𝑖𝑣𝑒 𝑈𝑝𝑑𝑎𝑡𝑒\nNMF basis images\n𝐖\n𝑑×𝑟\nReshape each\nbaEsiisg evencftaocre s, how to\ninto KpxlKot like this?\nr basis images\n47"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 48,
+      "title": "Reconstruction from W",
+      "content": "Suppose we want to reconstruct the i-th image among the n samples\n𝑥ෝ = 𝐖𝐇\n𝑖 (:,𝑖)\nr=10 r=20 r=40 r=80\nOriginal\nr=100 r=150 r=200 r=250\nImage Dimension:\n549x767\n48"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 49,
+      "title": "Discussions",
+      "content": "• For a new image, how to obtain the reconstruction coefficients?\n• How to use NMF for classification?\nHow to determine\nthe number of PCs?\n• How to choose r\n49"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 50,
+      "title": "Summary",
+      "content": "PCA NMF\nRepresentation Holistic Part-based\n(PCs)\n(W)\nGlobalized;\nBasis Vector Localized;\nOrthogonal;\nNonnegative\nSign ambiguity\n(PC projections) (H)\nFeatures\nSign ambiguity Nonnegative\nGlobal Optimum Local Optimum\nOptimization\n(Eigenvalue Problem) (Multiplicative Update)\n51"
+    },
+    {
+      "file": "WS-Week7-PCA-NMF_clean.pdf",
+      "page": 51,
+      "title": "Papers to Read and Self-Study",
+      "content": "• D. Lee and H. Seung. Algorithms for Non-negative Matrix Factorization\nNIPS (2000).\n• ICA (Independent Component Analysis):\nhttp://en.wikipedia.org/wiki/Independent_component_analysis\n• CCA (Canonical Correlation Analysis):\nhttp://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.101.6359&rep\n=rep1&type=pdf\n52"
+    }
+  ]
+}

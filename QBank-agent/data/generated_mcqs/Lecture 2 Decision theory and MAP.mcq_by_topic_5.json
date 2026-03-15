@@ -1,0 +1,696 @@
+{
+  "deck_id": "Lecture 2 Decision theory and MAP.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 5,
+  "topics": [
+    {
+      "topic_id": "topic_1",
+      "topic": "Bayesian Decision Theory Foundations and MAP Classification",
+      "slide_range": [
+        2,
+        14
+      ],
+      "questions": [
+        {
+          "question_id": "mcq_topic1_q1",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Decision-theoretic formulation of classification: states/classes, actions/decisions, and loss (cost) functions",
+            "Bayes optimal decision rule as minimizing conditional risk; relation between MAP and minimum expected loss"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims: “Bayesian classification is always just picking the class with the largest posterior probability.” Using the decision-theoretic formulation, which statement most precisely describes when this claim is justified?",
+          "options": {
+            "A": "It is justified under zero-one loss with actions equal to class labels, because minimizing posterior expected loss becomes maximizing p(ŷ|x) (MAP).",
+            "B": "It is justified whenever we can compute a posterior expected loss (risk) for each action, regardless of the loss function used.",
+            "C": "It is justified only when we re-write the optimal policy as maximizing expected utility, because utility is always proportional to the posterior.",
+            "D": "It is justified whenever the marginal likelihood p(Y = y) is constant across classes, because then Bayes’ rule reduces to MAP."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides connect (i) the Bayes decision rule as minimizing posterior expected loss over actions and (ii) a special-case result: under the stated classification assumptions and zero-one loss, the risk-minimizing action is exactly the MAP rule. Specifically, the slides state the optimal policy is “arg min” of posterior expected loss, and then show that with zero-one loss “The action that minimizes the expected loss is to choose the most probable action: π(x) = arg max p(ŷ|x) … also known as … MAP.”\n\nB is wrong because the general decision-theoretic rule is to minimize risk, but that does not generally equal maximizing posterior probability unless the loss has the zero-one structure shown.\n\nC is wrong because while the slides note utility can be defined as negative loss and the policy can be written as maximizing expected utility, this is just a re-expression of the same optimization; it does not imply “always MAP.”\n\nD is wrong because the slides do not state any condition about marginal likelihood being constant across classes to justify MAP; instead, they explicitly tie MAP to the zero-one loss classification setup.",
+          "source": {
+            "page": 10,
+            "pages": [
+              6,
+              10,
+              9
+            ]
+          },
+          "evidence_quotes": [
+            "Compute a posterior expected loss (risk) for each possible 𝑎: (where the\ndata is defined as 𝑥)\n𝜌 𝑎 𝑥 ≜ 𝔼 ℓ ℎ, 𝑎 = ෍ ℓ ℎ, 𝑎 𝑝(ℎ|𝑥)",
+            "We thus define the optimal policy 𝜋 𝑥 , which is also called the Bayes\n∗\nestimator or Bayes decision rule 𝛿 (𝑥):\n∗\n𝜋 𝑥 = arg min 𝜌 𝑎 𝑥 = arg min 𝔼 ℓ ℎ, 𝑎",
+            "The actions correspond to class labels: 𝒜 = 𝒴.",
+            "The action that minimizes the expected loss is to choose the\nmost probable action:\n𝜋 𝑥 = arg max 𝑝(𝑦ො|𝑥)\n𝑦ො∈𝒴\nThis corresponds to the mode of the posterior distribution, also\nknown as the maximum a posteriori or MAP estimate.",
+            "If we define a utility function 𝑈(ℎ, 𝑎) as the desirability of each action at\neach state, then: 𝑈 ℎ, 𝑎 = −ℓ ℎ, 𝑎"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q2",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Decision-theoretic formulation of classification: states/classes, actions/decisions, and loss (cost) functions",
+            "Special cases in classification: zero-one loss (MAP/maximum posterior), cost-sensitive decisions, and reject-option thresholds"
+          ],
+          "difficulty": 3,
+          "stem": "You are designing a classifier where you want the option to abstain (“reject”) when uncertain, but you also want to penalize false negatives more than false positives when you do classify. Based strictly on the slides, which statement best characterizes how the action set and decision rule must change relative to standard MAP classification?",
+          "options": {
+            "A": "You must expand the action set to include a reject action (A = Y ∪ {0}) and use a threshold on the maximum posterior p* compared to a value derived from λr and λe, rather than always outputting ŷ = arg max p(y|x).",
+            "B": "You can keep the action set A = Y and implement rejection by choosing the label ŷ only if p(ŷ|x) > 1/2; otherwise output the second-most probable class.",
+            "C": "You must replace posterior probabilities p(y|x) with likelihoods p(Y = y|H = h) because reject decisions depend on observed data rather than priors.",
+            "D": "You can implement both reject and cost-sensitivity simultaneously by using the zero-one loss ℓ01(y*, ŷ) = I(y = ŷ), since it already captures different costs for different mistakes."
+          },
+          "answer": "A",
+          "rationale": "A is correct and integrates two slide ideas: (i) standard MAP under zero-one loss always outputs the posterior mode, and (ii) adding a reject option explicitly changes the action space and introduces a threshold rule based on the maximum posterior p*. The reject-option slide states “The actions correspond to class labels: A = Y ∪ {0}” and gives the optimal policy “ŷ, if p* > λ°; reject, otherwise,” with λ° computed from λr and λe. This is a structural change from always predicting ŷ.\n\nB is wrong because the slides do not define rejection as “second-most probable class,” and they do not specify a universal 1/2 threshold; instead, the threshold is λ° derived from costs.\n\nC is wrong because the reject rule is written in terms of the posterior (p* = max p(y|x) = p(ŷ|x)), not the likelihood.\n\nD is wrong because the cost-sensitive slide explicitly criticizes zero-one loss for equating false-positive and false-negative costs (“Cost of false positive (ℓ ) = cost of false negative (ℓ )”), so zero-one loss cannot encode asymmetric error costs.",
+          "source": {
+            "page": 13,
+            "pages": [
+              10,
+              13,
+              12
+            ]
+          },
+          "evidence_quotes": [
+            "The action that minimizes the expected loss is to choose the\nmost probable action:\n𝜋 𝑥 = arg max 𝑝(𝑦ො|𝑥)\n𝑦ො∈𝒴",
+            "The actions correspond to class labels: 𝒜 = 𝒴 ∪ {0}.",
+            "Here 𝜆 : cost of the reject action, and 𝜆 : cost of a classification error.\n𝑟 𝑒",
+            "Set 𝜆 = 1 − 𝜆 /𝜆 , we thus compute the optimal policy as:\n𝑟 𝑒\n∗ መ\n𝑦ො, if 𝑝 > 𝜆\n∗\n𝑎 = ൝\nreject, otherwise",
+            "Here 𝑦ො = arg max 𝑝 𝑦 𝑥 and 𝑝 = 𝑝 𝑦 𝑥 = max 𝑝 𝑦 𝑥 = 𝑝(𝑦ො|𝑥).\n𝑦 𝑦",
+            "Problem of the zero-one loss?\nCost of false positive (ℓ ) = cost of false negative (ℓ )\n01 10"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q3",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Bayes’ rule review and decomposition into prior, likelihood, evidence, and posterior; connection to MAP decision rule",
+            "Decision-theoretic formulation of classification: states/classes, actions/decisions, and loss (cost) functions"
+          ],
+          "difficulty": 2,
+          "stem": "In the decision-theory slides, the posterior p(h|x) is used inside the risk ρ(a|x). Which expression is explicitly identified as the posterior distribution (conditional distribution) that would be plugged into that risk computation?",
+          "options": {
+            "A": "p(H = h|Y = y)",
+            "B": "p(Y = y|H = h)",
+            "C": "p(H = h)p(Y = y|H = h)",
+            "D": "p(Y = y)"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the Bayes’ rule slide explicitly labels “p(H = h|Y = y)” as the “posterior distribution / conditional distribution,” which is the kind of quantity used as p(h|x) in the risk expression. The decision-theory slide then uses p(h|x) inside the sum for posterior expected loss.\n\nB is wrong because it is the likelihood, not the posterior.\n\nC is wrong because it is described as an unnormalized joint (prior × likelihood), not a normalized posterior.\n\nD is wrong because it is the marginal likelihood/evidence used for normalization, not the posterior itself.",
+          "source": {
+            "page": 4,
+            "pages": [
+              4,
+              6
+            ]
+          },
+          "evidence_quotes": [
+            "𝑝 𝐻 = ℎ 𝑌 = 𝑦 : posterior distribution / conditional distribution.",
+            "Bayes’ rule: a formula for computing the probability distribution over\npossible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.",
+            "Compute a posterior expected loss (risk) for each possible 𝑎: (where the\ndata is defined as 𝑥)\n𝜌 𝑎 𝑥 ≜ 𝔼 ℓ ℎ, 𝑎 = ෍ ℓ ℎ, 𝑎 𝑝(ℎ|𝑥)"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q4",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Special cases in classification: zero-one loss (MAP/maximum posterior), cost-sensitive decisions, and reject-option thresholds",
+            "Bayes optimal decision rule as minimizing conditional risk; relation between MAP and minimum expected loss"
+          ],
+          "difficulty": 2,
+          "stem": "Consider binary classification with cost-sensitive loss where ℓ00 = ℓ11 = 0. According to the slides, which decision criterion correctly captures when to predict the negative label (ŷ = 0) in terms of p1 = p(y=1|x) and the error costs ℓ01 and ℓ10?",
+          "options": {
+            "A": "Predict ŷ = 0 iff p1 < ℓ01 / (ℓ01 + ℓ10).",
+            "B": "Predict ŷ = 0 iff p1 > ℓ01 / (ℓ01 + ℓ10).",
+            "C": "Predict ŷ = 0 iff p0 < ℓ01 / (ℓ01 + ℓ10), where p0 = 1 − p1.",
+            "D": "Predict ŷ = 0 iff p1 < 1/2, because Bayes decisions always reduce to MAP."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the cost-sensitive slide states that with p0 = p(y=0|x) and p1 = 1 − p0, and “Usually, ℓ00 = ℓ11 = 0,” the rule “simplifies to: p1 < ℓ01/(ℓ01 + ℓ10).” This is a threshold on the posterior for class 1 determined by asymmetric costs, not necessarily 1/2.\n\nB is wrong because it flips the inequality direction.\n\nC is wrong because the slide’s simplified inequality is explicitly in terms of p1, not p0.\n\nD is wrong because the slides explicitly present cost-sensitive classification as a problem case for zero-one loss/MAP; the decision threshold depends on ℓ01 and ℓ10, not always 1/2.",
+          "source": {
+            "page": 12,
+            "pages": [
+              12,
+              10
+            ]
+          },
+          "evidence_quotes": [
+            "Set 𝑝 = 𝑝(𝑦 = 0|𝑥) and 𝑝 = 1 − 𝑝\n0 1 0",
+            "Usually, ℓ = ℓ = 0. Thus, the above simplifies to: 𝑝 < 01\n00 11 1\nℓ +ℓ\n01 10",
+            "Problem of the zero-one loss?\nCost of false positive (ℓ ) = cost of false negative (ℓ )\n01 10",
+            "The action that minimizes the expected loss is to choose the\nmost probable action:\n𝜋 𝑥 = arg max 𝑝(𝑦ො|𝑥)\n𝑦ො∈𝒴"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q5",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Decision-theoretic formulation of classification: states/classes, actions/decisions, and loss (cost) functions",
+            "Bayes optimal decision rule as minimizing conditional risk; relation between MAP and minimum expected loss"
+          ],
+          "difficulty": 1,
+          "stem": "A colleague prefers to formulate decisions in terms of maximizing something rather than minimizing loss. Under the slides’ definitions, which transformation and resulting optimization are consistent with the Bayes decision rule?",
+          "options": {
+            "A": "Define U(h,a) = −ℓ(h,a), then choose π*(x) = arg max_a E[U(h,a)].",
+            "B": "Define U(h,a) = ℓ(h,a), then choose π*(x) = arg max_a E[U(h,a)].",
+            "C": "Define U(h,a) = −p(h|x), then choose π*(x) = arg max_a E[U(h,a)].",
+            "D": "Define U(h,a) = p(h|x), then choose π*(x) = arg min_a E[U(h,a)]."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides explicitly define utility as negative loss and then rewrite the optimal policy as maximizing expected utility. This is presented as equivalent to the Bayes decision rule.\n\nB is wrong because it sets utility equal to loss (missing the negative sign), which would reverse the preference.\n\nC and D are wrong because the slides define utility in terms of loss (not directly in terms of posterior probabilities), and the stated rewritten optimization is an arg max of expected utility, not arg min of posterior probability.",
+          "source": {
+            "page": 9,
+            "pages": [
+              9
+            ]
+          },
+          "evidence_quotes": [
+            "If we define a utility function 𝑈(ℎ, 𝑎) as the desirability of each action at\neach state, then: 𝑈 ℎ, 𝑎 = −ℓ ℎ, 𝑎",
+            "The optimal policy can be re-written as:\n∗\n𝜋 𝑥 = arg max 𝔼 [𝑈(ℎ, 𝑎)]\nℎ\n𝑎∈𝒜",
+            "This is defined as the maximum expected utility principle."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_2",
+      "topic": "Evaluation via Confusion Matrices and Threshold-Based Performance Curves",
+      "slide_range": [
+        15,
+        30
+      ],
+      "questions": [
+        {
+          "question_id": "mcq_topic2_q1",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Confusion matrix construction and derived metrics (e.g., accuracy, TPR/FPR, precision/recall, specificity)",
+            "Impact of class imbalance on ROC interpretation and why alternative metrics may be needed"
+          ],
+          "difficulty": 2,
+          "stem": "A binary classifier is evaluated on a highly imbalanced test set (class 0 = 90, class 1 = 10). The classifier predicts every example as class 0. Which statement best explains why a single-number evaluation based on accuracy can be misleading here, and which confusion-matrix-derived quantity would directly reveal the failure on the positive class?",
+          "options": {
+            "A": "Accuracy can be high (90%) despite detecting no positives; TPR (recall) would be 0 because TP=0 and FN>0.",
+            "B": "Accuracy must be low because predicting everything as class 0 increases FP; FPR would be 1 because FP=90.",
+            "C": "Accuracy remains reliable under imbalance if we sweep thresholds; AUC automatically equals 1 when negatives dominate.",
+            "D": "Accuracy is misleading mainly because TN is undefined; precision is undefined because FP and TP cannot be computed without negatives."
+          },
+          "answer": "A",
+          "rationale": "A is supported by the slide’s explicit imbalance example: if class 0=90 and class 1=10, predicting everything as class 0 yields 90% accuracy, even though the classifier never predicts class 1. The failure on the positive class is captured by TPR/recall, defined as TP/(TP+FN); predicting no positives implies TP=0 and FN>0, hence TPR=0. \n\nB is wrong because predicting everything as class 0 does not create false positives (it creates false negatives for class 1), so FP is not 90 and FPR is not 1. \n\nC is wrong because the slides do not state that AUC becomes 1 under class imbalance; they instead prompt discussion about whether ROC is affected and how imbalance affects ROC effectiveness. \n\nD is wrong because the confusion matrix quantities (TP, FP, TN, FN) are defined in the slides, and ROC explicitly requires true negatives; the issue raised about undefined negatives is for certain problems (e.g., object detection patches), not for this standard labeled test set scenario.",
+          "source": {
+            "page": 15,
+            "pages": [
+              15,
+              20
+            ]
+          },
+          "evidence_quotes": [
+            "The simple form of evaluation: accuracy\n𝑇𝑃 + 𝑇𝑁\nAccuracy =\n𝑇𝑃 + 𝐹𝑁 + 𝐹𝑃 + 𝑇𝑁\nIs this reliable?\nIf have imbalanced testing data (class 0 = 90,\nclass 1 = 10), if the model predict everything\nas class 0, Accuracy = 90%",
+            "True positive rate (TPR), or\nsensitivity, recall, hit rate:\n𝑇𝑃\n𝜏\n𝑇𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝜏\n𝑇𝑃 + 𝐹𝑁"
+          ]
+        },
+        {
+          "question_id": "mcq_topic2_q2",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "ROC curve: generating ROC points by sweeping thresholds; interpreting AUC and operating points",
+            "Confusion matrix construction and derived metrics (e.g., accuracy, TPR/FPR, precision/recall, specificity)"
+          ],
+          "difficulty": 2,
+          "stem": "You are asked to generate a performance curve by sweeping a decision threshold τ. Which curve is constructed by plotting a rate computed from (TP, FN) against a rate computed from (FP, TN), both as implicit functions of τ, and what are those two rates?",
+          "options": {
+            "A": "ROC; plot TPR = TP/(TP+FN) versus FPR = FP/(FP+TN) with varying τ.",
+            "B": "PR; plot precision = TP/(TP+FP) versus recall = TP/(TP+FN) with varying τ.",
+            "C": "ROC; plot accuracy = (TP+TN)/(TP+FN+FP+TN) versus TPR = TP/(TP+FN) with varying τ.",
+            "D": "PR; plot FPR = FP/(FP+TN) versus precision = TP/(TP+FP) with varying τ."
+          },
+          "answer": "A",
+          "rationale": "A matches the ROC definition on the slides: ROC is “Plot the TPR vs FPR as an implicit function of τ” and the slides give the confusion-matrix formulas for TPR and FPR. \n\nB is a correct description of the PR curve, not ROC, so it is a classic confusion trap. \n\nC is wrong because ROC is not defined as accuracy vs TPR; accuracy is presented as a “simple form of evaluation” but ROC is explicitly TPR vs FPR. \n\nD is wrong because it mixes one ROC axis quantity (FPR) with one PR axis quantity (precision); the PR curve is precision vs recall.",
+          "source": {
+            "page": 15,
+            "pages": [
+              15,
+              26,
+              28
+            ]
+          },
+          "evidence_quotes": [
+            "Plot the TPR vs FPR as an implicit\nfunction of 𝜏: Receiver Operating\nCharacteristic (ROC) curve – Plot\nTPR vs FPR with varying 𝜏.",
+            "True positive rate (TPR), or\nsensitivity, recall, hit rate:\n𝑇𝑃\n𝜏\n𝑇𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝜏\n𝑇𝑃 + 𝐹𝑁",
+            "False positive rate (FPR), or false\nalarm rate, type I error rate:\n𝐹𝑃\n𝜏\n𝐹𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝐹𝑃 + 𝑇𝑁",
+            "PR curve – Plot the precision vs recall as an implicit function of 𝜏, i.e., plot\nprecision vs recall with varying 𝜏."
+          ]
+        },
+        {
+          "question_id": "mcq_topic2_q3",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "ROC curve: generating ROC points by sweeping thresholds; interpreting AUC and operating points",
+            "Precision–Recall (PR) curve: when PR is preferable, relationship to object detection evaluation, and F-score summaries"
+          ],
+          "difficulty": 3,
+          "stem": "You are evaluating a detector that classifies image patches, where the number of patches examined (hence the number of true negatives) is a parameter of the algorithm rather than fixed by the problem. Which evaluation approach is most directly motivated by this issue, and what axis substitution does it make relative to ROC?",
+          "options": {
+            "A": "Use the Precision–Recall curve; it replaces FPR with precision, a quantity computed just from positives, and plots precision vs recall as τ varies.",
+            "B": "Use the ROC curve; it avoids dependence on true negatives by plotting TPR vs FNR as τ varies.",
+            "C": "Use accuracy; because TN is a parameter, accuracy remains stable if we threshold the probability with a hard threshold.",
+            "D": "Use EER; because it is defined by FPR = FNR, it eliminates the need to define true negatives in object detection."
+          },
+          "answer": "A",
+          "rationale": "A is exactly the motivation given: ROC has problems when “true negatives” are not well-defined (patch counting depends on the algorithm). The slides then ask: “Can we evaluate the classification computed just from positives?” and answer by introducing precision and the precision-recall curve: “Precision: replace the FPR with a quantity that is computed just from positives.” The PR curve is then defined as plotting “precision vs recall with varying τ.” \n\nB is wrong because the ROC curve is explicitly TPR vs FPR (not TPR vs FNR), and the slide’s criticism is that ROC requires well-defined true negatives. \n\nC is wrong because accuracy depends on TN and is explicitly questioned for reliability; also the patch-count issue makes TN algorithm-dependent, undermining accuracy rather than stabilizing it. \n\nD is wrong because EER is defined using FPR and FNR (and thus still involves FPR, which depends on true negatives); it does not remove the need for well-defined negatives.",
+          "source": {
+            "page": 25,
+            "pages": [
+              15,
+              25,
+              28,
+              23
+            ]
+          },
+          "evidence_quotes": [
+            "Problems of the ROC curve:\nRequire well-defined “true positives” and “true negatives”;\nHowever, in some problems, “negative” may not be well-defined.\nE.g., detecting objects in images: if the detector works by classifying\npatches, then the # of patches examined — the # of true negatives —\nis a param of the algorithm, instead of the problem definition.\nCan we evaluate the classification computed just from positives?\nPrecision and the precision-recall curve:\nPrecision: replace the FPR with a quantity that is computed just from\npositives.",
+            "PR curve – Plot the precision vs recall as an implicit function of 𝜏, i.e., plot\nprecision vs recall with varying 𝜏.",
+            "Plot the TPR vs FPR as an implicit\nfunction of 𝜏: Receiver Operating\nCharacteristic (ROC) curve – Plot\nTPR vs FPR with varying 𝜏.",
+            "Defined as the value which satisfies\n𝐹𝑃𝑅 = 𝐹𝑁𝑅 = 1 − 𝑇𝑃𝑅."
+          ]
+        },
+        {
+          "question_id": "mcq_topic2_q4",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "ROC curve: generating ROC points by sweeping thresholds; interpreting AUC and operating points",
+            "Precision–Recall (PR) curve: when PR is preferable, relationship to object detection evaluation, and F-score summaries"
+          ],
+          "difficulty": 2,
+          "stem": "Two different curves are summarized by an 'area under the curve' statistic, but the slides use different names (AUC vs AP) depending on what is plotted. Which pairing correctly matches the curve to the statistic and the plotted axes?",
+          "options": {
+            "A": "ROC uses AUC (area under ROC); PR in object detection uses AP = area under Precision vs Recall Curve.",
+            "B": "ROC uses AP = area under TPR vs FPR; PR uses AUC only when negatives are well-defined.",
+            "C": "ROC uses EER as the area under the curve; PR uses mAP as the area under a single PR curve.",
+            "D": "ROC uses AUC; PR uses EER computed by intersecting a top-left to bottom-right line with the PR curve."
+          },
+          "answer": "A",
+          "rationale": "A matches two separate slide statements: ROC quality is summarized by “Area Under the Curve (AUC),” and in object detection PR evaluation uses “Average Precision (AP) = area under Precision vs Recall Curve.” \n\nB swaps the names: AP is defined for PR (precision vs recall), not for ROC (TPR vs FPR). \n\nC is wrong because EER is described as “Another statistic” with a specific equality condition, not as an area; and mAP is the mean of APs across categories, not the area under a single PR curve. \n\nD is wrong because the ‘draw a line… intersects the ROC curve’ procedure is explicitly for computing EER on the ROC curve, not on the PR curve.",
+          "source": {
+            "page": 23,
+            "pages": [
+              23,
+              27,
+              15
+            ]
+          },
+          "evidence_quotes": [
+            "Quality of a ROC curve is often summarized using the Area\nUnder the Curve (AUC). Higher AUC scores better; max is 1.",
+            "Average Precision\n(AP) = area under Precision vs Recall Curve.",
+            "Plot the TPR vs FPR as an implicit\nfunction of 𝜏: Receiver Operating\nCharacteristic (ROC) curve – Plot\nTPR vs FPR with varying 𝜏."
+          ]
+        },
+        {
+          "question_id": "mcq_topic2_q5",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Precision–Recall (PR) curve: when PR is preferable, relationship to object detection evaluation, and F-score summaries",
+            "Confusion matrix construction and derived metrics (e.g., accuracy, TPR/FPR, precision/recall, specificity)"
+          ],
+          "difficulty": 1,
+          "stem": "At a fixed threshold τ, a model has TP=30, FP=10, FN=20 (TN is irrelevant for this question). Using the slide definitions, which pair (precision, recall) is correct?",
+          "options": {
+            "A": "Precision = 30/(30+10) = 0.75; Recall = 30/(30+20) = 0.60.",
+            "B": "Precision = 30/(30+20) = 0.60; Recall = 30/(30+10) = 0.75.",
+            "C": "Precision = 30/(30+10+20) = 0.50; Recall = 30/(30+10+20) = 0.50.",
+            "D": "Precision = 30/(30+FN) = 0.60; Recall = 30/(30+FP) = 0.75."
+          },
+          "answer": "A",
+          "rationale": "A applies the slide formulas directly: precision is TP/(TP+FP) and recall is TP/(TP+FN). Substituting the given counts yields 0.75 and 0.60. \n\nB is the common swap misconception (interchanging FP and FN in the denominators). \n\nC incorrectly normalizes by TP+FP+FN (not the slide definition). \n\nD repeats the same denominator swap error as B but written in a different form.",
+          "source": {
+            "page": 26,
+            "pages": [
+              26
+            ]
+          },
+          "evidence_quotes": [
+            "Precision: fraction of our detections are actually positive:\n𝒫 𝜏 ≜ 𝑝 𝑦 = 1 𝑦ො = 1, 𝜏 = 𝑇𝑃 /(𝑇𝑃 + 𝐹𝑃 )",
+            "Recall (TPR): fraction of the positives we actually detected:\nℛ 𝜏 ≜ 𝑝 𝑦ො = 1 𝑦 = 1, 𝜏 = 𝑇𝑃 /(𝑇𝑃 + 𝐹𝑁 )"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_3",
+      "topic": "Probabilistic Prediction and Information-Theoretic Quantities",
+      "slide_range": [
+        31,
+        41
+      ],
+      "questions": [
+        {
+          "question_id": "topic3_q1_kl_loss_decomposition",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "probabilistic prediction setup",
+            "KL divergence",
+            "entropy",
+            "cross-entropy"
+          ],
+          "difficulty": 2,
+          "stem": "In probabilistic prediction, you choose a predictive distribution q to minimize an expected loss E[ℓ(p,q)] for a fixed x. If you set ℓ(p,q) to be KL divergence D_KL(p||q), which statement best explains (using the slide formulas) why minimizing this loss over q is equivalent to minimizing cross-entropy with p (i.e., the term involving q), rather than entropy of p?",
+          "options": {
+            "A": "Because D_KL(p||q) expands to −H(p) + H(p,q), and H(p) depends only on p (the true distribution), so varying q only affects the cross-entropy term H(p,q).",
+            "B": "Because D_KL(p||q) equals H(p) + H(p,q), so minimizing D_KL requires maximizing H(p) and minimizing H(p,q) simultaneously.",
+            "C": "Because entropy H(p) is defined as −E log p(X), it can be reduced by choosing q to be more peaked, which directly reduces H(p).",
+            "D": "Because probabilistic prediction requires actions a to be class labels, so q is irrelevant and minimizing D_KL reduces to minimizing H(p) alone."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides explicitly decompose KL divergence into a term that depends only on p and a term that depends on q: “𝔻 𝑝 ∥ 𝑞 = … = −ℍ 𝑝 + ℍ (𝑝, 𝑞).” Since the probabilistic prediction goal is “to pick 𝑞 to minimize 𝔼[ℓ(𝑝, 𝑞)] for a given 𝑥,” the −H(p) part is constant w.r.t. q, so minimizing KL over q is equivalent to minimizing the cross-entropy term H(p,q).\n\nB is wrong because the sign in the decomposition is incorrect on the slide (it is “−ℍ 𝑝 + ℍ (𝑝, 𝑞)”, not +H(p)+H(p,q)), and nothing suggests you can change H(p) by changing q.\n\nC is wrong because H(p) is a property of p; the slide states “Here 𝑝 is the true distribution and 𝑞 is the predicted distribution,” so choosing q cannot change H(p).\n\nD is wrong because the slide contrasts classification actions with probabilistic prediction actions: for probabilistic prediction, “action → 𝑎 = 𝑞 𝑌 𝑥,” so q is central, not irrelevant.",
+          "source": {
+            "page": 31,
+            "pages": [
+              31,
+              33
+            ]
+          },
+          "evidence_quotes": [
+            "What we want: to pick 𝑞 to minimize𝔼 ℓ ℎ, 𝑎 = 𝔼[ℓ(𝑝, 𝑞)] for a given 𝑥.",
+            "For Probabilistic prediction: states of nature → ℎ = 𝑝(𝑌|𝑥); action →\n𝑎 = 𝑞 𝑌 𝑥 .",
+            "Here 𝑝 is the true distribution and 𝑞 is the predicted distribution.",
+            "𝔻 𝑝 ∥ 𝑞 = σ 𝑝 𝑦 log 𝑝(𝑦 ) − σ 𝑝 𝑦 log 𝑞 𝑦ො = −ℍ 𝑝 +\n𝐾𝐿\nℍ (𝑝, 𝑞). ℍ(𝑝): entropy of 𝑝; ℍ : cross entropy between 𝑝 and 𝑞."
+          ]
+        },
+        {
+          "question_id": "topic3_q2_entropy_extremes_uniform_delta",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "entropy (discrete)",
+            "uncertainty interpretation",
+            "probabilistic prediction setup"
+          ],
+          "difficulty": 1,
+          "stem": "You are comparing two candidate predictive distributions q over a K-class variable: (i) uniform over all K classes, and (ii) a delta-function that puts all mass on one class. Based on the slides, which pairing correctly matches each distribution to its entropy extreme and uncertainty interpretation?",
+          "options": {
+            "A": "Uniform: maximum entropy (hard to predict each observation); Delta-function: minimum entropy (every observation will be the same).",
+            "B": "Uniform: minimum entropy (every observation will be the same); Delta-function: maximum entropy (hard to predict each observation).",
+            "C": "Both uniform and delta-function have the same entropy because entropy depends only on K, not on the probabilities.",
+            "D": "Uniform has maximum entropy, but delta-function has undefined entropy because log(0) appears."
+          },
+          "answer": "A",
+          "rationale": "A is correct and integrates two slide points: (1) the extremal results: “Discrete distribution with Maximum entropy is uniform distribution.” and “Distribution with min entropy is any delta-function that puts all its mass on one state”; (2) the interpretation: “If 𝑝 has high entropy, hard to predict the value of each observation” and for 0 entropy “then every 𝑋 will be the\n𝑛\nsame.”\n\nB swaps the extremes and contradicts both quoted statements.\n\nC is wrong because the slides explicitly say the maximum occurs at uniform but the minimum occurs at a delta-function, so probabilities matter.\n\nD is wrong because the slide explicitly discusses delta-function as the minimum-entropy case (so it is not treated as undefined in this lecture’s framing).",
+          "source": {
+            "page": 34,
+            "pages": [
+              34,
+              35
+            ]
+          },
+          "evidence_quotes": [
+            "If 𝑝 has high entropy, hard to predict the value of each observation 𝑋 .",
+            "If 𝑝 is a degenerate distribution with 0 entropy, then every 𝑋 will be the\n𝑛\nsame",
+            "Discrete distribution with Maximum entropy is uniform distribution.",
+            "Distribution with min entropy is any delta-function that puts all its\nmass on one state"
+          ]
+        },
+        {
+          "question_id": "topic3_q3_mi_as_kl_independence_conditioning",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "mutual information",
+            "KL divergence",
+            "entropy and conditional entropy",
+            "independence vs dependence"
+          ],
+          "difficulty": 3,
+          "stem": "A student claims: “Mutual information is zero exactly when observing Y does not reduce uncertainty about X, and this happens exactly when the joint distribution equals the product of marginals.” Which option most accurately justifies this claim using the slide definitions and identities (not external facts)?",
+          "options": {
+            "A": "The slides define MI as a KL divergence between p(x,y) and p(x)p(y), and also state I(X;Y)=H(X)−H(X|Y)≥0, so I(X;Y)=0 iff p(x,y)=p(x)p(y), which implies H(X|Y)=H(X) (no uncertainty reduction).",
+            "B": "Because MI is defined as H(X,Y)−H(X)−H(Y), MI is always non-positive and equals 0 only when X and Y are perfectly correlated.",
+            "C": "Because MI equals H(X|Y), MI is zero exactly when H(X|Y)=0, which requires X to be deterministic regardless of Y.",
+            "D": "Because KL divergence can be negative, MI can be negative; therefore MI=0 does not imply independence or no uncertainty reduction."
+          },
+          "answer": "A",
+          "rationale": "A is correct by chaining two slide-provided characterizations: (i) MI as KL divergence to the independence model: “𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦” and “Reach the bound of 0 iff 𝑝 𝑥, 𝑦 = 𝑝 𝑥 𝑝 𝑦 .”; (ii) MI as uncertainty reduction plus non-negativity: “𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌” and “𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 ≥ 0 → ℍ 𝑋|𝑌 ≤ ℍ 𝑋”. Together these support the student’s statement: MI=0 corresponds to the independence factorization and to no reduction in uncertainty (H(X|Y)=H(X)).\n\nB is wrong because the slide gives a different equivalent identity: “𝕀 𝑋; 𝑌 = ℍ 𝑋 + ℍ 𝑌 − ℍ 𝑋, 𝑌” (not H(X,Y)−H(X)−H(Y)) and explicitly states MI is non-negative, not non-positive.\n\nC is wrong because the slide states MI equals H(X)−H(X|Y), not H(X|Y).\n\nD is wrong because the slide explicitly states: “MI is always non-negative: 𝕀 𝑋; 𝑌 ≥ 0.”",
+          "source": {
+            "page": 37,
+            "pages": [
+              37,
+              38
+            ]
+          },
+          "evidence_quotes": [
+            "𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦",
+            "MI is always non-negative: 𝕀 𝑋; 𝑌 ≥ 0. Reach the bound of 0 iff\n𝑝 𝑥, 𝑦 = 𝑝 𝑥 𝑝 𝑦 .",
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = ℍ 𝑌 − ℍ 𝑌|𝑋",
+            "MI between 𝑋 and 𝑌 is thus expressed as the reduction in uncertainty\nabout 𝑋 after observing 𝑌",
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 ≥ 0 → ℍ 𝑋|𝑌 ≤ ℍ 𝑋",
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 + ℍ 𝑌 − ℍ 𝑋, 𝑌"
+          ]
+        },
+        {
+          "question_id": "topic3_q4_example_compute_mi_from_entropies",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "mutual information",
+            "entropy and conditional entropy",
+            "worked example interpretation"
+          ],
+          "difficulty": 2,
+          "stem": "In the worked example (n∈{1,…,8}, X indicates even, Y indicates prime), which computation is consistent with BOTH the numerical values given and the identity linking MI to entropy reduction?",
+          "options": {
+            "A": "I(X;Y)=H(X)−H(X|Y)=1−0.81=0.19 bits.",
+            "B": "I(X;Y)=H(X,Y)−H(X)=1.81−1=0.81 bits.",
+            "C": "I(X;Y)=H(X|Y)−H(X)=0.81−1=−0.19 bits.",
+            "D": "I(X;Y)=H(X)+H(Y)+H(X,Y)=1+1+1.81=3.81 bits."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slide explicitly provides both the identity and the numeric substitution: it states “𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌” and then computes “𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = 1 − 0.81 = 0.19 𝑏𝑖𝑡𝑠”.\n\nB is a common confusion with conditional entropy: the slide instead uses “ℍ 𝑌|𝑋 = ℍ 𝑋, 𝑌 − 𝐻 𝑋 = 0.81”, so H(X,Y)−H(X) corresponds to a conditional entropy term (here H(Y|X)), not MI.\n\nC contradicts the slide’s non-negativity of MI (“MI is always non-negative”) and flips the subtraction.\n\nD contradicts the slide’s equivalent identity “𝕀 𝑋; 𝑌 = ℍ 𝑋 + ℍ 𝑌 − ℍ 𝑋, 𝑌” (note the minus, not plus).",
+          "source": {
+            "page": 40,
+            "pages": [
+              38,
+              40
+            ]
+          },
+          "evidence_quotes": [
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = ℍ 𝑌 − ℍ 𝑌|𝑋",
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 + ℍ 𝑌 − ℍ 𝑋, 𝑌",
+            "ℍ 𝑋, 𝑌 = − log + log + log + log = 1.81 𝑏𝑖𝑡𝑠",
+            "ℍ 𝑋 = ℍ 𝑌 = 1",
+            "Verify that ℍ 𝑌|𝑋 = ℍ 𝑋, 𝑌 − 𝐻 𝑋 = 0.81",
+            "𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = 1 − 0.81 = 0.19 𝑏𝑖𝑡𝑠"
+          ]
+        },
+        {
+          "question_id": "topic3_q5_mi_vs_kl_what_distributions_compared",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "KL divergence",
+            "mutual information",
+            "probabilistic prediction setup"
+          ],
+          "difficulty": 1,
+          "stem": "Which option correctly matches (i) what KL divergence compares in probabilistic prediction and (ii) what mutual information compares to measure dependence, as described in the slides?",
+          "options": {
+            "A": "KL divergence compares a true distribution p to a predicted distribution q; mutual information compares the joint p(x,y) to the factored marginals p(x)p(y).",
+            "B": "KL divergence compares p(x,y) to p(x)p(y); mutual information compares a true distribution p to a predicted distribution q.",
+            "C": "Both KL divergence and mutual information compare p(x) to p(y) directly.",
+            "D": "KL divergence compares entropies H(p) and H(q); mutual information compares conditional entropies H(X|Y) and H(Y|X) only."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the KL slide states “Here 𝑝 is the true distribution and 𝑞 is the predicted distribution.” and defines KL as a discrepancy between two distributions. The MI slide defines MI explicitly as a KL divergence between the joint and the product of marginals: “𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦”.\n\nB swaps the roles and contradicts both definitions.\n\nC is wrong because MI uses p(x,y) and p(x)p(y), not p(x) vs p(y), and KL uses p vs q.\n\nD is wrong because KL is defined via distributions (with an expansion involving entropies), not as a comparison of H(p) and H(q); and MI is not defined as comparing only conditional entropies—its primary definition is a KL divergence between distributions.",
+          "source": {
+            "page": 33,
+            "pages": [
+              33,
+              37
+            ]
+          },
+          "evidence_quotes": [
+            "Kullback Leibler divergence (KL divergence) is a measure of how\none probability distribution is different from a second:",
+            "Here 𝑝 is the true distribution and 𝑞 is the predicted distribution.",
+            "𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_4",
+      "topic": "Frequentist Decision Theory, Risk Minimization, and Model Selection",
+      "slide_range": [
+        42,
+        58
+      ],
+      "questions": [
+        {
+          "question_id": "topic4_q1_freq_vs_bayes_random_fixed_and_averaging",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Frequentist vs. Bayesian viewpoints",
+            "frequentist risk definition",
+            "Bayes risk (integrated risk)"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims: “In frequentist decision theory, we condition on the observed dataset x and treat θ as random; in Bayesian decision theory, we average over x.” Which option best corrects this claim by aligning (i) what is treated as random vs fixed and (ii) what is averaged over when defining risk?",
+          "options": {
+            "A": "Frequentist: θ is fixed but unknown and x is random; risk averages over x. Bayes risk: since θ is unknown, assume a prior π(θ) and average over θ (and x via p(x|θ)) to obtain integrated risk.",
+            "B": "Frequentist: θ is random with prior π(θ) and x is fixed; risk averages over θ. Bayes risk: averages only over x because θ is fixed but unknown.",
+            "C": "Frequentist: both θ and x are treated as fixed; risk is computed directly from the observed dataset. Bayes risk: averages over θ but never over x.",
+            "D": "Frequentist: θ is fixed but unknown and x is random; risk averages over θ. Bayes risk: avoids priors by taking a supremum over θ."
+          },
+          "answer": "A",
+          "rationale": "A matches both the frequentist framing and the Bayes-risk construction in the slides. The frequentist view explicitly says to “treat the data x as random” and “treat the unknown state of nature … as a fixed yet unknown quantity,” and that we “average over” x to compute risk. When θ is unknown and we cannot compute frequentist risk directly, the slides propose the Bayes risk by “assum[ing] a prior π for θ then average it out” to form the “Bayes Risk (integrated risk).”\n\nB reverses the roles: it incorrectly assigns a prior to θ in the frequentist definition and claims x is fixed, contradicting the slide statement that x is random and θ fixed-yet-unknown.\n\nC contradicts the slide statement that x is random and also contradicts the motivation for Bayes risk, which integrates over θ and x via π(θ)p(x|θ).\n\nD mixes concepts: it correctly states the frequentist random/fixed roles, but then incorrectly says frequentist risk averages over θ (it averages over x), and it confuses Bayes risk with maximum risk/minimax, which is defined using a supremum over θ rather than a prior.",
+          "source": {
+            "page": 44,
+            "pages": [
+              44,
+              45
+            ]
+          },
+          "evidence_quotes": [
+            "In the Frequentist decision theory, treat the unknown state\nof nature (denoted by 𝜽 instead of ℎ) as a fixed yet unknown\nquantity, and treat the data 𝑥 as random.",
+            "Instead of conditioning over 𝑥, we average over it to compute the loss\nexpect to incur if apply our estimator to different datasets.",
+            "Define the frequentist risk of an estimator 𝛿 given an unknown\nstate of nature 𝜽 as the expected loss when applying 𝛿 to data\n𝑥, where the expectation is over the data, sampled from 𝑝(𝑥|𝜽):",
+            "In general, the true state of nature 𝜽 that generates the data 𝑥\nis unknown, so cannot compute the risk directly. Then how?\nOne solution: to assume a prior 𝜋 for 𝜃 then average it out –\n0\nthe Bayes Risk (integrated risk):"
+          ]
+        },
+        {
+          "question_id": "topic4_q2_bayes_vs_minimax_tradeoff",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Bayes risk and Bayes estimator",
+            "worst-case (maximum) risk perspectives",
+            "minimax estimator conservativeness"
+          ],
+          "difficulty": 3,
+          "stem": "You must choose between two decision rules. You are told that one rule has lower risk for most values of θ, but the other has lower worst-case risk. If you refuse to use a prior π(θ), which choice criterion and qualitative consequence are most consistent with the slides?",
+          "options": {
+            "A": "Choose the rule minimizing Bayes risk; this avoids priors and is therefore less conservative than minimax.",
+            "B": "Choose the minimax estimator (minimize maximum risk); it can select a rule with lower worst-case risk even if it has higher risk for most θ, and is described as overly conservative.",
+            "C": "Choose the ERM predictor; ERM directly minimizes population risk so it is robust in worst-case θ without priors.",
+            "D": "Choose the Bayes estimator; it is defined as the rule that minimizes supθ R(θ, δ), hence it is conservative by construction."
+          },
+          "answer": "B",
+          "rationale": "B is directly supported: the slides motivate maximum risk specifically when “Use of a prior might seem undesirable,” define it as a supremum over θ, and state the minimax rule “min the max risk.” They also give the key tradeoff: a rule can be minimax “even if” another has lower risk for most θ, and conclude “The minimax estimators are overly conservative!”\n\nA is wrong because Bayes risk explicitly uses a prior (“assume a prior π for θ”), so it does not avoid priors.\n\nC is wrong because ERM is about minimizing empirical risk (training distribution) and the slides emphasize population risk is defined w.r.t. the true distribution and is generally not computable; ERM is not presented as a worst-case-over-θ method.\n\nD is wrong because the Bayes estimator is defined as minimizing Bayes risk (integrated risk), not minimizing a supremum; the supremum criterion corresponds to maximum risk/minimax.",
+          "source": {
+            "page": 47,
+            "pages": [
+              45,
+              47
+            ]
+          },
+          "evidence_quotes": [
+            "One solution: to assume a prior 𝜋 for 𝜃 then average it out –\n0\nthe Bayes Risk (integrated risk):",
+            "Decision rule that minimize the Bayes risk: Bayes estimator.",
+            "Use of a prior might seem undesirable in certain cases. We can\ntherefore define the maximum risk as:\n𝑅 𝛿 ≜ sup 𝑅(𝜽, 𝛿)\nmax\n𝜽",
+            "Decision rule that min the max risk: minimax estimator 𝛿 .\n𝑀𝑀",
+            "𝛿 is the minimax estimator (even if 𝛿\n1 2\nhas lower risk for most values of 𝜽)/\nThe minimax estimators are overly\nconservative!"
+          ]
+        },
+        {
+          "question_id": "topic4_q3_erm_population_vs_empirical_and_generalization_gap",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Empirical Risk Minimization (ERM)",
+            "population risk vs empirical risk",
+            "generalization gap / estimation error"
+          ],
+          "difficulty": 2,
+          "stem": "A learner reports extremely low training loss after ERM. Based on the slides, which explanation best connects (i) why ERM can be carried out despite unknown population risk and (ii) how to interpret the potential mismatch between training and test performance?",
+          "options": {
+            "A": "ERM is possible because we replace the unknown true distribution with the empirical distribution of N samples, yielding an empirical risk; the mismatch is captured by estimation/generalization error, approximated by the difference between training and test set error (generalization gap).",
+            "B": "ERM is possible because we can compute the true joint distribution p*(x,y*) exactly from the dataset; the mismatch is only due to approximation error ε_app(H) and equals the training error.",
+            "C": "ERM is possible because we minimize maximum risk supθ R(θ,δ); the mismatch between training and test is eliminated by choosing the minimax estimator.",
+            "D": "ERM is possible because we directly minimize population risk over all possible functions; the mismatch is avoided by optimizing over ALL possible functions rather than a hypothesis space."
+          },
+          "answer": "A",
+          "rationale": "A correctly combines two slide threads. First, population risk is defined w.r.t. the true distribution and is typically not computable; the slides propose approximating the unknown true distribution with “the empirical distribution of N samples” to obtain “the empirical risk,” and ERM chooses the predictor minimizing this empirical risk. Second, the slides decompose the risk gap and define estimation/generalization error, stating it can be approximated by the “difference btw training set and test set error” called the “Generalization Gap.”\n\nB is wrong because the slides say it is “quite impossible to obtain the unknown true distribution p*,” so we cannot compute it exactly; also the mismatch is not stated to be only approximation error.\n\nC is wrong because ERM is defined via empirical risk minimization, not maximum risk; minimax is a different criterion.\n\nD is wrong because although the slides define the ideal f** over “ALL possible functions,” they emphasize we “still cannot compute what f* is – the population risk R is unknown!” and thus we minimize empirical risk within a hypothesis space.",
+          "source": {
+            "page": 48,
+            "pages": [
+              48,
+              51
+            ]
+          },
+          "evidence_quotes": [
+            "Defined as the population risk, as the expectations are taken w.r.t. the\n∗ ∗\ntrue joint distribution 𝑝 (𝑥, 𝑦 ).\nCan we compute the population risk? If not how?",
+            "In most cases, quite impossible to obtain the unknown true distribution 𝑝 .\nInstead, can approximate it with the empirical distribution of 𝑁 samples:",
+            "We\n𝒟 𝑡𝑟\nthus obtain the empirical risk (which is a random variable) as:",
+            "A natural way to choose the predictor is to choose the predictor with minimum risk:\n1\n𝑓Ƹ = arg min 𝑅(𝑓, 𝒟)",
+            "The process of choosing predictor 𝑓 መ is empirical risk minimization (ERM).\n𝐸𝑅𝑀",
+            "𝜀 (ℋ, 𝑁) is the estimation error or generalization error: measures the\ndifference in estimated risk due to having a finite training set.",
+            "Approx. 𝜀 (ℋ, 𝑁) by the difference btw training set and test set error:\n𝑒𝑠𝑡\n∗ ∗\n𝜀 ℋ, 𝑁 ≈ 𝔼 ℓ 𝑦, 𝑓 𝑥 − 𝔼 ℓ 𝑦, 𝑓 𝑥 – Generalization Gap."
+          ]
+        },
+        {
+          "question_id": "topic4_q4_regularization_occam_and_map_equivalence",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Regularization and regularized risk",
+            "Occam’s razor / complexity control",
+            "MAP connection to regularization"
+          ],
+          "difficulty": 3,
+          "stem": "You are comparing a simple model m1 and a more complex model m2. Suppose both can be made to fit the data well (high likelihood after optimizing parameters). You decide to add a complexity penalty to reduce overfitting, and you also notice your loss is a log loss while your regularizer can be interpreted as a negative log prior. Which statement best integrates these points according to the slides?",
+          "options": {
+            "A": "Occam’s razor suggests preferring the simpler model when both explain the data well; regularization implements this via a complexity penalty, and with log loss plus negative-log-prior regularizer, minimizing the regularized objective is exactly equivalent to MAP estimation.",
+            "B": "Occam’s razor suggests preferring the more complex model when both explain the data well; regularization therefore increases model complexity, and with log loss the solution is exactly equivalent to MLE.",
+            "C": "Occam’s razor is unrelated to regularization; the only principled way to choose between m1 and m2 is minimax risk, and log loss with a negative log prior yields the minimax estimator.",
+            "D": "Regularization corresponds to averaging over θ using a prior π(θ) to compute Bayes risk; hence it is equivalent to Bayes risk minimization, not MAP estimation."
+          },
+          "answer": "A",
+          "rationale": "A aligns with three slide claims: (i) Occam’s razor says prefer the simpler explanation; the slide explicitly says if both models can explain the data (both likelihoods large), “Intuitively should prefer m1, as it is simpler and as good as m2.” (ii) Regularization adds a “complexity penalty” to avoid overfitting, and the Occam slide links regularization to complexity penalty where “more complex models would result in a larger regularization term.” (iii) The regularization slide states that with “log loss term” and regularizer as “a negative log prior,” minimizing the regularized risk “is exactly equivalent to the MAP estimation.”\n\nB contradicts Occam’s razor (it says prefer complex) and also confuses MAP with MLE; the slides mention MAP equivalence, not MLE.\n\nC contradicts the explicit link between Occam’s razor and regularization, and also incorrectly equates negative-log-prior regularization with minimax.\n\nD confuses regularized ERM/MAP with Bayes risk: the slide’s equivalence is specifically “exactly equivalent to the MAP estimation,” not Bayes risk minimization.",
+          "source": {
+            "page": 53,
+            "pages": [
+              53,
+              54
+            ]
+          },
+          "evidence_quotes": [
+            "To avoid the chance of overfitting, it is common to add a\ncomplexity penalty to the objective function – regularization.",
+            "𝐶(𝑓) measures the complexity of the prediction function 𝑓 and 𝜆 ≥ 0 is\nthe hyperparameter that controls the strength of complexity penalty.",
+            "If the loss function is a log loss term, while the regularizer is a negative\n1\n𝑁\nlog prior, 𝑅 𝜃, 𝒟 = − σ log 𝑝 𝑦 𝑥 , 𝜃 − 𝜆 log 𝑝 𝜃 . Minimizing this\n𝜆 𝑛=1 𝑛 𝑛\n𝑁\nis exactly equivalent to the MAP estimation.",
+            "Occam's razor is the problem-solving principle that recommends\nsearching for explanations constructed with the smallest possible\nset of elements.",
+            "Suppose both can explain the data by suitably optimizing their\n෡ ෡\nparameters, i.e., 𝑝(𝒟|𝜽 , 𝑚 ) and 𝑝(𝒟|𝜽 , 𝑚 ) are both large.\n1 1 2 2",
+            "Intuitively should prefer 𝑚 , as it is simpler and as good as 𝑚 .\n1 2",
+            "In regularization, it corresponds to the complexity penalty, where\nmore complex models would result in a larger regularization term."
+          ]
+        },
+        {
+          "question_id": "topic4_q5_validation_vs_cv_and_unregularized_val_risk",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "population risk estimation",
+            "validation/holdout",
+            "cross-validation",
+            "regularization hyperparameter selection"
+          ],
+          "difficulty": 1,
+          "stem": "You want to estimate (and compare) the future performance of models trained with regularization strength λ, but your training data is limited. Which procedure matches the slides’ recommendation, including what is evaluated on the validation folds?",
+          "options": {
+            "A": "Use a single holdout split: fit on training set and evaluate the regularized empirical risk (including λC(θ)) on the validation set; no need for cross-validation when data is limited.",
+            "B": "Use cross-validation: split training data into K folds; for each fold, train on all but one fold and estimate population risk using the unregularized empirical risk on the held-out fold; average these to form the cross-validation risk.",
+            "C": "Use cross-validation: split into K folds; for each fold, train on the held-out fold and validate on the remaining K−1 folds; sum the regularized risks across folds without averaging.",
+            "D": "Avoid validation because “the real test data” are accessible; directly compute population risk on the test data and pick λ that minimizes it."
+          },
+          "answer": "B",
+          "rationale": "B matches the slides: when training data is limited, the holdout estimate is unreliable, so the “Solution? Cross-validation!” The CV procedure is to “Split the training data into K folds” and “train on all but ONE fold,” then use “the unregularized empirical risk on the validation set as an estimate of the population risk,” and average across folds in the definition of cross-validation risk.\n\nA is wrong because the slides explicitly raise the shortcoming when data is limited and propose cross-validation; also they specify using unregularized empirical risk on validation.\n\nC is wrong because it reverses train/validation roles and contradicts the “train on all but ONE fold” statement; it also contradicts the averaging formula.\n\nD is wrong because the slides say “the real “test data” are inaccessible.”",
+          "source": {
+            "page": 56,
+            "pages": [
+              55,
+              56
+            ]
+          },
+          "evidence_quotes": [
+            "Partition the dataset into two, one used for training models (training set),\nanother, the validation set or holdout set, used for assessing the risk.",
+            "Note that in supervised learning, the real “test data” are inaccessible.",
+            "For each model, we fit it to the training set to obtain 𝜽 𝒟 . Then use the\n𝜆 𝑡𝑟\nunregularized empirical risk on the validation set as an estimate of the\n𝑣𝑎𝑙 ෡\npopulation risk – validation risk:",
+            "Consider the training data is very limited – not enough data to train on!\nImpossible to make reliable estimate of future performance.\nSolution?\nCross-validation!",
+            "Split the training data into 𝐾 folds;\nFor each fold 𝑘 ∈ 1, … , 𝐾 , train on\nall but ONE fold, in a round-robin\nfashion (in turns, circled around all\npossible folds).",
+            "Formally, the cross-validation risk is formulated as:\n1\n𝑐𝑣 𝐾 ෡\n𝑅 ≜ σ 𝑅 𝜽 𝒟 , 𝒟\n𝜆 𝑘=1 0 𝜆 −𝑘 𝑘\n𝐾"
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

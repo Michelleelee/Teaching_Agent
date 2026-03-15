@@ -1,0 +1,203 @@
+{
+  "source_file": "WS-Week11-SVM_clean.pdf",
+  "outline": [
+    "Pattern Recognition EE5907:",
+    "• Pattern Representation Learning",
+    "Support Vector Machine (SVM)",
+    "Recap: Linear Classifier",
+    "Support Vector Machine (SVM)",
+    "Hard-Margin Support Vector Machine (SVM)",
+    "Hard-Margin SVM Primal as Quadratic Program (QP)",
+    "Hard-Margin SVM Primal & Dual",
+    "Hard-Margin SVM Primal -> Dual",
+    "Lagrange Duality",
+    "Hard-Margin SVM: Decision Boundary",
+    "Quick Question",
+    "SVM: linearly non-separable data",
+    "Support Vector Machine (SVM)",
+    "Trick 1: Soft-margin SVM---Slack Variable",
+    "Trick 1: Soft-margin SVM Primal",
+    "Trick 1: Soft-margin SVM Primal->Dual",
+    "Soft-margin SVM: Decision Boundary",
+    "Quick Question",
+    "Soft-margin VS Hard-margin SVMs",
+    "Kernel SVM",
+    "Trick 2: Kernel SVM",
+    "Examples of Kernel Functions",
+    "Right Kernel for SVM",
+    "What Functions Can be Kernels?",
+    "Multi-class SVM",
+    "SVM: more than two classes",
+    "More References"
+  ],
+  "slides": [
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 1,
+      "title": "Pattern Recognition EE5907:",
+      "content": "EE5907: Pattern Recognition\n&\nMachine Learning\nEE5026:\nfor Data Analytics\nDr. WANG Si\nEmail: si.wang@nus.edu.sg\nOffice: E1a-04-01\n1"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 2,
+      "title": "• Pattern Representation Learning",
+      "content": "– Unsupervised Representation Learning (week 7)\n– Supervised Representation Learning (week 8)\n– Unified Framework: Graph Embedding (week 8)\n• Patter Recognition Models\n– Clustering (K-means, Agglomerative)(week 9)\n– Gaussian Mixture Model and Boosting (week 10)\n– Support Vector Machines (week 11)\n• Deep Learning (week 12)\n• Revision and Q&A (week 13)\n2\nSome slides are from Shuicheng Yan, Henry Lin"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 3,
+      "title": "Support Vector Machine (SVM)",
+      "content": "➢ We will discuss:\n➢ Hard-margin SVM (Primal and Dual formulations)\n➢ Soft-margin SVM (Primal and Dual formulations)\n➢ Kernel SVM\n➢ Multi-class SVM\n➢ At the end of this lecture, you should be able to:\n➢ Understand different formulations for different SVMs\n➢ Elaborate the two tricks to deal with non linearly separable data\n➢ Apply SVM to the multi-class problem\n3"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 4,
+      "title": "Recap: Linear Classifier",
+      "content": "Class labels:\nwTx + b = 0\n+1\n-1 wTx + b > 0\nA\nwTx + b < 0\nB\n−1, 𝑧 < 0\nWhat is the direction of w?\nf(x) = sign(wTx + b) sign 𝑧 = ቐ 0, 𝑧 = 0\n+1, 𝑧 > 0\n4\n\n• Which one is optimal?\nA\nB\nC\nD\n5"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 6,
+      "title": "Support Vector Machine (SVM)",
+      "content": "[Hard Margin]\n6"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 7,
+      "title": "Hard-Margin Support Vector Machine (SVM)",
+      "content": "• Maximize the margin around the decision boundary\nwTx + b = 0\nSupport vector ρ\n7\n\n• Move Support Vectors\n8\n\nEquations for orange dashed line and blue dashed line?\nOrange dashed line:\nwTx + b = 0\nρ\nwTx’ + b = 0\n𝒙 − 𝒙′ 𝒘 𝜌𝒘\n= → 𝒙′ = 𝒙 −\n𝜌\n𝒘 2 𝒘\nൗ\n2\nx\nx′\n𝜌𝒘\n𝒘𝑇 𝒙 − + 𝑏 = 0\n2 𝒘\n𝜌 𝒘\n𝒘𝑇𝒙 + 𝑏 =\nw\n2\n9\n\nEquations for orange dashed line and blue dashed line?\nBlue dashed line:\nwTx + b = 0\nρ\nwTx’ + b = 0\n𝒙 − 𝒙′ 𝒘 𝜌𝒘\nx′ = − → 𝒙′ = 𝒙 +\n𝜌\n𝒘 2 𝒘\nൗ\n2\nx\n𝜌𝒘\n𝒘𝑇 𝒙 + + 𝑏 = 0\n2 𝒘\n𝜌 𝒘\n𝒘𝑇𝒙 + 𝑏 = −\nw\n2\n10\n\n2\n• Plus Plane: wTx + b = 1\n𝜌 =\n𝒘\n• Minus Plane: wTx + b = -1\nwTx + b = 0\nρ\nw\n11\n\n• Objective: find w, b such that\n✓ All positive training points (𝒙 ,𝑦 = 1) in the red zone 𝒘𝑇𝒙 + 𝑏 ≥ 1, 𝑖𝑓𝑦 = 1\n𝑖 𝑖 𝑖 𝑖\n✓ All negative training points (𝒙 , 𝑦 = −1) in the blue zone 𝒘𝑇𝒙 + 𝑏 ≤ −1, 𝑖𝑓𝑦 = −1\n𝑖 𝑖 𝑖 𝑖\n2\n✓ The margin 𝜌 is maximized 𝑚𝑎𝑥\n𝒘\nwTx + b = 0\nw\n12"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 13,
+      "title": "Hard-Margin SVM Primal as Quadratic Program (QP)",
+      "content": "• Objective: find w, b such that\n𝑇\n𝒘 𝒙 + 𝑏 ≥ 1, 𝑖𝑓𝑦 = 1\n𝑖 𝑖\n𝑇\n𝑦 (𝒘 𝒙 + 𝑏) ≥ 1\n𝑖 𝑖\n𝑇\n𝒘 𝒙 + 𝑏 ≤ −1, 𝑖𝑓𝑦 = −1\n𝑖 𝑖\n2\n1\n2 𝑇\n𝑚𝑎𝑥 𝑚𝑖𝑛 𝒘 , or 𝑚𝑖𝑛 𝒘 , or 𝑚𝑖𝑛 𝒘 𝒘\n𝒘 2\nReformulated as a quadratic optimization problem:\n1\n𝑇\nmin 𝒘 𝒘\n𝒘,𝑏 2\nSubject to 𝑦 (𝒘𝑇𝒙 + 𝑏) ≥ 1, for all 𝒙 ,𝑦 , 𝑖 = 1…𝑁\n𝑖 𝑖 𝑖 𝑖\n❖ QP solver libraries:\nQuadratic objective function Quadratic\ncvxpy, quadprog, OSQP,\nLinear constraints program\nscipy.optimize, etc.\n13"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 14,
+      "title": "Hard-Margin SVM Primal & Dual",
+      "content": "1\nPrimal min 𝒘 𝑇 𝒘\nd+1 variables\n2\n𝒘,𝑏\nProblem\nN constraints\nSubject to 𝑦 (𝒘𝑇𝒙 + 𝑏) ≥ 1, for all 𝒙 ,𝑦 , 𝑖 = 1…𝑁\n𝑖 𝑖 𝑖 𝑖\nWhich one is\nbetter?\n1\n𝑇\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\nDual 2\n𝝀 N variables\n𝑖,𝑗 𝑖\nProblem\nN+1 constraints\ns.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0, 𝑖 = 1, … , 𝑁\n𝑖 𝑖 𝑖 𝑖\n𝜆 is the Lagrange Multiplier associated with each\n𝑖\nconstraint in the primal problem\n14"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 15,
+      "title": "Hard-Margin SVM Primal -> Dual",
+      "content": "1\n𝑇\nmin 𝒘 𝒘\nPrimal\n2\n𝒘,𝑏\nProblem\nSubject to 𝑦 (𝒘𝑇𝒙 + 𝑏) ≥ 1, for all 𝒙 ,𝑦 , 𝑖 = 1…𝑁\n𝑖 𝑖 𝑖 𝑖\n▪ Inequality Constraints:\nKarush-Kuhn-Tucker (KKT) conditions\n1\n𝑓 𝒘,𝑏 = 𝒘𝑇𝒘,\n2\n1) Define the Lagrangian function: 𝑔 𝒘,𝑏 = 𝑦 𝒘𝑇𝒙 + 𝑏 − 1\n𝑖 𝑖 𝑖\nℒ 𝒘, 𝑏, 𝝀 = 𝑓 𝒘, 𝑏 − ෍ 𝜆 𝑔 𝒘,𝑏 , where 𝜆 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖\n𝑖\n2) KKT conditions for optimality:\n✓ Stationarity:\n𝝏ℒ\n= 𝟎 𝒘 − ෍ 𝜆 𝑦 𝒙 = 𝟎 𝒘 = ෍ 𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝝏𝒘\n𝑖 𝑖\n𝜕ℒ\n= 0 ෍ 𝜆 𝑦 = 0\n𝜕𝑏 𝑖 𝑖\n𝑖 15\n\n▪ Inequality Constraints:\nKarush-Kuhn-Tucker (KKT) conditions\n1\n𝑓 𝒘,𝑏 = 𝒘𝑇𝒘,\n2\n1) Define the Lagrangian function:\n𝑔 𝒘,𝑏 = 𝑦 𝒘𝑇𝒙 + 𝑏 − 1 ≥ 0\n𝑖 𝑖 𝑖\nℒ 𝒘, 𝑏, 𝝀 = 𝑓 𝒘, 𝑏 − ෍ 𝜆 𝑔 𝒘,𝑏 , where 𝜆 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖\n𝑖\n2) KKT conditions for optimality:\n✓ Stationarity: 𝒘∗ = ෍ 𝜆 𝑦 𝒙 ,෍ 𝜆 𝑦 = 0\n𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖 𝑖\n✓ Primal Feasibility: 𝑔 𝒘,𝑏 = 𝑦 𝒘𝑇𝒙 + 𝑏 − 1 ≥ 0,∀𝑖\n𝑖 𝑖 𝑖\n✓ Dual Feasibility: 𝜆 ≥ 0, ∀𝑖\n𝑖\n✓ Complementary Slackness: 𝜆 𝑔 𝒘,𝑏 = 0, ∀𝑖\n𝑖 𝑖\n𝜆 only plays a role\nIf 𝑔 𝒘,𝑏 > 0 (inactive), 𝜆 = 0 𝑖\n𝑖 𝑖\nwhen a constraint is\nIf 𝑔 𝒘,𝑏 = 0 (active), 𝜆 > 0\n𝑖 𝑖 exactly binding\n16\n\nminℒ 𝒘, 𝑏, 𝝀 = min𝑓 𝒘, 𝑏 − ෍𝜆 𝑔 𝒘, 𝑏\n𝑖 𝑖\n𝒘,𝑏 𝒘,𝑏 𝑓 𝒘,𝑏 = 1 𝒘𝑇𝒘,\n𝑖 2\n1\n= min 𝒘𝑇𝒘 − ෍ 𝜆 𝑦 𝒘𝑇𝒙 + 𝑏 − 1 𝑔 𝑖 𝒘,𝑏 = 𝑦 𝑖 𝒘𝑇𝒙 𝑖 + 𝑏 − 1 ≥ 0\n𝑖 𝑖 𝑖\n𝒘,𝑏 2\n𝑖\n1\n= min 𝒘𝑇𝒘 − ෍𝜆 𝑦 𝒘𝑇𝒙 − ෍ 𝜆 𝑦 𝑏 + ෍ 𝜆 𝒘∗ = ෍ 𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝒘,𝑏 2\n𝑖 𝑖 𝑖 𝑖\n1\n෍ 𝜆 𝑦 = 0\n= 𝒘∗𝑇𝒘∗ − 𝒘∗𝑇𝒘∗ + ෍ 𝜆 𝑖 𝑖\n𝑖\n2\n𝑖\n𝑖\n1\n𝑇\n= − ෍ 𝜆 𝑦 𝒙 ෍ 𝜆 𝑦 𝒙 + ෍ 𝜆\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n2\n𝑖 𝑖 𝑖\n1\n𝑇\n= − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n2\n𝑖,𝑗 𝑖\nDual\nWHY?\n1\nPrimal 𝑇\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n1 𝝀 2\nmin 𝒘𝑇𝒘, 𝑠. 𝑡. 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1 𝑖,𝑗 𝑖\n𝑖 𝑖\n𝒘,𝑏 2 s.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0\n17\n𝑖 𝑖 𝑖 𝑖"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 18,
+      "title": "Lagrange Duality",
+      "content": "Prove min𝑓 𝒘, 𝑏 , 𝑠. 𝑡. 𝑔 𝒘, 𝑏 ≥ 0 max minℒ 𝒘, 𝑏, 𝝀 s.t. 𝜆 ≥ 0\n𝑖\n𝑖\n𝒘,𝑏 𝝀 𝒘,𝑏\n1\n𝑓 𝒘,𝑏 = 𝒘𝑇𝒘,\nℒ 𝒘, 𝑏, 𝝀 = 𝑓 𝒘, 𝑏 − ෍𝜆 𝑔 𝒘,𝑏 2\n𝑖 𝑖\n𝑔 𝒘,𝑏 = 𝑦 𝒘𝑇𝒙 + 𝑏 − 1\n𝑖 𝑖 𝑖 𝑖\n𝑓 𝒘, 𝑏 ≥ ℒ 𝒘, 𝑏, 𝝀 𝒘∗ = ෍𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖\n𝑖\n𝑙 𝝀 = minℒ 𝒘, 𝑏, 𝝀 , 𝑠. 𝑡. 𝜆 ≥ 0 ෍𝜆 𝑦 = 0\n𝑖 𝑖 𝑖\n𝒘,𝑏\n𝑖\n𝑝∗ = min𝑓 𝒘, 𝑏 , 𝑠. 𝑡. 𝑔 𝒘, 𝑏 ≥ 0\n𝑖\n𝒘,𝑏\n𝑝∗ ≥ 𝑙 𝝀\n𝑝∗ = max 𝑙 𝝀\n𝝀\n18\n\nPrimal Dual\nmin𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≥ 0 max min𝑓 𝒙 − ෍ 𝜆 𝑔 𝒙 , s.t. 𝜆 ≥ 0\n𝑖 𝑖 𝑖 𝑖\n𝒙 𝝀 𝒙\n𝑖\nmin𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≤ 0\n𝑖\n𝒙\nmax 𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≥ 0\n𝑖\n𝒙\nmax 𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≤ 0\n𝑖\n𝒙\n19\n\nPrimal Dual\nmin𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≥ 0 max min𝑓 𝒙 − ෍ 𝜆 𝑔 𝒙 , s.t. 𝜆 ≥ 0\n𝑖 𝑖 𝑖 𝑖\n𝒙 𝝀 𝒙\n𝑖\nmin𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≤ 0 max min𝑓 𝒙 + ෍ 𝜆 𝑔 𝒙 , s.t. 𝜆 ≥ 0\n𝑖 𝑖 𝑖 𝑖\n𝒙 𝝀 𝒙\n𝑖\nmax 𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≥ 0 m𝑖𝑛 m𝑎𝑥𝑓 𝒙 + ෍ 𝜆 𝑔 𝒙 ,s.t. 𝜆 ≥ 0\n𝑖 𝑖 𝑖 𝑖\n𝒙 𝝀 𝒙\n𝑖\nmax 𝑓 𝒙 , 𝑠. 𝑡. 𝑔 𝒙 ≤ 0 m𝑖𝑛 m𝑎𝑥𝑓 𝑥 − ෍ 𝜆 𝑔 𝒙 ,s.t. 𝜆 ≥ 0\n𝑖 𝑖 𝑖 𝑖\n𝒙 𝝀 𝒙\n𝑖\n20"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 21,
+      "title": "Hard-Margin SVM: Decision Boundary",
+      "content": "𝒘∗ = ෍𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖\n𝑖\nwTx + b = 0\n෍𝜆 𝑦 = 0\n𝑖 𝑖\n𝑖\n𝒘∗𝑇𝒙 + 𝑏∗ = ෍𝜆 𝑦 𝒙 𝑇 𝒙 + 𝑏∗ = 0\n𝑖 𝑖 𝑖\n𝑖\nfor any support vector 𝒙 (𝜆 > 0),\n𝑠 𝑖\n𝑦 𝒘∗𝑇𝒙 + 𝑏∗ = 1\n𝑠 𝑠\nw 𝑦2 𝒘∗𝑇𝒙 + 𝑏∗ = 𝑦\n𝑠 𝑠 𝑠\n𝑏∗ = 𝑦 − ෍𝜆 𝑦 𝒙 𝑇 𝒙\n𝑠 𝑖 𝑖 𝑖 𝑠\n𝑖\n21"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 22,
+      "title": "Quick Question",
+      "content": "For SVM with the following objective function:\n1 1\n𝑇\n𝑇 max − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\nmin 𝒘 𝒘 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n2\n𝝀\n2 or\n𝒘,𝑏\n𝑖,𝑗 𝑖\ns.t. 𝑦 (𝒘𝑇𝒙 + 𝑏) ≥ 1, ∀𝑖 s.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nWhich of the following statements correctly describe support vectors?\nA. Data points that lie exactly on the margin boundaries.\nB. Data points that have 𝜆 > 0.\n𝑖\nC. Data points that determine the decision boundary\nD. Data points inside the margin\nE. Data points that are misclassified\n22"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 23,
+      "title": "SVM: linearly non-separable data",
+      "content": "▪ What if the data is not linearly separable?\nTrick 1: Allow a few points to violate the margin (Soft-margin SVM)\nTrick 2: Map data to a higher dimensional space using a kernel function, do\nlinear classification there (Kernel SVM)\n23"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 24,
+      "title": "Support Vector Machine (SVM)",
+      "content": "[Soft Margin]\n24"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 25,
+      "title": "Trick 1: Soft-margin SVM---Slack Variable",
+      "content": "▪ Relax hard-margin constraints by introducing slack variables 𝜀\n𝑖\n𝑇\n𝑦 𝒘 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖\nMeasures how much a\n𝑖 𝑖 𝑖 𝑖\ndata point violates the\nmargin\nA\n𝑖𝑓𝜀 = 0: 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1\n𝑖 𝑖 𝑖\n𝜀\n𝑖\nE Correctly classified, on or outside the margin\nB C\nJ\nI\n𝜀 𝑖𝑓 0 < 𝜀 ≤ 1: 0 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1\n𝑖 𝑖 𝑖\n𝑖\nH\nCorrectly classified, inside the margin\nD\nK\nG 𝑖𝑓 𝜀 > 1: 𝑦 𝒘𝑇𝒙 + 𝑏 < 0\n𝑖 𝑖 𝑖\nF\nMisclassified, wrong side\n𝜺 is not the distance to the corresponding margin boundary!\n𝒊\n25\n\n▪ Slack variables 𝜀 are not the distances to the corresponding margin\n𝑖\nboundary!\n𝑖𝑓𝑦 = −1 blue : 𝑖𝑓𝑦 = 1 red :\n𝑖 𝑖\nD=0 If the data points do\nnot violate the margin wTx’ + b = -1 wTx’ + b = 1\n𝒙 − 𝒙′ 𝒘 𝒙 − 𝒙′ −𝒘\n𝑖 𝑖\n= =\n𝐷 𝒘 𝐷 𝒘\n𝑏𝑙𝑢𝑒 𝑟𝑒𝑑\n𝐷\n𝑟𝑒𝑑\nwTx’ + b = 𝑦\n𝑖\n𝒙 − 𝒙′ −𝑦 𝒘 𝐷𝑦 𝒘\n𝑖 𝑖 𝑖\n= → 𝒙′ = 𝒙 +\n𝐷 𝑖\n𝐷 𝒘 𝒘\n𝑏𝑙𝑢𝑒\n𝐷𝑦 𝒘\n𝒘𝑇 𝒙 + 𝑖 + 𝑏 = 𝑦\n𝑖 𝑖\n𝒘\n𝑦 − 𝒘𝑇𝒙 − 𝑏\n𝑖 𝑖\n𝐷 =\n𝑦 𝒘\n𝑖\n26\n\n▪ Slack variables 𝜀 are not the distances to the corresponding margin\n𝑖\nboundary!\n𝑇\n𝑦 − 𝒘 𝒙 − 𝑏\n𝐷 = 𝑖 𝑖 𝑖𝑓𝐷 = 0: 𝒘𝑇𝒙 + 𝑏 = 𝑦 , or 𝑦 𝒘𝑇𝒙 + 𝑏 > 1\n𝑖 𝑖 𝑖 𝑖\n𝑦 𝒘\n𝑖\nCorrectly classified, on or outside the margin\n𝑦 − 𝒘𝑇𝒙 − 𝑏\n𝑖 𝑖\n𝑖𝑓 0 < 𝐷 ≤ 1: 0 < ≤ 1\n𝑦 𝒘\n𝐷 𝑖\n𝑟𝑒𝑑\n𝑖𝑓𝑦 = −1: −1 < 𝒘𝑇𝒙 + 𝑏 ≤ 𝒘 − 1\n𝑖 𝑖\n𝑖𝑓𝑦 = 1 ∶ 1 − 𝒘 ≤ 𝒘𝑇𝒙 + 𝑏 < 1\n𝑖 𝑖\n𝐷\n𝑏𝑙𝑢𝑒\n1 − 𝒘 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1\n𝑖 𝑖\nCorrectly classified inside the margin or\nmisclassified\n𝑖𝑓𝐷 > 1: 𝑦 𝒘𝑇𝒙 + 𝑏 < 1 − 𝒘\n𝑖 𝑖\nCorrectly classified inside the margin or\n27\nmisclassified\n\n▪ Slack variables 𝜀 are not the distances are not the distances to the\n𝑖\ncorresponding margin boundary!\n𝑇\n𝑦 − 𝒘 𝒙 − 𝑏\n𝜀 𝑖 𝑖\n𝐷 =\n𝑖\n𝑦 𝒘\n𝑖\n𝑖𝑓𝜀 = 0: 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1 𝑖𝑓𝐷 = 0: 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1\n𝑖 𝑖 𝑖 𝑖 𝑖\nCorrectly classified, on or outside the margin\nCorrectly classified, on or outside the\nmargin\n𝑖𝑓 0 < 𝜀 ≤ 1: 0 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1 𝑖𝑓 0 < 𝐷 ≤ 1: 1 − 𝒘 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1\n𝑖 𝑖 𝑖 𝑖 𝑖\nCorrectly classified, inside the margin Inside the margin or misclassified\n𝑖𝑓 𝜀 𝑖 > 1: 𝑦 𝑖 𝒘𝑇𝒙 𝑖 + 𝑏 < 0 𝑖𝑓𝐷 > 1: 𝑦 𝒘𝑇𝒙 + 𝑏 < 1 − 𝒘\n𝑖 𝑖\nMisclassified, wrong side\nInside the margin or misclassified\nWhat is the relationship\nbetween 𝜀 and 𝐷?\n𝑖\n28\n\n▪ Slack variables 𝜀 are not the distances!\n𝑖\n𝑇\n𝑦 − 𝒘 𝒙 − 𝑏\n𝜀 𝑖 𝑖\n𝐷 =\n𝑖\n𝑦 𝒘\n𝑖\n𝑖𝑓𝜀 = 0: 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1 𝑖𝑓𝐷 = 0: 𝑦 𝒘𝑇𝒙 + 𝑏 ≥ 1\n𝑖 𝑖 𝑖 𝑖 𝑖\nCorrectly classified, on or outside the margin\nCorrectly classified, on or outside the\nmargin\n𝑖𝑓 0 < 𝜀 ≤ 1: 0 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1 𝑖𝑓 0 < 𝐷 ≤ 1: 1 − 𝒘 ≤ 𝑦 𝒘𝑇𝒙 + 𝑏 < 1\n𝑖 𝑖 𝑖 𝑖 𝑖\nCorrectly classified, inside the margin Inside the margin or misclassified\n𝑖𝑓 𝜀 𝑖 > 1: 𝑦 𝑖 𝒘𝑇𝒙 𝑖 + 𝑏 < 0 𝑖𝑓𝐷 > 1: 𝑦 𝒘𝑇𝒙 + 𝑏 < 1 − 𝒘\n𝑖 𝑖\nMisclassified, wrong side\nInside the margin or misclassified\n𝜀 = 𝐷, 𝑤ℎ𝑒𝑛 𝒘 = 1\n𝑖\n29"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 30,
+      "title": "Trick 1: Soft-margin SVM Primal",
+      "content": "1\n𝑇\nmin 𝒘 𝒘 + 𝐶 ෍ 𝜀 d+1+N variables\n𝑖\nSoft-margin Primal 𝒘,𝑏,𝜺 2\n𝑖\n2N constraints\n𝑇\ns.t. 𝑦 𝒘 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖\n1\n𝑇\nmin 𝒘 𝒘\nd+1 variables\nHard-margin Primal 2\n𝒘,𝑏\nN constraints\n𝑇\ns. t. 𝑦 (𝒘 𝒙 + 𝑏) ≥ 1, ∀𝑖\n𝑖 𝑖\nC 𝜀 Tolerance for misclassification Margin\n𝑖\nLarger\nSmaller\n30\n\n1\n𝑇\nmin 𝒘 𝒘 + 𝐶 ෍ 𝜀 d+1+N variables\n𝑖\nSoft-margin Primal 𝒘,𝑏,𝜺 2\n𝑖\n2N constraints\n𝑇\ns.t. 𝑦 𝒘 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖\n1\n𝑇\nmin 𝒘 𝒘\nd+1 variables\nHard-margin Primal 2\n𝒘,𝑏\nN constraints\n𝑇\ns. t. 𝑦 (𝒘 𝒙 + 𝑏) ≥ 1, ∀𝑖\n𝑖 𝑖\nC 𝜀 Tolerance for misclassification Margin\n𝑖\nLarger Smaller Less Smaller\nSmaller Larger More Larger\n31\n\nDifferent values of C\nC=1000 C=10 C=0.1\nThe data points circled are the points lying within the margin region including the margin\nboundaries\n32"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 33,
+      "title": "Trick 1: Soft-margin SVM Primal->Dual",
+      "content": "1\n𝑇\nmin 𝒘 𝒘 + 𝐶 ෍ 𝜀\n𝑖\n2\nSoft-margin Primal 𝒘,𝑏,𝜺\n𝑖\n𝑇\ns.t. 𝑦 𝒘 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖\n▪ Inequality Constraints:\nKarush-Kuhn-Tucker (KKT) conditions\n1) Define the Lagrangian function:\nℒ 𝒘, 𝑏, 𝜺, 𝝀, 𝝁 = 𝑓 𝒘, 𝑏, 𝜺 − ෍ 𝜆 𝑔 𝒘, 𝑏, 𝜺 + 𝜇 ℎ 𝒘, 𝑏, 𝜺 , where 𝜆 , 𝜇 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n1\n𝑓 𝒘, 𝑏, 𝜺 = 𝒘𝑇𝒘 + 𝐶 σ 𝜀 ,\n𝑖 𝑖\n2\n𝑔 𝒘,𝑏, 𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 ≥ 0,\n𝑖 𝑖 𝑖 𝑖\nℎ 𝒘, 𝑏, 𝜺 = 𝜀 ≥ 0\n𝑖 𝑖\n33\n\n▪ Inequality Constraints:\nKarush-Kuhn-Tucker (KKT) conditions\n1) Define the Lagrangian function:\nℒ 𝒘, 𝑏, 𝜺, 𝝀, 𝝁 = 𝑓 𝒘, 𝑏, 𝜺 − ෍ 𝜆 𝑔 𝒘, 𝑏, 𝜺 + 𝜇 ℎ 𝒘, 𝑏, 𝜺 , where 𝜆 , 𝜇 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n𝑓 𝒘,𝑏,𝜺 = 1 𝒘𝑇𝒘 + 𝐶 σ 𝜀 , 𝑔 𝒘,𝑏,𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 ≥ 0, ℎ 𝒘,𝑏,𝜺 = 𝜀 ≥ 0\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n2\n2) KKT conditions for optimality:\n✓ Stationarity:\n𝜕ℒ\n= 𝟎 𝒘 − ෍ 𝜆 𝑦 𝒙 = 𝟎 𝒘 = ෍ 𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝜕𝒘\n𝑖 𝑖\n𝜕ℒ\n= 0 ෍ 𝜆 𝑦 = 0\n𝑖 𝑖\n𝜕𝑏\n𝑖\n𝜕ℒ\n= 0 𝐶 − 𝜆 − 𝜇 = 0 𝐶 = 𝜆 + 𝜇\n𝑖 𝑖 𝑖 𝑖\n𝜕𝜀\n𝑖\n(𝜆 , 𝜇 ≤ 𝐶) 34\n𝑖 𝑖\n\n▪ Inequality Constraints:\nKarush-Kuhn-Tucker (KKT) conditions\n1) Define the Lagrangian function:\nℒ 𝒘, 𝑏, 𝜺, 𝝀, 𝝁 = 𝑓 𝒘, 𝑏, 𝜺 − ෍ 𝜆 𝑔 𝒘, 𝑏, 𝜺 + 𝜇 ℎ 𝒘, 𝑏, 𝜺 , where 𝜆 , 𝜇 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n𝑓 𝒘,𝑏,𝜺 = 1 𝒘𝑇𝒘 + 𝐶 σ 𝜀 , 𝑔 𝒘,𝑏,𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 ≥ 0, ℎ 𝒘,𝑏,𝜺 = 𝜀 ≥ 0\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n2\n2) KKT conditions for optimality:\n✓ Stationarity: 𝒘∗ = σ 𝜆 𝑦 𝒙 , σ 𝜆 𝑦 = 0, 𝐶 = 𝜆 + 𝜇 (𝜆 , 𝜇 ≤ 𝐶)\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n✓ Primal Feasibility: 𝑔 𝒘,𝑏, 𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 ≥ 0, ℎ 𝒘, 𝑏, 𝜺 = 𝜀 ≥ 0\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n✓ Dual Feasibility: 𝜆 , 𝜇 ≥ 0, ∀𝑖\n𝑖 𝑖\n✓ Complementary Slackness: 𝜆 𝑔 𝒘,𝑏, 𝜺 = 0, 𝜇 ℎ 𝒘,𝑏, 𝜺 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖\nIf 𝑔 𝒘,𝑏, 𝜺 > 0 (inactive), 𝜆 = 0 If ℎ 𝒘, 𝑏, 𝜺 > 0 (inactive), 𝜇 = 0\nHow to 𝑖 𝑖 𝑖 𝑖\ninterpret? If 𝑔 𝒘,𝑏, 𝜺 = 0 (active), 𝜆 > 0 If ℎ 𝒘, 𝑏, 𝜺 = 0 (active), 𝜇 > 0\n𝑖 𝑖 𝑖 𝑖\n35\n\n▪ Interpretation of Complementary Slackness\n𝐶 = 𝜆 + 𝜇\n𝜆 𝑔 𝒘,𝑏, 𝜺 = 0, 𝜇 ℎ 𝒘, 𝑏, 𝜺 = 0, ∀𝑖\n𝑖 𝑖\n𝑖 𝑖 𝑖 𝑖\nIf 𝑔 𝒘,𝑏, 𝜺 > 0 (inactive), 𝜆 = 0 If ℎ 𝒘, 𝑏, 𝜺 > 0 (inactive), 𝜇 = 0\n𝑖 𝑖 𝑖 𝑖\nIf 𝑔 𝒘,𝑏, 𝜺 = 0 (active), 𝜆 > 0 If ℎ 𝒘, 𝑏, 𝜺 = 0 (active), 𝜇 > 0\n𝑖 𝑖 𝑖 𝑖\n(a) When 𝜆 = 0, 𝜇 = 𝐶 > 0 (b) When 𝜆 > 0,\n𝑖 𝑖 𝑖\n𝑔 𝒘, 𝑏, 𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 > 0 𝑦 𝒘𝑇𝒙 + 𝑏 = 1 − 𝜀\n𝑖 𝑖 𝑖\n𝑖 𝑖 𝑖 𝑖\nℎ 𝒘, 𝑏, 𝜺 = 𝜀 = 0 Case 1: 𝜀 = 0, 𝜇 > 0\n𝑖 𝑖 𝑖 𝑖\nOn the margin boundaries\n𝑦 𝒘𝑇𝒙 + 𝑏 > 1\n𝑖 𝑖\nCase 2: 0 < 𝜀 ≤ 1, 𝜇 = 0\n𝑖 𝑖\nCorrectly classified and outside the margin\nCorrectly classified, inside\nthe margin\nCase 3: 𝜀 > 1, 𝜇 = 0\n𝑖 𝑖\nMisclassified\n36\n\nmin ℒ 𝒘, 𝑏, 𝜺, 𝝀,𝝁 = min 𝑓 𝒘, 𝑏, 𝜺 − ෍ 𝜆 𝑔 𝒘,𝑏, 𝜺 + 𝜇 ℎ 𝒘, 𝑏, 𝜺 , where 𝜆 , 𝜇 ≥ 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝒘,𝑏,𝜺 𝒘,𝑏,𝜺\n𝑖\n1\n= min 𝒘𝑇𝒘 + 𝐶 ෍ 𝜀 − ෍𝜆 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 + 𝜇 𝜀\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝒘,𝑏,𝜺2\n𝑖\n𝑖\n1\n= min 𝒘𝑇𝒘 + 𝐶 ෍ 𝜀 − ෍ 𝜆 𝑦 𝒘𝑇𝒙 − ෍ 𝜆 𝑦 𝑏 − ෍ 𝜆 𝜀 + ෍ 𝜆 − ෍ 𝜇 𝜀\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝒘,𝑏,𝜺2\n𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖\n1 1\n= 𝒘∗𝑇𝒘∗ − 𝒘∗𝑇𝒘∗ + ෍ 𝜆 𝑓 𝒘,𝑏,𝜺 = 𝒘𝑇𝒘 + 𝐶 σ 𝑖 𝜀 𝑖 ,\n𝑖 2\n2\n𝑖 𝑔 𝒘,𝑏,𝜺 = 𝑦 𝒘𝑇𝒙 + 𝑏 + 𝜀 − 1 ≥ 0,\n𝑖 𝑖 𝑖 𝑖\n1\n= − ෍ 𝜆 𝑦 𝒙 𝑇 ෍ 𝜆 𝑦 𝒙 + ෍ 𝜆 ℎ 𝒘,𝑏,𝜺 = 𝜀 ≥ 0\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n2\n𝑖 𝑖 𝑖\n𝒘∗ = ෍𝜆 𝑦 𝒙\n1 𝑖 𝑖 𝑖\n𝑇\n= − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖 𝑖\n2\n𝑖,𝑗 𝑖\n෍𝜆 𝑦 = 0\n𝑖 𝑖\n𝑖\n1\n𝑇\nSoft-margin max − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆 𝐶 = 𝜆 + 𝜇\n𝝀 2 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖 𝑖 𝑖\nDual\n𝑖,𝑗 𝑖\ns.t. 0 ≤ 𝜆 ≤ 𝐶, σ 𝜆 𝑦 = 0, ∀𝑖 37\n𝑖 𝑖 𝑖 𝑖"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 38,
+      "title": "Soft-margin SVM: Decision Boundary",
+      "content": "𝒘∗ = ෍𝜆 𝑦 𝒙\n𝑖 𝑖 𝑖\nwTx + b = 0 𝑖\n෍𝜆 𝑦 = 0\n𝑖 𝑖\n𝑖\n𝜀\n𝑖\n𝒘∗𝑇𝒙 + 𝑏∗ = ෍𝜆 𝑦 𝒙 𝑇 𝒙 + 𝑏∗ = 0\n𝑖 𝑖 𝑖\n𝑖\n𝜀\nfor any support vector 𝒙 (𝜆 > 0),\n𝑖 𝑠 𝑖\n𝑦 𝒘∗𝑇𝒙 + 𝑏∗ = 1 − 𝜀\n𝑠 𝑠 𝑠\nw 𝑦2 𝒘∗𝑇𝒙 + 𝑏∗ = 𝑦 (1 − 𝜀 )\n𝑠 𝑠 𝑠 𝑠\n𝑏∗ = 𝑦 (1 − 𝜀 ) − ෍ 𝜆 𝑦 𝒙 𝑇 𝒙\n𝑠 𝑠 𝑖 𝑖 𝑖 𝑠\n𝑖\n38"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 39,
+      "title": "Quick Question",
+      "content": "For Soft-margin SVM with the following objective function:\n1 1\nmin 𝒘 𝑇 𝒘 + 𝐶 ෍ 𝜀 max − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝑇 𝒙 + ෍ 𝜆\n𝑖 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n𝒘,𝑏,𝜺 2 𝑖 or 𝝀 2\n𝑖,𝑗 𝑖\ns.t. 𝑦 𝒘 𝑇 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖 s.t. 0 ≤ 𝜆 ≤ 𝐶, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nWhich of the following data points are considered support vectors?\nA. Data points that lie exactly on the margin boundaries.\nB. Data points that have 𝜆 > 0.\n𝑖\nC. Data points that determine the decision boundary\nD. Data points inside the margin\nE. Data points that are misclassified\nF. Data points that have 𝜀 ≥ 0\n𝑖\n39"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 40,
+      "title": "Soft-margin VS Hard-margin SVMs",
+      "content": "Hard-margin Primal: Hard-margin Dual:\n1\n1\n𝑇\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝒙 + ෍ 𝜆\n𝑇\nmin 𝒘 𝒘 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n2\n𝝀\n𝒘,𝑏 2\n𝑖,𝑗 𝑖\n𝑇\ns. t. 𝑦 (𝒘 𝒙 + 𝑏) ≥ 1, ∀𝑖 s.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nOptimize over d+1 variables Optimize over N variables\nN constraints N+1 constraints\nSoft-margin Primal: Soft-margin Dual:\n1 1\nmin 𝒘 𝑇 𝒘 + 𝐶 ෍ 𝜀 max − ෍ 𝜆 𝜆 𝑦 𝑦 𝒙 𝑇 𝒙 + ෍ 𝜆\n𝑖 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n𝒘,𝑏,𝜺 2 𝝀 2\n𝑖\n𝑖,𝑗 𝑖\ns.t. 𝑦 𝒘 𝑇 𝒙 + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖 s.t. 0 ≤ 𝜆 ≤ 𝐶, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nOptimize over d+1+N variables Optimize over N variables\n2N constraints (2)N+1 constraints\n40"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 41,
+      "title": "Kernel SVM",
+      "content": "41"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 42,
+      "title": "Trick 2: Kernel SVM",
+      "content": "• Here’s a linearly non-separable dataset in 1-D space\nx\n0\n• We can map data x from 1-D to 2-D by x → (x, x 2 )\n❖ Now the data is linearly\nx2\nseparable in the new space\n❖ We can run SVM in the new\nspace\nx\n❖ The linear decision boundary in\nthe new space corresponds to a\nnon-linear decision boundary in\nthe old space\n42\n\nAnother Example\n(x , x )  (x , x , 𝑥 2 + 𝑥 2 )\n1 2 1 2 1 2\n43\n\n𝑇\n• General idea: map the original feature space 𝒙 = (𝑥 , … , 𝑥 ) to\n1 𝑑\nsome higher-dimensional feature space 𝜱(𝒙) where the data is\nseparable\nDecision Boundary:\n𝒘𝑇𝜱 𝒙 + 𝑏 = 0\nx2\nPlus Plane:\n𝒘𝑇𝜱 𝒙 + 𝑏 = 1\nMinus Plane:\nx 𝒘𝑇𝜱 𝒙 + 𝑏 = −1\n44\n\n▪ Optimization Formulation after mapping\nHard-margin Primal: Hard-margin Dual:\n1\n1\n𝑇\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝜱(𝒙 ) 𝜱(𝒙 ) + ෍ 𝜆\n𝑇\nmin 𝒘 𝒘 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n2\n𝝀\n𝒘,𝑏 2\n𝑖,𝑗 𝑖\n𝑇\ns. t. 𝑦 (𝒘 𝜱(𝒙 ) + 𝑏) ≥ 1, ∀𝑖 s.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nSoft-margin Primal: Soft-margin Dual:\n1\n1\n𝑇\nmin 𝒘 𝒘 + 𝐶 ෍ 𝜀 𝑇\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝜱(𝒙 ) 𝜱(𝒙 ) + ෍ 𝜆\n𝑖\n𝒘,𝑏,𝜺 2 2 𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n𝑖 𝝀\n𝑖,𝑗 𝑖\n𝑇\ns.t. 𝑦 𝒘 𝜱(𝒙 ) + 𝑏 ≥ 1 − 𝜀 , 𝜀 ≥ 0, ∀𝑖 s.t. 0 ≤ 𝜆 ≤ 𝐶, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n45\n\n▪ Optimal decision boundary after mapping\nHard-margin SVM:\n𝒘∗ = ෍𝜆 𝑦 𝜱(𝒙 )\n𝑖 𝑖 𝑖\n𝒘∗𝑇𝜱 𝒙 + 𝑏∗ = ෍ 𝜆 𝑦 𝜱(𝒙 )𝑇 𝜱 𝒙 + 𝑏∗ = 0 𝑖\n𝑖 𝑖 𝑖\n𝑖 ෍𝜆 𝑦 = 0\n𝑖 𝑖\nwhere 𝑏∗ = 𝑦 − σ 𝜆 𝑦 𝜱(𝒙 )𝑇 𝜱 𝒙 𝑖\n𝑠 𝑖 𝑖 𝑖 𝑖 𝑠\nfor any support vector 𝒙 (𝜆 > 0)\n𝑠 𝑖\nSoft-margin SVM:\n𝒘∗𝑇𝜱 𝒙 + 𝑏∗ = ෍ 𝜆 𝑦 𝜱(𝒙 )𝑇 𝜱 𝒙 + 𝑏∗ = 0\n𝑖 𝑖 𝑖\n𝑖\nwhere 𝑏∗ = 𝑦 (1 − 𝜀 ) − σ 𝜆 𝑦 𝜱(𝒙 )𝑇 𝜱 𝒙\n𝑠 𝑠 𝑖 𝑖 𝑖 𝑖 𝑠\nfor any support vector 𝒙 (𝜆 > 0)\n𝑠 𝑖\n46\n\n𝑇\n• The solution relies on the inner product 𝜱(𝒙 ) 𝜱(𝒙 )\n𝑖 𝑗\n𝑇\n• A kernel function K: 𝐾 𝒙 , 𝒙 = 𝜱(𝒙 ) 𝜱(𝒙 )\n𝑖 𝑗 𝑖 𝑗\nHard-margin Dual:\n1 𝒘∗𝑇𝜱 𝒙 + 𝑏∗ = ෍ 𝜆 𝑦 𝐾 𝒙 , 𝒙 + 𝑏∗ = 0\n𝑖 𝑖 𝑖\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝐾 𝒙 , 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n2 𝑖\n𝝀\n𝑖,𝑗 𝑖 where 𝑏∗ = 𝑦 − σ 𝜆 𝑦 𝐾 𝒙 , 𝒙\n𝑠 𝑖 𝑖 𝑖 𝑖 𝑠\ns.t. 𝜆 ≥ 0, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 for any support vector 𝒙 (𝜆 > 0)\n𝑠 𝑖\nSoft-margin Dual:\n1 𝒘∗𝑇𝜱 𝒙 + 𝑏∗ = ෍ 𝜆 𝑦 𝐾 𝒙 , 𝒙 + 𝑏∗ = 0\n𝑖 𝑖 𝑖\nmax − ෍ 𝜆 𝜆 𝑦 𝑦 𝐾 𝒙 , 𝒙 + ෍ 𝜆\n𝑖 𝑗 𝑖 𝑗 𝑖 𝑗 𝑖\n𝝀 2 𝑖\n𝑖,𝑗 𝑖 where 𝑏∗ = 𝑦 (1 − 𝜀 ) − σ 𝜆 𝑦 𝐾 𝒙 ,𝒙\n𝑠 𝑠 𝑖 𝑖 𝑖 𝑖 𝑠\ns.t. 0 ≤ 𝜆 ≤ 𝐶, σ 𝜆 𝑦 = 0, ∀𝑖\n𝑖 𝑖 𝑖 𝑖 for any support vector 𝒙 (𝜆 > 0)\n𝑠 𝑖\n47"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 48,
+      "title": "Examples of Kernel Functions",
+      "content": "• Linear: K(x ,x ) = x Tx\ni j i j\nMapping Φ: x → φ(x), where φ(x) is x itself\n• Polynomial of power p: K(x ,x ) = (1+ x Tx )p\ni j i j\n𝑑 + 𝑝\n𝑑+𝑝 !\nMapping Φ: x → φ(x), where φ(x) has =\n𝑝\n𝑝!∙𝑑!\ndimensions\n2\n𝒙 −𝒙\n𝑖 𝑗\n• Gaussian (radial-basis function): K(x ,x ) = exp( )\ni j 2𝜎2\nMapping Φ: x → φ(x), where φ(x) is infinite-dimensional:\nevery point is mapped to a function (a Gaussian)\nRight Kernel for SVM?\n48"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 49,
+      "title": "Right Kernel for SVM",
+      "content": "• Linear: K(x ,x ) = x Tx\ni j i j\nWhen to Use? ✓ The data is linearly separable\n• Polynomial : K(x ,x ) = (1+ x Tx )p\n(need to choose the right p)\ni j i j\nWhen to Use? ✓ Nonlinear and polynomial-like decision boundary\n✓ Capture feature interactions\n✓ Low-dimensional data\n2\n𝒙 −𝒙\n𝑖 𝑗\n• Gaussian (RBF) : K(x ,x ) = exp( )\ni j 2𝜎2\nWhen to Use? ✓ Highly complex and nonlinear decision boundary\n✓ Unknown underlying feature transformations\n✓ Moderate-sized dataset\n49\n\nWhich Kernel to Use?\n50"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 51,
+      "title": "What Functions Can be Kernels?",
+      "content": "• Can we always find out a K (kernel) for a given  ?\n• Given a K, can we always find out a  such that\n𝑇\n𝐾 𝒙 , 𝒙 = 𝜱(𝒙 ) 𝜱(𝒙 )?\n𝑖 𝑗 𝑖 𝑗\n51\n\n• Mercer’s Theorem\nFor 𝐾 𝒙 , 𝒙 to be a valid kernel, it must satisfy:\n𝑖 𝑗\ni. Symmetry: 𝐾 𝒙 , 𝒙 = 𝐾 𝒙 , 𝒙\n𝑖 𝑗 𝑗 𝑖\n𝑇\nii. The kernel matrix G: 𝒗 𝑮𝒗 ≥ 0, for any non-zero vector v\n(Positive Semi-Definiteness)\n𝐾(𝒙 , 𝒙 ) ⋯ 𝐾(𝒙 , 𝒙 )\n1 1 1 𝑁\n𝑮 = ⋮ ⋱ ⋮\n𝐾(𝒙 , 𝒙 ) ⋯ 𝐾(𝒙 , 𝒙 )\n𝑁 1 𝑁 𝑁\n52\n\n• Mercer’s Theorem\nFor 𝐾 𝒙 , 𝒙 to be a valid kernel, it must satisfy:\n𝑖 𝑗\ni. Symmetry: 𝐾 𝒙 , 𝒙 = 𝐾 𝒙 , 𝒙 𝜱(𝒙 )𝑇𝜱 𝒙 = 𝜱(𝒙 )𝑇𝜱 𝒙\n𝑖 𝑗 𝑗 𝑖 𝑖 𝑗 𝑗 𝑖\n𝑇\nii. The kernel matrix G: 𝒗 𝑮𝒗 ≥ 0, for any non-zero vector v\n(Positive Semi-Definiteness)\n𝐾(𝒙 , 𝒙 ) ⋯ 𝐾(𝒙 , 𝒙 )\n1 1 1 𝑁\n𝑮 = ⋮ ⋱ ⋮\n𝐾(𝒙 , 𝒙 ) ⋯ 𝐾(𝒙 , 𝒙 )\n𝑁 1 𝑁 𝑁\n𝐾(𝒙 , 𝒙 ) ⋯ 𝐾(𝒙 ,𝒙 ) 𝑣\n1 1 1 𝑁 1\n𝒗𝑇𝑮𝒗 = 𝑣 ⋯ 𝑣 ⋮ ⋱ ⋮ ⋮\n1 𝑁\n𝐾(𝒙 ,𝒙 ) ⋯ 𝐾(𝒙 , 𝒙 ) 𝑣\n𝑁 1 𝑁 𝑁 𝑁\n𝑁 𝑁 𝑣 𝑁 𝑁\n1\n= ෍𝑣 𝐾(𝒙 , 𝒙 ) ⋯ ෍𝑣 𝐾(𝒙 , 𝒙 ) ⋮ = ෍෍𝑣 𝐾 𝒙 , 𝒙 𝑣\n𝑖 𝑖 1 𝑖 𝑖 𝑁 𝑖 𝑖 𝑗 𝑗\n𝑣\n𝑖=1 𝑖=1 𝑁 𝑗=1 𝑖=1\n53\n\n𝑁 𝑁\n𝒗𝑇𝑮𝒗 = ෍෍ 𝑣 𝐾 𝒙 , 𝒙 𝑣\n𝑖 𝑖 𝑗 𝑗\n𝑗=1 𝑖=1\n𝑇\nIf K is a valid kernel, 𝐾 𝒙 , 𝒙 = 𝜱(𝒙 ) 𝜱(𝒙 )\n𝑖 𝑗 𝑖 𝑗\n𝑁 𝑁 𝑁 𝑁\n𝒗𝑇𝑮𝒗 = ෍෍𝑣 𝐾 𝒙 ,𝒙 𝑣 = ෍෍𝑣 𝜱(𝒙 )𝑇𝜱(𝒙 )𝑣\n𝑖 𝑖 𝑗 𝑗 𝑖 𝑖 𝑗 𝑗\n𝑗=1 𝑖=1 𝑗=1 𝑖=1\nBecause of the Linearity of the inner product:\n(𝑎𝜱(𝒙 ))𝑇𝜱 𝒙 = 𝑎𝜱(𝒙 )𝑇𝜱 𝒙\n𝑖 𝑗 𝑖 𝑗\n(𝜱(𝒙 ) + 𝜱(𝒙 ))𝑇𝜱 𝒙 = 𝜱(𝒙 )𝑇𝜱 𝒙 + 𝜱(𝒙 )𝑇𝜱 𝒙\n𝑖 𝑘 𝑗 𝑖 𝑗 𝑘 𝑗\n𝑁 𝑁 𝑁 𝑁 𝑁 𝑁\n𝒗𝑇𝑮𝒗 = ෍෍𝑣 𝜱(𝒙 )𝑇𝜱(𝒙 )𝑣 = ෍(෍𝑣 𝜱(𝒙 ))𝑇𝜱(𝒙 )𝑣 = (෍𝑣 𝜱(𝒙 ))𝑇 (෍𝜱 𝒙 𝑣 )\n𝑖 𝑖 𝑗 𝑗 𝑖 𝑖 𝑗 𝑗 𝑖 𝑖 𝑗 𝑗\n𝑗=1 𝑖=1 𝑗=1 𝑖=1 𝑖=1 𝑗=1\nBecause of the Positive Semi-definiteness of the inner product: 𝜱(𝒙 )𝑇𝜱 𝒙 ≥ 0\n𝑖 𝑖\n𝑁 𝑁\n𝒗𝑇𝑮𝒗 = (෍ 𝑣 𝜱(𝒙 ))𝑇 (෍𝜱 𝒙 𝑣 ) ≥ 0\n𝑖 𝑖 𝑗 𝑗\n54\n𝑖=1 𝑗=1\n\n• Can we always find out a K (kernel) for a given  ?\nYes, such K always satisfies Mercer’s conditions\n• Given a K, can we always find out a  such that\n𝑇\n𝐾 𝒙 , 𝒙 = 𝜱(𝒙 ) 𝜱(𝒙 )?\n𝑖 𝑗 𝑖 𝑗\nNo, only for K that satisfies Mercer’s conditions\n55"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 56,
+      "title": "Multi-class SVM",
+      "content": "56"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 57,
+      "title": "SVM: more than two classes",
+      "content": "• N-class problem\n1. One-vs-All approach\nTraining: train a binary SVM classifier for each class\n▪ Classifier 1: Class 1 vs. the rest (class 2--N)\nB\nLabel: +1 Label: -1\n▪ Classifier 2: Class 2 vs. the rest (class 1, 3--N)\nA\nLabel: +1 Label: -1\nC\n▪ …\n▪ Classifier N: Class N vs. the rest (class 1--(N-1))\nLabel: +1 Label: -1\nPrediction: choose the class whose classifier outputs the\nlargest value\n57\n\n• N-class problem\n2. One-vs-One approach\nTraining: train a binary SVM classifier for each possible pair of\nclasses\n▪ Classifier (1, 2): Class 1 vs. Class 2\n▪ Classifier (1, 3): Class 1 vs. Class 3\nB\nC\nC\nA ▪ …\n▪ Classifier (N-1, N): Class N-1 vs. Class N\nPrediction: Majority voting among all the classifiers\n58"
+    },
+    {
+      "file": "WS-Week11-SVM_clean.pdf",
+      "page": 59,
+      "title": "More References",
+      "content": "• Christopher J. C. Burges\nA Tutorial on Support Vector Machines for Pattern\nRecognition (1998).\n• Kayleigh Calder, et al.\nQuadratic programming\nhttps://optimization.cbe.cornell.edu/index.php?title=Quadratic_progr\namming\n• S. Boyd and L. Vandenberghe\nConvex Optimization, Chapter 5 (2004)\n• John C. Platt\nSequential Minimal Optimization: A Fast Algorithm for\nTraining Support Vector Machines (1998)\n59"
+    }
+  ]
+}

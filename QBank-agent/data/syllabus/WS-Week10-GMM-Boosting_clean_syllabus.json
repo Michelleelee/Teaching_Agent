@@ -1,0 +1,114 @@
+{
+  "syllabus": [
+    {
+      "topic": "Course Context & Pattern Representation Learning Overview",
+      "page_range": [
+        1,
+        3
+      ],
+      "sub_points": [
+        "Positioning of the lecture within Pattern Recognition (EE5907) and representation learning",
+        "Learning goals and roadmap: unsupervised soft clustering vs. supervised ensemble learning",
+        "High-level motivation for probabilistic models and classifier combination methods"
+      ]
+    },
+    {
+      "topic": "Soft Clustering with Mixture Models and Gaussian Mixture Models (GMM)",
+      "page_range": [
+        4,
+        10
+      ],
+      "sub_points": [
+        "Soft clustering concept: probabilistic (fractional) assignment of points to clusters",
+        "Real-world motivation/use case: customer segmentation as clustering without labels",
+        "Mixture model formulation as weighted sums of component densities",
+        "GMM definition and interpretation (mixture weights, means, covariances)",
+        "Problem setup: fitting K Gaussians to unlabeled data (density estimation / clustering)"
+      ]
+    },
+    {
+      "topic": "GMM Maximum Likelihood and the EM Algorithm (Derivation & Updates)",
+      "page_range": [
+        11,
+        23
+      ],
+      "sub_points": [
+        "Log-likelihood formulation for GMM parameters and latent assignment variables",
+        "E-step: computing responsibilities (posterior membership probabilities)",
+        "M-step: re-estimating mixture weights, component means, and covariances via partial derivatives/closed-form updates",
+        "Initialization strategies and convergence behavior (illustrated through iterative parameter/weight updates)",
+        "Practical considerations: monotonic likelihood increase and stopping criteria"
+      ]
+    },
+    {
+      "topic": "Limitations and Practical Issues of GMM",
+      "page_range": [
+        24,
+        28
+      ],
+      "sub_points": [
+        "Model assumptions and failure modes (e.g., Gaussian shape constraints, sensitivity to covariance structure)",
+        "Sensitivity to initialization and local optima in EM",
+        "Choosing number of components K and risk of overfitting/underfitting",
+        "Potential numerical issues (e.g., singular covariances) and mitigation ideas"
+      ]
+    },
+    {
+      "topic": "Boosting (Supervised Learning) and Weak-to-Strong Classifier Construction",
+      "page_range": [
+        29,
+        40
+      ],
+      "sub_points": [
+        "Core idea of boosting: combining multiple weak learners to form a strong classifier",
+        "Sequential training process: iteratively focusing on previously misclassified samples",
+        "Weak learner family example (linear/threshold decision rules) and additive model view",
+        "Updating sample weights / reweighting errors and interpreting misclassification emphasis",
+        "Connection between boosting variants and choices of cost functions/optimization procedures"
+      ]
+    },
+    {
+      "topic": "AdaBoost Algorithm: Formulation and Training Details",
+      "page_range": [
+        41,
+        46
+      ],
+      "sub_points": [
+        "AdaBoost setup for binary classification with labels in {−1, +1}",
+        "Definition of weak learner outputs, weighted error, and learner coefficient (alpha)",
+        "Sample weight update rule and normalization across rounds",
+        "Final strong classifier as a weighted vote (sign of weighted sum)",
+        "Interpretation as minimizing an exponential loss / margin improvement"
+      ]
+    },
+    {
+      "topic": "Boosting for Object Detection: Haar Features, Integral Images, and Strong Classifiers",
+      "page_range": [
+        47,
+        59
+      ],
+      "sub_points": [
+        "Object detection pipeline using boosting: scanning windows/patches and classification",
+        "Haar-like filters for feature extraction and efficient computation via integral images",
+        "Transforming continuous features into thresholded weak classifiers (decision stumps)",
+        "Building a strong classifier by selecting and weighting discriminative features across rounds",
+        "Illustrative examples of feature selection and aggregation into a detector"
+      ]
+    },
+    {
+      "topic": "Detection Challenges, Hard Negatives, and Facial Feature Localization",
+      "page_range": [
+        60,
+        65
+      ],
+      "sub_points": [
+        "Motivation for handling difficult negative/background samples (hard negatives) in training",
+        "Implications of fixed-position feature extraction (alignment/pose sensitivity)",
+        "Application examples: face/profile detection and facial feature localization",
+        "Qualitative evaluation: locating the target (head) and failure cases",
+        "Reference/reading pointer (Friedman, Hastie, Tibshirani) connecting boosting to broader statistical learning theory"
+      ]
+    }
+  ],
+  "source_file": "WS-Week10-GMM-Boosting_clean.pdf"
+}

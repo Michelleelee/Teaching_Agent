@@ -1,0 +1,513 @@
+{
+  "course_logistics_and_admin": {
+    "cla_q1_late_penalty_threshold": {
+      "student_A": [
+        "I remember something about grading and deadlines, but I didn’t really pay attention.",
+        "There was also a slide about code of conduct or integrity, I think."
+      ],
+      "student_B": [
+        "The course grade had continuous assessment pieces plus a final exam, and the final was the biggest portion.",
+        "There was a CA1 early in the semester, a quiz during a lecture, and a CA2 that wasn’t fixed yet.",
+        "They said deadlines are strict and late work loses marks, and plagiarism gets you a zero.",
+        "AI tools like ChatGPT were mentioned as allowed for some help, but not to produce the whole submission.",
+        "The code of conduct emphasized participating and not sharing solutions or collaborating in unauthorized ways."
+      ],
+      "student_C": [
+        "Continuous Assessment has three components: CA1 (15%), a Quiz (5%), and CA2 (20%), and the Final is 60%.",
+        "CA1 runs from 29 Aug 2025 to 3 Oct 2025 (Weeks 3–7) with a deadline at 23:59 SGT, and it will be announced in Week 3.",
+        "The Quiz is on 18 Sep 2025 during the Week 6 lecture; it is MCQ, fully open book, maximum 60 minutes, and conducted via Canvas.",
+        "CA2 details are TBA by Dr. Wang Si and is worth 20%.",
+        "The Final is closed book but allows one-page double-sided cheat sheet.",
+        "Late penalties are strict: minus 10 points out of 100 per 24 hours late, and zero mark if submitted 5 days (120 hours) late or more.",
+        "Plagiarism leads to a zero and a formal report for investigation; GPT-based tools (ChatGPT/Co-pilot/Gemini) are allowed for refinement/coding with amendments, but not for generating the entire project, and students must submit only their own work without sharing solutions or unauthorized collaboration, with violations reported to the university disciplinary panel."
+      ]
+    },
+    "cla_q2_open_closed_book_alignment": {
+      "student_A": [
+        "There was a slide about assessment and grading, I think.",
+        "Something about tutorials being available, but I don’t remember details."
+      ],
+      "student_B": [
+        "The course grade was mostly the final exam, with some continuous assessment parts like CA1, a quiz, and CA2.",
+        "I remember there were strict late penalties and plagiarism would get you a zero.",
+        "The quiz was during a lecture and it was open book, probably multiple choice, and done online (Canvas).",
+        "They said AI tools like ChatGPT were kind of allowed but not to just generate the whole submission.",
+        "Tutorials weren’t graded but were meant to help and relate to the final exam topics and question styles."
+      ],
+      "student_C": [
+        "Continuous Assessment had three components: CA1 (15%), a Quiz (5%), and CA2 (20%), and the Final was 60%.",
+        "CA1 ran from 29 Aug 2025 to 3 Oct 2025 at 23:59 SGT (Weeks 3–7) and was to be announced in Week 3.",
+        "The Quiz was on 18 Sep 2025 during the Week 6 lecture, MCQ, fully open book, maximum 60 minutes, and conducted via Canvas.",
+        "CA2 details were TBA by Dr. Wang Si and counted for 20%.",
+        "The Final was closed book but allowed one-page double-sided cheat sheet.",
+        "Deadlines were strict: late submission lost 10 points (out of 100) per 24 hours, and submissions 5 days (120 hours) late or more got zero.",
+        "Plagiarism resulted in a zero and a formal report to the Department; GPT-based tools (ChatGPT, Co-pilot, Gemini) were allowed for refinement/coding with amendments but not for generating the entire project submission, and tutorials were provided starting Week 3 after Lecture Set 2 and discussed in Week 4, not graded but relevant to finals though not necessarily fully overlapping."
+      ]
+    },
+    "cla_q3_instructor_timeline_consultation": {
+      "student_A": [
+        "I remember a welcome slide for EE5907, but not much else.",
+        "Something about lectures and maybe office hours."
+      ],
+      "student_B": [
+        "The course is EE5907 and it’s taught in two parts by two different lecturers, one early in the semester and one later.",
+        "The topics are about machine learning-ish things like classifiers/regressors, PCA/LDA, clustering, boosting, and SVM.",
+        "Lecture notes are posted around class time and recordings are available after class for review.",
+        "There’s a long in-person lecture with a break in the middle, and they mentioned consultation hours on Mondays in an ECE conference room.",
+        "The syllabus is on Canvas and there’s some shared Google Doc link for Q&A."
+      ],
+      "student_C": [
+        "EE5907 is split between Dr. XU Yuecong for Part I (Week 1–6, until Recess) and Dr. WANG Si for Part II (Week 7–13).",
+        "Dr. XU Yuecong’s email is yc.xu@nus.edu.sg, and the slide also mentioned Graduate Assistants (GA).",
+        "The course covers decision theory, linear/non-linear classifiers and regressors, PCA, LDA, clustering, boosting, SVM, and related topics.",
+        "Lectures are in-person; notes are released right before each class and recordings are available at the end of each class for revision.",
+        "Each lecture runs 2.5 hours with a 15-minute break in between, and after-class discussion is welcomed.",
+        "Consultation is walk-in on Mondays: 14:00–15:30 in Weeks 2, 5, and 6 at ECE Conference Room E4-05-39, plus 13:00–14:30 in Week 3 (25 Aug) at an ECE Conference Room.",
+        "They said announcements would be made if consultation times change, and Q&A is via a shared Google Doc link."
+      ]
+    },
+    "cla_q4_tutorials_vs_assessed_components": {
+      "student_A": [
+        "I remember a slide about assessment and grading, but I didn’t really catch the details.",
+        "There was something about a quiz and tutorials, I think."
+      ],
+      "student_B": [
+        "The course grade was mostly the final exam, and there were a couple of continuous assessments plus a quiz.",
+        "I remember the quiz was during a lecture and it was open book, and it was done on Canvas.",
+        "They said deadlines were strict and there were penalties for late submissions, and plagiarism would get you zero.",
+        "Tutorials weren’t graded but were meant to help with understanding and preparing for the final, and they started sometime around Week 3 or 4."
+      ],
+      "student_C": [
+        "Continuous Assessment had three components: CA1 (15%), a Quiz (5%), and CA2 (20%), and the Final was 60%.",
+        "CA1 ran from 29 Aug 2025 to 3 Oct 2025 (Week 3–7) with a deadline at 23:59 SGT, and it would be announced in Week 3.",
+        "The quiz was on 18 Sep 2025 during the Week 6 lecture; it was MCQ, fully open book, maximum 60 minutes, conducted via Canvas.",
+        "CA2 details were TBA by Dr. Wang Si and was worth 20%, and the final exam was closed book except for one-page double-sided cheat sheet.",
+        "Late penalties were strict: minus 10 points (out of 100) per 24 hours late, and zero marks if 5 days (120 hours) late or more.",
+        "Plagiarism resulted in a zero mark and a formal report to the Department for investigation.",
+        "GPT-based tools (e.g., ChatGPT, Copilot, Gemini) were allowed for refinement and coding with required amendments, but not allowed to generate the whole project submission; tutorials were ungraded, relevant to finals (not necessarily fully overlapping), provided in Week 3 after Lecture Set 2, and discussed in Week 4 during class."
+      ]
+    },
+    "cla_q5_syllabus_access_and_topic_scope": {
+      "student_A": [
+        "I remember a slide that said “Welcome to EE5907.”",
+        "There was something about lectures and maybe SVM, but I don’t really know."
+      ],
+      "student_B": [
+        "EE5907 is taught by two professors, one for the first half and another for the later weeks.",
+        "The course covers pattern recognition topics like decision theory, classifiers/regressors, PCA, LDA, clustering, boosting, and SVM.",
+        "Lecture notes are posted before class and recordings come out after class, and there’s a break during the lecture.",
+        "There are some Monday consultation hours in an ECE conference room, and a Google Doc link is used for Q&A.",
+        "The learning outcomes are basically to understand these methods, apply them to real data for classification/regression, and compare their pros and cons."
+      ],
+      "student_C": [
+        "The welcome slide said EE5907 is conducted by Dr. XU Yuecong for the first part (up to Recess) and Dr. Wang Si for the second part (Weeks 7–13).",
+        "It listed core topics: decision theory (incl. Bayesian decision theory), linear and non-linear classifiers and regressors, PCA, LDA, clustering, boosting, and SVM.",
+        "The syllabus is available on Canvas under the Pages tab.",
+        "For in-person lectures, notes are released right before each class and the recording becomes available at the end of each class for revision.",
+        "The lecture runs 2.5 hours with a 15-minute break in the middle, and after-class discussion is welcomed.",
+        "Consultation is walk-in on Mondays: 14:00–15:30 in Weeks 2, 5, and 6 at ECE Conference Room E4-05-39, plus 13:00–14:30 in Week 3 (25 Aug) at an ECE conference room, with announcements if times change.",
+        "Learning outcomes were: understand core pattern-recognition techniques (Bayesian decision theory, linear/nonlinear classifiers, PCA, LDA, clustering, SVM), apply conceptual/mathematical tools to real-world data for feature extraction and classification/regression, and assess strengths/weaknesses of different algorithms."
+      ]
+    }
+  },
+  "pr_and_ml_overview": {
+    "prml_overview_q1_pr_pipeline_uncertainty_probability": {
+      "student_A": [
+        "I remember something about pattern recognition and maybe apples and pears.",
+        "I don’t remember any details or what the diagram meant."
+      ],
+      "student_B": [
+        "Pattern recognition was explained with an example of deciding whether an image shows an apple or a pear.",
+        "If you can extract the right object/features from the right part of the image, you can be very confident, but if information like color is missing you can’t be 100% certain.",
+        "There was a system diagram where raw data gets processed into features and then classified, and the output was like probabilities (0 and 1 were related to probability).",
+        "The slide compared PR and ML and said they’re basically the same idea because both find patterns from data, unlike rule-based algorithms that use fixed human-made rules."
+      ],
+      "student_C": [
+        "The lecture introduced pattern recognition using a more complex apple-vs-pear image example, emphasizing that a decision is made only after extracting the item from the correct part of the image.",
+        "If the item is correctly extracted, the classification decision can be made with 100% certainty, but the slide immediately challenged whether 100% certainty is always possible.",
+        "In the follow-up apple-vs-pear example, certain information/features (explicitly color) are lost, so the decision likely cannot be made with 100% certainty and we should instead determine what the picture is via uncertainty-aware methods.",
+        "The PR system diagram framed the pipeline as raw data x (in R^n) going through preprocessing/feature extraction/dimension reduction, then classification or regression to produce an output y (in {0,1}), with an example coding like 01 → apple and 10 → pear.",
+        "The diagram asked what 0 and 1 represent and answered that they represent probability, tying the classifier’s output to probabilistic confidence rather than a single hard label.",
+        "The common ML framework slide reinforced that the usual output for classification is the probability of each class (from a trained model taking image features to an output prediction).",
+        "PR vs ML was presented as nearly identical: ML learns from data without explicit programming, while non-learning algorithms rely on predetermined fixed rules requiring human expertise; non-learning is human-centric, whereas ML/PR is data-centric."
+      ]
+    },
+    "prml_overview_q2_pr_vs_nonlearning_data_centric_pipeline": {
+      "student_A": [
+        "I remember something about pattern recognition versus machine learning, but that’s it.",
+        "There was a diagram with apples and pears and some 0s and 1s, but I don’t remember what it meant."
+      ],
+      "student_B": [
+        "The slide said machine learning learns from data instead of being explicitly programmed, and it’s basically the same idea as pattern recognition because it’s about finding patterns.",
+        "It compared ML with non-learning algorithms that follow fixed, pre-set rules written by humans and don’t change with the input data.",
+        "I think the point was that non-learning methods need a human expert who already knows the rules, while ML/PR is more data-driven.",
+        "There was also a PR system diagram: raw data goes through preprocessing/feature extraction and then classification or regression to output a label like 0/1 for apple vs pear, and the 0/1 had something to do with probability."
+      ],
+      "student_C": [
+        "The PR vs ML slide emphasized that ML is “learning from data without being explicitly programmed,” and argued ML is almost identical to PR because learning essentially means finding patterns in data.",
+        "It contrasted ML/PR with non-learning algorithms: non-learning approaches are based on pre-determined, fixed rules created using human expertise, and these rules do not adapt based on the input data.",
+        "It noted a limitation of non-learning algorithms: the human expert must already know the solution and rules, so problems that humans cannot solve would not be solved by such rule-based systems.",
+        "It summarized the viewpoint as non-learning algorithms being human-centric, while ML/PR is data-centric.",
+        "The PR system diagram described a pipeline where raw data x (with x ∈ R^n) is transformed into features f (f ∈ R^d) via data preprocessing/feature extraction and possibly dimension reduction, then fed into a classifier/regressor to produce an output y (y ∈ {0,1}) such as 01 → apple and 10 → pear.",
+        "It explicitly asked what the 0 and 1 represent and answered “Probability,” implying the output can be interpreted probabilistically rather than just as a hard-coded rule outcome."
+      ]
+    },
+    "prml_overview_q4_supervised_output_probability_link": {
+      "student_A": [
+        "I remember a slide about different learning paradigms, but I don’t remember what they were.",
+        "There was something about output and probabilities, I think."
+      ],
+      "student_B": [
+        "The lecture compared supervised, unsupervised, and reinforcement learning.",
+        "Supervised learning uses labeled data, while unsupervised learning doesn’t have labels.",
+        "Reinforcement learning was about an agent interacting with an environment and learning from trial and error.",
+        "There was also a common ML framework slide where a trained model takes features and produces a prediction, and for classification the output is probabilities for classes."
+      ],
+      "student_C": [
+        "One slide was titled \"Different Learning Paradigms\" and contrasted supervised, unsupervised, and reinforcement learning.",
+        "Supervised learning was described as learning from labelled data with guidance (labels).",
+        "Unsupervised learning was described as having no labelled data and thus no explicit guidance from labels.",
+        "Reinforcement learning was described as interacting with an environment, choosing/deciding actions, and learning via a trial-and-error method.",
+        "Another slide titled \"The Common ML Framework: Output\" showed the flow: Image Feature → Trained Model → Output Prediction.",
+        "It emphasized that for classification, the usual output is the probability of each class (a probability distribution over classes)."
+      ]
+    },
+    "prml_overview_q5_pr_definition_to_system_blocks": {
+      "student_A": [
+        "I remember a slide that said something like “Introduction” and pattern recognition.",
+        "There was something about apples and pears but I don’t remember what it meant."
+      ],
+      "student_B": [
+        "Pattern recognition was described as automatically finding patterns in data and making decisions with a computer.",
+        "They used an example of telling an apple from a pear using things like color and shape.",
+        "There was a system diagram with raw data going through feature extraction and then classification, and it outputs something like 0/1 or a label.",
+        "I think the 0 and 1 were connected to probability or confidence, but I don’t remember exactly how."
+      ],
+      "student_C": [
+        "Pattern recognition (PR) was defined as perceiving a pattern, extracting relevant information, understanding the information content, and making an automatic decision by a machine/computer.",
+        "It was summarized as automated recognition of patterns and regularities in data, using techniques from statistics and machine learning.",
+        "The apple-versus-pear image example illustrated that a decision (e.g., left is apple, right is pear) can be made with high certainty based on features like color and shape.",
+        "The PR system diagram showed a pipeline: raw data x (with x ∈ R^n) → preprocessing/feature extraction and possibly dimension reduction → classification/regression, producing features f (f ∈ R^d) and an output y in {0,1}.",
+        "They gave a coding example where 01 maps to apple and 10 maps to pear, and asked what 0 and 1 represent, emphasizing they relate to probability/confidence.",
+        "The diagram also distinguished supervised vs unsupervised learning and mentioned different “knowledge types” feeding into the system."
+      ]
+    }
+  },
+  "probability_foundations_and_bayes_rule": {
+    "prob_bayes_01_union_independence": {
+      "student_A": [
+        "I just remember something about probability and events A and B.",
+        "There were a couple of formulas but I don’t remember any of them."
+      ],
+      "student_B": [
+        "Probability was written as P(A) (maybe sometimes p(A)) and it’s between 0 and 1.",
+        "There was a rule for A and B both happening (joint probability) and if they’re independent you multiply P(A) and P(B).",
+        "For A or B happening, I remember you add them and subtract the overlap term P(A,B).",
+        "If A and B can’t happen together (mutually exclusive), then the overlap is zero so it’s just P(A)+P(B).",
+        "Conditional probability was something like P(B|A) equals the joint over P(A), and there was also a conditional independence idea given C."
+      ],
+      "student_C": [
+        "The slides defined probability of an event as P(A) (also noted as p(A) on the second slide) and emphasized the bound 0 ≤ P(A) ≤ 1.",
+        "Joint probability for A and B both occurring was written as P(A,B), and independence was defined by P(A,B) = P(A)P(B).",
+        "The union (A or B) was given as P(A ∨ B) = P(A) + P(B) − P(A,B).",
+        "For mutually exclusive events (cannot occur at the same time), P(A,B)=0 so P(A ∨ B) = P(A) + P(B).",
+        "Conditional probability was defined as P(B|A) ≜ P(A,B) / P(A).",
+        "The slide restated independence using the same product condition and then gave conditional independence given C as P(A,B|C) = P(A|C)P(B|C)."
+      ]
+    },
+    "prob_bayes_02_posterior_vs_likelihood": {
+      "student_A": [
+        "I just remember something about probability properties and Bayes.",
+        "There were a lot of P(A) and P(B|A) symbols but I didn’t really follow."
+      ],
+      "student_B": [
+        "They defined conditional probability as something like P(B|A) using a fraction with P(A,B) over P(A).",
+        "Independence was when the joint probability equals the product of the separate probabilities, like P(A,B)=P(A)P(B).",
+        "Bayes’ rule was described as updating a prior belief with data to get a posterior, using prior times likelihood divided by some normalizing term.",
+        "I remember terms like prior, likelihood, and posterior, but I’m fuzzy on what the marginal likelihood specifically represents."
+      ],
+      "student_C": [
+        "The slide noted that in this course the probability of an event can be written as P(A) or p(A).",
+        "Conditional probability was defined as P(B|A) ≜ P(A,B) / P(A), i.e., the probability of B happening given A has occurred.",
+        "A is independent of B if P(A,B) = P(A)P(B).",
+        "A and B are conditionally independent given C if P(A,B|C) = P(A|C)P(B|C).",
+        "Bayes’ rule was presented as p(H=h|Y=y) = p(H=h) p(Y=y|H=h) / p(Y=y), motivated by the product rule p(h,y)=p(h)p(y|h)=p(y)p(h|y).",
+        "The components were labeled: p(H) as the prior distribution, p(Y|H=h) as the likelihood, p(Y=y) as the marginal likelihood (normalizer), and p(H=h|Y=y) as the posterior distribution, summarized as posterior ∝ prior × likelihood."
+      ]
+    },
+    "prob_bayes_03_prevalence_effect_disease": {
+      "student_A": [
+        "I remember something about Bayes’ Rule and maybe a disease test example.",
+        "There were a lot of probabilities but I don’t remember what they meant."
+      ],
+      "student_B": [
+        "The slide explained Bayes’ rule as updating beliefs: posterior is based on prior times likelihood, then you normalize by something like p(Y).",
+        "Prior was what you believe about H before seeing data, and likelihood was the probability of the data given H.",
+        "There was a disease testing example with sensitivity around 87.5% and specificity around 97.5%, and you compute the probability someone is infected given a positive test.",
+        "I recall that if the disease is less common, a positive test isn’t as convincing, so the posterior probability drops a lot.",
+        "I’m fuzzy on the exact denominator term (the marginal likelihood) and how the true negative rate turned into the false positive rate in the calculation."
+      ],
+      "student_C": [
+        "Bayes’ rule was written as p(H=h | Y=y) = p(Y=y | H=h) p(H=h) / p(Y=y), where p(H) is the prior, p(Y|H) is the likelihood, and p(Y) is the marginal likelihood (evidence) used to normalize.",
+        "The slide emphasized that prior × likelihood gives an unnormalized joint quantity proportional to the posterior, summarized as posterior ∝ prior × likelihood.",
+        "In the disease-testing setup, Y=1 meant test positive and H=1 meant infected; sensitivity was P(Y=1|H=1)=0.875 and specificity was P(Y=0|H=0)=0.975, so P(Y=1|H=0)=1−0.975=0.025.",
+        "With prevalence P(H=1)=0.1, the posterior after a positive test was P(H=1|Y=1)= (0.1×0.875) / (0.875×0.1 + 0.025×0.9) = 0.795, i.e., 79.5%.",
+        "When prevalence changed to P(H=1)=0.01, the posterior became P(H=1|Y=1)= (0.01×0.875) / (0.875×0.01 + 0.025×0.99) = 0.261, i.e., 26.1% even after testing positive.",
+        "The key takeaway was base-rate effects: lowering the prior prevalence dramatically lowers P(infected | positive) even if the test has high sensitivity and specificity."
+      ]
+    },
+    "prob_bayes_04_discrete_continuous_green_tea": {
+      "student_A": [
+        "I remember a slide title about discrete and continuous random variables, but that’s it.",
+        "There was something about probability functions, but I don’t remember any details."
+      ],
+      "student_B": [
+        "A random variable was described as something that depends on random outcomes and maps outcomes to numbers (like real numbers).",
+        "Discrete random variables take countable values (like number of students), while continuous ones take infinitely many real values (like time).",
+        "I think discrete uses a pmf and continuous uses a cdf and pdf, but I’m a bit fuzzy on the exact definitions and notation.",
+        "There was an example about selling green tea by weight, and whether the variable becomes discrete if it’s sold only in fixed-size packets."
+      ],
+      "student_C": [
+        "The slide defined a random variable as a mathematical formalization of a quantity depending on random events, i.e., a function mapping outcomes in the sample space to a measurable space (often the real numbers).",
+        "Discrete RVs take countably many values (example: number of students) and their distribution is given by a probability mass function (pmf) p(x) = P(X = x), with the normalization sum_x p(x) = 1.",
+        "Continuous RVs take infinitely many real values (example: time to complete a task) and are described via the cumulative distribution function P(x) ≜ P(X ≤ x) and a probability density function (pdf) p(x) = dP(x)/dx.",
+        "For a continuous RV, interval probabilities are computed by P(a < X ≤ b) = ∫_a^b p(x) dx = P(b) − P(a).",
+        "The slide emphasized to always check whether a variable is discrete or continuous because it can be confusing in practice.",
+        "Example: if X is the weight of green tea sold and any quantity can be sold, then X is continuous; if it can only be sold in 10kg packets, then X becomes discrete (values in steps of 10kg)."
+      ]
+    },
+    "prob_bayes_05_weather_posterior_interpretation": {
+      "student_A": [
+        "I remember something about probability and Bayes, but I wasn’t really paying attention.",
+        "There was a slide with a weather forecast example, I think."
+      ],
+      "student_B": [
+        "The lecture compared two interpretations of probability: frequentist is about long-run frequencies, and Bayesian is about uncertainty or belief about an event.",
+        "Bayes’ rule was explained as posterior being proportional to prior times likelihood, and you divide by some normalizing term to get an actual probability.",
+        "Prior was what you believe before data, likelihood was the probability of the observed data given a hypothesis, and posterior is the updated belief after seeing data.",
+        "There was a weatherman example where rain is rare but the forecast says it will rain, and the final chance of rain was around 0.1 (like 11%)."
+      ],
+      "student_C": [
+        "The slide contrasted frequentist probability (probability as long-run frequency over repeated trials, e.g., many coin flips give about half heads) with Bayesian probability (probability as a measure of uncertainty/ignorance about the next outcome, e.g., next toss equally likely heads/tails).",
+        "Bayes’ rule was written as p(H=h|Y=y) = p(H=h) p(Y=y|H=h) / p(Y=y).",
+        "It defined p(H) as the prior distribution (belief about H before seeing data), p(Y|H=h) as the likelihood (distribution of outcomes Y expected if H=h), and p(H=h,Y=y) = p(H=h)p(Y=y|H=h) as the unnormalized joint.",
+        "Dividing by p(Y=y), called the marginal likelihood, normalizes the posterior p(H|Y), summarized as: posterior ∝ prior × likelihood.",
+        "In the weather forecast example, Y=1 meant the weatherman forecasts rain and H=1 meant it actually rains; the prior was P(H)=5/365=0.0137.",
+        "The likelihood terms were P(Y|H)=0.9 (forecasts rain when it rains) and P(Y|¬H)=0.1 (forecasts rain when it doesn’t rain), and with a rain forecast the posterior was P(H|Y)=0.0137·0.9 / (0.9·0.0137 + 0.1·(1−0.0137)) = 0.111."
+      ]
+    }
+  },
+  "core_distributions_for_modeling": {
+    "cdm_q1_bernoulli_vs_binomial_modeling_choice": {
+      "student_A": [
+        "I remember something about a binomial distribution and coin flips, but that’s it.",
+        "There was also a slide about Gaussian/normal, but I don’t recall any details."
+      ],
+      "student_B": [
+        "Binomial was described as what you get when you add up Bernoulli coin-flip outcomes, like counting the number of heads in N trials.",
+        "I recall the formula had a combinatorial term (N choose s) times something like theta to a power and (1-theta) to another power, but I might mix up which exponent goes where.",
+        "Categorical was the version of Bernoulli for more than two outcomes, with one probability parameter per class, and they mentioned one-hot encoding.",
+        "Multinomial was like repeating categorical N times and counting how many times each class appears; I remember it reduces to categorical when N=1 and to binomial when there are 2 classes.",
+        "Gaussian/normal was for real-valued variables with mean mu and variance sigma-squared, and the pdf is the bell curve with an exponential."
+      ],
+      "student_C": [
+        "If we observe N Bernoulli trials y_n ~ Ber(theta) for n=1..N and define s as the number of successes/heads, s := sum_{n=1}^N I(y_n = 1), then s follows a Binomial distribution.",
+        "The binomial pmf is Bin(s | N, theta) = (N choose s) theta^s (1-theta)^(N-s), where (N choose s) = N! / ((N-s)! s!).",
+        "Bernoulli is a special case of binomial (essentially N=1), and binomial models counts of successes in N independent Bernoulli trials.",
+        "Bernoulli/binomial only handle two outcomes, so we generalize to C>2 outcomes with the categorical distribution: Cat(y | theta) = product_{c=1}^C theta_c^{I(y=c)}, so p(y=c | theta)=theta_c.",
+        "Using one-hot encoding y (vector) with C elements, Cat(y | theta) is written as product_{c=1}^C theta_c^{y_c}, e.g., for C=3 the one-hots are (1,0,0), (0,1,0), (0,0,1).",
+        "Repeating categorical trials N times and counting occurrences y_c = sum_{n=1}^N I(y_n=c) gives a count vector y (not one-hot) that follows a multinomial distribution with pmf proportional to (N! / (y_1! ... y_C!)) * product_{c=1}^C theta_c^{y_c}, with sum_c y_c = N; multinomial reduces to categorical when N=1 and to binomial when C=2.",
+        "For the univariate Gaussian (normal) on real-valued x, x ~ N(mu, sigma^2), the cdf is Phi(x; mu, sigma) = ∫_{-∞}^x N(z | mu, sigma^2) dz = 1/2 (1 + erf(z/√2)) with z=(x-mu)/sigma, and the pdf is N(x | mu, sigma^2) = (1/√(2πσ^2)) exp(-(x-mu)^2/(2σ^2)); E[X]=mu, Var[X]=sigma^2, and E[X^2]=mu^2+sigma^2."
+      ]
+    },
+    "cdm_q2_binary_prediction_sigmoid_reason": {
+      "student_A": [
+        "I vaguely remember something about predicting 0/1 with a sigmoid curve.",
+        "There was also a slide about Bayes’ rule but I don’t recall what it said."
+      ],
+      "student_B": [
+        "For binary prediction, they said you model y given x with a Bernoulli distribution and the parameter comes from a function of x.",
+        "To keep the probability between 0 and 1, you pass the model output through the sigmoid (logistic) function, which is S-shaped and kind of like a soft step function.",
+        "For multiple classes, they used softmax to turn scores into probabilities that add up to 1.",
+        "They also mentioned binomial distribution as the sum of Bernoulli trials (like coin flips) and a quick recap of Bayes’ rule as updating beliefs with data."
+      ],
+      "student_C": [
+        "To predict a binary variable y ∈ {0,1} from input x ∈ X, the slide defines a conditional model p(y|x,θ) = Ber(y|f(x;θ)), where f(x;θ) predicts the Bernoulli parameter.",
+        "Because f(x;θ) would otherwise need to satisfy 0 < f(x;θ) ≤ 1, they instead let f be unconstrained and use p(y|x,θ) = Ber(y|σ(f(x;θ))).",
+        "The sigmoid (logistic) function is σ(a) = 1/(1+e^{-a}), described as S-shaped and as a “soft” version of the Heaviside step function I(a>0).",
+        "For categorical y with C classes, they use p(y|x,θ) = Cat(y|f(x;θ)), but to avoid constraints (positivity and summing to 1) they use p(y|x,θ) = Cat(y|softmax(f(x;θ))).",
+        "Softmax (sfm) for a vector a has components softmax(a)_c = e^{a_c} / (∑_{c'=1}^C e^{a_{c'}}), producing valid class probabilities.",
+        "They also connected Bernoulli trials to the Binomial: for N Bernoulli outcomes y_n ~ Ber(·|θ), the count of heads s = ∑_{n=1}^N I(y_n=1) follows Bin(s|N,θ) = (N choose s) θ^s (1-θ)^{N-s}, with (N choose s)=N!/((N-s)! s!).",
+        "Bayes’ rule was recapped as p(H=h|Y=y) = p(H=h)p(Y=y|H=h)/p(Y=y), interpreting the result as the posterior and noting it follows from the product rule p(h,y)=p(h)p(y|h)=p(y)p(h|y)."
+      ]
+    },
+    "cdm_q3_softmax_vs_sigmoid_constraints": {
+      "student_A": [
+        "I remember the word softmax and maybe sigmoid, but that’s it.",
+        "There were some probability distributions on the slides, but I can’t recall what they meant."
+      ],
+      "student_B": [
+        "For binary prediction they used a Bernoulli model and then applied a sigmoid to turn some score into a probability between 0 and 1.",
+        "For multi-class prediction they used a categorical distribution and used softmax on the model outputs so the class probabilities add up to 1.",
+        "I remember the term logits for the inputs to softmax, like the raw scores before converting to probabilities.",
+        "There was something about a temperature parameter where small temperature makes it pick the max class more strongly and large temperature makes it more uniform, but I don’t remember the exact limiting expression."
+      ],
+      "student_C": [
+        "Binary case: to predict y ∈ {0,1} given x, they model p(y|x,θ)=Ber(y|f(x;θ)), but since f must be in (0,1] they instead let f be unconstrained and use p(y|x,θ)=Ber(y|σ(f(x;θ))).",
+        "They defined the sigmoid as σ(a)=1/(1+e^{-a}) and noted it is the logistic/S-shaped function.",
+        "Multi-class case: to predict categorical y with C classes, they use a conditional categorical distribution p(y|x,θ)=Cat(y|f(x;θ)), and to avoid constraints (0< f_c ≤1 and ∑_{c=1}^C f_c=1) they use p(y|x,θ)=Cat(y|softmax(f(x;θ))).",
+        "Softmax (sfm) for a vector a has components softmax(a)_c = e^{a_c} / ∑_{c'=1}^C e^{a_{c'}}, which guarantees softmax(a)_c ∈ (0,1) and ∑_{c=1}^C softmax(a)_c = 1.",
+        "They called a = f(x;θ) the logits, i.e., the unconstrained scores input to softmax.",
+        "With temperature scaling, use a/T; as T→0, softmax(a/T) approaches an argmax/winner-takes-all distribution: probability 1 for c = argmax_{c'} a_{c'} and 0 otherwise, while higher T spreads probability mass more uniformly.",
+        "They also reviewed Cat(y|θ) with one parameter per class (and a one-hot representation), and explained multinomial as N repeated categorical trials where counts y_c sum to N, with categorical as the N=1 special case and binomial as the C=2 special case."
+      ]
+    },
+    "cdm_q4_multinomial_special_cases_mapping": {
+      "student_A": [
+        "I remember something about categorical and multinomial distributions, but I wasn’t really paying attention.",
+        "There was maybe a dice example or something with classes."
+      ],
+      "student_B": [
+        "Bernoulli and binomial only handle two outcomes, so the slide introduced categorical for more than two classes.",
+        "Categorical distribution assigns a probability parameter to each class and you can represent the label as a one-hot vector.",
+        "Multinomial is like repeating categorical trials N times and counting how many times each class occurs.",
+        "I think multinomial reduces to categorical when N = 1, and it also connects to binomial when there are only two classes."
+      ],
+      "student_C": [
+        "The slide motivated categorical/multinomial by noting Bernoulli and binomial only model events with exactly two outcomes, so we generalize to C > 2 categories.",
+        "For a categorical variable y taking values in {1,…,C} with parameters θ = (θ1,…,θC), the pmf is p(y=c | θ) = θc and can be written as Cat(y|θ) = ∏_{c=1}^C θ_c^{I(y=c)}.",
+        "Equivalently, represent y as a one-hot vector y⃗ with C elements (e.g., for C=3: (1,0,0),(0,1,0),(0,0,1)), giving Cat(y⃗|θ) = ∏_{c=1}^C θ_c^{y_c}.",
+        "Multinomial is the distribution over counts after repeating categorical trials N times (e.g., rolling a C-sided die N times): define y_c = ∑_{n=1}^N I(y_n=c) and let y⃗ = (y_1,…,y_C), which is not one-hot anymore.",
+        "The multinomial pmf is p(y⃗ | N, θ) = (N! / (y_1!…y_C!)) ∏_{c=1}^C θ_c^{y_c}, where θ_c is the probability of category c and the factorial term is the multinomial coefficient counting allocations of N items into subset sizes y_c.",
+        "Special cases: if N=1, multinomial becomes categorical; if C=2, multinomial becomes the binomial distribution."
+      ]
+    },
+    "cdm_q5_gaussian_sigma_roles_and_dirac_limit": {
+      "student_A": [
+        "I remember a slide called something like “Gaussian distribution.”",
+        "There were a bunch of symbols and curves but I don’t remember what any of it meant."
+      ],
+      "student_B": [
+        "The Gaussian (normal) distribution is a very common distribution for real-valued random variables, with parameters mean μ and variance σ.",
+        "They wrote the CDF as an integral and mentioned it can be expressed using an error function (erf), and there’s also a “standard normal” case when μ = 0 and σ = 1.",
+        "The PDF is basically the derivative of the CDF and has the bell-curve exponential form with (x − μ) and σ in it.",
+        "There was also a slide listing other distributions like t-distribution (more robust to outliers), Laplace (double exponential), Beta (for proportions), Gamma (positive values), and something about Dirac delta related to σ going to 0."
+      ],
+      "student_C": [
+        "The slide defined the univariate Gaussian (normal) distribution as the most widely used distribution for real-valued random variables y ∈ ℝ, with parameters μ (mean) and σ (variance/scale as used in the slide).",
+        "For X ~ Gaussian, the CDF is P(x) ≜ P(X ≤ x) and was written as Φ(x; μ, σ) = ∫_{−∞}^{x} 𝒩(z | μ, σ^2) dz = 1/2 + 1/2 · erf(z/√2), with the standardized variable z = (x − μ)/σ.",
+        "The error function was defined as erf(u) ≜ (2/√π) ∫_{0}^{u} e^{−t^2} dt.",
+        "They emphasized that μ = 0 and σ = 1 gives the standard normal distribution.",
+        "The PDF is the derivative of the CDF: p(x) ≜ dP(x)/dx, and the Gaussian PDF is 𝒩(x | μ, σ^2) = (1/√(2πσ^2)) exp(−(x−μ)^2/(2σ^2)), and the notation is x ~ 𝒩(μ, σ^2).",
+        "Key moments: 𝔼[X] = μ, Var(X) = σ^2, and since Var(X) = 𝔼[X^2] − μ^2, it follows that 𝔼[X^2] = μ^2 + σ^2; the standard deviation is std(X) = σ.",
+        "Other univariate distributions listed were: Dirac delta as the limit of a Gaussian when σ → 0, Student t-distribution as less sensitive to outliers than Gaussian, Laplace as a double-sided exponential, Beta for percentages/proportions, and Gamma as a flexible model for positive real-valued random variables."
+      ]
+    }
+  },
+  "model_fitting_mle_and_erm": {
+    "mfme_01": {
+      "student_A": [
+        "I remember a slide called Maximum Likelihood Estimation, but I don’t remember what it meant.",
+        "There was something about probability and logs, but it’s all a blur."
+      ],
+      "student_B": [
+        "MLE was about choosing parameters that make the training data most likely, like maximizing p(D|theta).",
+        "They assumed the data points were iid, so the likelihood broke into a product over samples (or a sum after taking logs).",
+        "Because optimizers usually minimize, they turned it into minimizing the negative log-likelihood, which is a sum of -log p(y|x, theta).",
+        "ERM was presented as a generalization where you replace the log-loss with some other loss and minimize the average/sum over the dataset, though I’m fuzzy on the exact “empirical distribution” explanation."
+      ],
+      "student_C": [
+        "Maximum Likelihood Estimation (MLE) chooses parameters by maximizing the likelihood of the observed dataset: theta_hat = argmax_theta p(D|theta).",
+        "Under the iid assumption, the dataset likelihood factorizes as p(D|theta) = product_{n=1}^N p(y_n | x_n, theta), and the log-likelihood is l(theta) = log p(D|theta).",
+        "Since most algorithms are posed as minimization, they define the conditional negative log-likelihood (NLL): NLL(theta) = -log p(D|theta) = -sum_{n=1}^N log p(y_n | x_n, theta).",
+        "Thus MLE can be written equivalently as theta_hat = argmin_theta L(theta) = argmin_theta NLL(theta).",
+        "Empirical Risk Minimization (ERM) generalizes MLE by replacing the per-sample log-loss term -log p(y_n|x_n,theta) with an arbitrary loss l(y_n, theta; x_n).",
+        "The ERM objective is L(theta) = sum_{n=1}^N l(y_n, theta; x_n), interpreted as minimizing the expected loss under the empirical (sampled) data distribution."
+      ]
+    },
+    "mfme_02": {
+      "student_A": [
+        "I remember a slide title about maximum likelihood or something like that.",
+        "There was a lot of math and I didn’t really follow it."
+      ],
+      "student_B": [
+        "MLE was about choosing parameters that make the training data most probable, assuming the data points are iid.",
+        "They wrote the likelihood as a product over examples and then took logs to get a log-likelihood.",
+        "Because optimizers usually minimize, they turned it into minimizing negative log-likelihood, like a sum of negative log probabilities.",
+        "ERM was described as a generalization where you replace the log-loss with some other loss and minimize the average/sum over the dataset.",
+        "For classification they mentioned a 0-1 loss that counts mistakes, giving the training misclassification rate."
+      ],
+      "student_C": [
+        "Maximum Likelihood Estimation (MLE) picks parameters θ that maximize the likelihood of the training dataset: θ_hat_MLE = argmax_θ p(D|θ).",
+        "Under the iid assumption, the dataset likelihood factorizes as p(D|θ) = ∏_{n=1}^N p(y_n | x_n, θ), and the log-likelihood is ℓ(θ) ≡ log p(D|θ).",
+        "To match standard minimization-based optimizers, they define the (conditional) negative log-likelihood: NLL(θ) ≡ -log p(D|θ) = -∑_{n=1}^N log p(y_n|x_n,θ), so maximizing likelihood is equivalent to minimizing NLL.",
+        "They then frame this as an objective θ_hat = argmin_θ L(θ) = argmin_θ NLL(θ).",
+        "Empirical Risk Minimization (ERM) generalizes MLE by replacing the specific log-loss term ℓ_n(θ) = -log p(y_n|x_n,θ) with a general per-sample loss ℓ(y_n,θ; x_n).",
+        "In ERM the empirical risk is L(θ) = ∑_{n=1}^N ℓ(y_n,θ; x_n), interpreted as an expected loss under the empirical (sampled) distribution.",
+        "For classification they gave the 0-1 loss: ℓ_{01}(y_n,θ; x_n)=0 if y_n = f(x_n;θ) and 1 otherwise, so ∑_{n=1}^N ℓ_{01}(y_n,θ; x_n) is the empirical misclassification rate on the training set."
+      ]
+    },
+    "mfme_03": {
+      "student_A": [
+        "I vaguely remember something about “model fitting” or “training,” but I don’t recall what it meant.",
+        "There was a slide with some argmin/argmax symbols, but I can’t remember the details."
+      ],
+      "student_B": [
+        "The slides were about estimating parameters theta for a probability model from data, which they called model fitting or training.",
+        "Training was framed as an optimization problem where you choose theta to minimize some loss function L(theta).",
+        "Maximum likelihood estimation (MLE) was choosing parameters that make the training data most probable, like maximizing p(D|theta).",
+        "They assumed the data points are iid, and they said you can use log-likelihood and usually minimize a negative log-likelihood instead of maximizing likelihood."
+      ],
+      "student_C": [
+        "They defined model fitting (training) as estimating unknown model parameters θ from a dataset D when we assume a parametric probabilistic model but don’t know the parameter values.",
+        "Training was written as an optimization: θ̂ = argmin_θ L(θ), where θ̂ is a point estimate and L(θ) is the loss/objective; an important design choice is how to define L(θ).",
+        "They connected this to inference as computing predictive uncertainty via the conditional distribution p(y|x, θ).",
+        "For maximum likelihood estimation (MLE), the objective is θ̂_MLE = argmax_θ p(D|θ), i.e., choose parameters that assign the highest probability to the observed training set.",
+        "Under the iid assumption, the likelihood factorizes as p(D|θ) = ∏_{n=1}^N p(y_n | x_n, θ), and the log-likelihood is ℓ(θ) = log p(D|θ).",
+        "Because most optimizers are set up for minimization, they define the negative log-likelihood: NLL(θ) = −log p(D|θ) = −∑_{n=1}^N log p(y_n|x_n, θ), so maximizing likelihood is equivalent to minimizing NLL.",
+        "Thus the training objective can be set to L(θ) = NLL(θ), giving θ̂ = argmin_θ L(θ) = argmin_θ NLL(θ)."
+      ]
+    },
+    "mfme_04": {
+      "student_A": [
+        "I remember a slide title about Maximum Likelihood Estimation, but not what it meant.",
+        "There was something about probability and maybe coin flips, but I don’t recall any details."
+      ],
+      "student_B": [
+        "MLE was about choosing parameters that make the training data most probable.",
+        "They assumed the data points are iid, so the likelihood factors across samples.",
+        "We often take a log and then turn it into minimizing negative log-likelihood since optimizers like argmin.",
+        "There was a Bernoulli/coin-toss example where the best parameter ended up being basically the fraction of heads.",
+        "For classification, they mentioned 0-1 loss and empirical risk as the misclassification rate, though I’m fuzzy on the exact formula."
+      ],
+      "student_C": [
+        "Maximum Likelihood Estimation (MLE) chooses parameters to maximize the likelihood of the observed dataset: \\(\\hat{\\theta}_{\\text{mle}} = \\arg\\max_{\\theta} p(\\mathcal{D}\\mid \\theta)\\).",
+        "Under the iid assumption for samples \\((x_n,y_n)\\), the conditional likelihood factorizes: \\(p(\\mathcal{D}\\mid\\theta)=\\prod_{n=1}^N p(y_n\\mid x_n,\\theta)\\), and the log-likelihood is \\(\\ell(\\theta)=\\log p(\\mathcal{D}\\mid\\theta)\\).",
+        "Because many optimization methods are framed as minimization, we define the (conditional) negative log-likelihood: \\(\\text{NLL}(\\theta) = -\\log p(\\mathcal{D}\\mid\\theta)= -\\sum_{n=1}^N \\log p(y_n\\mid x_n,\\theta)\\), so maximizing likelihood is equivalent to minimizing NLL: \\(\\hat{\\theta}=\\arg\\min_{\\theta} \\mathcal{L}(\\theta)=\\arg\\min_{\\theta}\\text{NLL}(\\theta)\\).",
+        "For the Bernoulli coin-toss model with \\(Y\\in\\{0,1\\}\\) and \\(\\theta=p(Y=1)\\), the MLE ends up as the empirical fraction of heads (sample mean of the \\(y_n\\)’s), which matches intuition.",
+        "For ERM in classification, an intuitive loss is the 0-1 loss: \\(\\ell_{01}(y_n,\\theta;x_n)=0\\) if \\(y_n=f(x_n;\\theta)\\) and \\(1\\) otherwise.",
+        "The empirical risk is the sum over the training set, \\(\\mathcal{L}(\\theta)=\\sum_{n=1}^N \\ell_{01}(y_n,\\theta;x_n)\\), i.e., the empirical misclassification count/rate on the training data."
+      ]
+    },
+    "mfme_05": {
+      "student_A": [
+        "I remember a slide title about maximum likelihood estimation, but not what it meant.",
+        "There was something about probability and maybe a Gaussian, but I can’t recall any details."
+      ],
+      "student_B": [
+        "MLE was about choosing parameters that make the training data most probable, something like maximizing p(D|theta).",
+        "They assumed the data points were iid, so the total likelihood became a product over samples of p(y|x, theta).",
+        "Because optimizers often minimize, they said you can instead minimize the negative log-likelihood, which turns the product into a sum of logs.",
+        "There was also a Gaussian example where you estimate mu and sigma (or sigma squared) with MLE, but I don’t remember the full derivation."
+      ],
+      "student_C": [
+        "Model fitting (training) was framed as estimating parameters theta of a chosen probability model from data D, leading to an optimization problem for a point estimate: theta-hat = arg min_theta L(theta).",
+        "MLE’s objective was to pick parameters that maximize the likelihood of the observed training data: theta-hat_MLE = arg max_theta p(D|theta).",
+        "Under the iid assumption, the dataset likelihood factorizes as p(D|theta) = product_{n=1}^N p(y_n | x_n, theta), and the log-likelihood is defined as ell(theta) = log p(D|theta).",
+        "To match minimization-based algorithms, they defined the (conditional) negative log-likelihood: NLL(theta) = -log p(D|theta) = -sum_{n=1}^N log p(y_n|x_n, theta), so maximizing likelihood is equivalent to minimizing NLL.",
+        "For the univariate Gaussian case, they assumed Y ~ N(mu, sigma^2) with an iid sample D = {y_n}_{n=1}^N and parameters theta = (mu, sigma^2) (or (mu, sigma)).",
+        "The task for that slide was to first write down the Gaussian NLL for the sample and then derive the optimal parameters by minimizing it with respect to mu and sigma^2."
+      ]
+    }
+  }
+}

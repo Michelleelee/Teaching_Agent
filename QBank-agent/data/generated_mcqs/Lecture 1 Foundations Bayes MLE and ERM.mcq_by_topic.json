@@ -1,0 +1,287 @@
+{
+  "deck_id": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 4,
+  "topics": [
+    {
+      "topic_id": "course_logistics_and_admin",
+      "topic": "Course logistics and administration",
+      "slide_range": [
+        1,
+        14
+      ],
+      "questions": [
+        {
+          "question_id": "q3",
+          "topic_id": "assessment_and_grading",
+          "knowledge_tags": [
+            "assessment_and_grading"
+          ],
+          "difficulty": 2,
+          "stem": "What percentage of the final grade does the continuous assessment component contribute?",
+          "options": {
+            "A": "15%",
+            "B": "20%",
+            "C": "60%",
+            "D": "Not specified"
+          },
+          "answer": "D",
+          "rationale": "The correct answer is D because the slide states, 'Continuous Assessment consists of 3 components.' but does not specify the total percentage for continuous assessment.",
+          "source": {
+            "page": 7
+          },
+          "evidence_quotes": [
+            "Continuous Assessment consists of 3 components."
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "code_of_conduct",
+          "knowledge_tags": [
+            "code_of_conduct"
+          ],
+          "difficulty": 2,
+          "stem": "What is expected of students regarding academic integrity?",
+          "options": {
+            "A": "Share solutions with peers",
+            "B": "Submit only their own work",
+            "C": "Collaborate on all assignments",
+            "D": "Use any online resources freely"
+          },
+          "answer": "B",
+          "rationale": "The correct answer is B because the slide states, 'Submit only your own work.'",
+          "source": {
+            "page": 11
+          },
+          "evidence_quotes": [
+            "Submit only your own work."
+          ]
+        }
+      ],
+      "warnings": [
+        "q1: quote not found in page 1",
+        "q2: quote not found in page 2"
+      ]
+    },
+    {
+      "topic_id": "pr_and_ml_overview",
+      "topic": "Pattern recognition and machine learning overview",
+      "slide_range": [
+        15,
+        25
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "lecture_introduction_section"
+          ],
+          "difficulty": 1,
+          "stem": "What is one of the goals of the introduction section in this lecture?",
+          "options": {
+            "A": "What is Pattern Recognition / Machine Learning?",
+            "B": "Understanding the differences between AI and ML.",
+            "C": "Exploring advanced algorithms in machine learning.",
+            "D": "Discussing the history of pattern recognition."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, '✓ What is Pattern Recognition / Machine Learning?'. This directly indicates one of the goals of the introduction section.",
+          "source": {
+            "page": 15
+          },
+          "evidence_quotes": [
+            "✓ What is Pattern Recognition / Machine Learning?"
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "pr_vs_ml"
+          ],
+          "difficulty": 3,
+          "stem": "What distinguishes machine learning from non-learning algorithms according to the lecture?",
+          "options": {
+            "A": "Machine learning requires human expertise.",
+            "B": "Machine learning learns from data without being explicitly programmed.",
+            "C": "Non-learning algorithms can adapt to new data.",
+            "D": "Machine learning is less data-centric than non-learning algorithms."
+          },
+          "answer": "B",
+          "rationale": "The correct answer is B because the slide states, 'Machine learning: learn from data without being explicitly programmed.' This highlights the key distinction between machine learning and non-learning algorithms.",
+          "source": {
+            "page": 20
+          },
+          "evidence_quotes": [
+            "Machine learning: learn from data without being explicitly programmed."
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "common_ml_framework_outputs"
+          ],
+          "difficulty": 2,
+          "stem": "What is the usual output for classification in a common ML framework?",
+          "options": {
+            "A": "The raw data.",
+            "B": "The probability of each class.",
+            "C": "The feature extraction results.",
+            "D": "The training data."
+          },
+          "answer": "B",
+          "rationale": "The correct answer is B because the slide states, 'Note what is the usual output (for classification)? The probability of each class!'. This explicitly indicates the expected output for classification tasks.",
+          "source": {
+            "page": 25
+          },
+          "evidence_quotes": [
+            "The probability of each class!"
+          ]
+        }
+      ],
+      "warnings": [
+        "q2: quote not found in page 16"
+      ]
+    },
+    {
+      "topic_id": "probability_foundations_and_bayes_rule",
+      "topic": "Probability foundations and Bayes' rule",
+      "slide_range": [
+        26,
+        39
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "foundation_section_marker"
+          ],
+          "difficulty": 1,
+          "stem": "What topics are introduced in the Foundations section of the lecture?",
+          "options": {
+            "A": "Introduction to Probability, The Bayes’ Rule, Univariate Probability Distribution Models.",
+            "B": "Machine Learning Algorithms, Data Preprocessing, Model Evaluation.",
+            "C": "Statistical Inference, Hypothesis Testing, Regression Analysis.",
+            "D": "Neural Networks, Support Vector Machines, Decision Trees."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states: '✓ Introduction to Probability.\n✓ The Bayes’ Rule.\n✓ Univariate Probability Distribution Models.'",
+          "source": {
+            "page": 26
+          },
+          "evidence_quotes": [
+            "✓ Introduction to Probability.\n✓ The Bayes’ Rule.\n✓ Univariate Probability Distribution Models."
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "bayes_rule_example_disease_testing",
+          "knowledge_tags": [
+            "bayes_rule_example_disease_testing"
+          ],
+          "difficulty": 3,
+          "stem": "What is the probability of Jack being infected after testing positive given a prevalence of 10%?",
+          "options": {
+            "A": "79.5%",
+            "B": "87.5%",
+            "C": "97.5%",
+            "D": "10%"
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states: 'The chance of Jack being infected is 79.5%.' after calculating the probabilities based on the given rates.",
+          "source": {
+            "page": 37
+          },
+          "evidence_quotes": [
+            "The chance of Jack being infected is 79.5%."
+          ]
+        }
+      ],
+      "warnings": [
+        "q2: quote not found in page 27",
+        "q2: quote not found in page 27",
+        "q3: quote not found in page 32",
+        "q3: quote not found in page 32"
+      ]
+    },
+    {
+      "topic_id": "core_distributions_for_modeling",
+      "topic": "Core distributions for classification and modeling",
+      "slide_range": [
+        40,
+        59
+      ],
+      "questions": [
+        {
+          "question_id": "q2",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "binomial_distribution"
+          ],
+          "difficulty": 2,
+          "stem": "How is the binomial distribution related to the Bernoulli distribution?",
+          "options": {
+            "A": "The Bernoulli distribution is a special case of the binomial distribution.",
+            "B": "The binomial distribution is a special case of the Bernoulli distribution.",
+            "C": "Both distributions are independent of each other.",
+            "D": "The binomial distribution cannot model binary outcomes."
+          },
+          "answer": "A",
+          "rationale": "The slide states, 'The Bernoulli distribution is a special case of the binomial distribution.'",
+          "source": {
+            "page": 41
+          },
+          "evidence_quotes": [
+            "The Bernoulli distribution is a special case of the binomial distribution."
+          ]
+        }
+      ],
+      "warnings": [
+        "q1: quote not found in page 40",
+        "q3: quote not found in page 44",
+        "q4: quote not found in page 58"
+      ]
+    },
+    {
+      "topic_id": "model_fitting_mle_and_erm",
+      "topic": "Model fitting: MLE and ERM",
+      "slide_range": [
+        60,
+        65
+      ],
+      "questions": [
+        {
+          "question_id": "q3",
+          "topic_id": "empirical_risk_minimization",
+          "knowledge_tags": [
+            "empirical_risk_minimization"
+          ],
+          "difficulty": 3,
+          "stem": "How can MLE be generalized to Empirical Risk Minimization (ERM)?",
+          "options": {
+            "A": "By replacing the log loss term with other loss functions.",
+            "B": "By maximizing the likelihood of the data.",
+            "C": "By minimizing the empirical misclassification rate.",
+            "D": "By deriving the optimal parameters from the data."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'Generalize MLE: replace log loss term with other loss function!' This indicates how MLE can be adapted into ERM.",
+          "source": {
+            "page": 64
+          },
+          "evidence_quotes": [
+            "Generalize MLE: replace log loss term with other loss function!"
+          ]
+        }
+      ],
+      "warnings": [
+        "q1: quote not found in page 60",
+        "q2: quote not found in page 61",
+        "q4: quote not found in page 65"
+      ]
+    }
+  ]
+}

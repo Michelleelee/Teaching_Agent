@@ -1,0 +1,111 @@
+{
+  "syllabus": [
+    {
+      "topic": "Course Context, Reminders, and Lecture Roadmap",
+      "page_range": [
+        1,
+        3
+      ],
+      "sub_points": [
+        "Positioning of the lecture within Pattern Recognition (EE5907) and expected background",
+        "Quick reminders of prior material needed for the week (e.g., basic linear algebra/probability notions used later)",
+        "Overview of the session flow: supervised feature learning leading to LDA and its extensions"
+      ]
+    },
+    {
+      "topic": "Pattern Representation Learning and Supervised Feature Learning Setup",
+      "page_range": [
+        4,
+        6
+      ],
+      "sub_points": [
+        "Motivation for learning feature representations for recognition tasks",
+        "Difference between unsupervised vs. supervised feature learning objectives",
+        "How to define “good” supervised criteria: using class structure to guide projections/embeddings"
+      ]
+    },
+    {
+      "topic": "Class Separability: Between-Class and Within-Class Scatter Measures",
+      "page_range": [
+        7,
+        13
+      ],
+      "sub_points": [
+        "Definition and intuition of between-class distance/separation and its role in classification",
+        "Within-class compactness vs. between-class dispersion as competing objectives",
+        "Scatter matrices (within-class scatter Sw, between-class scatter Sb, total scatter St) and their computation",
+        "Historical notes motivating Fisher’s approach to discriminative projection"
+      ]
+    },
+    {
+      "topic": "Fisher’s Linear Discriminant Analysis (Two-Class): Criterion and Optimization",
+      "page_range": [
+        14,
+        22
+      ],
+      "sub_points": [
+        "Problem statement: find a projection direction that best separates class populations",
+        "Fisher criterion J(w): maximize between-class separation while minimizing within-class variance",
+        "Derivation of the optimal projection direction and rewriting the criterion in matrix form",
+        "Connection to the generalized eigenvalue problem: Sb w = λ Sw w and conditions for solvability"
+      ]
+    },
+    {
+      "topic": "LDA in Practice: Examples and Multi-Class/Multiple-Projection Extension",
+      "page_range": [
+        23,
+        31
+      ],
+      "sub_points": [
+        "Worked examples illustrating LDA projection and resulting separability",
+        "Extension from a single projection to multiple discriminant directions (subspace LDA)",
+        "Use of determinant/trace-based objectives for multi-dimensional projections",
+        "Practical computation pipeline for LDA projection vectors from training data",
+        "Rank limitation and why the number of LDA directions is at most min(d, C−1)"
+      ]
+    },
+    {
+      "topic": "PCA vs. LDA for Classification: Empirical Comparisons and Data-Regime Effects",
+      "page_range": [
+        29,
+        36
+      ],
+      "sub_points": [
+        "Face recognition example setup (e.g., YALE database) as a motivating application",
+        "Conceptual contrast: PCA maximizes variance; LDA maximizes class separability",
+        "When LDA may or may not outperform PCA (e.g., small-sample issues, overfitting risk)",
+        "Case study comparisons under small vs. large training dataset regimes",
+        "Reinforcement of dimensionality limits for LDA features: at most min(d, C−1)"
+      ]
+    },
+    {
+      "topic": "General Framework: Graph Embedding (GE) for Feature Learning",
+      "page_range": [
+        37,
+        47
+      ],
+      "sub_points": [
+        "Unifying view: casting feature learning methods as graph/embedding optimization problems",
+        "GE problem formulation (objective + constraints) and interpretation in terms of preserving desired relations",
+        "Equivalence/proof ideas for reformulating constraints to standard optimization forms",
+        "Linearization procedures to obtain tractable linear solutions (often leading to eigenproblems)",
+        "Kernelization to enable nonlinear embeddings in high-dimensional feature spaces"
+      ]
+    },
+    {
+      "topic": "GE-Based Algorithms: Marginal Fisher Analysis (MFA) and Face Recognition Experiment",
+      "page_range": [
+        48,
+        55
+      ],
+      "sub_points": [
+        "Designing a new discriminative algorithm under the GE framework",
+        "Marginal Fisher Analysis (MFA): local neighborhood graphs for within-class compactness and between-class margin maximization",
+        "How MFA relates to/extends classical LDA by focusing on marginal (local) structures rather than global class statistics",
+        "Experimental pipeline and evaluation for face recognition using learned embeddings",
+        "Pointers to foundational references (Graph Embedding and Extensions by Yan, Xu et al.)"
+      ]
+    }
+  ],
+  "source_file": "WS-Week8-LDA-GE_clean.pdf"
+}

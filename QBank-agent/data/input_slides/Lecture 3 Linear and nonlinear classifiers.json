@@ -1,0 +1,427 @@
+{
+  "source_file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+  "outline": [
+    "EE5907 Pattern Recognition",
+    "Discussion on Tutorial: Q1",
+    "Discussion on Tutorial: Q2",
+    "Discussion on Tutorial: Q3",
+    "Linear Classifiers:",
+    "Linear Classifiers: Simple yet Important",
+    "Discriminant Functions and Decision Surfaces",
+    "Linear Discriminant Functions",
+    "Visualize the Decision Hyperplane",
+    "Decision Hyperplanes: Example",
+    "The Perceptron Algorithm: Basics",
+    "The Perceptron Algorithm: Optimization",
+    "Optimization with Gradient Descent",
+    "The Perceptron Algorithm:",
+    "Visualizing the Perceptron Algorithm",
+    "The Perceptron Algorithm: an Example",
+    "The Perceptron Algorithm: Implementation",
+    "Variants of the Perceptron Algorithm",
+    "Variants of the Perceptron Algorithm: Example",
+    "The Perceptron",
+    "The Perceptron: Details",
+    "The Perceptron",
+    "Extending to Multi-Class",
+    "Linearly Separable?",
+    "Classification with (Mean Square) Error",
+    "MSE Estimation",
+    "Sum of Error Squares Estimation",
+    "LSE Estimation",
+    "Over- and Under-Determined Systems",
+    "LSE Estimation: an Example",
+    "The Capabilities of Linear Classifiers",
+    "End of Week 4",
+    "The Bias-Variance Dilemma: Bias",
+    "The Bias-Variance Dilemma: Variance",
+    "The Bias-Variance Dilemma",
+    "The Bias-Variance Dilemma (Trade-off)",
+    "Nonlinear Classifiers:",
+    "Recap: Linear Classifier – The Perceptron",
+    "Recap: Linear Classifier – Minimize Errors",
+    "Limitations of Linear Classifiers?",
+    "The XOR Problem",
+    "The Two-Layer Perceptron",
+    "The Biological Inspiration Behind",
+    "Constraints of the Activation Function",
+    "Capabilities of the Two-Layer Perceptron",
+    "Further: Multi (Three)-Layer Perceptron (MLP)",
+    "Recall: The Perceptron Algorithm",
+    "Adjusting w.r.t. Cost Function",
+    "Continuous Activation Function",
+    "Note: Indifferentiable Function",
+    "Training the MLP",
+    "Training the MLP: Backpropagation",
+    "Beyond the Basic MLP",
+    "Radial Basis Function (RBF) Networks",
+    "Understanding the RBF Network",
+    "RBF Networks: The RBFs",
+    "Training an RBF Network",
+    "Training an RBF Network: a Hybrid Process",
+    "RBF Network: An Example with CV",
+    "End of Week 5"
+  ],
+  "slides": [
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 1,
+      "title": "EE5907 Pattern Recognition",
+      "content": "Lecture 3 Linear and Non-linear Classifiers\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 2,
+      "title": "Discussion on Tutorial: Q1",
+      "content": "Show that in a multiclass problem with 𝑀 classes, the probability of classification error for\nthe optimal classifier is bound by:\n𝑀 − 1\n𝑝 ≤\n𝑒𝑟𝑟\n𝑀\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 3,
+      "title": "Discussion on Tutorial: Q2",
+      "content": "Suppose that we have a random variable 𝑥 which follows an Erlang distribution as:\n𝑝 𝑥 𝜃 = 𝜃 2 𝑥 exp −𝜃𝑥 𝑢(𝑥) where 𝑢 𝑥 is the unit step function defined as:\n1 𝑖𝑓 𝑥 > 0\n𝑢 𝑥 = ቊ\n0 𝑖𝑓 𝑥 ≤ 0\nNow show that the Maximum Likelihood Estimation (MLE) of 𝜃 given 𝑁 measurements\n𝑥 , … , 𝑥 of 𝑥 is defined as:\n1 𝑁\n2𝑁\nመ\n𝜃 =\n𝑀𝐿𝐸 σ𝑁\n𝑥\n𝑘=1 𝑘\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 4,
+      "title": "Discussion on Tutorial: Q3",
+      "content": "(a) Suppose a crime has been committed. Blood is found at the scene for which there is\nno innocent explanation. The blood of a type which is present in 1% of the population.\nThe prosecutor claims: “There is a 1% chance that the defendant would have the crime\nblood type if he were innocent. Thus, there is a 99% chance that he is guilty”. This is\nknown as the prosecutor’s fallacy. Explain in detail what is wrong with this argument.\n© Copyright National University of Singapore. All Rights Reserved.\n\n(b) Further, the defender claims: “The crime occurred in a city of 800,000 people. The\nblood type would be found in approximately 8000 people. The evidence has provided a\nprobability of just 1 in 8000 that the defendant is guilty and thus has no relevance.” This\nis known as the defender’s fallacy. Explain in detail what is wrong with this argument?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 6,
+      "title": "Linear Classifiers:",
+      "content": "✓ Perceptron Algorithm and its Variants.\n✓ Least Square Methods for Optimal Linear Classifiers.\n✓ The Bias-Variance Dilemma.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 7,
+      "title": "Linear Classifiers: Simple yet Important",
+      "content": "Intuitively, what is the advantage(s) of linear classifiers?\nSimplicity and computational attractiveness.\nOf course, linear classifiers are NOT perfect.\nFirst assume that all feature vectors from the available classes\ncan be classified correctly using a linear classifier.\nThe goal: design an “optimal linear classifier” by adopting an\nappropriate optimality criterion.\nFurther assumptions (more general case) will be that feature vectors\nmay not be classified correctly – the risk of mis-classification.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 8,
+      "title": "Discriminant Functions and Decision Surfaces",
+      "content": "∗\nBayes decision rule: 𝜋 𝑥 = arg min 𝜌 𝑎 𝑥 = arg max 𝑝(𝑦|𝑥)\n𝑎∈𝒜 𝑦∈𝒴\nEquivalent to partitioning the feature space into 𝐶 regions, for a\nclassification task with 𝐶 classes.\nFirst focus the binary classification case: 𝒴 = {1,2}, thus the partition\nwill result in 2 regions.\nWe can safely assume that the two regions are contiguous – they are\nthus separated by a “decision surface” (also known as a decision\nhypersurface) in the feature space.\nThe decision surface is characterized by the following equation:\n𝑝 𝑦 𝑥 − 𝑝 𝑦 𝑥 = 0\n1 2\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑝 𝑦 𝑥 − 𝑝 𝑦 𝑥 = 0\n1 2\nFrom one side of the surface the difference > 0 and vice versa;\nOften, more convenient to work with an equivalent function:\n𝑔 𝑥 ≡ 𝑓 𝑝 𝑦 𝑥 . 𝑓 ⋅ is a monotonically increasing function;\n𝑖 𝑖\n𝑔 (𝑥) is defined as a discriminant function.\n𝑖\nTo classify input 𝑥 as the 𝑖-th class, we adopt the decision test:\n𝑝 𝑦 |𝑥 > 𝑝 𝑦 𝑥 . This is a general function for ∀𝑗 ≠ 𝑖.\n𝑖 𝑗\nWith discriminant function, the above decision test is restated: classify\nas 𝑖-th class if 𝑔 𝑥 > 𝑔 𝑥 , ∀𝑗 ≠ 𝑖.\n𝑖 𝑗\nDecision hypersurfaces are described as 𝑔 𝑥 ≡ 𝑔 𝑥 − 𝑔 𝑥 = 0.\n𝑖𝑗 𝑖 𝑗\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 10,
+      "title": "Linear Discriminant Functions",
+      "content": "For a binary classification task, we may consider leveraging a\nlinear discriminant function:\nThe decision hypersurface in the feature space is thus a hyperplane:\n𝑇\n𝑔 𝑥 = 𝒘 𝑥 + 𝑤 , 𝒘 – the weight vector; 𝑤 – the threshold.\n0 0\n𝑇\nIf the hypersurface is in a 𝑙-dim feature space, then 𝒘 = 𝑤 , 𝑤 , … , 𝑤 .\n1 2 𝑙\nSuppose 𝑥 and 𝑥 are two points on the decision hyperplane:\n1 2\n𝑇 𝑇 𝑇\n0 = 𝒘 𝑥 + 𝑤 = 𝒘 𝑥 + 𝑤 ⇒ 𝒘 𝑥 − 𝑥 = 0\n1 0 2 0 1 2\nWhat can we infer from this equation?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 11,
+      "title": "Visualize the Decision Hyperplane",
+      "content": "𝑇 𝑇\n0 = 𝒘 𝑥 + 𝑤 = 𝒘 𝑥 + 𝑤 ⇒\n1 0 2 0\n𝑇\n𝒘 𝑥 − 𝑥 = 0\n1 2\nWhat can we infer from this\nequation?\nObserve: the difference vector\n𝑥 − 𝑥 lies on the decision\n1 2\nhyperplane.\nThus, weight vector 𝒘 must be\northogonal to the decision\nhyperplane!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 12,
+      "title": "Decision Hyperplanes: Example",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 13,
+      "title": "The Perceptron Algorithm: Basics",
+      "content": "𝑇\nGiven 𝑔 𝑥 = 𝒘 𝑥 + 𝑤 , our concern: compute the unknown\n0\nparameters 𝑤 , 𝑖 = 0,1, … , 𝐷.\n𝑖\nFirst assume that the two classes 𝑦 and 𝑦 are linearly separable.\n1 2\nMathematically, assume that there exists a hyperplane defined by\n∗𝑇 ∗𝑇 ∗𝑇\n𝒘 𝑥 = 0 such that 𝒘 𝑥 > 0, ∀𝑥 ∈ 𝑦 and 𝒘 𝑥 < 0, ∀𝑥 ∈ 𝑦 .\n1 2\nNote that the formulation covers the case where the hyperplane does\n∗𝑇 ∗\nnot cross the origin (as in the last slide): 𝒘 𝑥 + 𝑤 = 0.\n0\nUnder such case, we can further define a 𝐷 + 1 -dim feature vector\n′ 𝑇 𝑇 ′ ∗𝑇 ∗ 𝑇 ∗𝑇 ∗ ′𝑇\n𝑥 ≡ 𝑥 , 1 and 𝒘 ≡ 𝒘 , 𝑤 , thus 𝒘 𝑥 + 𝑤 = 𝒘 𝑥′.\n0 0\nBack to the question: how to compute the unknown parameters?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 14,
+      "title": "The Perceptron Algorithm: Optimization",
+      "content": "∗𝑇\nCompute the unknown parameters 𝑤 , 𝑖 = 0,1, … , 𝐷 for 𝒘 𝑥 = 0.\n𝑖\nView the problem as a typical optimization task:\nAn appropriate cost function;\nAn algorithmic optimization scheme to optimize the cost function.\nAny simple but still relatively accurate cost function?\nThe perceptron cost: 𝐽 𝒘 = σ 𝛿 𝒘 𝑇 𝑥 , where 𝑀 is the subset of\n𝑥∈𝑀 𝑥\nmis-classified training vectors. Set 𝛿 = −1, ∀𝑥 ∈ 𝑦 and 𝛿 = 1, ∀𝑥 ∈ 𝑦 .\n𝑥 1 𝑥 2\nWhen the cost function takes its minimum value, which is 0, can safely\nassume that a solution has been obtained, since all training feature\nvectors are correctly classified.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑇\nThe perceptron cost: 𝐽 𝒘 = σ 𝛿 𝒘 𝑥 . How to optimize?\n𝑥∈𝑀 𝑥\nThe perceptron cost function is continuous and piecewise linear.\nIf 𝒘 changes smoothly, the cost 𝐽 𝒘 changes linearly until the point at\nwhich there is a change in the number of misclassified vectors.\nAt these points the gradient is not defined, and the gradient function is\ndiscontinuous.\nNext: how to optimize the perceptron cost (to obtain the min value)?\nIterative minimization in the spirit of gradient descent. Defined at all\npoints where the gradient function is continuous:\n𝜕𝐽 𝒘\n𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 ቚ\n𝑡\n𝜕𝒘\n𝒘=𝒘(𝑡)\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 16,
+      "title": "Optimization with Gradient Descent",
+      "content": "𝜕𝐽 𝒘\n𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 ቚ\n𝑡\n𝜕𝒘\n𝒘=𝒘(𝑡)\nIn the gradient descent scheme,\nthe correction of the parameters\ntakes place in the direction that\ndecreases the value of the cost\nfunction.\nIn reality, most cost functions are\nmuch more complicated: there\nexists local and global minimum,\nas well as saddle points.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 17,
+      "title": "The Perceptron Algorithm:",
+      "content": "𝜕𝐽 𝒘\n𝑇\n𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 ቚ , where 𝐽 𝑤 = ෍ 𝛿 𝒘 𝑥\n𝑡 𝑥\n𝜕𝒘\n𝒘=𝒘 𝑡\n𝑥∈𝑀\n𝜕𝐽(𝑤)\nAt the points where the gradient is valid, we have = σ 𝛿 𝑥. The\n𝑥∈𝑀 𝑥\n𝜕𝑤\noptimization function is thus: 𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 σ 𝛿 𝑥.\n𝑡 𝑥∈𝑀 𝑥\nThis is the perceptron algorithm, with an arbitrary starting point 𝒘(0).\n𝜌 σ 𝛿 𝑥.\n𝑡 𝑥∈𝑀 𝑥\n𝑀\n𝑀 𝑀\n𝑀\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 18,
+      "title": "Visualizing the Perceptron Algorithm",
+      "content": "Geometric interpretation of\nthe perceptron algorithm:\nThe update of the weight\nvector is in the direction of 𝑥\nin order to turn the decision\nhyperplane to include 𝑥 in the\ncorrect class\n𝑦\n1\n𝑦\n2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 19,
+      "title": "The Perceptron Algorithm: an Example",
+      "content": "Dashed line: initial hyperplane 𝑥 + 𝑥 − 0.5 = 0.\n1 2\n𝑇 𝑇\nWeight vector: 𝒘 = 1,1, −0.5 ; set 𝜌 = 𝜌 = 0.7.\n𝑡\nWhat can we observe?\nThe line classifies correctly all the vectors (pts)\n𝑇 𝑇\nexcept 2: 0.4, 0.05 and −0.20, 0.75 .\nThe next weight vector is updated as:\n1 0.4 −0.2 1.42\n𝒘 𝑡 + 1 = 1 − 0.7 −1 0.05 − 0.7 +1 0.75 = 0.51\n−0.5 1 1 −0.5\nThis corresponds to the new (solid) line:\n1.42𝑥 + 0.51𝑥 − 0.5 = 0, which classifies all\n1 2\npoints correctly, algorithm is thus terminated.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 20,
+      "title": "The Perceptron Algorithm: Implementation",
+      "content": "AA Ig-graepnhe roaft ead li nceo nbteetnwt emeany t wbeo ilninceosrrect.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 21,
+      "title": "Variants of the Perceptron Algorithm",
+      "content": "A simpler form of the perceptron algorithm – cyclical form:\nThe training data enter the algorithm cyclically, one by one.\nIf the algorithm has not converged after the presentation of all the\nsamples once, then the procedure keeps repeating until convergence,\ni.e, when all training samples have been classified correctly.\nLet 𝑤 𝑡 be the weight vector estimated and 𝑥 the corresponding data\n𝑡\npresented at the 𝑡-th iteration step, the algorithm is stated as:\n𝑇\n𝑤 𝑡 + 1 = 𝑤 𝑡 + 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≤ 0 (note similarity);\n𝑡 𝑡 1 𝑡\n𝑇\n𝑤 𝑡 + 1 = 𝑤 𝑡 − 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≥ 0;\n𝑡 𝑡 2 𝑡\n𝑤 𝑡 + 1 = 𝑤 𝑡 , otherwise.\nHow to interpret this variant of the perceptron algorithm?\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑇\n𝑤 𝑡 + 1 = 𝑤 𝑡 + 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≤ 0;\n𝑡 𝑡 1 𝑡\n𝑇\n𝑤 𝑡 + 1 = 𝑤 𝑡 − 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≥ 0;\n𝑡 𝑡 2 𝑡\n𝑤 𝑡 + 1 = 𝑤 𝑡 , otherwise.\nIf the current training sample is classified correctly, no action is\ntaken. If the sample is misclassified, the weight vector is\ncorrected by adding/subtracting an amount proportional to 𝑥 .\n𝑡\nThe algorithm belongs to a more general algorithmic family: the\nreward and punishment schemes.\nIf the classification is correct, the reward is that no action is taken.\nOtherwise, the punishment is the cost of correction.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 23,
+      "title": "Variants of the Perceptron Algorithm: Example",
+      "content": "4 points are as shown in the feature space: blue being\nclass 1 𝑦 and black being class 2 𝑦 .\n1 2\nHow to design a linear classifier using the perceptron algorithm in\nits reward and punishment form?\nSet 𝜌 = 1 and initial weight vector 𝒘 0 = 0, 0, 0 𝑇\nSince for four consecutive steps no correction is needed, all points are\ncorrectly classified and the algorithm terminates.\n𝑇\nThe solution is 𝒘 = −1, 1, 0 , which corresponds to the linear classifier\n− 𝑥 + 𝑥 = 0\n.\n1 2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 24,
+      "title": "The Perceptron",
+      "content": "The goal of the perceptron algorithm: obtain a linear classifier\nthat is applicable to new (and unknown) data:\nI.e., classify the new data into the two classes (binary classification).\n𝑇\nIF 𝑤 𝑥 + 𝑤 > 0, assign 𝑥 to 𝑦 ;\n0 1\n𝑇\nELSE IF 𝑤 𝑥 + 𝑤 < 0, assign 𝑥 to 𝑦 ;\n0 2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 25,
+      "title": "The Perceptron: Details",
+      "content": "Let’s describe the perceptron in detail:\nThe elements of the feature vector 𝑥 are applied to the input nodes (blue).\nThen each one is multiplied by the corresponding weights known as\nsynaptic weights or simply synapses (orange).\nThe products are summed up with the threshold 𝑤 . The result then goes\n0\nthrough a nonlinear device, which implements the activation function 𝑓.\nWide range of choices for 𝑓, example: the hard limiter step function\n𝑓 𝑧 = −1 if 𝑧 < 0 and 𝑓 𝑧 = 1 if 𝑧 > 0.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 26,
+      "title": "The Perceptron",
+      "content": "This basic network is known as a\nperceptron or neuron.\nPerceptrons are simple examples of the learning machines –\ni.e., structures whose free parameters are updated by a\nlearning algorithm, such as the perceptron algorithm, to “learn”\na specific task, based on a set of training data.\nThe perceptron can be used as the basic building element for\nmore complex learning networks.\nSometimes a neuron with a hard limiter device is referred to as\na McCulloch-Pitts neuron.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 27,
+      "title": "Extending to Multi-Class",
+      "content": "Previously, we default our task as a binary classification task –\nhow can we generalize to multi-class (𝑀-class) scenarios?\nGeneralize in the simplest manner:\nA linear discriminant function (defined by a weight vector 𝒘 ) is defined\n𝑖\nfor each of the 𝑀 classes.\nInput feature (data) 𝑥 is classified as the 𝑖-th class if the following holds:\n𝑇 𝑇\n𝒘 𝑥 > 𝒘 𝑥, ∀𝑗 ≠ 𝑖\n𝑖 𝑗\nDiscussion: how can we construct a linear classifier that could perform\nthis comparison across all classes in one-shot?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 28,
+      "title": "Linearly Separable?",
+      "content": "From previous slides, we could observe how simple the\nformulation of a linear classifier is.\nOur discussion: all data can be classified as one of the classes;\nI.e., a strong assumption that the classes are linearly separable.\nIn many cases, the class are not linearly\nseparable – but still want to leverage the\nsimplicity of linear classifiers.\nSuboptimal, but simple → best of all suboptimals;\nCompute the weight vectors under a suitable\noptimality criterion;\nA simple criterion to start with – mean square error.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 29,
+      "title": "Classification with (Mean Square) Error",
+      "content": "Our goal: design a linear classifier so that the desired outputs\nof the data are ±1 – but with errors.\nThe true output will not always be equal to the desired output.\n𝑇\nGiven input 𝑥, the actual output is 𝒘 𝑥, the desired output is 𝑦(𝑥).\n𝒘 is computed to minimize the mean square error (MSE) between the\nactual output and the desired output.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 30,
+      "title": "MSE Estimation",
+      "content": "Formulation of the MSE between the desired and actual output:\n𝑇 2\n𝐽 𝒘 = 𝔼 𝑦 𝑥 − 𝑥 𝒘 , 𝒘ෝ = arg min 𝐽(𝒘)\n𝑤\nMinimizing the above equation w.r.t. 𝑤 as:\n𝜕𝐽 𝒘\n𝑇 −1\n= 2𝔼 𝑥(𝑦 − 𝑥 𝒘) = 0 ⇒ 𝒘ෝ = 𝑅 𝔼 𝑥𝑦\n𝑥\n𝜕𝒘\n𝑇\nHere, 𝑅 = 𝔼 𝑥𝑥 is the correlation, which is equal to the covariance\n𝑥\nmatrix, 𝔼 𝑥𝑦 is the cross-correlation between the input and the desired\noutput, formulated as:\n𝑥 𝑦\n1\n⋮\n𝔼 𝑥𝑦 = 𝔼\n𝑥 𝑦\n𝑙\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 31,
+      "title": "Sum of Error Squares Estimation",
+      "content": "A criterion closely related to the MSE is the sum of error\nsquares or simply the least squares error (LSE) criterion:\n𝑁 𝑁 𝑁\n2 2\n𝑇 𝑇 2\n𝐽 𝒘 = ෍ 𝑦 𝑥 − 𝑥 𝒘 = ෍ 𝑦 − 𝑥 𝒘 ≡ ෍ 𝑒\n𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖 𝑖 𝑖\nCompare with MSE?\nErrors btw the desired output and the true output are summed over all\nthe training feature vectors, instead of averaging out.\nOvercome the need for explicit knowledge of the underlying probability\ndistribution functions (pdfs).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 32,
+      "title": "LSE Estimation",
+      "content": "2\n𝑁 𝑇\nMinimizing the LSE formulation 𝐽 𝒘 = σ 𝑦 − 𝑥 𝒘 w.r.t. 𝑤 results in:\n𝑖 𝑖 𝑖\n𝑁 𝑁 𝑁\n𝑇 𝑇\n෍ 𝑥 𝑦 − 𝑥 𝒘ෝ = 0 ⇒ ෍ 𝑥 𝑥 𝒘ෝ = ෍ 𝑥 𝑦\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖 𝑖 𝑖\nMathematically, we can define two matrices:\n𝑥 𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n1 11 12 1𝐷 1\n𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n𝑥\n21 22 2𝐷 2\n𝑋 = 2 = , 𝑌 =\n⋮ ⋮ ⋱ ⋮ ⋮\n⋮\n𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n𝑥\n𝑁1 𝑁2 𝑁𝐷 𝑁\n𝑁\nI.e., 𝑋 is an 𝑁 × 𝐷 matrix whose rows are the available training feature\nvectors, and 𝑌 is a vector consisting of the corresponding desired outputs.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑁 𝑇 𝑇 𝑁 𝑇\nWith the matrices, we have σ 𝑥 𝑥 = 𝑋 𝑋 and σ 𝑥 𝑦 = 𝑋 𝑌.\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nHence the equation for optimal weight vector is formulated as:\n𝑇 𝑇 𝑇 −1 𝑇\n𝑋 𝑋 𝑤ෝ = 𝑋 𝑌 ⇒ 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌\n𝑇 + 𝑇 −1 𝑇\nHere we define 𝑋 𝑋 as the sample correlation matrix, 𝑋 ≡ 𝑋 𝑋 𝑋\nis usually known as the pseudoinverse of matrix 𝑋, which is only valid if\n𝑇\nthe matrix (𝑋 𝑋) is invertible.\nIn the case where 𝑁 = 𝐷, the optimal weight vector satisfies the\nequation of: 𝑋𝑤ෝ = 𝑌.\n𝑇\nIn most cases where 𝑁 > 𝐷, the solution obtained from 𝑤ෝ = 𝑋 𝑌 is the\nvector that minimizes the sum of squared errors.\nNote that the LSE solution tends to the MSE solution when 𝑁 is large!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 34,
+      "title": "Over- and Under-Determined Systems",
+      "content": "𝑇 𝑇 𝑇 −1 𝑇\n𝑋 𝑋 𝑤ෝ = 𝑋 𝑌 ⇒ 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌\nDuring the computation of the above equation, we assume 𝑁 > 𝑙, i.e., we\nhave more samples than the number of features per sample.\nWe have more than enough equations to determine the linear classifier –\ndenoted as an over-determined system.\nQuestion: what if 𝑁 < 𝐷, i.e., we do NOT have enough samples?\nThere will be more than one unique solution!\nWe then need to constrain the search. Assume (𝑋𝑋 𝑇 ) is invertible, denote 𝑤 = 𝑋 𝑇 𝑎,\nthen we have 𝑋𝑋 𝑇 𝑎 = 𝑦 from 𝑋𝑤 = 𝑦.\nThus 𝑎ො = 𝑋𝑋 𝑇 −1 𝑦, thus 𝑤ෝ = 𝑋 𝑇 𝑋𝑋 𝑇 −1 𝑦\nHere we denote 𝑋 † = 𝑋 𝑇 𝑋𝑋 𝑇 −1 as the right inverse of 𝑋.\nNote: our discussion will still focus on over-determined systems!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 35,
+      "title": "LSE Estimation: an Example",
+      "content": "𝑇 𝑇 𝑇 𝑇\nClass 𝑦 consists of the vectors 0.2, 0.7 , 0.3, 0.3 , 0.4, 0.5 , 0.6, 0.5 ,\n1\n𝑇 𝑇 𝑇 𝑇 𝑇 𝑇\n0.1, 0.4 and 𝑦 of 0.4, 0.6 , 0.6, 0.2 , 0.7, 0.4 , 0.8, 0.6 , 0.7, 0.5 .\n2\nGoal: a linear classifier of the form 𝑤 𝑥 + 𝑤 𝑥 + 𝑤 × 1 = 0.\n1 1 2 2 0\nWith LSE estimation: extend each vector with 1 as the 3rd dimension;\nThen compute/form matrices 𝑋 and 𝑌, note that 𝑌 consists of five 1’s and five -1’s, and\ncompute 𝑋 𝑇 𝑋 and 𝑋 𝑇 𝑌 as:\n2.8 2.24 4.8 −1.6\n𝑇 𝑇\n𝑋 𝑋 = 2.24 2.41 4.7 ; 𝑋 𝑌 = 0.1\n4.8 4.7 10 0.0\nThe optimal 𝑤 is thus computed as:\n−3.218\n𝑇 −1 𝑇\n𝑤ෝ = 𝑋 𝑋 𝑋 𝑌 = 0.241\n1.431\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 36,
+      "title": "The Capabilities of Linear Classifiers",
+      "content": "𝑇\nAs discuss, the linear classifiers 𝑔 𝑥 = 𝒘 𝑥 + 𝑤 can be viewed as\n0\nlearning machines which attempt to estimate the corresponding class\nlabel 𝑦.\nIn practice, (and discussed for LSE estimation), the functions 𝑔 ⋅ are\nestimated using a finite training dataset denoted as 𝒟 = { 𝑦 , 𝑥 , 𝑖 =\n𝑖 𝑖\n1,2, … , 𝑁} and a suited method (MSE/LSE).\nTo emphasize the dependency of 𝑔 over 𝒟, we write 𝑔 𝑥; 𝒟 .\nThe ultimate goal of 𝑔 is to be applicable to new data – the capabilities of\n𝑔 to approximate the real class and how this is affected by the finite\ntraining set?\n© Copyright National University of Singapore. All Rights Reserved.\n\nNote that the approximation of the real class may be very good for a\nspecific training data set but very bad for another.\nThe effectiveness of 𝑔 𝑥; 𝒟 can be evaluated by computing its mean\nsquare deviation from the desired optimal value (essentially, the MSE):\n2\n𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥\n𝒟\nThe above formulation can be further re-formulated as:\n2\n𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥\n𝒟\n2\n2\n= 𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥 + 𝔼 𝑔 𝑥; 𝒟 − 𝔼 𝑔 𝑥; 𝒟\n𝒟 𝒟 𝒟\nThe first term is the contribution of the bias and the second is the\ncontribution of the variance.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 38,
+      "title": "End of Week 4",
+      "content": "© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 39,
+      "title": "The Bias-Variance Dilemma: Bias",
+      "content": "2\nBias is formulated as: 𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥 .\n𝒟\nBias refers to the degree to which a model is able to accurately\ncapture the underlying patterns in a dataset.\nLayman term: the diversion from original answer is known as Bias.\nWe say 𝑔(⋅) is unbiased when 𝔼 𝑔 𝑥; 𝒟 = 𝑦 𝑥 .\n𝒟\nA model with high bias is said to be underfitting the data, as it is not\nable to capture the complexity of the true underlying relationship.\nHow can we intuitively know if 𝑔 is of high or low bias?\nHigh bias: poor performance on both training data and unseen data.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 40,
+      "title": "The Bias-Variance Dilemma: Variance",
+      "content": "2\nVariance is formulated as: 𝔼 𝑔 𝑥; 𝒟 − 𝔼 𝑔 𝑥; 𝒟 .\n𝒟 𝒟\nVariance refers to the degree to which a model is able to adapt\nto new data.\nLayman term: the Variance measures the “spread” of a distribution.\nA model with high variance is said to be overfitting the data, as it is\ntoo complex and has learned to fit the noise in the training data as\nwell as the underlying patterns.\nHow can we intuitively know if 𝑔 is of high or low variance?\nHigh variance: much poorer performance on unseen data compared to\nthe training data. (Usually training performance is quite descent)\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 41,
+      "title": "The Bias-Variance Dilemma",
+      "content": "Suppose we are trying to predict red target below.\n© Copyright National University of Singapore. All Rights Reserved.\n\n2\n𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥\n𝒟\n2\n2\n= 𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥 + 𝔼 𝑔 𝑥; 𝒟 − 𝔼 𝑔 𝑥; 𝒟\n𝒟 𝒟 𝒟\nFor a finite data set, there is a trade-off between these two terms.\nIncreasing the bias decreases the variance and vice versa. This is known\nas the bias-variance dilemma.\nIt is difficult to simultaneously minimize both bias and variance.\nAs the complexity of a model increases, its bias decreases, but its variance increases.\nConversely, as the complexity of a model decreases, its bias increases, but its\nvariance decreases.\nThe optimal level of complexity for a model depends on the specific\nproblem and the available data.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 43,
+      "title": "The Bias-Variance Dilemma (Trade-off)",
+      "content": "Test error = Bias Squared + Variance + Irreducible Noise.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 44,
+      "title": "Nonlinear Classifiers:",
+      "content": "✓ Analysis of the XOR problem.\n✓ The Multi-Layer Perceptron (MLP).\n✓ Training the MLP with Backpropagation (BP).\n✓ The Radial Basis Function Networks (RBF).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 45,
+      "title": "Recap: Linear Classifier – The Perceptron",
+      "content": "The goal of the perceptron algorithm: obtain a linear classifier\nthat is applicable to new (and unknown) data:\nI.e., classify the new data into the two classes (binary classification).\n𝑇\nIF 𝑤 𝑥 + 𝑤 > 0, assign 𝑥 to 𝑦 ;\n0 1\n𝑇\nELSE IF 𝑤 𝑥 + 𝑤 < 0, assign 𝑥 to 𝑦 ;\n0 2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 46,
+      "title": "Recap: Linear Classifier – Minimize Errors",
+      "content": "Our goal: design a linear classifier so that the desired outputs\nof the data are ±1 – but with errors.\nThe true output will not always be equal to the desired output.\n𝑇\nGiven input 𝑥, the actual output is 𝒘 𝑥, the desired output is 𝑦(𝑥).\n𝒘 is computed to minimize the error between the acutual output and\nthe desired output.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 47,
+      "title": "Limitations of Linear Classifiers?",
+      "content": "Focus from the performance perspective:\nLinear separable – ultimately 0 errors, what about linearly inseparable?\nThe inseparable data should always be the minority.\nAre there cases where even when we design a linear classifier, in an optimal way,\nwould result in poor performance – majority erroneous classification?\nOne example: The XOR problem.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 48,
+      "title": "The XOR Problem",
+      "content": "Boolean functions can be interpreted as classification\ntasks: depending on the input binary data, the output\nis either 0 or 1 – binary classification task.\nThe truth table and visualization of the XOR problem\n(Boolean function) shown on the right:\nIt is apparent that NO single straight line exists that\nseparates the two classes.\nCompare with other Boolean functions: AND and OR;\nBoth are linearly separable.\nThe question now: how to tackle the XOR problem\nand extend further to other nonlinearly separable\nclassification cases?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 49,
+      "title": "The Two-Layer Perceptron",
+      "content": "How to separate the two classes in the XOR problem? Any intuitive idea?\nThink of leveraging a variant of the perceptron?\nA first thought can be: drawing 2 lines instead of one line!\nAttack the problem in two successive phases:\nCalculate the position of a feature vector 𝑥\nwith respect to each of the two decision lines.\nCombine the results of the previous phase\nand we find the position of 𝑥 with respect to\nboth lines, i.e., outside or inside the shaded\narea.\n© Copyright National University of Singapore. All Rights Reserved.\n\nHow to realize such a successive phased solution?\nFirst, the two decision lines, or hyperplanes, 𝑔 and 𝑔 , achieved with\n1 2\nthe adoption of 2 perceptrons:\nOutputs 𝑦 = 𝑓(𝑔 (𝑥)) where 𝑓 is the activation\n𝑖 𝑖\nfunction, a common one being the step function.\nFrom another point of view:\nComputations during the 1st phase perform a\nmapping of the input vector 𝑥 to a new one 𝑦\n(usually what we call a feature vector).\nThe decision during the second phase is now\nbased on the transformed data.\n© Copyright National University of Singapore. All Rights Reserved.\n\nIMPORTANT: the mapping of the 1st phase transforms the nonlinearly\nseparable problem to a linearly separable one.\nThe realization: through a multilayer structure – a generalization of the\nperceptron: a two-layer perceptron / two-layer feedforward neural network.\n𝑤\n11\n𝑤 𝑣\n21 11\n𝑤\n12\n𝑣\n12\n𝑤\n22\nHidden Layer\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 52,
+      "title": "The Biological Inspiration Behind",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 53,
+      "title": "Constraints of the Activation Function",
+      "content": "𝑙\nSuppose input 𝑥 is in the ℝ space and we have 𝑝 hidden layer neurons,\nfinal output denoted as 𝑦 and output from the hidden neuron as 𝑧.\nThe mathematical expression of the outputs in the 2-layer perceptron is\nthus expressed as:\n𝑙 𝑝\n𝑇 𝑇\n𝑧 = 𝑓 ෍ 𝑤 𝑥 = 𝑓 𝑤 𝑥 , 𝑦 = 𝑓 ෍ 𝑣 𝑧 = 𝑓 𝑣 𝑧\n𝑗 𝑗𝑖 𝑖 𝑗 𝑘 𝑘𝑗 𝑗 𝑘\n𝑖=1 𝑗=1\nWhich means that\n𝑤\n11\n𝑇 𝑇 𝑇\n𝑦 = 𝑓 𝑉 𝑧 = 𝑓 𝑉 𝑓 𝑊 𝑥\n𝑤 𝑣\n21 11\nQuestion: any limitations for the activation function 𝑓?\n𝑤\n12\n𝑣\n12\n𝑤\n22\n© Copyright National University of Singapore. All Rights Reserved.\n\nAssume that the activation function 𝑓 is a linear function (a\nsimple example: 𝑓 𝑟 = 𝑟.\nThen the output can be computed as:\n𝑇 𝑇 𝑇 𝑇 𝑇 𝑇 𝑇\n𝑦 = 𝑓 𝑉 𝑧 = 𝑓 𝑉 𝑓 𝑊 𝑥 = 𝑉 𝑊 𝑥 = 𝑊𝑉 𝑥 = 𝑈 𝑥\nWhat does this imply?\n𝑤\nThe 2-layer perceptron will be just the same as\n11\nthe basic perceptron! 𝑤 𝑣\n21 11\nTo design the 2-layer perceptron, it is important\n𝑤\nthat the activation function MUST be a non- 12\n𝑣\n12\nlinear function, at least for hidden neurons.\n𝑤\n22\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 55,
+      "title": "Capabilities of the Two-Layer Perceptron",
+      "content": "The action of neurons of the hidden layer is a\nmapping of the input space 𝑥 onto the vertices of\na square of unit side length in the 2d space.\n𝑙\nGenerally: consider input vectors 𝑥 ∈ ℝ , and a\ntwo-layer perceptron with 𝑝 neurons in the hidden\nlayer.\nThe mapping of the input space performed by the hidden\nlayer is now onto the vertices of the hypercube of unit\nside length in the 𝑝-dim space (𝐻 ), as\n𝑝\n𝑇\n𝑝\n𝐻 = { 𝑦 , … , 𝑦 ∈ ℝ , 𝑦 ∈ 0,1 , 𝑖 ∈ [1, 𝑝]}\n𝑝 1 𝑝 𝑖\nThe mapping of the input space onto the vertices of the\nhypercube is via the creation of 𝑝 hyperplanes. Each of\nwhich is created by a neuron in the hidden layer.\n© Copyright National University of Singapore. All Rights Reserved.\n\nAn example of a 3-neuron hidden layer – i.e., 3 hyperplanes.\nEach region defined by the intersections of the hyperplanes corresponds to a vertex\nof the unit 3-dim hypercube, depending on its position w.r.t. each of the hyperplanes.\nHidden layer neurons divides the input 𝑙-dim space into polyhedra, formed by\nhyperplane intersections.\nAll vectors located within one of these polyhedral regions are mapped onto a specific\nvertex of the unit 𝐻 hypercube.\n𝑝\n© Copyright National University of Singapore. All Rights Reserved.\n\nAn example of a 3-neuron hidden layer – i.e., 3 hyperplanes.\nOutput neuron realizes another hyperplane, separates the hypercube into 2 parts.\nThis neuron provides the 2-layer perceptron with the potential to classify vectors into\nA 2-layer perceptron (a single hidden layer) can separate classes consisting of unions\nclasses consisting of unions of the polyhedral regions.\nof polyhedral regions, but NOT any union of such regions – depends on the relative\nAny failure cases?\npositions of the vertices of 𝐻 , where the classes are mapped, and on whether they\n𝑝\nConsider class 𝐴 consists of union 000 ∪ 111 ∪ 110 and class 𝐵 the rest, can we\nare linearly separable.\nconstruct a single plane that separates class 𝐴 from class 𝐵?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 58,
+      "title": "Further: Multi (Three)-Layer Perceptron (MLP)",
+      "content": "The inability of the 2-layer perceptrons to separate classes from any union\nof polyhedral regions is similar to the problem where the basic perceptron\ncannot deal with the XOR problem.\nCan we opt for a similar solution?\nIncrease the complexity – constructing a three-layer perceptron.\nLeave to think: why would the increase of one layer of neurons enable the\nmulti-layer perceptron to separate classes resulting from any union of\npolyhedral regions?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 59,
+      "title": "Recall: The Perceptron Algorithm",
+      "content": "𝜕𝐽 𝒘\n𝑇\n𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 ቚ , where 𝐽 𝑤 = ෍ 𝛿 𝒘 𝑥\n𝑡 𝑥\n𝜕𝒘\n𝒘=𝒘 𝑡\n𝑥∈𝑀\n𝜕𝐽(𝑤)\nAt the points where the gradient is valid, we have = σ 𝛿 𝑥. The\n𝑥∈𝑀 𝑥\n𝜕𝑤\noptimization function is thus: 𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 σ 𝛿 𝑥.\n𝑡 𝑥∈𝑀 𝑥\nThis is the perceptron algorithm, with an arbitrary starting point 𝒘(0).\n𝜌 σ 𝛿 𝑥.\n𝑡 𝑥∈𝑀 𝑥\n𝑀\n𝑀 𝑀\n𝑀\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 60,
+      "title": "Adjusting w.r.t. Cost Function",
+      "content": "The core idea of the perceptron algorithm: adjust the synaptic\nparams (weights) to minimize a cost function of its output.\n𝜕𝐽 𝒘\n𝒘 𝑡 + 1 = 𝒘 𝑡 − 𝜌 ቚ\n𝑡\n𝜕𝒘\n𝒘=𝒘 𝑡\nWhat do we need to know?\nThe cost function (to choose, discuss later);\nThe differentiation of the cost function w.r.t. the weights.\nProblem?\nCurrently, our MLPs are developed around the McCulloch-Pitts\nneurons – the hard limiter step function as activation function!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 61,
+      "title": "Continuous Activation Function",
+      "content": "The problem: not differentiable at some input (𝑥 = 0)!\nPossible solution: finding a continuous differentiable activation\nfunction that behaves similar to the step function.\nThe family of sigmoid functions;\nRepresentative: the logistic function:\n1\n′\n𝑓 𝑥 = , with 𝑓 𝑥 = 𝑎𝑓 𝑥 1 − 𝑓 𝑥\n1 + exp −𝑎𝑥\nVariant that is antisymmetric w.r.t. the origin (𝑓 𝑥 ∈ −1,1 ):\n2\n𝑓 𝑥 = − 1\n1 + exp −𝑎𝑥\nThese funcs are also known as squashing functions.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 62,
+      "title": "Note: Indifferentiable Function",
+      "content": "In actual implementation, it is actually\nquite common to adopt activation\nfunctions that are not differentiable at\nsome input.\nIn such cases, it is necessary to self-\ndefine the gradient in the coding\n(example on the right).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 63,
+      "title": "Training the MLP",
+      "content": "Assume a multi-layer neural architecture with the sigmoid activation. The\ngoal: an iterative training algorithm that computes the synaptic weights of\nthe network so that the cost function (chosen) is minimized).\nFor generalization, assume 𝐿 layers of neuron, with 𝑘 = 𝑙 nodes in the\n0\ninput layer and 𝑘 neurons in the 𝑟-th layer. Assume a total of 𝑁 training\n𝑟\npairs [𝑦 𝑖 , 𝑥(𝑖)]. The output is a 𝑘 -dim output vector. The output from the\n𝐿\nnetwork of input 𝑥(𝑖) is 𝑦ො(𝑖), which may differ from the desired value 𝑦(𝑖).\nThe synaptic weights are computed such\nthat an appropriate cost function 𝐽, which is\ndependent on the values 𝑦(𝑖) and 𝑦ො 𝑖 , 𝑖 =\n1, … , 𝑁, is minimized in an iterative manner.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 64,
+      "title": "Training the MLP: Backpropagation",
+      "content": "The whole process can be literally viewed as extending the propagation\nalgorithm across the different layers of neurons:\nStill, follow the spirit of gradient descent.\n𝑟\nDefine 𝑤 be the (𝑘 + 1)-dim weight vector of the 𝑗-th neuron in the 𝑟-th layer.\n𝑗 𝑟−1\nThe basic iteration step is of the form:\n𝜕𝐽\n𝑟 𝑟 𝑟 𝑟\n𝑤 𝑛𝑒𝑤 = 𝑤 𝑜𝑙𝑑 + Δ𝑤 , Δ𝑤 = −𝜇\n𝑗 𝑗 𝑗 𝑗 𝑟\n𝜕𝑤\n𝑗\nGenerally, the cost function can be formulated as:\n𝑁\n𝐽 = ෍ ℰ(𝑖)\n𝑖=1\nThus, the cost function 𝐽 is the sum of the 𝑁 values\nthat function ℰ takes for each of the training pairs.\n© Copyright National University of Singapore. All Rights Reserved.\n\nNext, we detail on the computation of the gradients:\n𝑟−1\nIf 𝑦 (𝑖) is the output of the 𝑘-th neuron in the 𝑟 − 1 -th layer for the 𝑖-th training pair,\n𝑘\n𝑟\nthe argument for the activation function 𝑓 w.r.t. the output neuron (𝑦 ) will be:\n𝑗\n𝑘\n𝑟−1\n𝑟 𝑟 𝑟−1\n𝑣 = ෍ 𝑤 𝑦 (𝑖)\n𝑗 𝑗𝑘 𝑘\n𝑘=0\n𝑟\nApparently, the dependence of ℰ(𝑖) on 𝑤 passes\n𝑗\n𝑟\nthrough 𝑣 . Leverage on the chain rule, we thus have:\n𝑗\n𝑟\n𝜕ℰ(𝑖) 𝜕ℰ(𝑖) 𝜕𝑣 (𝑖)\n𝑗\n=\n𝑟 𝑟 𝑟\n𝜕𝑤 𝜕𝑣 (𝑖) 𝜕𝑤\n𝑗 𝑗 𝑗\n𝜕 𝜕ℰ(𝑖)\nObserve that 𝑣 𝑟 𝑖 ≡ 𝑦 𝑟−1 (𝑖). Define = 𝛿 𝑟 (𝑖):\n𝑟 𝑗 𝑟 𝑗\n𝜕𝑤 𝜕𝑣 (𝑖)\n𝑗 𝑗\n𝑁\n𝜕𝐽\n𝑟 𝑟 𝑟−1\nΔ𝑤 = −𝜇 = −𝜇 ෍ 𝛿 (𝑖)𝑦 (𝑖)\n𝑗 𝑟 𝑗\n𝜕𝑤\n𝑗\n𝑖=1\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑟\nLast, we detail on the computation of 𝛿 (𝑖):\n𝑗\nThe computations start from 𝑟 = 𝐿 and propagate backward for 𝑟 = 𝐿 , 𝐿 , … , 1. I.e.,\n1 2\nthe computation start from the last layer and propagate towards the first layer.\nThis is the reason the algorithm derived is known as the backpropagation algorithm.\n𝜕ℰ(𝑖)\n𝐿\nFor 𝑟 = 𝐿 (last layer): 𝛿 𝑖 = . A common ℰ can\n𝑗 𝐿\n𝜕𝑣 (𝑖)\n𝑗\nbe the sum of squared errors in output neurons. Thus:\n𝑘 𝑘\n𝐿 𝐿\n1 1 2\n2 𝐿\nℰ 𝑖 ≡ ෍ 𝑒 𝑖 ≡ ෍ 𝑓 𝑣 𝑖 − 𝑦 𝑖\n𝑚 𝑚 𝑚\n2 2\n𝑚=1 𝑚=1\nHence 𝛿 𝐿 𝑖 = 𝑒 𝑖 𝑓 ′ 𝑣 𝐿 𝑖 , 𝑓′(⋅) is the derivative of\n𝑗 𝑗 𝑗\n𝑓. Thus, in the last layer, the dependence of ℰ(𝑖) on\n𝐿\n𝑣 (𝑖) is explicit, and the computation of the derivative\n𝑗\nis straightforward.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑟\nLast, we detail on the computation of 𝛿 (𝑖):\n𝑗\n𝑟−1\nFor 𝑟 < 𝐿, due to the successive dependence among the layers, the value of 𝑣 (𝑖)\n𝑗\n𝑟\ninfluences all 𝑣 𝑖 , 𝑘 = 1,2, … , 𝑘 of the next layer. Employing the chain rule, we have:\n𝑘 𝑟\n𝑘 𝑘\n𝑟 𝑟 𝑟 𝑟\n𝜕ℰ(𝑖) 𝜕ℰ(𝑖) 𝜕𝑣 (𝑖) 𝜕𝑣 (𝑖)\n𝑘 𝑟−1 𝑟 𝑘\n= ෍ ⇒ 𝛿 (𝑖) = ෍ 𝛿 (𝑖)\n𝜕𝑣 𝑟−1 (𝑖) 𝜕𝑣 𝑟 (𝑖) 𝜕𝑣 𝑟−1 (𝑖) 𝑗 𝑘 𝜕𝑣 𝑟−1 (𝑖)\n𝑗 𝑘 𝑗 𝑗\n𝑘=1 𝑘=1\nThe above formula is further computed by the fact that:\n𝑟 𝜕 σ 𝑘 𝑟−1 𝑤 𝑟 𝑦 𝑟−1 𝑖\n𝜕𝑣 (𝑖)\n𝑚=0 𝑘𝑚 𝑚\n𝑘\n𝑟−1 𝑟−1\n= , 𝑦 𝑖 = 𝑓 𝑣 (𝑖)\n𝑟−1 𝑟−1 𝑚 𝑚\n𝜕𝑣 (𝑖) 𝜕𝑣 𝑖\n𝑗 𝑗\n𝑟\n𝜕𝑣 (𝑖)\n𝑘 𝑟 ′ 𝑟−1\n= 𝑤 𝑓 𝑣 (𝑖)\n𝑟−1 𝑘𝑗 𝑗\n𝜕𝑣 (𝑖)\n𝑗\n𝑘\n𝑟\n𝑟−1 𝑟 𝑟 ′ 𝑟−1 𝑟−1 ′ 𝑟−1\n𝛿 𝑖 = ෍ 𝛿 𝑖 𝑤 𝑓 𝑣 (𝑖) = 𝑒 (𝑖)𝑓 𝑣 (𝑖)\n𝑗 𝑘 𝑘𝑗 𝑗 𝑗 𝑗\n𝑘=1\n© Copyright National University of Singapore. All Rights Reserved.\n\nThe overall Backpropagation Algorithm summarized as:\n1. Initialization: initialize all the weights with small random values from\na pseudo-random sequence generator.\n2. Forward computations: for each of the training feature vector,\n𝑟 𝑟 𝑟\ncompute all 𝑣 (𝑖) and 𝑦 𝑖 = 𝑓 𝑣 𝑖 , 𝑖 ∈ [1, 𝑁], 𝑗 ∈ [1, 𝑘 ], 𝑟 ∈ [1, 𝐿].\n𝑗 𝑗 𝑗 𝑟\nCompute the cost function for the current estimate of weights.\n𝐿\n3. Backward computations: for each 𝑖 and 𝑗 compute 𝛿 (𝑖) and in the\n𝑗\n𝑟−1\nsequel compute 𝛿 (𝑖) for 𝑟 = 𝐿, 𝐿 − 1, … , 2 and 𝑗 = 1,2, … , 𝑘 .\n𝑗 𝑟\n𝑟 𝑟 𝑟 𝑟\n4. Update the weights with 𝑤 𝑛𝑒𝑤 = 𝑤 𝑜𝑙𝑑 + Δ𝑤 and Δ𝑤 =\n𝑗 𝑗 𝑗 𝑗\n− 𝜇 σ 𝑁 𝛿 𝑟 (𝑖)𝑦 𝑟−1 (𝑖).\n𝑖=1 𝑗\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 69,
+      "title": "Beyond the Basic MLP",
+      "content": "The MLP we discussed (viewed as a basic MLP network) with\nsigmoidal activation function produces a global hyperplane.\nDiscuss: what is the pros and cons of such hyperplane?\nIs such hyperplane universally applicable?\nIn the nervous system of biological organisms, there is\nevidence that responses of some neurons are \"local\" or tuned\nto some region of input space.\nAn example is the orientation sensitive cells of the visual cortex, whose\nresponse is sensitive to local region in the retina.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 70,
+      "title": "Radial Basis Function (RBF) Networks",
+      "content": "To realize such locality behavior, introduce the Radial Basis\nFunction (RBF) network.\nObserve: a similar structure compared to MLP, difference?\nThe function of the hidden layer:\nMLP: sigmoidal activation function – hyperplane\nRBF: radial basis function – hyper-ellipse\nFor each of the RBF unit (hidden layer neuron),\nthe operation is formulated as:\n𝑑 =∥ 𝑥 − 𝑐 ∥\n𝑖 𝑖\n𝑜 = 𝑔 𝑑 = 𝑔 ∥ 𝑥 − 𝑐 ∥\n𝑖 𝑖 𝑖\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 71,
+      "title": "Understanding the RBF Network",
+      "content": "RBF networks emulate behavior of certain biological networks:\nThe hidden layer consists of the locally tuned or locally\nsensitive neurons, whose response (output) is localized and\ndecays as a function of the distance from the input to the\ncenter of neuron's receptive field.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 72,
+      "title": "RBF Networks: The RBFs",
+      "content": "One of the core of the RBF network is the choice of the RBF\n(i.e., function 𝑔(⋅) of the hidden layer neuron).\nCommon choice of RBF include:\nGaussian function:\n2\n𝑑\n𝑔 𝑑 = exp − 𝑖\n𝑖\n2𝜎2\nInverse multi-quadratic function:\n𝑔 𝑑 = 1/ 𝑑 2 + 𝜎2\n𝑖 𝑖\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 73,
+      "title": "Training an RBF Network",
+      "content": "The output layer neuron is a linear combiner, i.e., weighted\nsum of the hidden layer neuron outputs. Assume the Gaussian\nfunction is used for the hidden layer neurons, the output is:\n𝑚 𝑚\n2\n∥ 𝑥 − 𝑐 ∥\n𝑗\n𝑓 𝑥 = ෍ 𝑤 𝑜 𝑥 = ෍ 𝑤 exp −\n𝑗 𝑗 𝑗\n2𝜎2\n𝑗=1 𝑗=1\nWhat are the parameters that determine the RBF network?\nThe center vectors 𝑐 ;\n𝑗\nThe weights 𝑤 corresponding to each RBF hidden neuron;\n𝑗\nThe width of the basis function 𝜎.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 74,
+      "title": "Training an RBF Network: a Hybrid Process",
+      "content": "There are two steps for determining the RBF:\n1. Determine the RBF centers.\n2. Estimation of the weights.\nUsually, the overall training process is a hybrid process:\nThe RBF centers are determined in an unsupervised manner;\nThe weight estimation is computed in a supervised manner.\nFor determine the RBF centers, possible methods are:\nRandom selection;\nSequential forward selection (merge from individual neurons);\nClustering (e.g., 𝑘-means, to be discussed in Second half of course!)\n© Copyright National University of Singapore. All Rights Reserved.\n\nFor the weight estimation, recall LS estimation (least squares) in linear\nnetwork – the link between the hidden and output layer neurons are linear:\n2\n𝑁 𝑇 𝑁 2\n𝐽 𝒘 = σ 𝑦 − 𝑥 𝒘 ≡ σ 𝑒\n𝑖 𝑖 𝑖 𝑖 𝑖\nNote that the input now is not the original input, but the output from the\nradial basis function (after the hidden layer neuron).\n𝑇\nTry it out with Gaussian RBF: if the center neurons are 𝑐 = 1 1 and\n1\n𝑇\n𝑐 = 0 0 , with width 𝜎 = 0.707, what would be the estimated weights?\n2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 76,
+      "title": "RBF Network: An Example with CV",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 3 Linear and nonlinear classifiers.pdf",
+      "page": 77,
+      "title": "End of Week 5",
+      "content": "© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    }
+  ]
+}

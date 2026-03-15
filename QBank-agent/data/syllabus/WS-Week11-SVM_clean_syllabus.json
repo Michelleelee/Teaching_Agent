@@ -1,0 +1,95 @@
+{
+  "syllabus": [
+    {
+      "topic": "Course Context & Motivation for SVMs in Pattern Representation Learning",
+      "page_range": [
+        1,
+        3
+      ],
+      "sub_points": [
+        "Position of SVMs within pattern recognition and representation learning workflows",
+        "Why margin-based classification is useful for generalization",
+        "High-level overview of what an SVM optimizes (separating hyperplane with maximum margin)"
+      ]
+    },
+    {
+      "topic": "Recap: Linear Classifiers as a Starting Point",
+      "page_range": [
+        4,
+        5
+      ],
+      "sub_points": [
+        "Linear decision functions (hyperplanes) and geometric interpretation",
+        "Classification rule, decision boundary, and role of weights/bias",
+        "Motivation for moving beyond generic linear classifiers to maximum-margin formulations"
+      ]
+    },
+    {
+      "topic": "Hard-Margin SVM: Maximum-Margin Classification for Separable Data",
+      "page_range": [
+        6,
+        22
+      ],
+      "sub_points": [
+        "Hard-margin constraints and geometric margin definition",
+        "Primal optimization formulation and conversion to a Quadratic Program (QP)",
+        "Lagrangian and KKT conditions; deriving the dual problem from the primal",
+        "Interpretation of support vectors and how the decision boundary is determined from them",
+        "Decision function construction from dual variables; conceptual checks/questions"
+      ]
+    },
+    {
+      "topic": "Non-separable Data & Soft-Margin SVM (Slack Variables and Regularization)",
+      "page_range": [
+        23,
+        40
+      ],
+      "sub_points": [
+        "Why real data are often not linearly separable and what breaks in hard-margin SVM",
+        "Slack variables to allow margin violations; hinge-loss-like behavior",
+        "Soft-margin primal objective with regularization parameter (trade-off between margin and violations)",
+        "Soft-margin dual derivation and implications (boxed constraints on dual variables)",
+        "Comparing hard vs soft margin: robustness to noise/outliers and effect on decision boundary"
+      ]
+    },
+    {
+      "topic": "Kernel SVM: Nonlinear Decision Boundaries via the Kernel Trick",
+      "page_range": [
+        41,
+        55
+      ],
+      "sub_points": [
+        "Feature-space viewpoint: linear SVM in transformed space induces nonlinear boundaries in input space",
+        "Kernel trick in the dual: replacing inner products with kernel functions without explicit mapping",
+        "Common kernels (e.g., polynomial, RBF/Gaussian) and typical use cases",
+        "Kernel selection considerations and hyperparameter effects (capacity, smoothness, overfitting risk)",
+        "Validity of kernels: conditions for a function to be a kernel (positive semidefinite / Mercer condition intuition)"
+      ]
+    },
+    {
+      "topic": "Multi-class SVM Strategies",
+      "page_range": [
+        56,
+        58
+      ],
+      "sub_points": [
+        "Extending binary SVMs to multi-class classification",
+        "One-vs-rest and one-vs-one decomposition strategies and their training/inference implications",
+        "Practical considerations: number of classifiers, computational cost, and decision aggregation"
+      ]
+    },
+    {
+      "topic": "Further Reading and References",
+      "page_range": [
+        59,
+        59
+      ],
+      "sub_points": [
+        "Pointers to additional resources for theoretical foundations and practical implementations",
+        "Suggested references for kernels, convex optimization, and SVM generalization theory",
+        "Materials for deeper study and problem practice"
+      ]
+    }
+  ],
+  "source_file": "WS-Week11-SVM_clean.pdf"
+}

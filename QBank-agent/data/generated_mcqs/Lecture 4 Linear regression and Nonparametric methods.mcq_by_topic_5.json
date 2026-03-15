@@ -1,0 +1,153 @@
+{
+  "deck_id": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 5,
+  "topics": [
+    {
+      "topic_id": "topic_1",
+      "topic": "Linear Regression Fundamentals and Problem Setup",
+      "slide_range": [
+        2,
+        9
+      ],
+      "questions": [
+        {
+          "question_id": "topic1_q1_absorb_bias_and_expectation",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "linear regression model form",
+            "weights vs bias",
+            "expected value interpretation",
+            "feature vector augmentation"
+          ],
+          "difficulty": 2,
+          "stem": "You want to implement linear regression without handling a separate bias parameter. Which modification is consistent with the slide’s model interpretation AND preserves the statement that the expected output is linear in the input?",
+          "options": {
+            "A": "Augment the input as x = [1, x1, …, xD] so the offset term is absorbed into the weight vector w, keeping E[y|x] = w^T x.",
+            "B": "Remove the bias by forcing w0 = 0; then E[y|x] remains linear but the model parameters no longer include σ^2.",
+            "C": "Replace the linear mean with a sigmoid so predictions lie in [0,1], which preserves linear regression while absorbing the bias.",
+            "D": "Keep x unchanged but redefine the model as p(y|x,θ) = N(y|w^T ϕ(x), σ^2) and learn ϕ’s parameters jointly so the model stays linear in the parameters."
+          },
+          "answer": "A",
+          "rationale": "A matches two linked statements on the slide: (i) the conditional expectation is linear in x and (ii) the bias can be absorbed by augmenting x with a leading 1. Specifically, the slide states “𝔼 𝑦|𝑥 = 𝒘ᵀ 𝑥.” and also “For simplicity, we can assume 𝑥 = [1, 𝑥₁, … , 𝑥_D] to absorb offset term 𝑤₀ into the weight vector 𝒘.”\n\nB is not supported: the slide does not say to force w0=0, and it explicitly lists σ^2 as part of θ (“The parameters of the model are 𝜃 = (𝑤₀, 𝒘, 𝜎²).”), so claiming parameters no longer include σ^2 contradicts the evidence.\n\nC confuses logistic regression with linear regression. The sigmoid is mentioned as a key component of logistic regression (“Sigmoid (logistic) function: logistic regression incorporates the logistic / sigmoid function...”), not as a way to ‘preserve linear regression’.\n\nD misuses the nonlinear feature map statement: the slide says the model remains linear in parameters only when ϕ’s parameters are fixed (“As long as the parameters of the feature extractor 𝜙 are fixed, the model remains linear in the parameters.”). Learning ϕ jointly violates that condition as stated.",
+          "source": {
+            "page": 4,
+            "pages": [
+              4,
+              6,
+              8
+            ]
+          },
+          "evidence_quotes": [
+            "Linear regression: the expected value of the output assumed\nto be a linear function of the input: 𝔼 𝑦|𝑥 = 𝒘 𝑇 𝑥.",
+            "The parameters of the model are 𝜃 = (𝑤 , 𝒘, 𝜎 ).\n0\n2",
+            "For simplicity, we can assume 𝑥 = [1, 𝑥 , … , 𝑥 ] to absorb offset term 𝑤\n1 𝐷 0\ninto the weight vector 𝒘.",
+            "As long as the parameters of the feature extractor 𝜙 are fixed,\nthe model remains linear in the parameters.",
+            "Sigmoid (logistic) function: logistic regression incorporates the\nlogistic / sigmoid function that squeeze output into range [0,1]."
+          ]
+        },
+        {
+          "question_id": "topic1_q2_regression_vs_classification_and_output_type",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "regression vs classification",
+            "output type",
+            "logistic regression output",
+            "task appropriateness"
+          ],
+          "difficulty": 1,
+          "stem": "A student argues: “Because it’s called logistic regression, it should be used to predict real-valued outputs like price.” Which response is most consistent with the slides’ distinction between regression and classification and with the stated output type of logistic regression?",
+          "options": {
+            "A": "Disagree: regression targets a real-valued output, while logistic regression is generally not used for regression and outputs a class label y ∈ {1,…,C}.",
+            "B": "Agree: logistic regression is a regression method because it predicts continuous values such as income and temperature.",
+            "C": "Disagree: logistic regression is used for regression tasks, but only when the input dimension D = 1 (simple linear regression).",
+            "D": "Agree: logistic regression is the preferred regression method because linear regression cannot model E[y|x] as a linear function."
+          },
+          "answer": "A",
+          "rationale": "A integrates two slide facts: (1) regression is defined as estimating relationships with “a dependent variable (a real-valued output)” and is “used to determine continuous values,” and (2) logistic regression is “generally NOT used for regression task!!” and its output “is usually a class label 𝑦 ∈ {1, … , 𝐶}.”\n\nB contradicts the slide’s explicit statement that logistic regression is not generally used for regression and confuses regression examples (price/income/temperature) with logistic regression.\n\nC invents a condition tying logistic regression to D=1; the D=1 statement is about simple linear regression (“If the input is a 1-D input (𝐷 = 1)... simple linear regression.”), not logistic regression.\n\nD contradicts the linear regression definition that explicitly states a linear conditional expectation (“𝔼 𝑦|𝑥 = 𝒘ᵀ 𝑥”).",
+          "source": {
+            "page": 3,
+            "pages": [
+              3,
+              7
+            ]
+          },
+          "evidence_quotes": [
+            "A set of processes for estimating the relationships between a dependent\nvariable (a real-valued output) and one or more independent variables\n(real-valued inputs).",
+            "Regression: used to determine continuous values (e.g., price, income, temperature).",
+            "Logistic regression is generally NOT used for regression task!!\nInstead, it is more related to the Classification task.",
+            "The output of logistic regression is usually a class label 𝑦 ∈ {1, … , 𝐶}."
+          ]
+        },
+        {
+          "question_id": "topic1_q3_linear_regression_for_classification_why_not_effective",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "linear regression vs logistic regression",
+            "probability interpretation",
+            "threshold instability",
+            "classification framing"
+          ],
+          "difficulty": 3,
+          "stem": "You attempt to use linear regression for a binary classification task by thresholding predictions at 0.5. Based on the slides, which pair of issues best explains why this is “not effective,” and what design element in logistic regression directly addresses at least one of them?",
+          "options": {
+            "A": "Issues: predictions can fall below 0 or above 1 and the classification threshold can shift when new data points are added; logistic regression uses a sigmoid function to squeeze outputs into [0,1].",
+            "B": "Issues: the expected value E[y|x] is nonlinear and σ^2 is undefined; logistic regression fixes this by assuming a Gaussian p(y|x,θ).",
+            "C": "Issues: linear regression cannot use features and requires D=1; logistic regression addresses this by switching to multiple linear regression (D>1).",
+            "D": "Issues: linear regression cannot be written with a bias term and cannot be linear in parameters; logistic regression addresses this by learning a nonlinear feature extractor ϕ."
+          },
+          "answer": "A",
+          "rationale": "A exactly matches the slide’s two stated problems when using linear regression for classification: “Problem with range: linear regression yield predictions below 0 or above 1, does not align with the probability interpretation.” and “Problem with threshold: linear regression predictions may not easily map to a clear classification threshold (e.g., 0.5), and this threshold can shift when new data points are added, causing instability in predictions.” It also correctly identifies a key logistic regression component that addresses the range/probability issue: “Sigmoid (logistic) function... squeeze output into range [0,1].”\n\nB contradicts the slides: linear regression’s expected value is explicitly linear (“𝔼 𝑦|𝑥 = 𝒘ᵀ 𝑥”), and logistic regression is not described here as ‘fixing’ things by assuming a Gaussian.\n\nC is wrong because the slides do not say linear regression cannot use features or requires D=1; they discuss multiple linear regression for D>1. The ‘not effective’ explanation is about range/threshold, not input dimensionality.\n\nD is wrong because linear regression explicitly includes a bias term that can be absorbed (“assume 𝑥 = [1, 𝑥₁, … , 𝑥_D] to absorb offset term 𝑤₀”), and the ‘linear in parameters’ discussion is about nonlinear feature transforms for linear regression, not a defining fix of logistic regression here.",
+          "source": {
+            "page": 8,
+            "pages": [
+              4,
+              8
+            ]
+          },
+          "evidence_quotes": [
+            "Problem with range: linear regression yield predictions below 0 or above 1, does not\nalign with the probability interpretation.",
+            "Problem with threshold: linear regression predictions may not easily map to a clear\nclassification threshold (e.g., 0.5), and this threshold can shift when new data points\nare added, causing instability in predictions.",
+            "Sigmoid (logistic) function: logistic regression incorporates the\nlogistic / sigmoid function that squeeze output into range [0,1].",
+            "Linear regression: the expected value of the output assumed\nto be a linear function of the input: 𝔼 𝑦|𝑥 = 𝒘 𝑇 𝑥.",
+            "For simplicity, we can assume 𝑥 = [1, 𝑥 , … , 𝑥 ] to absorb offset term 𝑤\n1 𝐷 0\ninto the weight vector 𝒘."
+          ]
+        },
+        {
+          "question_id": "topic1_q4_general_case_nonlinear_features_linear_in_parameters",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "nonlinear feature transformation",
+            "linearity in parameters",
+            "model fit motivation",
+            "generalization of linear regression"
+          ],
+          "difficulty": 2,
+          "stem": "A dataset is clearly not well fit by a straight line. You propose using a nonlinear feature transformation ϕ(x). Under what condition does the slide claim the resulting model still counts as ‘linear’ in the relevant sense, and what is the motivation for introducing ϕ(x) in the first place?",
+          "options": {
+            "A": "If the parameters of ϕ are fixed, the model remains linear in the parameters; ϕ(x) is introduced because a straight line will not provide a good fit to most datasets.",
+            "B": "If the parameters of ϕ are learned jointly with w, the model remains linear in the parameters; ϕ(x) is introduced to ensure outputs lie in [0,1].",
+            "C": "If σ^2 is set to 0, the model remains linear in the parameters; ϕ(x) is introduced to convert regression into classification.",
+            "D": "If D=1, the model remains linear in the parameters; ϕ(x) is introduced to create a multivariate output y ∈ R^J."
+          },
+          "answer": "A",
+          "rationale": "A combines the slide’s motivation and the key condition. Motivation: “Unfortunately, in general, a straight line will not provide a good fit to most datasets!” leading to “Apply a nonlinear transformation to the input features:”. Condition: “As long as the parameters of the feature extractor 𝜙 are fixed, the model remains linear in the parameters.”\n\nB directly contradicts the stated condition (it requires ϕ fixed, not learned jointly) and wrongly imports the [0,1] motivation from logistic regression.\n\nC invents conditions (σ^2=0) and purpose (convert regression into classification) not stated.\n\nD confuses dimensionality cases from other slides; D=1 is about simple linear regression, not the criterion for linearity-in-parameters, and ϕ(x) is not introduced to create multivariate outputs.",
+          "source": {
+            "page": 6,
+            "pages": [
+              6
+            ]
+          },
+          "evidence_quotes": [
+            "Unfortunately, in general, a straight line will not provide a good\nfit to most datasets!",
+            "Apply a nonlinear transformation to the input features:",
+            "As long as the parameters of the feature extractor 𝜙 are fixed,\nthe model remains linear in the parameters."
+          ]
+        }
+      ],
+      "warnings": [
+        "topic1_q5_simple_multiple_multivariate_terminology_integration: quote not found in pages [5, 7]"
+      ]
+    }
+  ]
+}

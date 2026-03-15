@@ -1,0 +1,568 @@
+{
+  "source_file": "WS-Week8-LDA-GE_clean.pdf",
+  "outline": [
+    "Pattern Recognition EE5907:",
+    "A Gentle Reminder",
+    "Outlines",
+    "Pattern Representation Learning",
+    "Supervised Feature Learning",
+    "• What is a good criterion under A",
+    "• Between-class distance",
+    "• A bit history",
+    "• Linear discriminant analysis (LDA) A",
+    "Quantity for Measuring Within and Between Class Distance",
+    "Quantity for Measuring Within and Between Class Distance (cont.)",
+    "𝐶 𝐶",
+    "• PROBLEM: To separate populations",
+    "A simple case",
+    "• If the class separability measure is only maximizing",
+    "• Fisher suggested maximizing the difference between the",
+    "• To find the optimum w , we need write J (w) as a function of w : ∗",
+    "𝐶",
+    "෢ ෢ • We can finally express the Fisher criterion in terms of and as 𝑺 𝑺",
+    "• The generalized eigenvalue problem (𝑨𝒗 = 𝜆𝑩𝒗)",
+    "Examples:",
+    "• Instead of one projection y, we will now seek at most",
+    "• we use the determinant of the scatter matrices to obtain a scalar",
+    "– Compute LDA projection vectors using training dataset",
+    "Sample Images from YALE database",
+    "• Unlike principal component analysis (PCA), the linear",
+    "• Why is the number of the LDA projections at most min(d, C-1)?",
+    "• Shall LDA always be better than PCA for classification",
+    "• Case Study: PCA versus LDA",
+    "• Small training dataset",
+    "• Large training dataset",
+    "• LDA produces at most min(d, C − 1) feature projections",
+    "A general framework:",
+    "GE: Problem Formulation of Feature Learning",
+    "Proof of Equivalence in Constraint",
+    "GE: Problem Formulation of Feature Learning",
+    "GE: Linearization",
+    "GE: Kernelization",
+    "A New Algorithm using GE:",
+    "New Algorithm: Marginal Fisher Analysis",
+    "Experiments: Face Recognition",
+    "• Shuicheng Yan, Dong Xu et al.: Graph Embedding and Extensions:"
+  ],
+  "outline_with_page_range": [
+    {
+      "title": "Pattern Recognition EE5907:",
+      "page_range": [
+        1
+      ]
+    },
+    {
+      "title": "A Gentle Reminder",
+      "page_range": [
+        2
+      ]
+    },
+    {
+      "title": "Outlines",
+      "page_range": [
+        3
+      ]
+    },
+    {
+      "title": "Pattern Representation Learning",
+      "page_range": [
+        4
+      ]
+    },
+    {
+      "title": "Supervised Feature Learning",
+      "page_range": [
+        5
+      ]
+    },
+    {
+      "title": "• What is a good criterion under A",
+      "page_range": [
+        6
+      ]
+    },
+    {
+      "title": "• Between-class distance",
+      "page_range": [
+        7,
+        8
+      ]
+    },
+    {
+      "title": "• A bit history",
+      "page_range": [
+        9
+      ]
+    },
+    {
+      "title": "• Linear discriminant analysis (LDA) A",
+      "page_range": [
+        10
+      ]
+    },
+    {
+      "title": "Quantity for Measuring Within and Between Class Distance",
+      "page_range": [
+        11
+      ]
+    },
+    {
+      "title": "Quantity for Measuring Within and Between Class Distance (cont.)",
+      "page_range": [
+        12
+      ]
+    },
+    {
+      "title": "𝐶 𝐶",
+      "page_range": [
+        13
+      ]
+    },
+    {
+      "title": "• PROBLEM: To separate populations",
+      "page_range": [
+        14
+      ]
+    },
+    {
+      "title": "A simple case",
+      "page_range": [
+        15
+      ]
+    },
+    {
+      "title": "• If the class separability measure is only maximizing",
+      "page_range": [
+        16,
+        17
+      ]
+    },
+    {
+      "title": "• Fisher suggested maximizing the difference between the",
+      "page_range": [
+        18
+      ]
+    },
+    {
+      "title": "• To find the optimum w , we need write J (w) as a function of w : ∗",
+      "page_range": [
+        19
+      ]
+    },
+    {
+      "title": "𝐶",
+      "page_range": [
+        20
+      ]
+    },
+    {
+      "title": "෢ ෢ • We can finally express the Fisher criterion in terms of and as 𝑺 𝑺",
+      "page_range": [
+        21
+      ]
+    },
+    {
+      "title": "• The generalized eigenvalue problem (𝑨𝒗 = 𝜆𝑩𝒗)",
+      "page_range": [
+        22
+      ]
+    },
+    {
+      "title": "Examples:",
+      "page_range": [
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "title": "• Instead of one projection y, we will now seek at most",
+      "page_range": [
+        26
+      ]
+    },
+    {
+      "title": "• we use the determinant of the scatter matrices to obtain a scalar",
+      "page_range": [
+        27
+      ]
+    },
+    {
+      "title": "– Compute LDA projection vectors using training dataset",
+      "page_range": [
+        28
+      ]
+    },
+    {
+      "title": "Sample Images from YALE database",
+      "page_range": [
+        29
+      ]
+    },
+    {
+      "title": "• Unlike principal component analysis (PCA), the linear",
+      "page_range": [
+        30
+      ]
+    },
+    {
+      "title": "• Why is the number of the LDA projections at most min(d, C-1)?",
+      "page_range": [
+        31
+      ]
+    },
+    {
+      "title": "• Shall LDA always be better than PCA for classification",
+      "page_range": [
+        32
+      ]
+    },
+    {
+      "title": "• Case Study: PCA versus LDA",
+      "page_range": [
+        33
+      ]
+    },
+    {
+      "title": "• Small training dataset",
+      "page_range": [
+        34
+      ]
+    },
+    {
+      "title": "• Large training dataset",
+      "page_range": [
+        35
+      ]
+    },
+    {
+      "title": "• LDA produces at most min(d, C − 1) feature projections",
+      "page_range": [
+        36
+      ]
+    },
+    {
+      "title": "A general framework:",
+      "page_range": [
+        37
+      ]
+    },
+    {
+      "title": "GE: Problem Formulation of Feature Learning",
+      "page_range": [
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "title": "Proof of Equivalence in Constraint",
+      "page_range": [
+        41
+      ]
+    },
+    {
+      "title": "GE: Problem Formulation of Feature Learning",
+      "page_range": [
+        42,
+        43
+      ]
+    },
+    {
+      "title": "GE: Linearization",
+      "page_range": [
+        44,
+        45
+      ]
+    },
+    {
+      "title": "GE: Kernelization",
+      "page_range": [
+        46,
+        47
+      ]
+    },
+    {
+      "title": "A New Algorithm using GE:",
+      "page_range": [
+        48
+      ]
+    },
+    {
+      "title": "New Algorithm: Marginal Fisher Analysis",
+      "page_range": [
+        49,
+        50,
+        51,
+        52,
+        53
+      ]
+    },
+    {
+      "title": "Experiments: Face Recognition",
+      "page_range": [
+        54
+      ]
+    },
+    {
+      "title": "• Shuicheng Yan, Dong Xu et al.: Graph Embedding and Extensions:",
+      "page_range": [
+        55
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 1,
+      "title": "Pattern Recognition EE5907:",
+      "content": "EE5907: Pattern Recognition\n&\nMachine Learning\nEE5026:\nfor Data Analytics\nDr. WANG Si\nEmail: si.wang@nus.edu.sg\nOffice: E1a-04-01"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 2,
+      "title": "A Gentle Reminder",
+      "content": "CA2 for EE5907 and CA1 for EE5026 are released!\nPart 1: PCA & LDA (from scratch)\n➢Face Recognition System\n(CMU PIE dataset) Part 2: KNN, GMM, SVM, CNN\n➢Go through Assignment with the instruction file.\n➢Deadline (strict): 14 Nov. 2025 1800 SGT\n➢Individual assignment\n2"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 3,
+      "title": "Outlines",
+      "content": "• Pattern Representation Learning\n– Unsupervised Representation Learning (week 7)\n– Supervised Representation Learning (week 8)\n– Unified Framework: Graph Embedding (week 8)\n• Patter Recognition Models\n– Clustering and Applications (week 9)\n– Gaussian Mixture Model and Boosting (week 10)\n– Support Vector Machines (week 11)\n• Deep Learning (week 12)\n• Revision and Q&A (week 13)\n3"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 4,
+      "title": "Pattern Representation Learning",
+      "content": "➢ We will discuss:\n➢ Linear Discriminant Analysis (LDA)\n➢ A Unified Framework: Graph Embedding (GE)\n➢ An Example of GE: Marginal Fisher Analysis (MFA)\n➢ At the end of this lecture, you should be able to:\n➢ Understand rationales behind LDA and GE\n➢ Perform LDA\n4"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 5,
+      "title": "Supervised Feature Learning",
+      "content": "Linear Discriminant Analysis\n5"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 6,
+      "title": "• What is a good criterion under A",
+      "content": "supervised setting?\n– Separating different classes\nB\nWhich projection axis is better under supervised setting?\nTwo classes are\nseparated\n6"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 7,
+      "title": "• Between-class distance",
+      "content": "– Distance between the centroids of\ndifferent classes\nShould be large or small?\nBetween-class distance\n7\n\n– Distance between the centroids of\ndifferent classes\n• Within-class distance\n– Accumulated distance of an instance\nto the centroid of its class\nShould be large or small?\nWithin-class distance\nLinear Discriminant Analysis!\n8"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 9,
+      "title": "• A bit history",
+      "content": "– Fisher’s Linear Discriminative Analysis (1936)\n• Fisher, R. A. (1936). \"The Use of Multiple\nMeasurements in Taxonomic Problems\". Annals of\nEugenics.\n– Linear Discriminative Analysis (1948)\nRonald Fisher (1890-1962)\n• Rao, R. C. (1948). \"The utilization of multiple\n“Agenius who almost\nmeasurements in problems of biological classification\".\nsingle-handedly\nJournal of the Royal Statistical Society, Series B.\ncreated the foundations\nfor modern statistical\nscience“ – Anders Hald\n9"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 10,
+      "title": "• Linear discriminant analysis (LDA) A",
+      "content": "finds most discriminative projection\nby maximizing between-class\ndistance and minimizing within-\nclass distance\nB\nWhich projection axis is possibly the 1st PC, which one is\npossibly the LDA projection?\n10"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 11,
+      "title": "Quantity for Measuring Within and Between Class Distance",
+      "content": "• Total mean vector:\n1\n\n = x, N is the number of all samples.\nN\nx\n• Class-specific mean vector:\n1\n\n = x, n is the size of class C .\ni i i\nn\ni xC\ni\n෢\n• Class-specific scatter matrix 𝑺 :\n𝑖\n෡ 𝑇\n𝑺 = ෍(𝒙 − 𝝁 )(𝒙 − 𝝁 )\n𝑖 𝑖 𝑖\n𝒙∈𝐶\n𝑖\n12"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 12,
+      "title": "Quantity for Measuring Within and Between Class Distance (cont.)",
+      "content": "෢\n• Within-class scatter matrix 𝑺 :\n𝑤\n𝐶\n𝑺 ෢ = ෍ 𝑺 ෡ C is the class number.\n𝑤 𝑖\n𝑖=1\n෢\n• Between-class scatter matrix 𝑺 :\n𝐵\n𝐶\n෢ 𝑇\n𝑺 = ෍ 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁)\n𝐵 𝑖 𝑖 𝑖\n𝑖=1\n෢\n• Total scatter matrix 𝑺 :\n𝑇\n෢ 𝑇\n𝑺 = ෍(𝒙 − 𝝁)(𝒙 − 𝝁)\n𝑇\n𝑥\n෢ ෢\n= 𝑺 + 𝑺\n𝑊 𝐵\nsee next slide\n13"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 13,
+      "title": "𝐶 𝐶",
+      "content": "𝑺 ෢ = ෍(𝒙 − 𝝁)(𝒙 − 𝝁)𝑇 𝑺 ෢ = ෍ ෍(𝒙 − 𝝁 )(𝒙 − 𝝁 )𝑇 𝑺 ෢ = ෍ 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁)𝑇\n𝑇 𝑤 𝒊 𝒊 𝐵 𝑖 𝒊 𝒊\n𝑖=1 𝒊=𝟏\n𝒙 𝒙𝝐𝐶\n𝑖\n𝑺 ෢ + 𝑺 ෢ = σ 𝐶 σ (𝒙 − 𝝁 )(𝒙 − 𝝁 ) 𝑇 + σ 𝐶 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁) 𝑇\n𝑤 𝐵 𝑖=1 𝑥𝜖𝐶 𝑖 𝑖 𝑖=1 𝑖 𝑖 𝑖\n𝑖\n= σ 𝐶 (σ (𝒙 − 𝝁 )(𝒙 − 𝝁 ) 𝑇 + 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁) 𝑇 )\n𝑖=1 𝑥𝜖𝐶 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n= σ 𝐶 (σ 𝒙𝒙 𝑇 − 2𝒙𝝁 𝑇 + 𝝁 𝝁 𝑇 + 𝑛 𝝁 𝝁 𝑇 − 2𝑛 𝝁 𝝁 𝑇 + 𝑛 𝝁𝝁 𝑇 )\n𝑖=1 𝑥𝜖𝐶 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n= σ 𝐶 (𝑛 𝝁 𝝁 𝑇 − 2𝑛 𝝁 𝝁 𝑇 + σ 𝒙𝒙 𝑇 + 𝑛 𝝁 𝝁 𝑇 − 2𝑛 𝝁 𝝁 𝑇 + 𝑛 𝝁𝝁 𝑇 )\n𝑖=1 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑥𝜖𝐶 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖\n= σ 𝐶 ( σ 𝒙𝒙 𝑇 - 2 σ 𝒙 𝝁 𝑇 + 𝑛 𝝁𝝁 𝑇 )\n𝑖=1 𝑥𝜖𝐶 𝒙𝝐𝑪 𝑖\n𝑖 𝒊\n𝑇 𝑇 𝑇\n= ෍ 𝒙𝒙 − 2𝒙𝝁 + 𝝁𝝁\n𝒙\n= σ (𝒙 − 𝝁)(𝒙 − 𝝁) 𝑇 = 𝑺\n𝑥 𝑇 within-class scatter + between-class scatter\n= total scatter.\n14"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 14,
+      "title": "• PROBLEM: To separate populations",
+      "content": "– Suppose we have C classes from D-dimensional distributions. We want to\nproject these classes onto a p-dimensional subspace (p< D)so that the\nvariation between the classes is as large as possible, relative to the variation\nwithin the classes.\n?\n?\n15"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 15,
+      "title": "A simple case",
+      "content": "• Assume we have a set of d-dimensional samples\n{𝒙 , 𝒙 , … , 𝒙 }, 𝑛 of which from class 𝐶 , and 𝑛 of which\n1 2 𝑁 1 1 2\nfrom class 𝐶\n2\n• We seek for a linear projection vector w, along which we\nproject the samples x onto a line and get a scalar y:\n𝑇\n𝑦 = 𝒘 𝒙\nsuch that, the separability of the projected samples between\n2 classes are maximized.\n16"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 16,
+      "title": "• If the class separability measure is only maximizing",
+      "content": "the distance between projected means 𝜇෦ and 𝜇෦ :\n1 2\n𝑇\n𝐽(𝒘) = |𝜇෦ − 𝜇෦| = |𝒘 𝝁 − 𝝁 |\n1 2 1 2\n1\n𝑇\nwhere 𝝁 = σ 𝒙 and 𝜇෥ = 𝒘 𝝁\n𝑖 𝒙𝜖𝐶 𝑖 𝑖\n𝑛 𝑖\n𝑖\nIs it the optimal\nsolution?\n17\n\nthe distance between projected means 𝜇෦ and 𝜇෦ :\n1 2\n𝑇\n𝐽(𝒘) = |𝜇෦ − 𝜇෦| = |𝒘 𝝁 − 𝝁 |\n1 2 1 2\n1\n𝑇\nwhere 𝝁 = σ 𝒙 and 𝜇෥ = 𝒘 𝝁\n𝑖 𝒙𝜖𝐶 𝑖 𝑖\n𝑛 𝑖\n𝑖\n18"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 18,
+      "title": "• Fisher suggested maximizing the difference between the",
+      "content": "projected means, normalized by a measure of the projected\nwithin-class scatter!\n• For each class, the projected scatter is:\nሚ 2\n𝑆 = ෍ (𝑦 − 𝜇෥ )\n𝑖 𝑖\n𝑦∈𝐶\n𝑖\nሚ ሚ\nthen, (𝑆 + 𝑆 ) is the within-class scatter of the projected\n1 2\nsamples.\n2\n|𝜇෦−𝜇෦|\n1 2\n• Therefore, the criterion function: 𝐽(𝒘) =\nሚ ሚ\n𝑆 +𝑆\n1 2\n19"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 19,
+      "title": "• To find the optimum w , we need write J (w) as a function of w : ∗",
+      "content": "• To find the optimum w ∗ , we need write J (w) as a function of w :\n2 𝑇 2\n|𝜇෦−𝜇෦| (𝒘 (𝝁 −𝝁 ))\n1 2 1 2\n𝐽(𝒘) = =\n𝑆 ሚ +𝑆 ሚ σ (𝑦−𝜇෦) 2 +σ (𝑦−𝜇෦) 2\n1 2 𝑦∈𝐶 1 1 𝑦∈𝐶 2 2\n𝑇 𝑇\n𝒘 (𝝁 −𝝁 )(𝝁 −𝝁 ) 𝒘\n1 2 1 2\n=\nσ 𝐶 σ (𝒘𝑇𝒙 − 𝒘𝑇𝝁 )2\n𝑖=1 𝒙∈𝐶 𝑖\n𝑖\n𝑛 + 𝑛\n𝑇 1 2 ෢\n𝒘 𝑺 𝒘\n𝑛 𝑛 𝐵\nsee next slide\n1 2\n=\n𝒘𝑇 σ 𝐶 σ (𝒙 − 𝝁 )(𝒙 − 𝝁 )𝑇 𝒘\n𝑖=1 𝒙∈𝐶 𝑖 𝑖\n𝑖\n𝑇 ෢\n𝑛 + 𝑛 𝒘 𝑺 𝒘\n1 2 𝐵\n=\n𝑛 𝑛 𝒘𝑇𝑺 ෢ 𝒘\n1 2 𝑊\n෢\nNote that 𝑺 has a rank of at most 1.\n𝐵\n20"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 20,
+      "title": "𝐶",
+      "content": "𝑛 𝑛\n• Prove ෢ 𝑺 = 1 2 (𝝁 −𝝁 )(𝝁 −𝝁 ) 𝑇 ෢ 𝑺 = ෍ 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁) 𝑇\n𝐵 1 2 1 2 𝐵 𝑖 𝑖 𝑖\n𝑛 +𝑛\n1 2\n𝑖=1\n𝑇 𝑇\n= 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁) + 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁)\n1 1 1 2 2 2\n(𝑛 +𝑛 )𝝁 = 𝑛 𝝁 + 𝑛 𝝁\n1 2 1 1 2 2\n𝑇 𝑇 𝑇 𝑇 𝑇 𝑇\n= 𝑛 𝝁 𝝁 − 2𝝁 𝝁 + 𝝁𝝁 + 𝑛 𝝁 𝝁 − 2𝝁 𝝁 + 𝝁𝝁\n1 1 1 1 2 2 2 2\n𝑇 𝑇 𝑇\n= 𝑛 𝝁 𝝁 + 𝑛 𝝁 𝝁 − (𝑛 + 𝑛 )𝝁𝝁\n1 1 1 2 2 2 1 2\n𝑇\n(𝑛 𝝁 + 𝑛 𝝁 )(𝑛 𝝁 + 𝑛 𝝁 )\n1 1 2 2 1 1 2 2\n𝑇 𝑇\n= 𝑛 𝝁 𝝁 + 𝑛 𝝁 𝝁 −\n1 1 1 2 2 2\n𝑛 + 𝑛\n1 2\n𝑇 𝑇 𝑇\n𝑛 𝑛 𝝁 𝝁 + 𝑛 𝑛 𝝁 𝝁 − 2𝑛 𝑛 𝝁 𝝁\n1 2 1 1 1 2 2 2 1 2 1 2\n=\n𝑛 + 𝑛\n1 2\n𝑛 𝑛\n= 1 2 (𝝁 −𝝁 )(𝝁 −𝝁 ) 𝑇\n1 2 1 2\n𝑛 +𝑛\n1 2\n21"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 21,
+      "title": "෢ ෢ • We can finally express the Fisher criterion in terms of and as 𝑺 𝑺",
+      "content": "• We can finally express the Fisher criterion in terms of 𝑺 ෢ and 𝑺 ෢ as\n𝑊 𝐵\n𝑇 ෢\n𝒘 𝑺 𝒘\n𝐵 𝑛 +𝑛\n1 2\n𝐽(𝒘) = Ignore\n𝒘𝑇𝑺 ෢ 𝒘 𝑛 1 𝑛 2\n𝑊\n• To find the maximum of 𝐽(𝒘), we take derivative and set to zero\n𝑑 𝑑 𝑑\n𝑔 𝑥 𝑓 𝑥 − 𝑓(𝑥) 𝑔 𝑥\n𝐽 𝒘 = 𝟎 𝑑 𝑓 𝑥 𝑑𝑥 𝑑𝑥\n=\n𝑑𝒘\n𝑑𝑥 𝑔 𝑥 (𝑔(𝑥))2\n𝑑 𝑑\n𝑇 ෢ 𝑇 ෢ 𝑇 ෢ 𝑇 ෢\n(𝒘 𝑺 𝒘) (𝒘 𝑺 𝒘) − (𝒘 𝑺 𝒘) (𝒘 𝑺 𝒘)\n𝑊 𝑑𝒘 𝐵 𝐵 𝑑𝒘 𝑊\n= 𝟎\n(𝒘𝑇𝑺 ෢ 𝒘)2\n𝑊\n𝑇 ෢ ෢ 𝑇 ෢ ෢\n2 𝒘 𝑺 𝒘 𝑺 𝒘 − 2 𝒘 𝑺 𝒘 𝑺 𝒘 = 𝟎\n𝑊 𝐵 𝐵 𝑊\n𝑇 ෢\nDivide by 𝒘 𝑺 𝒘\n𝐵\n෢ ෢\n𝑺 𝒘 − 𝑺 𝒘 = 𝟎\n𝒘 𝑇 𝑺 ෢ 𝒘 𝐵 𝒘𝑇𝑺 ෢ 𝒘 𝑊\n𝑊 𝑊\n𝑺 ෢ 𝒘 − 𝐽 𝒘 𝑺 ෢ 𝒘 = 𝟎 𝑺 ෢ 𝒘 = 𝐽 𝒘 𝑺 ෢ 𝒘\n𝐵 𝑊 𝐵 𝑊\n22"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 22,
+      "title": "• The generalized eigenvalue problem (𝑨𝒗 = 𝜆𝑩𝒗)",
+      "content": "෢ ෢\n𝑺 𝒘 = 𝐽 𝒘 𝑺 𝒘\n𝐵 𝑊\n෢\n➢ If 𝑺 is invertible, convert to standard eigenvalue problem (𝑨𝒗 = 𝜆𝒗):\n𝑊\n−1\n෢ ෢\n𝑺 𝑺 𝑤 = 𝐽 𝒘 𝒘\n𝑊 𝐵\n−1\n෢ ෢\nThen, w* is the eigenvector of 𝑺 𝑺 .\n𝑊 𝐵\nIts corresponding eigenvalue, i.e., 𝐽 𝒘 *, should be the largest.\n෢\n➢ If 𝑺 is not invertible,\n𝑊\n෢ ෢\n𝑺 − 𝐽 𝒘 𝑺 𝒘 = 𝟎\n𝐵 𝑊\n෢ ෢\n𝑑𝑒𝑡 𝑺 − 𝐽 𝒘 𝑺 = 0\n𝐵 𝑊\n23"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 23,
+      "title": "Examples:",
+      "content": "Given the following dataset, compute the LDA projection vector w\nSample Feature 1 Feature 2 Class\n1 2 3 1\n2 3 3 1\n3 2 4 1\n4 6 7 2\n5 7 7 2\n6 6 8 2\n24\n\nN=6, n =3, n =3\nStep 1: Compute 𝝁, 𝝁 , 𝝁 1 2\n1 2\nSample Feature 1 Feature 2 Class\n1 1 2 3 2 6 7 6 4.33\n𝝁 =\nσ𝑁\n𝒙 = ( + + + + + ) = 1 2 3 1\n𝑖=1 𝑖\n𝑁 6 3 3 4 7 7 8 5.33\n2 3 3 1\n1 1 2 3 2 2.33\n𝝁 =\nσ3\n𝒙 = ( + + ) =\n1 𝑖=1 𝑖\n3 3 3 3 4 3.33 3 2 4 1\n1 1 6 7 6 6.33 4 6 7 2\n𝝁 =\nσ6\n𝒙 = ( + + ) =\n2 𝑖=4 𝑖\n3 3 7 7 8 7.33\n5 7 7 2\n෢ ෢ 6 6 8 2\nStep 2: Compute 𝑺 , 𝑺\n𝑊 𝐵\n2 2.33 2 2.33 3 2.33 3\n𝑺 ෢ = σ𝐶 σ (𝒙 − 𝝁 )(𝒙 − 𝝁 )𝑇 = ( − )( − )𝑇 + ( − )( −\n𝑊 𝑖=1 𝒙𝝐𝐶 𝒊 𝒊\n𝑖 3 3.33 3 3.33 3 3.33 3\n2.33 2 2.33 2 2.33 6 6.33 6 6.33 7 6.33 7\n)𝑇 + ( − )( − )𝑇 + ( − )( − )𝑇 + ( − )( −\n3.33 4 3.33 4 3.33 7 7.33 7 7.33 7 7.33 7\n6.33 6 6.33 6 6.33 1.33 −0.67\n)𝑇 +( − )( − )𝑇 =\n7.33 8 7.33 8 7.33 −0.67 1.33\n𝐶\n𝑺 ෢ = ෍ 𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁)𝑇\n𝐵 𝑖 𝑖 𝑖\n𝑖=1\n2.33 4.33 2.33 4.33 6.33 4.33 6.33 4.33 24 24\n= 3( − )( − )𝑇 + 3( − )( − )𝑇 =\n3.33 5.33 3.33 5.33 7.33 5.33 7.33 5.33 24 24\n25\n\nStep 3: Compute eigenvector w*\nSample Feature 1 Feature 2 Class\n෢ ෢\n𝑺 − 𝐽 𝒘 𝑺 𝒘 = 𝟎\n1 2 3 1\n𝐵 𝑊\n2 3 3 1\n෢ ෢\n𝑑𝑒𝑡 𝑺 − 𝐽 𝒘 𝑺 = 0\n𝐵 𝑊\n3 2 4 1\n24 24 1.33 −0.67 4 6 7 2\ndet( − 𝐽 𝒘 ) = 0\n24 24 −0.67 1.33\n5 7 7 2\n24 − 1.33𝐽 𝒘 24 + 0.67𝐽 𝒘 6 6 8 2\ndet( ) = 0\n24 + 0.67𝐽 𝒘 24 − 1.33𝐽 𝒘\n24 − 1.33𝐽 𝒘 2 − 24 + 0.67𝐽 𝒘 2 = 0\n𝐽 = 72, 𝐽 = 0\n1 2\nSince J(w) should be maximized, J(w)= 𝐽 = 72\n1\n෢ ෢\nThen, 𝑺 − 𝐽 𝒘 𝑺 𝒘 = 𝟎\n𝐵 𝑊\n1\n𝑤\n−72 72\n1\n= 0 2\n𝑤 After normalization, w*= ±\n72 −72 2 1\n2\n𝑤 = 𝑤\n1 2\n26"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 26,
+      "title": "• Instead of one projection y, we will now seek at most",
+      "content": "p=min(d, C −1) projections [y, y,…y] by means of p\n1 2 p\nprojection vectors w arranged by columns into a projection\ni\nmatrix W= [w |w |…|w]:\n1 2 p\n𝑦 = 𝒘\n𝑇\n𝒙 𝒚 = 𝑾\n𝑇\n𝒙\n𝑖 𝑖\n• From our derivation for the two-class problem, we have\nthe scatter matrices for the projected samples\n෨ 𝑇 ෢\n𝑺 = 𝑾 𝑺 𝑾\n𝑊 𝑊\n෨ 𝑇 ෢\n𝑺 = 𝑾 𝑺 𝑾\n𝐵 𝐵\n27"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 27,
+      "title": "• we use the determinant of the scatter matrices to obtain a scalar",
+      "content": "objective function\n෨ 𝑇 ෢\ndet(𝑺 ) det(𝑾 𝑺 𝑾)\n𝐵 𝐵\n𝐽 𝑾 = =\ndet(𝑺 ෨ ) det(𝑾𝑇𝑺 ෢ 𝑾)\n𝑊 𝑊\n• The optimal projection matrix W* that maximizes J(W) is the one\n∗\nwhose columns are the eigenvectors 𝒘 corresponding to the\n𝑖\n−1\n෢ ෢ ෢\nlargest eigenvalues of 𝑺 𝑺 (if 𝑺 is invertible)\n𝑊 𝐵 𝑊\n−1\ndet(𝑾 𝑇 𝑺 ෢ 𝑾) 𝑺 ෢ 𝑺 ෢ 𝒘 ∗ = 𝐽 𝒘 ∗ 𝒘 ∗\n𝐵 𝑊 𝐵 𝑖 𝑖 𝑖\n∗\n𝑾 = 𝑎𝑟𝑔𝑚𝑎𝑥\ndet(𝑾𝑇𝑺 ෢ 𝑾) OR\n𝑊\n෢ ∗ ∗ ෢ ∗\n𝑺 𝒘 = 𝐽 𝒘 𝑺 𝒘\n𝐵 𝑖 𝑖 𝑊 𝑖\n28"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 28,
+      "title": "– Compute LDA projection vectors using training dataset",
+      "content": "– Project both training and testing data into the obtained\nLDA space\n– For each testing data point, use K-Nearest-Neighbor (KNN)\nor other classifiers for classification\n29"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 29,
+      "title": "Sample Images from YALE database",
+      "content": "PCA LDA\n30"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 30,
+      "title": "• Unlike principal component analysis (PCA), the linear",
+      "content": "discriminant transformationW is not necessarily orthogonal.\n−1\n෢ ෢\n– Because 𝑺 𝑺 may not be symmetric.\n𝑊 𝐵\n• Why is the number of the LDA projections at most min(d,C-1)?\n31"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 31,
+      "title": "• Why is the number of the LDA projections at most min(d, C-1)?",
+      "content": "෢ ෢\n# meaningful generalized eigenvectors of (𝑺 , 𝑺 ) is at most min(d,C-1)\n𝐵 𝑤\n(Nonzero eigenvalues)\n෢ ∗ ∗ ෢ ∗\n𝑺 𝒘 = 𝐽 𝒘 𝑺 𝒘\n𝐵 𝑖 𝑖 𝑊 𝑖\n෢\n# meaningful generalized eigenvectors is limited by Rank(𝑺 )\n𝐵\n𝐶\nRank subadditivity rule\n𝑺 ෢ = ෍𝑛 (𝝁 − 𝝁)(𝝁 − 𝝁)𝑇\n෢\n𝐵 𝑖 𝑖 𝑖 rank(𝑺 ) <= C\n𝐵\n𝑖=1\nrank <= 1 𝑟𝑎𝑛𝑘 𝐴 + 𝐵 ≤ 𝑟𝑎𝑛𝑘 𝐴 + 𝑟𝑎𝑛𝑘(𝐵)\n𝐶\n𝐶\nRank can’t exceed ෍ 𝑛 (𝝁 − 𝝁) = 𝟎\n෍ 𝑛 𝒗 = 𝟎\n𝑖 𝑖\n𝑖 𝑖\nthe matrix dimension\n𝑖=1\n𝑖=1\nd\n෢\nRank(𝑺 )<= C-1\n𝐵\n෢\nRank(𝑺 )<= min(d, C-1)\n𝐵\n32"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 32,
+      "title": "• Shall LDA always be better than PCA for classification",
+      "content": "task?\n33"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 33,
+      "title": "• Case Study: PCA versus LDA",
+      "content": "– A. Martinez, A. Kak, \"PCA versus LDA\", IEEE Transactions on Pattern\nAnalysis and Machine Intelligence, vol. 23, no. 2, pp. 228-233, 2001.\nOne subject in AR database 34"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 34,
+      "title": "• Small training dataset",
+      "content": "(2 images/person for training and 5 images/person for testing)\nLDA is not always\nbetter when the\nsample size is small\n35\nPCAw/o 3: PCAwithout using the top 3 eigenvectors. #i index train/test splits"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 35,
+      "title": "• Large training dataset",
+      "content": "(13 images/person for training and 13 images/person for testing)\nLDA outperforms PCA when the sample size is large\n36"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 36,
+      "title": "• LDA produces at most min(d, C − 1) feature projections",
+      "content": "– If more features are needed, some other method must be\nemployed to provide those additional features\n• LDA is a parametric method (it assumes unimodal Gaussian\nlikelihoods)\n– If the distributions are non-Gaussian, LDA projections may not\npreserve complex structure in the data needed for classification\n37"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 37,
+      "title": "A general framework:",
+      "content": "Graph Embedding (GE)\nShuicheng Yan, Dong Xu et al.: Graph Embedding and Extensions: A General Framework for\n38\nDimensionality Reduction. T-PAMI 2007."
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 38,
+      "title": "GE: Problem Formulation of Feature Learning",
+      "content": "• For a general feature learning problem\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\n′\n𝑑 ′\nGoal: Find a mapping function F: 𝐱 → 𝒚, where 𝒚 ∈ ℝ , 𝑑 ≪ 𝑑\n𝑖\n(i.e., 𝒚 = 𝐅(𝒙))\n• From the perspective of Graph Embedding\nDissimilar: negative\n✓ Undirected Weighted Graph: G = {𝐗, 𝐒}\n𝐒 = 0\n𝑖,𝑖\nVertex set Similarity (edge) matrix∈ ℝ𝑁×𝑁\nSimilar: positive\n✓ Diagonal matrix D and the Laplacian matrix L of G\nSum of similarities\n𝐃 = ෍ 𝐒 𝐋 = 𝐃 − 𝐒\nbetween sample 𝐱 𝑖,𝑖 𝑖,𝑗\n𝑖\n𝐱\nand the other samples 𝑖≠𝑗 G: intrinsic graph 𝑖\n✓ Goal: Find the desired low-dimensional vector representations y to Preserve\nthese graph similarities.\n40\n\n• Assume a simpler case (y is 1D)\nG\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\nIntrinsic graph: G = {𝐗, 𝐒}\n𝐱\n𝑖\nDiagonal matrix D and the Laplacian matrix L of G\n𝐃 = ෍ 𝐒\n𝐋 = 𝐃 − 𝐒\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗\nGoal: Find y ∈ ℝ to preserve graph similarity (𝐲 = 𝑦 , 𝑦 , … , 𝑦 𝑇 )\n1 2 𝑁\n2\n∗\n𝐲 = argmin ෍ 𝑦 − 𝑦 𝐒 c: constant,\n𝑖 𝑗 𝑖,𝑗\n𝐲𝑇𝐁𝐲=𝑐 B: constraint matrix to avoid trivial solution\n𝑖≠𝑗\nA diagonal matrix: Scale normalization\n𝐺𝑝 = {𝐗, 𝐒𝑝}\nB=\nLaplacian of a penalty graph\n𝐺𝑝\n:\nStrength of a relationship\n𝐱\n𝑝 𝑝 𝑝\n𝑖 you want to penalize 𝐁 = 𝐋 = 𝐃 − 𝐒\n41\n\n• Assume a simpler case (y is 1D)\nG\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\nIntrinsic graph: G = {𝐗, 𝐒}\n𝐱\n𝑖\nThe Diagonal matrix D and the Laplacian matrix L of G\n𝐃 = ෍ 𝐒\n𝐋 = 𝐃 − 𝐒\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗\nGoal: Find y ∈ ℝ to preserve graph similarity (𝐲 = 𝑦 , 𝑦 , … , 𝑦 𝑇 )\n1 2 𝑁\n2\n𝐲 ∗ = argmin ෍ 𝑦 − 𝑦 𝐒 c: constant,\n𝑖 𝑗 𝑖,𝑗\n𝐲𝑇𝐁𝐲=𝑐 B: constraint matrix to avoid trivial solution\n𝑖≠𝑗\nA diagonal matrix: Scale normalization 𝐲𝑇𝐁𝐲 = 𝑐 ⟺ σ 𝑦 2𝐁 = 𝑐\n𝑖 𝑖 𝑖,𝑖\nB=\nLaplacian of a penalty graph 𝐺𝑝 : 𝐲𝑇𝐁𝐲 = 𝑐 ⟺ σ 𝑦 − 𝑦 2 𝐒 𝑝 = 2𝑐\n𝑖≠𝑗 𝑖 𝑗 𝑖,𝑗\n𝑝 𝑝 𝑝\n𝐁 = 𝐋 = 𝐃 − 𝐒\n42"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 41,
+      "title": "Proof of Equivalence in Constraint",
+      "content": "2 𝑝 𝑝\n𝐲 𝑇 𝐁𝐲 = 𝑐 ⟺ σ 𝑦 − 𝑦 𝐒 𝑝 = 2𝑐 𝐃 = ෍ 𝑺\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗 𝑖 𝑗 𝑖,𝑗\n𝑖≠𝑗\n𝑝 𝑝 𝑝\n𝐁 = 𝐋 = 𝐃 − 𝐒\n𝐲𝑇𝐁𝐲 = 𝐲𝑇𝐃𝑝𝐲 − 𝐲𝑇𝐒𝑝𝐲\n2 𝑝 2 2 𝑝\n෍ 𝑦 − 𝑦 𝐒 = ෍ (𝑦 − 2𝑦 𝑦 + 𝑦 )𝐒\n𝑖 𝑗 𝑖,𝑗 𝑖 𝑖 𝑗 𝑗 𝑖,𝑗\n𝑖≠𝑗 𝑖≠𝑗\n𝑝 2 𝑝\n= ෍ 𝐃 𝑦 − ෍ 𝑦 𝑺 𝑦\n𝑖,𝑖 𝑖 𝑖 𝑖,𝑗 𝑗\n𝒊 𝒊,𝒋 2 𝑝 𝑝 2 𝑝\n= ෍ 𝑦 𝐒 − ෍ 2𝑦 𝑦 𝐒 + ෍ 𝑦 𝐒\n𝑖 𝑖,𝑗 𝑖 𝑗 𝑖,𝑗 𝑗 𝑖,𝑗\n𝑖≠𝑗 𝑖≠𝑗 𝑖≠𝑗\n2 𝑝 𝑝\n= 2 ෍ 𝑦 ෍ 𝑺 − ෍ 2𝑦 𝑦 𝐒\n𝑖 𝑖,𝑗 𝑖 𝑗 𝑖,𝑗\n𝑖 𝑖≠𝑗\n𝑗≠𝑖\n2 𝑝 𝑝\n= 2(෍ 𝑦 𝐃 − ෍ 𝑦 𝑦 𝐒 )\n𝑖 𝑖,𝑖 𝑖 𝑗 𝑖,𝑗\n𝑖 𝑖≠𝑗\nSince typically, no penalty should be posed when i=j\n𝑝\n(i.e., 𝐒 = 0)\n𝑖,𝑖\n2 𝑝 𝑝\n= 2(෍ 𝑦 𝐃 − ෍ 𝑦 𝑦 𝐒 )\n𝑖 𝑖,𝑖 𝑖 𝑗 𝑖,𝑗\n𝑖 𝑖,𝑗\n43"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 42,
+      "title": "GE: Problem Formulation of Feature Learning",
+      "content": "• Assume a simpler case (y is 1D)\nG\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\nIntrinsic graph: G = {𝐗, 𝐒}\n𝐱\n𝑖\nThe Diagonal matrix D and the Laplacian matrix L of G\n𝐃 = ෍ 𝐒\n𝐋 = 𝐃 − 𝐒\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗\nGoal: Find y ∈ ℝ to preserve graph similarity (𝐲 = 𝑦 , 𝑦 , … , 𝑦 𝑇 )\n1 2 𝑁\n2\n∗\n𝐲 = argmin ෍ 𝑦 − 𝑦 𝐒\n𝑖 𝑗 𝑖,𝑗\n𝐲𝑇𝐁𝐲=𝑐\n𝑖≠𝑗\nc: constant,\nB: constraint matrix to avoid trivial solution\nWhy this preserves graph\nsimilarity?\n44\n\n• Assume a simpler case (y is 1D)\nG\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\nIntrinsic graph: G = {𝐗, 𝐒}\n𝐱\n𝑖\nThe Diagonal matrix D and the Laplacian matrix L of G\n𝐃 = ෍ 𝐒\n𝐋 = 𝐃 − 𝐒\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗\nGoal: Find y ∈ ℝ to preserve graph similarity (𝐲 = 𝑦 , 𝑦 , … , 𝑦 𝑇 )\n1 2 𝑁\n2\n∗ 𝑇\n𝐲 = argmin ෍ 𝑦 − 𝑦 𝐒 = argmin 𝐲 𝐋𝐲\n𝑖 𝑗 𝑖,𝑗\n𝐲𝑇𝐁𝐲=𝑐 𝐲𝑇𝐁𝐲=𝑐\n𝑖≠𝑗\nc: constant,\nB: constraint matrix to avoid trivial solution\n45"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 44,
+      "title": "GE: Linearization",
+      "content": "𝑻\n• Assume 𝐲 = 𝐗 𝐰\nG\n𝑑\nData matrix for training: 𝐗 = 𝐱 , 𝐱 , … , 𝐱 , where 𝐱 ∈ ℝ\n1 2 𝑁 𝑖\nIntrinsic graph: G = {𝐗, 𝐒}\n𝐱\n𝑖\nThe Diagonal matrix D and the Laplacian matrix L of G\n𝐃 = ෍ 𝐒 𝐋 = 𝐃 − 𝐒\n𝑖,𝑖 𝑖,𝑗\n𝑖≠𝑗\nGoal: Find y ∈ ℝ to preserve graph similarity (𝐲 = 𝑦 , 𝑦 , … , 𝑦 𝑇 )\n1 2 𝑁\n2\n∗ 𝑇\n𝐲 = argmin ෍ 𝑦 − 𝑦 𝐒 = argmin 𝐲 𝐋𝐲\n𝑖 𝑗 𝑖,𝑗\n𝐲𝑇𝐁𝐲=𝑐 𝐲𝑇𝐁𝐲=𝑐\n𝑖≠𝑗\n2\n∗ 𝑇 𝑇 𝑇 𝑻\n𝐰 = argmin ෍ 𝐰 𝐱 − 𝐰 𝐱 𝐒 = argmin 𝐰 𝐗𝐋𝐗 𝐰\n𝑖 𝑗 𝑖,𝑗\n𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐 𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐\n𝑖≠𝑗\n46\n\n𝑻\n• Assume 𝐲 = 𝐗 𝐰\nLagrange Multipliers:\n∗ 𝑇 𝑻\n𝐰 = argmin 𝐰 𝐗𝐋𝐗 𝐰\nGiven f to be optimized, subject\n𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐\nto the constraint g=0, then,\nsolve: ∇𝑓 = 𝜆∇𝑔\n𝑇 𝑻 𝑇 𝑻\n𝑓 = 𝐰 𝐗𝐋𝐗 𝐰, 𝑔 = 𝐰 𝐗𝐁𝐗 𝐰 − c\nLet λ be a Lagrange multiplier,\n𝑇 𝑻 𝑇 𝑻\n∇ (𝐰 𝐗𝐋𝐗 𝐰) = 𝜆∇ (𝐰 𝐗𝐁𝐗 𝐰 − c)\n𝐰 𝐰\n𝑻 𝑻\n𝐗𝐋𝐗 𝐰 = 𝜆𝐗𝐁𝐗 𝐰\nGeneralized eigenvalue decomposition problem:\nሚ ෩\n𝐋𝐰 = 𝜆𝐁𝐰\nሚ 𝑻 ෩ 𝑻\nWhere 𝐋 = 𝐗𝐋𝐗 and 𝐁 = 𝐗𝐁𝐗\n47"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 46,
+      "title": "GE: Kernelization",
+      "content": "• Extend to Nonlinear Cases\nMap the data to a higher dimensional space: 𝐱 → 𝝋(𝐱 )\n𝑖 𝑖\n𝑇\nA kernel function K: 𝐾 𝒙 , 𝒙 = 𝝋(𝒙 ) 𝝋(𝒙 )\n𝑖 𝑗 𝑖 𝑗\ne.g., data x is 2-D, i.e., 𝒙 = (𝑥 , 𝑥 )𝑇\n1 2\nWe map it to a 6-D space: 𝝋(x)=(𝑥 2 , 𝑥 2 , 2𝑥 𝑥 , 2𝑥 , 2𝑥 ,1)T\n1 2 1 2 1 2\n2\n𝑥\n𝑗,1\n2\n𝑥\n𝑗,2\n2𝑥 𝑥\n𝝋(𝒙 )𝑇𝝋 𝒙 = (𝑥 2 , 𝑥 2 , 2𝑥 𝑥 , 2𝑥 , 2𝑥 ,1) 𝑗,1 𝑗,2\n𝑖 𝑗 𝑖,1 𝑖,2 𝑖,1 𝑖,2 𝑖,1 𝑖,2\n2𝑥\n𝑗,1\n2𝑥\n𝑗,2\nd-dimensional→m-dimensional 1\nNo K(): O(m)\n2 2 2 2\n= 𝑥 𝑥 + 𝑥 𝑥 + 2𝑥 𝑥 𝑥 𝑥 + 2𝑥 𝑥 + 2𝑥 𝑥 + 1\n𝑖,1 𝑗,1 𝑖,2 𝑗,2 𝑖,1 𝑖,2 𝑗,1 𝑗,2 𝑖,1 𝑗,1 𝑖,2 𝑗,2\nWith K(): O(d)\n= (𝑥 𝑥 + 𝑥 𝑥 + 1)2\n𝑖,1 𝑗,1 𝑖,2 𝑗,2\nKernel saves computation!\n= (𝒙 𝑇𝒙 + 1)2= 𝐾(𝒙 ,𝒙 )\n𝑖 𝑗 𝑖 𝑗\n48\n\n• Extend to Nonlinear Cases\nMap the data to a higher dimensional space: 𝐱 → 𝝋(𝐱 )\n𝑖 𝑖\n𝑇\nA kernel function K: 𝐾 𝒙 , 𝒙 = 𝝋(𝒙 ) 𝝋(𝒙 )\n𝑖 𝑗 𝑖 𝑗\n∗ 𝑇 𝑻\n∗ 𝑇 𝑻 𝐰 = argmin 𝐰 𝚽𝐋𝚽 𝐰\n𝐰 = argmin 𝐰 𝐗𝐋𝐗 𝐰\n𝐰𝑇𝚽𝐁𝚽𝑻𝐰=𝑐\n𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐\nwhere 𝚽 = [𝝋 𝐱 ,… , 𝝋 𝐱 ]\n1 𝑁\nAssume projection vector 𝐰 = σ 𝛼 𝝋 𝐱 = 𝚽𝜶\n𝑖 𝑖 𝑖\n∗ 𝑇 𝑇 𝑻\n∗ 𝑇 𝜶 = argmin 𝜶 𝚽 𝚽𝐋𝚽 𝚽𝜶\n𝜶 = argmin 𝜶 𝐆𝐋𝐆𝜶\n𝜶𝑇𝐆𝐁𝐆𝜶=𝑐\n𝜶𝑇𝚽𝑇𝚽𝐁𝚽𝑻𝚽𝜶=𝑐\n𝝋(𝒙 )𝑇𝝋(𝒙 ) ⋯ 𝝋(𝒙 )𝑇𝝋(𝒙 )\n1 1 1 𝑁\nSince 𝚽𝑇𝚽 = ⋮ ⋱ ⋮\nWhat is the solution? 𝝋(𝒙 )𝑇𝝋(𝒙 ) ⋯ 𝝋(𝒙 )𝑇𝝋(𝒙 )\n𝑁 1 𝑁 𝑁\nKernel Gram matrix G\n49"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 48,
+      "title": "A New Algorithm using GE:",
+      "content": "Marginal Fisher Analysis (MFA)\nShuicheng Yan, Dong Xu et al.: Graph Embedding and Extensions: A General Framework for\n50\nDimensionality Reduction. T-PAMI 2007."
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 49,
+      "title": "New Algorithm: Marginal Fisher Analysis",
+      "content": "• Motivation\n-Avoid certain limitations of LDA in terms of the data distribution assumption\nand available projection direction\n• Utilize GE\n✓ Intrinsic Graph G: Intraclass compactness\n(Each sample is connected to its k –nearest\n1\nneighbors of the same class)\n𝐒 = 𝐒 = 1: if for each sample 𝐱 , 𝐱 is among\n𝑖,𝑗 𝑗,𝑖 𝑖 𝑗\nthe k –nearest neighbors of 𝐱 in the same class\n1 𝑖\n𝑝\n✓ Penalty Graph 𝐺 : Interclass separability\n(Marginal point pairs of different classes are\nconnected)\n𝑝\n𝐒 = 1: if for each class cl, the pair (𝐱 , 𝐱 ) is among the\n𝑖,𝑗 𝑖 𝑗\nk –shortest pairs in the set (𝐱 , 𝐱 ), 𝐱 ∈ 𝐗 , 𝐱 ∉ 𝐗\n2 𝑖 𝑗 𝑖 𝑐𝑙 𝑗 𝑐𝑙\n51\n\n• Intraclass Compactness following Linearization of GE\n2\n෡ 𝑇 𝑇 𝑇 𝑻\n𝑆 = ෍ 𝐰 𝐱 − 𝐰 𝐱 𝐒 = 2𝐰 𝐗𝐋𝐗 𝐰\n𝑐 𝑖 𝑗 𝑖,𝑗\n𝑖≠𝑗\n2\n= σ σ 𝐰 𝑇 𝐱 − 𝐰 𝑇 𝐱 = 2𝐰 𝑇 𝐗(𝐃 − 𝐒)𝐗 𝑻 𝐰\n𝑖 𝑖∈𝑁 + 𝑗 𝑜𝑟 𝑗∈𝑁 + 𝑖 𝑖 𝑗\nk k\n1 1\n𝑁 + 𝑖 is the index set of the k -nearest neighbors 1, If 𝑖 ∈ 𝑁 + 𝑗 𝑜𝑟 𝑗 ∈ 𝑁 + 𝑖\nk 1 𝐒 = ቊ k 1 k 1\n1 𝑖,𝑗\n0,\nelse\nof the sample 𝐱 in the same class\n𝑖\n• Interclass Separability following Linearization of GE\n2\n෢ 𝑇 𝑇 𝑝 𝑇 𝑝 𝑻\n𝑆 = ෍ 𝐰 𝐱 − 𝐰 𝐱 𝐒 = 2𝐰 𝐗𝐋 𝐗 𝐰\n𝑝 𝑖 𝑗 𝑖,𝑗\n𝑖≠𝑗\n2\n= σ σ 𝐰 𝑇 𝐱 − 𝐰 𝑇 𝐱 = 2𝐰 𝑇 𝐗(𝐃 𝑝 − 𝐒 𝑝 )𝐗 𝑻 𝐰\n𝑖 (𝑖,𝑗)∈𝑃 𝑐𝑙 𝑜𝑟(𝑖,𝑗)∈𝑃 𝑐𝑙 𝑖 𝑗\n𝑘 𝑖 𝑘 𝑗\n2 2\n𝑃 (𝑐𝑙) is a set of data pairs that are the k nearest pairs 1, If (𝑖,𝑗) ∈ 𝑃 𝑐𝑙 𝑜𝑟(𝑖,𝑗) ∈ 𝑃 𝑐𝑙\n𝑘 2 2 𝐒 𝑝 = ቊ 𝑘 2 𝑖 𝑘 2 𝑗\namong the set 𝑖, 𝑗 , 𝑖 ∈ 𝑐𝑙𝑎𝑠𝑠 𝑐𝑙, 𝑗 ∉ 𝑐𝑙𝑎𝑠𝑠 𝑐𝑙 𝑖,𝑗 0, else\n52\n\n• Marginal Fisher Criterion\n෡ ෢\nMinimize Intraclass Compactness 𝑆 , Maximize Interclass Separability 𝑆\n𝑐 𝑝\n𝑇 𝑻\n𝐰 𝐗(𝐃 − 𝐒)𝐗 𝐰\n∗\n𝐰 = argmin\n𝐰𝑇𝐗(𝐃𝑝 − 𝐒𝑝)𝐗𝑻𝐰\n𝐰\n𝑝 𝑝 𝑝\nWhich is a special linearization of GE with B= 𝐋 = 𝐃 − 𝐒\n53\n\nGeneral Linearization: MFA:\n𝑇 𝑻\n𝐰 𝐗𝐋𝐗 𝐰\n𝐰 ∗ = argmin 𝐰 𝑇 𝐗𝐋𝐗 𝑻 𝐰 𝐰 ∗ = argmin\n𝐰𝑇𝐗𝐋𝑝𝐗𝑻𝐰\n𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐 𝐰\n𝑑\n𝐽 𝒘 = 𝟎\nሚ ෩\nSolve 𝐋𝐰 = 𝜆𝐁𝐰, 𝑑𝒘\nwhere 𝐋 ሚ = 𝐗𝐋𝐗𝑻 and 𝐁 ෩ = 𝐗𝐁𝐗𝑻\n𝑑 𝑑\n(𝐰𝑇𝐗𝐋𝑝𝐗𝑻 𝐰) (𝐰𝑇𝐗𝐋𝐗𝑻𝐰) − (𝐰 𝑇 𝐗𝐋𝐗 𝑻 𝐰) (𝐰𝑇𝐗𝐋𝑝𝐗𝑻𝐰)\n𝑑𝒘 𝑑𝒘\n(𝐰𝑇𝐗𝐋𝑝𝐗𝑻𝐰)2\n= 𝟎\n2 𝐰 𝑇 𝐗𝐋 𝑝 𝐗 𝑻 𝐰 𝐗𝐋𝐗 𝑻 𝐰 − 2 𝐰𝑇𝐗𝐋𝐗𝑻𝐰 𝐗𝐋 𝑝 𝐗 𝑻 𝐰 = 𝟎\nDivide by\n𝐰𝑇𝐗𝐋𝑝𝐗𝑻𝐰 𝐰 𝑇 𝐗𝐋𝐗 𝑻 𝐰\n𝑻 𝑝 𝑻\n𝐗𝐋𝐗 𝐰 − 𝐗𝐋 𝐗 𝐰 = 𝟎\n𝐰𝑇𝐗𝐋𝑝𝐗𝑻𝐰\n𝐗𝐋𝐗𝑻𝐰 − 𝐽 𝒘 𝐗𝐋𝑝𝐗𝑻𝐰 = 𝟎\n𝐗𝐋𝐗𝑻𝐰 = 𝐽 𝒘 𝐗𝐋𝑝𝐗𝑻𝐰\n54\n\n• Marginal Fisher Criterion\n෡ ෢\nMinimize Intraclass Compactness 𝑆 , Maximize Interclass Separability 𝑆\n𝑐 𝑝\n𝑇 𝑻\n𝐰 𝐗(𝐃 − 𝐒)𝐗 𝐰\n∗\n𝐰 = argmin\n𝐰𝑇𝐗(𝐃𝑝 − 𝐒𝑝)𝐗𝑻𝐰\n𝐰\n𝑝 𝑝 𝑝\nWhich is a special linearization of GE with B= 𝐋 = 𝐃 − 𝐒\nGeneral Linearization:\n∗ 𝑇 𝑻\n𝐰 = argmin 𝐰 𝐗𝐋𝐗 𝐰\n𝐰𝑇𝐗𝐁𝐗𝑻𝐰=𝑐\n𝑝 𝑝 𝑝\nIf B= 𝐋 = 𝐃 − 𝐒 , the same as marginal fisher criterion!\n55"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 54,
+      "title": "Experiments: Face Recognition",
+      "content": "Sample Images from CMU PIE database (after cropping)\nGm/Pn: m images per person are randomly selected for training and the remaining\nn images are used for testing.\n56"
+    },
+    {
+      "file": "WS-Week8-LDA-GE_clean.pdf",
+      "page": 55,
+      "title": "• Shuicheng Yan, Dong Xu et al.: Graph Embedding and Extensions:",
+      "content": "A General Framework for Dimensionality Reduction. T-PAMI\n2007.\n• Jieping Ye, Ravi Janardan, Cheonghee Park, and Haesun Park. An\noptimization criterion for generalized discriminant analysis on\nundersampled problems. IEEE Transactions on Pattern Analysis and\nMachine Intelligence. Vol. 26, No. 8, pp. 982—994, 2004.\n• A. Martinez, A. Kak, \"PCA versus LDA\", IEEE Transactions on Pattern\nAnalysis and Machine Intelligence, vol. 23, no. 2, pp. 228-233, 2001.\n57"
+    }
+  ]
+}

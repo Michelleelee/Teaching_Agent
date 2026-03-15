@@ -1,0 +1,392 @@
+{
+  "source_file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+  "outline": [
+    "EE5907 Pattern Recognition",
+    "Welcome to EE5907!",
+    "Lecture Format and Consultation",
+    "Lecturers",
+    "Background of Myself and Course",
+    "Learning Outcomes",
+    "Assessment and Grading",
+    "References",
+    "Code of Conduct",
+    "(1st Updated Syllabus part) (1/2)",
+    "(1st Updated Syllabus part) (2/2)",
+    "Something More and New:",
+    "Introduction:",
+    "What is Pattern Recognition (PR)?",
+    "What is Pattern Recognition?",
+    "The PR System Diagram What we usually get here:",
+    "Pattern Recognition (PR) vs. / and Machine Learning (ML)",
+    "The different concepts: AI / ML / DL",
+    "The Common ML Framework",
+    "Inferencing: Deductive / Inductive Reasoning",
+    "Different Learning Paradigms",
+    "The Common ML Framework: Output",
+    "Foundation",
+    "Probability: Two Interpretations",
+    "Properties of Probability of event(s): I",
+    "Properties of Probability of event(s): II",
+    "Discrete and Continuous Random Variables (RV)",
+    "Bayes’ Rule",
+    "Bayes’ Rule: in Detail",
+    "Bayes’ Rule: Example 1 – Weather Forecast",
+    "Bayes Rule: Example 2 – Disease Testing",
+    "Bayes’ Rule: Example 2 – Disease Testing",
+    "Bayes Rule: Example 2 – Disease Testing",
+    "Bayes’ Rule: Example 2 – Disease Testing",
+    "Bernoulli Distribution",
+    "Binomial Distribution",
+    "End of Week 1",
+    "Recap: Bayes’ Rule",
+    "Recap: Bernoulli Distribution",
+    "Recap: Binomial Distribution",
+    "Binomial Distribution: Example",
+    "Predicting a Binary Variable",
+    "The Sigmoid Function Visualized",
+    "Categorical and Multinomial Distribution",
+    "Predicting a Categorical Variable with Softmax",
+    "Something More on Softmax",
+    "Illustration of Softmax Properties",
+    "Univariate Gaussian Distribution",
+    "Other Common Univariate Distributions",
+    "Estimating Probability Models: Model Fitting",
+    "Maximum Likelihood Estimation (MLE)",
+    "MLE for Bernoulli Distribution",
+    "MLE for Univariate Gaussian Distribution",
+    "Empirical Risk Minimization (ERM)",
+    "ERM: Minimizing Misclassification Rate"
+  ],
+  "slides": [
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 1,
+      "title": "EE5907 Pattern Recognition",
+      "content": "/ EE5027 Statistical PR\nLecture 1 Foundations of Pattern Recognition\nand Machine Learning\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 2,
+      "title": "Welcome to EE5907!",
+      "content": "Course will be conducted by Dr. XU Yuecong (1st part, till\nRecess) and Dr. Wang Si (2nd part, Wk 7 – 13).\nTopics on decision theory, linear/non-linear classifier and\nregressor, PCA, LDA, clustering, boosting, SVM, etc.\nSyllabus available on Canvas in the Pages tab, please check\nthem out.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 3,
+      "title": "Lecture Format and Consultation",
+      "content": "In-person lectures:\nLecture notes will be available right before each class.\nRecording will be available at the end of each class for revision.\nBreak for 15 mins in between, end in 2.5 hours. After class discussion\nwelcomed!\nConsultation hour: walk-in if you have any questions:\nMon: 14:00 – 15:30, Week 2, 5, 6. ECE Conference Room E4-05-39\nMon: 13:00 – 14:30, Week 3 (25 Aug). ECE Conference Room\nAnnouncements will be made if there are changes for that week.\nQ&A: https://docs.google.com/document/d/1ph1hVnzrmUsk0-\nfTsilF5OPGm2wHQQw4qrpa-pQa5Ag/edit?usp=sharing\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 4,
+      "title": "Lecturers",
+      "content": "Lecturers:\nDr. XU Yuecong (Part I, Week 1 – 6) yc.xu@nus.edu.sg\nDr. WANG Si (Part II, Week 7 – 13)\nGraduate Assistants (GA):\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 5,
+      "title": "Background of Myself and Course",
+      "content": "• Video, 3D data and time-series data analysis\n• Transfer learning for efficiency and application.\n• Combining with LLVM and AIOT devices.\nyc.xu@nus.edu.sg\nPattern recognition and machine learning, not deep learning.\nUnderstanding the concepts for application.\nSome DL algorithms/techniques are based on PR/ML.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 6,
+      "title": "Learning Outcomes",
+      "content": "Comprehend principles and core techniques in pattern\nrecognition such as Bayesian decision theory, linear and non-\nlinear classifiers, principal component analysis, linear\ndiscriminant analysis, clustering and support vector machine.\nApply the conceptual and mathematical tools of pattern\nrecognition to analyze real-world data, obtaining data features\nand performing classification or regression.\nAssess the strengths and weaknesses of the different pattern\nrecognition algorithms.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 7,
+      "title": "Assessment and Grading",
+      "content": "Continuous Assessment consists of 3 components.\nCA1: 29 Aug 2025 – 3 Oct 2025 SGT 23:59 (Week 3 – 7): 15%.\nCA1 To be announced on Week 3.\nQuiz: 18 Sep 2025 (During lecture on Week 6): 5%.\nQuiz format: MCQ, fully open book, max 60 minutes.\nQuiz to be conducted via Canvas.\nCA2: TBA by Dr. Wang Si: 20%.\nFinal: 60%.\nClosed book with one-page double-sided cheat sheet.\n© Copyright National University of Singapore. All Rights Reserved.\n\nDeadlines are strict. Late submission will be deducted 10 points\n(out of 100) for every 24 hours. ZERO mark for late submission of\n5 days (120 hours) or more.\nNO plagiarism is allowed. A ZERO mark will be given to anyone\nfound plagiarizing and a formal report will be handed to the\nDepartment for further investigation.\nGPT-based/GPT-like tools (ChatGPT, Co-pilot, Gemini) allowed for\nrefinement and coding (of course, amendments are required).\nThey’re NOT allowed for generating the whole project submission.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 9,
+      "title": "References",
+      "content": "Theodoridis, Sergios, and Konstantinos Koutroumbas. Pattern\nrecognition. Elsevier, 2006.\nBishop, Christopher M., and Nasser M. Nasrabadi. Pattern\nrecognition and machine learning. Vol. 4, no. 4. New York:\nspringer, 2006.\nTheodoridis, Sergios. Machine Learning: A Bayesian and\nOptimization Perspective. Academic Press, 2020.\nMurphy, Kevin P. Probabilistic machine learning: an introduction.\nMIT press, 2022.\n© Copyright National University of Singapore. All Rights Reserved.\n\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 11,
+      "title": "Code of Conduct",
+      "content": "Students are encouraged to actively participate.\nYour grade depends on what you do, not what others do.\nDon’t share your solutions/codes. Submit only your own work.\nAcademic Integrity:\nStudent’s academic work & behavior are held to highest academic integrity standards.\nCheating, plagiarism, unauthorized collaboration, and ‘helping others commit these\nacts’ are examples of academic misconduct, which can result in disciplinary action.\nAny violation to academic honesty will be reported to the\nUniversity's disciplinary panel.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 12,
+      "title": "(1st Updated Syllabus part) (1/2)",
+      "content": "Updated Syllabus (1st part) (1/2)\nFoundations of pattern recognition and machine learning:\nBasic terminologies and concepts of PRML;\nBayes’ rule and univariate probability distribution models;\nMaximum Likelihood Estimation (MLE)\nEmpirical Risk Minimization (ERM).\nDecision theory and classifiers:\nBayesian decision theory and the classification problem;\nBayesian classifiers for normal distribution and Maximum A Posteriori (MAP);\nThe frequentist decision theory and its application.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 13,
+      "title": "(1st Updated Syllabus part) (2/2)",
+      "content": "Updated Syllabus (1st part) (2/2)\nLinear classifiers and non-linear classifiers:\nThe perceptron algorithm and LSE for optimal linear classifiers;\nAnalysis of the XOR problem and the Multi-Layer Perceptron (MLP);\nTraining of MLPs and the Radial Basis Function Networks (RBF).\nLinear Regression and Non-parametric PR methods:\nLSE for linear regression, the ridge regression and Lasso regression;\nClassification And Regression Trees (CART);\nBootstrap aggregating and Random Forests (RF).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 14,
+      "title": "Something More and New:",
+      "content": "Tutorials will be provided to help you understand the concepts\nbetter (and to better prepare for Finals ☺).\nNot graded at all but will be relevant to the finals in the type of\nquestions and the concepts that may be examined.\nMay not fully overlap but would be relevant.\nTutorials provided on Weeks 3, after Lecture Set 2.\nTutorials discussed on Weeks 4, during class.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 15,
+      "title": "Introduction:",
+      "content": "✓ What is Pattern Recognition / Machine Learning?\n✓ Basic terminologies that may be encountered.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 16,
+      "title": "What is Pattern Recognition (PR)?",
+      "content": "Pattern recognition is to perceive a pattern, extract the relevant info,\nunderstand the content of the info and make decision automatically by\nmachine or computer.\nIn short: automated recognition of patterns and regularities in data.\nUses techniques developed in statistics and machine learning.\nExample 1: Is the picture of an apple or pear\nAfter perceiving the image, you may decide\nleft image is an apple, right image is a pear.\nThe decision is made with 100% certainty\n(probability): how?\nBased on color/shape.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 17,
+      "title": "What is Pattern Recognition?",
+      "content": "A more complex Example 2: Is the picture of an apple or pear\nAfter perceiving the image, the decision is made only after extracting the\nitem from the correct part of the image.\nIf item is correctly extracted: decision can be made with 100% certainty.\n© Copyright National University of Singapore. All Rights Reserved.\n\nCan we always make a decision with 100% certainty?\nExample 3: Is the picture of an apple or pear\nLost of certain information / features (color):\nCan we still make the decision with 100% certainty? Probably not – then\nhow should we determine what the picture actually is?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 19,
+      "title": "The PR System Diagram What we usually get here:",
+      "content": "01 → apple; 10 → pear;\nWhat do 0 & 1 represent?\nProbability!\n𝑛 𝑑 𝑐\n𝑥 ∈ ℝ 𝒇 ∈ ℝ 𝑦 ∈ 0,1\nRaw Data\nFeature extraction /\nClassification /\nData Preprocessing\nDimension reduction\nRegression\n𝑥ො (Supervised / Unsupervised)\nKnowledge Type 1 Knowledge Type 2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 20,
+      "title": "Pattern Recognition (PR) vs. / and Machine Learning (ML)",
+      "content": "Connections or differences between PR and ML?\nMachine learning: learn from data without being explicitly programmed.\nAlmost identical to PR, since learning implies finding patterns.\nWhat is ML? Compare with non-learning algo (why need ML)?\nNon-learning algos are bared on pre-determined rules, require human expertise. The\nrules are fixed regardless the input data.\nFor non-learning algos, human expert should know the solution and rules – problems\nthat human cannot solve would NOT be solved.\nNon-learning algo: human-centric; ML/PR: data-centric.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 21,
+      "title": "The different concepts: AI / ML / DL",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 22,
+      "title": "The Common ML Framework",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 23,
+      "title": "Inferencing: Deductive / Inductive Reasoning",
+      "content": "Deductive reasoning is a Inductive reasoning is a method\nlogical approach where you go of drawing conclusion from the\nfrom general ideas to specific to the general.\nspecific conclusions.\nAll swans we’ve seen is white;\nAll men are mortal； → All swans are white (?)\nSocrates is a man;\nGeneralization\n→ Socrates is mortal.\nTest\nTrain\ndata\ndata\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 24,
+      "title": "Different Learning Paradigms",
+      "content": "Supervised learning: Labelled data with guidance;\nUnsupervised learning: No labelled without guidance;\nReinforcement learning: Interacts with environment, decide\naction, learns by trial-and-error method.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 25,
+      "title": "The Common ML Framework: Output",
+      "content": "Trained Model\nImage Feature\nOutput Prediction\nNote what is the usual output (for classification)?\nThe probability of each class!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 26,
+      "title": "Foundation",
+      "content": "✓ Introduction to Probability.\n✓ The Bayes’ Rule.\n✓ Univariate Probability Distribution Models.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 27,
+      "title": "Probability: Two Interpretations",
+      "content": "Probability theory is nothing, but common sense reduced to calculation.\n– Pierre Laplace, 1812\nFrequentist interpretation: probabilities represent long run\nfrequencies of events that can happen multiple times.\nFlip the coin many times, we expect it to land heads about half\nthe time.\nBayesian interpretation: quantify uncertainty or\nignorance about something\nThe coin is equally likely to land heads/tails on next toss.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 28,
+      "title": "Properties of Probability of event(s): I",
+      "content": "Note: for this course, probability of an event denoted as: 𝑃(𝐴)\n𝑃(𝐴) satisfy: 0 ≤ 𝑃 𝐴 ≤ 1.\nJoint probability that events 𝐴 and 𝐵 both happening: 𝑃(𝐴, 𝐵);\nIf 𝐴 and 𝐵 are independent events, 𝑃 𝐴, 𝐵 = 𝑃 𝐴 𝑃(𝐵).\nProbability of event 𝐴 or 𝐵 happening (probability of union of 𝐴 and 𝐵):\n𝑃 𝐴 ∨ 𝐵 = 𝑃 𝐴 + 𝑃 𝐵 − 𝑃(𝐴, 𝐵);\nIf 𝐴 and 𝐵 are mutually exclusive (cannot happen at the same time), then\n𝑃 𝐴 ∨ 𝐵 = 𝑃 𝐴 + 𝑃(𝐵);\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 29,
+      "title": "Properties of Probability of event(s): II",
+      "content": "Note: for this course, probability of an event denoted as: 𝑃 𝐴 or 𝑝(𝐴).\nConditional probability of 𝐵 happening given 𝐴 has occurred:\n𝑃(𝐴, 𝐵)\n𝑃(𝐵|𝐴) ≜\n𝑃(𝐴)\nEvent 𝐴 is independent of 𝐵 if 𝑃 𝐴, 𝐵 = 𝑃 𝐴 𝑃(𝐵);\nEvents 𝐴 ad 𝐵 are conditionally independent given 𝐶 if:\n𝑃 𝐴, 𝐵 𝐶 = 𝑃 𝐴 𝐶 𝑃(𝐵|𝐶)\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 30,
+      "title": "Discrete and Continuous Random Variables (RV)",
+      "content": "A mathematical formalization of a quantity or object which depends\non random events.\nA mapping or a function from possible outcomes in a sample space to\na measurable space, often the real numbers.\nDiscrete variable Continuous variable\nCountable numbers of value (e.g., number of students) Infinitely many real values (e.g., time to complete a task)\nDistribution defined by probability mass function (pmf) Distribution defined by cumulative distribution function\n(cdf) and probability density function (pdf)\n𝑃 𝑥 ≜ 𝑃(𝑋 ≤ 𝑥)\n𝑑\n𝑝 𝑥 ≜ 𝑃 𝑋 = 𝑥\n𝑝 𝑥 ≜ 𝑃(𝑥)\n𝑑𝑥\n∑𝑝 𝑥 = 1\n𝑏\n𝑃 𝑎 < 𝑋 ≤ 𝑏 = න 𝑝 𝑥 𝑑𝑥 = 𝑃 𝑏 − 𝑃(𝑎)\n𝑎\n© Copyright National University of Singapore. All Rights Reserved.\n\nDiscrete variable Continuous variable\nCountable numbers of value (e.g., number of students) Infinitely many real values (e.g., time to complete a task)\nDistribution defined by probability mass function (pmf) Distribution defined by cumulative distribution function\n(cdf) and probability density function (pdf)\n𝑃 𝑥 ≜ 𝑃(𝑋 ≤ 𝑥)\n𝑑\n𝑝 𝑥 ≜ 𝑃 𝑋 = 𝑥 𝑝 𝑥 ≜ 𝑃(𝑥)\n𝑑𝑥\n∑𝑝 𝑥 = 1\n𝑏\n𝑃 𝑎 < 𝑋 ≤ 𝑏 = න 𝑝 𝑥 𝑑𝑥 = 𝑃 𝑏 − 𝑃(𝑎)\n𝑎\nImportant: Note whether the variable is discrete or continuous! Could be\nconfusing sometimes. Example:\nA large quantity of green tea (e.g., 1000kg) is to be sold. 𝑋 is the weight of green tea to be\nsold. Suppose any quantity can be sold, is 𝑋 discrete or continuous?\nWhat if the green tea can only be sold in packets of 10kg, is 𝑋 now discrete or continuous?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 32,
+      "title": "Bayes’ Rule",
+      "content": "“Bayesian”: refer to inference methods that represent “degrees of\ncertainty” using probability theory, and which leverage Bayes’ rule, to\nupdate the degree of certainty given data.\nLayman term: Update our belief based on prior belief and data so that we infer\nsomething with a certain degree of uncertainty.\nBayes’ rule: a formula for computing the probability distribution over\npossible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.\n𝑝 𝐻 = ℎ 𝑝(𝑌 = 𝑦|𝐻 = ℎ)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 =\n𝑝(𝑌 = 𝑦)\nFollows the product rule of probability: 𝑝 ℎ 𝑦 𝑝 𝑦 = 𝑝 ℎ 𝑝 𝑦 ℎ = 𝑝(ℎ, 𝑦)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 : posterior distribution / conditional distribution.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 33,
+      "title": "Bayes’ Rule: in Detail",
+      "content": "𝑝 𝐻 = ℎ 𝑝(𝑌 = 𝑦|𝐻 = ℎ)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 =\n𝑝(𝑌 = 𝑦)\n𝑝(𝐻): what we know about possible values of 𝐻 before we see any data – the prior\ndistribution (layman terms: prior belief).\n𝑝(𝑌|𝐻 = ℎ): the distribution over possible outcomes 𝑌 we expect to see if 𝐻 = ℎ – the\nlikelihood (layman terms: the observed data).\nMultiplying the prior distribution and the likelihood – unnormalized joint distribution 𝑝(𝐻 =\nℎ, 𝑌 = 𝑦). Convert into a normalized distribution by dividing by 𝑝(𝑌 = 𝑦), which is\ndenoted as the marginal likelihood.\n𝑝(𝐻 = ℎ|𝑌 = 𝑦): represents our new belief state (updated belief) about the possible\nvalues of 𝐻 – the posterior distribution.\nposterior ∝ prior × likelihood\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 34,
+      "title": "Bayes’ Rule: Example 1 – Weather Forecast",
+      "content": "𝑌 = 1 (𝑌): Weatherman forecast it rains\nMarie is getting married tomorrow at\n𝐻 = 1 (𝐻): It Actually Rains\nan outdoor ceremony in the desert.\n5\nIn recent years, it has rained only 5 Prior\n𝑃 𝐻 = = 0.0137\ndays each year. Probability 365\nWhen it actually rains, the weatherman 𝑃 𝑌 𝐻 = 0.9\nhas forecast rain 90% of the time.\nLikelihood ෩\n𝑃 𝑌 𝐻 = 0.1\nWhen it doesn't rain, he has forecast\nrain 10% of the time.\nUnfortunately, the weatherman is\nforecasting rain for tomorrow.\nPosterior\n𝑃(𝐻|𝑌) = ? ?\nWhat is the probability it will rain on the Probability\nday of Marie's wedding?\n© Copyright National University of Singapore. All Rights Reserved.\n\n5\n෩\nWe know that: 𝑃 𝐻 = = 0.0137 and 𝑃 𝑌 𝐻 = 0.9, 𝑃 𝑌 𝐻 = 0.1.\n365\nWhat we want: 𝑃(𝐻|𝑌).\n𝑃 𝐻 𝑃(𝑌|𝐻) 𝑃 𝐻 𝑃(𝑌|𝐻)\n𝑃 𝐻 𝑌 = =\n𝑃 𝑌 𝑃(𝑌|𝐻)𝑃 𝐻 + 𝑃(𝑌|𝐻 ෩ )𝑃 𝐻 ෩\n0.0137(0.9)\n𝑃(𝐻|𝑌) = = 0.111\n0.9(0.0137) + 0.1(1 − 0.0137)\nThe probability it will rain on the day of Marie's wedding, given the\nweatherman is forecasting rain for tomorrow is 0.111\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 36,
+      "title": "Bayes Rule: Example 2 – Disease Testing",
+      "content": "𝑌 = 1 (𝑌): Diagnostic test positive\nSuppose there is an outbreak of a disease\n(e.g., COVIDv2). Jack is taking a diagnostic 𝐻 = 1 (𝐻): Jack is infected\ntest to determine if he is infected.\nSuppose the sensitivity (true positive rate) of 𝑃 𝑌 𝐻 = 0.875\nthe diagnostic is 87.5%, and the specificity Likelihood\n෨ ෩\n𝑃 𝑌 𝐻 = 0.975\n(true negative rate) of the diagnostic is 97.5%.\nAlso suppose the prevalence of the disease in\nPrior\n𝑃 𝐻 = 0.1\nthe area where Jack lives is 10%.\nProbability\nUnfortunately, Jack is tested positive. What is Posterior\n𝑃 𝐻|𝑌 = ? ?\nthe probability of Jack being infected? Probability\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 37,
+      "title": "Bayes’ Rule: Example 2 – Disease Testing",
+      "content": "෨ ෩\nWe know that: 𝑃 𝐻 = 0.1 and 𝑃 𝑌 𝐻 = 0.875, 𝑃 𝑌 𝐻 = 0.975.\nWhat we want: 𝑃(𝐻|𝑌).\n𝑃 𝐻 𝑃(𝑌|𝐻) 𝑃 𝐻 𝑃(𝑌|𝐻) 𝑃 𝐻 𝑃(𝑌|𝐻)\n𝑃 𝐻 𝑌 = = =\n𝑃 𝑌 𝑃(𝑌|𝐻)𝑃 𝐻 + 𝑃(𝑌|𝐻 ෩ )𝑃 𝐻 ෩ ෨ ෩ ෩\n𝑃 𝑌 𝐻 𝑃 𝐻 + 1 − 𝑃 𝑌 𝐻 𝑃 𝐻\n𝑃 𝐻 𝑃 𝑌 𝐻 0.1 × 0.875\n𝑃 𝐻 𝑌 = = = 0.795\n෨ ෩ 0.875 × 0.1 + 1 − 0.1 (1 − 0.975)\n𝑃 𝑌 𝐻 𝑃 𝐻 + 1 − 𝑃 𝑌 𝐻 1 − 𝑃 𝐻\nThe chance of Jack being infected is 79.5%.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 38,
+      "title": "Bayes Rule: Example 2 – Disease Testing",
+      "content": "𝑌 = 1 (𝑌): Diagnostic test positive\nSuppose there is an outbreak of a disease\n(e.g., COVIDv2). Jack is taking a diagnostic 𝐻 = 1 (𝐻): Jack is infected\ntest to determine if he is infected.\nSuppose the sensitivity (true positive rate) of 𝑃 𝑌 𝐻 = 0.875\nthe diagnostic is 87.5%, and the specificity Likelihood\n෨ ෩\n𝑃 𝑌 𝐻 = 0.975\n(true negative rate) of the diagnostic is 97.5%.\nNow suppose the prevalence of the disease in\nPrior\n𝑃 𝐻 = 0.01\nthe area where Jack lives is changed to 1%.\nProbability\nJack is tested positive. What is the probability Posterior\n𝑃 𝐻|𝑌 = ? ?\nof Jack being infected now? Probability\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 39,
+      "title": "Bayes’ Rule: Example 2 – Disease Testing",
+      "content": "෨ ෩\nWe know that: 𝑃 𝐻 = 0.01 and 𝑃 𝑌 𝐻 = 0.875, 𝑃 𝑌 𝐻 = 0.975.\nWhat we want: 𝑃(𝐻|𝑌).\n𝑃 𝐻 𝑃(𝑌|𝐻) 𝑃 𝐻 𝑃(𝑌|𝐻) 𝑃 𝐻 𝑃(𝑌|𝐻)\n𝑃 𝐻 𝑌 = = =\n𝑃 𝑌 𝑃(𝑌|𝐻)𝑃 𝐻 + 𝑃(𝑌|𝐻 ෩ )𝑃 𝐻 ෩ ෨ ෩ ෩\n𝑃 𝑌 𝐻 𝑃 𝐻 + 1 − 𝑃 𝑌 𝐻 𝑃 𝐻\n𝑃 𝐻 𝑃 𝑌 𝐻 0.01 × 0.875\n𝑃 𝐻 𝑌 = = = 0.261\n෨ ෩ 0.875 × 0.01 + 1 − 0.01 (1 − 0.975)\n𝑃 𝑌 𝐻 𝑃 𝐻 + 1 − 𝑃 𝑌 𝐻 1 − 𝑃 𝐻\nThe chance of Jack being infected is 26.1%, even if tested positive.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 40,
+      "title": "Bernoulli Distribution",
+      "content": "One of the simplest probability distribution – can be used to model binary\nevents. (E.g., coin flipping)\nExplaining the Bernoulli distribution with coin flipping. Denote 𝑌 = 1 as coin lands on\nheads, and 𝑌 = 0 as coin lands on tails.\nSuppose the probability of the coin lands on heads is 0 ≤ 𝜃 ≤ 1. Thus, 𝑝 𝑌 = 1 = 𝜃\nand 𝑝 𝑌 = 0 = 1 − 𝜃. Then random variable 𝑌 follow the Bernoulli distribution:\n𝑌~Ber(𝜃).\n1 − 𝜃 𝑖𝑓 𝑦 = 0\n𝑦 1−𝑦\nBer 𝑦 𝜃 = ቊ ≜ 𝜃 1 − 𝜃\n𝜃 𝑖𝑓 𝑦 = 1\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 41,
+      "title": "Binomial Distribution",
+      "content": "Now, if we flip a coin multiple times. Then the sum of the Bernoulli random\nvariables will follow a Binomial distribution.\nThe Bernoulli distribution is a special case of the binomial distribution.\nSuppose we observe a set of 𝑁 Bernoulli trials (e.g., toss a coin 𝑁 times), 𝑦 ~Ber(⋅\n𝑛\n|𝜃) for 𝑛 = 1: 𝑁. Define 𝑠 to be the total number of heads 𝑠 ≜\n∑𝑁\n𝕀(𝑦 = 1).\n𝑛=1 𝑛\nThe distribution of 𝑠 follows the binomial distribution:\n𝑁\n𝑠 𝑁−𝑠 𝑁 𝑠 𝑁−𝑠\nBin 𝑠 𝑁, 𝜃 ≜ 𝜃 1 − 𝜃 = 𝑪 𝜃 1 − 𝜃\n𝑠\n𝑠\n𝑁 𝑁!\nbinomial coefficient: ≜\n𝑠 𝑁 − 𝑠 ! 𝑠!\n© Copyright National University of Singapore. All Rights Reserved.\n\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 43,
+      "title": "End of Week 1",
+      "content": "© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 44,
+      "title": "Recap: Bayes’ Rule",
+      "content": "“Bayesian”: refer to inference methods that represent “degrees of\ncertainty” using probability theory, and which leverage Bayes’ rule, to\nupdate the degree of certainty given data.\nLayman term: Update our belief based on prior belief and data so that we infer\nsomething with a certain degree of uncertainty.\nBayes’ rule: a formula for computing the probability distribution over\npossible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.\n𝑝 𝐻 = ℎ 𝑝(𝑌 = 𝑦|𝐻 = ℎ)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 =\n𝑝(𝑌 = 𝑦)\nFollows the product rule of probability: 𝑝 ℎ 𝑦 𝑝 𝑦 = 𝑝 ℎ 𝑝 𝑦 ℎ = 𝑝(ℎ, 𝑦)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 : posterior distribution / conditional distribution.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 45,
+      "title": "Recap: Bernoulli Distribution",
+      "content": "One of the simplest probability distribution – can be used to model binary\nevents. (E.g., coin flipping)\nExplaining the Bernoulli distribution with coin flipping. Denote 𝑌 = 1 as coin lands on\nheads, and 𝑌 = 0 as coin lands on tails.\nSuppose the probability of the coin lands on heads is 0 ≤ 𝜃 ≤ 1. Thus, 𝑝 𝑌 = 1 = 𝜃\nand 𝑝 𝑌 = 0 = 1 − 𝜃. Then random variable 𝑌 follow the Bernoulli distribution:\n𝑌~Ber(𝜃).\n1 − 𝜃 𝑖𝑓 𝑦 = 0\n𝑦 1−𝑦\nBer 𝑦 𝜃 = ቊ ≜ 𝜃 1 − 𝜃\n𝜃 𝑖𝑓 𝑦 = 1\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 46,
+      "title": "Recap: Binomial Distribution",
+      "content": "Now, if we flip a coin multiple times. Then the sum of the Bernoulli random\nvariables will follow a Binomial distribution.\nThe Bernoulli distribution is a special case of the binomial distribution.\nSuppose we observe a set of 𝑁 Bernoulli trials (e.g., toss a coin 𝑁 times), 𝑦 ~Ber(⋅\n𝑛\n|𝜃) for 𝑛 = 1: 𝑁. Define 𝑠 to be the total number of heads 𝑠 ≜\n∑𝑁\n𝕀(𝑦 = 1).\n𝑛=1 𝑛\nThe distribution of 𝑠 follows the binomial distribution:\n𝑁\n𝑠 𝑁−𝑠 𝑁 𝑠 𝑠\nBin 𝑠 𝑁, 𝜃 ≜ 𝜃 1 − 𝜃 = 𝑪 𝜃 1 − 𝜃\n𝑠\n𝑠\n𝑁 𝑁!\nbinomial coefficient: ≜\n𝑠 𝑁 − 𝑠 ! 𝑠!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 47,
+      "title": "Binomial Distribution: Example",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 48,
+      "title": "Predicting a Binary Variable",
+      "content": "When we want to predict a binary variable 𝑦 ∈ {0,1} given input 𝑥 ∈ 𝒳, we\nneed to use a conditional probability distribution:\n𝑝 𝑦 𝒙, 𝜽 = Ber(𝑦|𝑓 𝒙; 𝜽 ).\n𝑓 𝒙; 𝜽 is a function that predicts the parameter of the distribution.\nTo avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1, let 𝑓 be an unconstrained function, we\nuse the following model:\n𝑝 𝑦 𝒙, 𝜽 = Ber(𝑦|𝜎(𝑓 𝒙; 𝜽 )).\n𝜎() is the sigmoid (logistic) function – “sigmoid” means S-shaped.\n1\n𝜎 𝑎 ≜\n1 + 𝑒−𝑎\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 49,
+      "title": "The Sigmoid Function Visualized",
+      "content": "−𝑎 −1\nComparing the sigmoid function 𝜎 𝑎 = 1 + 𝑒 and the Heaviside\nstep function 𝕀(𝑎 > 0).\nThe sigmoid function can be thought of as a “soft” version of the heaviside\nstep function.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 50,
+      "title": "Categorical and Multinomial Distribution",
+      "content": "Problems for Bernoulli and Binomial distributions?\nCan only model the probability for an event with ONLY 2 outcomes.\nGeneralize the Bernoulli to 𝐶 > 2 values.\nCategorical distribution:\nA discrete probability distribution with one parameter per class:\nCat 𝑦 𝜽 ≜\nς𝐶\n𝜃\n𝕀 𝑦=𝑐\n, thus 𝑝 𝑦 = 𝑐 𝜽 = 𝜃 .\n𝑐=1 𝑐 𝑐\nAlternatively, convert the discrete variable 𝑦 into a one-hot vector 𝒚 with 𝐶 elements.\nE.g., if 𝐶 = 3, then the classes are encoded as (1,0,0), (0,1,0), and (0,0,1).\nAs such, the categorical distribution is also written for 𝒚:\n𝐶\n𝑦\nCat 𝒚 𝜽 ≜ ෑ 𝜃 𝑐\n𝑐\n𝑐=1\n© Copyright National University of Singapore. All Rights Reserved.\n\nThe categorical distribution is a special case of multinomial distribution.\nRepeat the categorical trials 𝑁 times (e.g., roll a 𝐶-sided dice 𝑁 times).\nDefine 𝑦 to be the total number of times face 𝑐 shows up: 𝑦 = 𝑁 ≜\n∑𝑁\n𝕀(𝑦 = 𝑐).\n𝑐 𝑐 𝑐 𝑛=1 𝑛\nDefine 𝒚 as the vector with 𝐶-dim, each element being 𝑦 .\n𝑐\nThe distribution of 𝒚 follows the multinominal distribution. Note that 𝒚 is no longer a\none-hot vector.\n𝐶 𝐶\n𝑁 𝑁\n𝑦 𝑁\nℳ 𝑦 𝑁, 𝜃 ≜ ෑ 𝜃 𝑐 = ෑ 𝜃 𝑐\n𝑐 𝑐\n𝑦 … 𝑦 𝑁 … 𝑁\n1 𝑐 1 𝑐\n𝑐=1 𝑐=1\n𝑁 𝑁!\n𝜃 is the probability side 𝑐 shows up and ≜ is the multinominal\n𝑐\n𝑁 1 …𝑁 𝑐 𝑁 1 !𝑁 2 !…𝑁 𝐶 !\ncoefficient, which is the number of ways to divide a set of size 𝑁 =\n∑𝐶\n𝑁 into\n𝑐=1 𝑐\nsubsets with sizes 𝑁 up to 𝑁 . If 𝑁 = 1, the multinomial distribution becomes the\n1 𝐶\ncategorical distribution, if 𝐶 = 2, the multinomial distribution is the binomial distribution.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 52,
+      "title": "Predicting a Categorical Variable with Softmax",
+      "content": "When we want to predict a categorical variable 𝑦 given input 𝑥 ∈ 𝒳, we\nneed to use a conditional probability distribution:\n𝑝 𝑦 𝒙, 𝜽 = Cat(𝑦|𝑓 𝒙; 𝜽 ).\n𝐶\nTo avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1 and ∑ 𝑓 𝒙; 𝜽 = 1, let 𝑓 be an\n𝑐 𝑐=1 𝑐\nunconstrained function, we use the following model:\n𝑝 𝑦 𝒙, 𝜽 = Cat(𝑦|softmax(𝑓 𝒙; 𝜽 )).\nsoftmax(), also written as sfm() is the softmax (multinomial logistic) function\n𝑎 𝑎\n𝑒 1 𝑒 𝐶\nsoftmax 𝒂 ≜ , … ,\n𝑐 ∑ 𝐶 𝑒 𝑎 ′ ∑ 𝐶 𝑒 𝑎 ′\n𝑐 𝑐\n𝑐′=1 𝑐′=1\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 53,
+      "title": "Something More on Softmax",
+      "content": "1. Properties of Softmax:\na. softmax 𝒂 ∈ 0,1 , and\n∑𝐶\nsoftmax 𝒂 = 1. The softmax function has been\n𝑐 𝑐=1 𝑐\napplied to almost ALL classification tasks in deep learning thanks to these properties.\nThe input to the softmax 𝒂 = 𝑓 𝒙; 𝜽 are called logits.\n2. The softmax function, at its extremes, acts like the argmax function.\nDivide each 𝑎 (the components for each class of 𝒂) by a constant 𝑇, denoted as the\n𝑐\nTemperature. Then as 𝑇 → 0, we find the following:\n1.0 if 𝑐 = arg max 𝑎\n𝑐′\nsoftmax 𝒂/𝑇 = ൝ 𝑐′\n𝑐\n0.0 otherwise\nAt low temperatures, the distribution puts most of its probability mass in the most\nprobable state (denoted as winner takes all), whereas at high temperatures, it\nspreads the mass uniformly.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 54,
+      "title": "Illustration of Softmax Properties",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 55,
+      "title": "Univariate Gaussian Distribution",
+      "content": "The most widely used distribution of real-valued random variables 𝑦 ∈ ℝ\nis the Gaussian distribution (equivalently, normal distribution).\nSuppose a continuous variable 𝑋 follow the Gaussian distribution, then\ncdf is: 𝑃 𝑥 ≜ 𝑃(𝑋 ≤ 𝑥) formulated as:\n𝑥\n1 𝑧\n2 2\nΦ 𝑥; 𝜇, 𝜎 ≜ න 𝒩 𝑧 𝜇, 𝜎 𝑑𝑧 = 1 + erf\n2\n2\n−∞\n2\nHere, 𝜇 encodes the mean of the distribution, 𝜎 encodes the variance,\nwhen 𝜇 = 0 and 𝜎 = 1, it refers to the standard normal distribution.\n𝑧 = (𝑥 − 𝜇)/𝜎 and erf(𝑢) is the error function defined as:\n𝑢\n2\n2\n−𝑡\nerf 𝑢 ≜ න 𝑒 𝑑𝑡\n𝜋\n0\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑑\nThe pdf is the derivative of the cdf: 𝑝 𝑥 ≜ 𝑃(𝑥) and the pdf of the\n𝑑𝑥\nGaussian is given by:\n1 1\n2\n− 𝑥−𝜇\n𝒩 𝑥 𝜇, 𝜎 2 ≜ 𝑒 2𝜎2\n2𝜋𝜎2\n2\nRV 𝑥 that follows such pdf can be denoted as: 𝑥~𝒩(𝜇, 𝜎 ).\nFor Gaussian, the following results apply:\n2\nMean (expected value): 𝔼 𝒩 ⋅ 𝜇, 𝜎 = 𝜇.\n2 2 2 2 2\nVariance: 𝕍 𝑋 = 𝔼 𝑋 − 𝜇 , therefore 𝔼 𝑋 = 𝜇 + 𝜎 .\nStandard deviation: std 𝑋 = 𝕍[𝑋] = 𝜎.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑑\nThe pdf is the derivative of the cdf: 𝑝 𝑥 ≜ 𝑃(𝑥) and the pdf of the\n𝑑𝑥\nGaussian is given by:\n1 1\n2\n− 𝑥−𝜇\n𝒩 𝑥 𝜇, 𝜎 2 ≜ 𝑒 2𝜎2\n2𝜋𝜎2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 58,
+      "title": "Other Common Univariate Distributions",
+      "content": "Dirac delta: when the 𝜎 of Gaussian → 0.\nStudent 𝑡-distribution: less sensitive to\noutliers than the Gaussian distribution.\nLaplace distribution: double-sided\nexponential distribution.\n© Copyright National University of Singapore. All Rights Reserved.\n\nBeta distribution: a suitable model for the random\nbehavior of percentages and proportions\nGamma distribution: a flexible distribution for\npositive real valued rv’s.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 60,
+      "title": "Estimating Probability Models: Model Fitting",
+      "content": "Now suppose we know that the data would follow a certain probability model,\ncontrolled by parameters 𝜽, but we don’t know what the model exactly is.\nKey problem: how to learn these parameters 𝜽 from data?\nThe process of estimation 𝜃 from data 𝒟 is called model fitting, or equivalently,\n“training” – the core of machine learning.\nThe training boils down to an optimization of the form:\n෡\n𝜽 = arg min ℒ(𝜽)\n𝜽\n෡\n𝜽: a point estimate; ℒ(𝜽): loss function / objective function.\nImportant: how to define the loss function / objective function?\n෡\nInference: quantify the uncertainty from data sample – compute 𝑝(𝑦|𝑥, 𝜽).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 61,
+      "title": "Maximum Likelihood Estimation (MLE)",
+      "content": "The intuitive objective: pick the parameters that assign the highest prob.\nto the training data (usually labelled) – maximum likelihood estimation:\n෡\n𝜽 = arg max 𝑝(𝒟|𝜽)\n𝑚𝑙𝑒\n𝜽\nAssume: training samples are independently sampled from the same distribution – iid\nassumption (independent and identical distributed).\n𝑝 𝒟 𝜽 =\nς𝑁\n𝑝(𝑦 |𝑥 , 𝜽) – likelihood; log likelihood takes its log ℓ 𝜽 ≜ log 𝑝(𝒟|𝜽).\n𝑛=1 𝑛 𝑛\nMost optimization algorithms are designed to min cost functions (argmin\ninstead of argmax), redefine the objective function to be the (conditional)\nnegative log likelihood (NLL): maximize likelihood = minimize NLL.\n𝑁\nNLL 𝜽 ≜ − log 𝑝 𝒟 𝜽 = − ෍ log 𝑝(𝑦 |𝑥 , 𝜽)\n𝑛 𝑛\n𝑛=1\n෡\n𝜽 = arg min ℒ(𝜽) = arg min NLL 𝜽\n𝜽 𝜽\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 62,
+      "title": "MLE for Bernoulli Distribution",
+      "content": "Suppose 𝑌 is a random variable representing a coin toss, where the event\n𝑌 = 1 corresponds to heads and 𝑌 = 0 corresponds to tails.\nLet 𝜃 = 𝑝(𝑌 = 1) be the probability of heads. The probability distribution for\nthis rv is the Bernoulli. The NLL for the Bernoulli distribution is given by:\nObserve: this is just the empirical fraction of heads, an intuitive result!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 63,
+      "title": "MLE for Univariate Gaussian Distribution",
+      "content": "2\nSuppose 𝑌~𝑁(𝜇, 𝜎 ) and 𝒟 = 𝑦 : 𝑛 = 1: 𝑁 is an iid sample of size 𝑁.\n𝑛\n2\nThe parameters are 𝜽 = (𝜇, 𝜎 ). We estimate with MLE:\n2. Derive optimal parameter:\n1. Derive NLL:\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 64,
+      "title": "Empirical Risk Minimization (ERM)",
+      "content": "𝑁\nThe MLE is based on: NLL 𝜽 = − ∑ log 𝑝(𝑦 |𝑥 , 𝜽)\n𝑛=1 𝑛 𝑛\nCan we further generalize the MLE?\nRecall: get optimal 𝜽 by 𝜽\n෡\n= arg min ℒ(𝜽) = arg min\n∑𝑁\nℓ(𝜽).\n𝑛=1\n𝜽 𝜽\nGeneralize MLE: replace log loss term with other loss function!\nℓ 𝜽 = − log 𝑝(𝑦 |𝑥 , 𝜽) → ℓ(𝑦 , 𝜽; 𝑥 ).\n𝑛 𝑛 𝑛 𝑛\nWith the more generalized form, we have:\n𝑁\nℒ 𝜽 = ∑ ℓ(𝑦 , 𝜽; 𝑥 ) – Empirical risk minimization (ERM).\n𝑛=1 𝑛 𝑛\nThe expected loss where the expectation is taken w.r.t. the “empirical” (sampled)\ndistribution.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+      "page": 65,
+      "title": "ERM: Minimizing Misclassification Rate",
+      "content": "If we are solving a classification problem, an intuitive loss selection would\nbe the 0-1 loss: (𝑓 being some kind of predictor)\n0 𝑖𝑓 𝑦 = 𝑓(𝑥 ; 𝜽)\n𝑛 𝑛\nℓ 𝑦 , 𝜽; 𝑥 = ቊ\n01 𝑛 𝑛\n1 𝑖𝑓𝑦 ≠ 𝑓(𝑥 ; 𝜽)\n𝑛 𝑛\nThen the empirical risk becomes:\n𝑁\nℒ 𝜽 = ෍ ℓ (𝑦 , 𝜽; 𝑥 )\n01 𝑛 𝑛\n𝑛=1\nThis is defined as the empirical misclassification rate on the training set.\n© Copyright National University of Singapore. All Rights Reserved."
+    }
+  ]
+}

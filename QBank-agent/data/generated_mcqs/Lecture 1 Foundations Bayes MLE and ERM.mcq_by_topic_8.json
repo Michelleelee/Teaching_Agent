@@ -1,0 +1,898 @@
+{
+  "deck_id": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 8,
+  "topics": [
+    {
+      "topic_id": "course_logistics_and_admin",
+      "topic": "Course logistics and administration",
+      "slide_range": [
+        1,
+        14
+      ],
+      "questions": [
+        {
+          "question_id": "q2",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "welcome_and_onboarding"
+          ],
+          "difficulty": 1,
+          "stem": "Who will conduct the first part of the course?",
+          "options": {
+            "A": "Dr. XU Yuecong",
+            "B": "Dr. Wang Si",
+            "C": "Dr. John Doe",
+            "D": "Dr. Jane Smith"
+          },
+          "answer": "A",
+          "rationale": "The slide states that 'Course will be conducted by Dr. XU Yuecong (1st part, till Recess)'.",
+          "source": {
+            "page": 2
+          },
+          "evidence_quotes": [
+            "Course will be conducted by Dr. XU Yuecong (1st part, till Recess)"
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "lecture_format_and_consultation",
+          "knowledge_tags": [
+            "lecture_format_and_consultation"
+          ],
+          "difficulty": 1,
+          "stem": "What is the duration of the lectures?",
+          "options": {
+            "A": "2.5 hours",
+            "B": "1 hour",
+            "C": "3 hours",
+            "D": "1.5 hours"
+          },
+          "answer": "A",
+          "rationale": "The slide specifies that lectures will 'end in 2.5 hours'.",
+          "source": {
+            "page": 3
+          },
+          "evidence_quotes": [
+            "end in 2.5 hours"
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "teaching_team",
+          "knowledge_tags": [
+            "teaching_team"
+          ],
+          "difficulty": 1,
+          "stem": "What is the email address of Dr. XU Yuecong?",
+          "options": {
+            "A": "yc.xu@nus.edu.sg",
+            "B": "xu.yuecong@nus.edu.sg",
+            "C": "xu@nus.edu.sg",
+            "D": "yuecong.xu@nus.edu.sg"
+          },
+          "answer": "A",
+          "rationale": "The slide provides the email as 'yc.xu@nus.edu.sg'.",
+          "source": {
+            "page": 4
+          },
+          "evidence_quotes": [
+            "Dr. XU Yuecong (Part I, Week 1 – 6) yc.xu@nus.edu.sg"
+          ]
+        },
+        {
+          "question_id": "q5",
+          "topic_id": "learning_outcomes",
+          "knowledge_tags": [
+            "learning_outcomes"
+          ],
+          "difficulty": 2,
+          "stem": "Which of the following is NOT a learning outcome of the course?",
+          "options": {
+            "A": "Comprehend Bayesian decision theory",
+            "B": "Develop deep learning models",
+            "C": "Apply mathematical tools of pattern recognition",
+            "D": "Assess strengths of different algorithms"
+          },
+          "answer": "B",
+          "rationale": "The slide mentions 'Understanding the concepts for application' but does not include 'Develop deep learning models'.",
+          "source": {
+            "page": 6
+          },
+          "evidence_quotes": [
+            "Comprehend principles and core techniques in pattern recognition such as Bayesian decision theory"
+          ]
+        },
+        {
+          "question_id": "q6",
+          "topic_id": "assessment_and_grading",
+          "knowledge_tags": [
+            "assessment_and_grading"
+          ],
+          "difficulty": 2,
+          "stem": "What percentage of the final grade does the final exam contribute?",
+          "options": {
+            "A": "60%",
+            "B": "20%",
+            "C": "15%",
+            "D": "5%"
+          },
+          "answer": "A",
+          "rationale": "The slide states that the final exam contributes '60%' to the overall grade.",
+          "source": {
+            "page": 7
+          },
+          "evidence_quotes": [
+            "Final: 60%"
+          ]
+        },
+        {
+          "question_id": "q7",
+          "topic_id": "code_of_conduct",
+          "knowledge_tags": [
+            "code_of_conduct"
+          ],
+          "difficulty": 3,
+          "stem": "What is the consequence of academic misconduct as per the course code of conduct?",
+          "options": {
+            "A": "Formal report to the Department",
+            "B": "Warning from the instructor",
+            "C": "No consequences",
+            "D": "Grade reduction"
+          },
+          "answer": "A",
+          "rationale": "The slide clearly states that 'Any violation to academic honesty will be reported to the University's disciplinary panel'.",
+          "source": {
+            "page": 11
+          },
+          "evidence_quotes": [
+            "Any violation to academic honesty will be reported to the University's disciplinary panel."
+          ]
+        },
+        {
+          "question_id": "q8",
+          "topic_id": "updated_syllabus",
+          "knowledge_tags": [
+            "updated_syllabus"
+          ],
+          "difficulty": 2,
+          "stem": "Which topic is covered in the updated syllabus?",
+          "options": {
+            "A": "Maximum Likelihood Estimation (MLE)",
+            "B": "Deep Learning Techniques",
+            "C": "Reinforcement Learning",
+            "D": "Natural Language Processing"
+          },
+          "answer": "A",
+          "rationale": "The slide mentions 'Maximum Likelihood Estimation (MLE)' as part of the syllabus.",
+          "source": {
+            "page": 12
+          },
+          "evidence_quotes": [
+            "Maximum Likelihood Estimation (MLE)"
+          ]
+        }
+      ],
+      "warnings": [
+        "q1: quote not found in page 1, quote: EE5907 Pattern Recognition"
+      ]
+    },
+    {
+      "topic_id": "pr_and_ml_overview",
+      "topic": "Pattern recognition and machine learning overview",
+      "slide_range": [
+        15,
+        25
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "lecture_introduction_section"
+          ],
+          "difficulty": 1,
+          "stem": "What is one of the goals of the introduction section in this lecture?",
+          "options": {
+            "A": "What is Pattern Recognition / Machine Learning?",
+            "B": "Understanding the differences between AI and ML.",
+            "C": "Exploring advanced algorithms in machine learning.",
+            "D": "Discussing the history of pattern recognition."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, '✓ What is Pattern Recognition / Machine Learning?'. This explicitly indicates a goal of the introduction section.",
+          "source": {
+            "page": 15
+          },
+          "evidence_quotes": [
+            "✓ What is Pattern Recognition / Machine Learning?"
+          ]
+        },
+        {
+          "question_id": "q2",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "definition_of_pattern_recognition"
+          ],
+          "difficulty": 1,
+          "stem": "How is pattern recognition defined in the lecture?",
+          "options": {
+            "A": "It is to perceive a pattern, extract the relevant info, understand the content of the info and make decision automatically.",
+            "B": "It is a method of programming computers to perform tasks.",
+            "C": "It is the study of algorithms that improve through experience.",
+            "D": "It is a technique used exclusively in artificial intelligence."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A as the slide states, 'Pattern recognition is to perceive a pattern, extract the relevant info, understand the content of the info and make decision automatically by machine or computer.' This defines pattern recognition clearly.",
+          "source": {
+            "page": 16
+          },
+          "evidence_quotes": [
+            "Pattern recognition is to perceive a pattern, extract the relevant info, understand the content of the info and make decision automatically by machine or computer."
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "pr_system_diagram"
+          ],
+          "difficulty": 1,
+          "stem": "What do the numbers 0 and 1 represent in the PR system diagram?",
+          "options": {
+            "A": "Raw data inputs.",
+            "B": "Probability.",
+            "C": "Feature extraction results.",
+            "D": "Classification outcomes."
+          },
+          "answer": "B",
+          "rationale": "The correct answer is B because the slide states, 'What do 0 & 1 represent? Probability!'. This explicitly defines what the numbers represent in the context of the PR system diagram.",
+          "source": {
+            "page": 19
+          },
+          "evidence_quotes": [
+            "What do 0 & 1 represent? Probability!"
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "pr_vs_ml"
+          ],
+          "difficulty": 2,
+          "stem": "What distinguishes machine learning from non-learning algorithms according to the lecture?",
+          "options": {
+            "A": "Machine learning learns from data without being explicitly programmed.",
+            "B": "Non-learning algorithms are more efficient.",
+            "C": "Machine learning requires human expertise for every task.",
+            "D": "Non-learning algorithms adapt to new data automatically."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A as the slide states, 'Machine learning: learn from data without being explicitly programmed.' This highlights the key distinction between ML and non-learning algorithms.",
+          "source": {
+            "page": 20
+          },
+          "evidence_quotes": [
+            "Machine learning: learn from data without being explicitly programmed."
+          ]
+        },
+        {
+          "question_id": "q5",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "ai_ml_dl_concepts"
+          ],
+          "difficulty": 1,
+          "stem": "What is the relationship between AI, ML, and DL as discussed in the lecture?",
+          "options": {
+            "A": "AI encompasses ML, which encompasses DL.",
+            "B": "ML is a subset of AI but not related to DL.",
+            "C": "DL is a type of AI that does not involve ML.",
+            "D": "AI and ML are completely independent fields."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide indicates a hierarchy where AI encompasses ML, which in turn encompasses DL, although the specific details are not provided in the slide.",
+          "source": {
+            "page": 21
+          },
+          "evidence_quotes": [
+            "© Copyright National University of Singapore. All Rights Reserved."
+          ]
+        },
+        {
+          "question_id": "q6",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "common_ml_framework"
+          ],
+          "difficulty": 2,
+          "stem": "What is a typical output of a common ML framework for classification tasks?",
+          "options": {
+            "A": "The raw data.",
+            "B": "The probability of each class.",
+            "C": "The features extracted from the data.",
+            "D": "The training data used."
+          },
+          "answer": "B",
+          "rationale": "The correct answer is B as the slide states, 'Note what is the usual output (for classification)? The probability of each class!'. This clearly identifies the expected output for classification tasks.",
+          "source": {
+            "page": 25
+          },
+          "evidence_quotes": [
+            "The probability of each class!"
+          ]
+        },
+        {
+          "question_id": "q8",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "learning_paradigms"
+          ],
+          "difficulty": 1,
+          "stem": "What is a characteristic of supervised learning?",
+          "options": {
+            "A": "It uses labelled data with guidance.",
+            "B": "It requires no labelled data.",
+            "C": "It learns through trial-and-error.",
+            "D": "It operates without any human intervention."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A as the slide states, 'Supervised learning: Labelled data with guidance;'. This clearly describes the characteristic of supervised learning.",
+          "source": {
+            "page": 24
+          },
+          "evidence_quotes": [
+            "Supervised learning: Labelled data with guidance;"
+          ]
+        }
+      ],
+      "warnings": [
+        "q7: quote not found in page 23, quote: Deductive reasoning is a logical approach where you go from general ideas to specific specific conclusions."
+      ]
+    },
+    {
+      "topic_id": "probability_foundations_and_bayes_rule",
+      "topic": "Probability foundations and Bayes' rule",
+      "slide_range": [
+        26,
+        39
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "foundation_section_marker"
+          ],
+          "difficulty": 1,
+          "stem": "What are the main topics introduced in the Foundations section of the lecture?",
+          "options": {
+            "A": "Introduction to Probability, The Bayes’ Rule, Univariate Probability Distribution Models.",
+            "B": "Machine Learning Algorithms, Data Preprocessing, Model Evaluation.",
+            "C": "Statistical Inference, Hypothesis Testing, Regression Analysis.",
+            "D": "Neural Networks, Support Vector Machines, Decision Trees."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, '✓ Introduction to Probability. ✓ The Bayes’ Rule. ✓ Univariate Probability Distribution Models.'",
+          "source": {
+            "page": 26
+          },
+          "evidence_quotes": [
+            "✓ Introduction to Probability.\n✓ The Bayes’ Rule.\n✓ Univariate Probability Distribution Models."
+          ]
+        },
+        {
+          "question_id": "q2",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "probability_interpretations"
+          ],
+          "difficulty": 1,
+          "stem": "Which interpretation of probability represents long-run frequencies of events?",
+          "options": {
+            "A": "Frequentist interpretation.",
+            "B": "Bayesian interpretation.",
+            "C": "Subjective interpretation.",
+            "D": "Logical interpretation."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'Frequentist interpretation: probabilities represent long run frequencies of events that can happen multiple times.'",
+          "source": {
+            "page": 27
+          },
+          "evidence_quotes": [
+            "Frequentist interpretation: probabilities represent long run frequencies of events that can happen multiple times."
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "probability_properties_part1"
+          ],
+          "difficulty": 1,
+          "stem": "What is the range of probabilities for an event denoted as P(A)?",
+          "options": {
+            "A": "0 ≤ P(A) ≤ 1.",
+            "B": "P(A) > 1.",
+            "C": "P(A) < 0.",
+            "D": "P(A) = 1."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, '𝑃(𝐴) satisfy: 0 ≤ 𝑃(𝐴) ≤ 1.'",
+          "source": {
+            "page": 28
+          },
+          "evidence_quotes": [
+            "𝑃(𝐴) satisfy: 0 ≤ 𝑃 𝐴 ≤ 1."
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "probability_properties_part2"
+          ],
+          "difficulty": 1,
+          "stem": "What denotes the conditional probability of B given A has occurred?",
+          "options": {
+            "A": "P(B|A) = P(A, B) / P(A).",
+            "B": "P(A|B) = P(A, B) / P(B).",
+            "C": "P(A ∨ B) = P(A) + P(B).",
+            "D": "P(A, B) = P(A) * P(B)."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'Conditional probability of 𝐵 happening given 𝐴 has occurred: 𝑃(𝐵|𝐴) ≜ 𝑃(𝐴, 𝐵) / 𝑃(𝐴).'",
+          "source": {
+            "page": 29
+          },
+          "evidence_quotes": [
+            "Conditional probability of 𝐵 happening given 𝐴 has occurred: 𝑃(𝐵|𝐴) ≜ 𝑃(𝐴, 𝐵) / 𝑃(𝐴)."
+          ]
+        },
+        {
+          "question_id": "q5",
+          "topic_id": "discrete_vs_continuous_random_variables",
+          "knowledge_tags": [
+            "discrete_vs_continuous_random_variables"
+          ],
+          "difficulty": 2,
+          "stem": "Which of the following correctly describes a discrete random variable?",
+          "options": {
+            "A": "Countable numbers of value (e.g., number of students).",
+            "B": "Infinitely many real values (e.g., time to complete a task).",
+            "C": "Defined by cumulative distribution function (cdf).",
+            "D": "Defined by probability density function (pdf)."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'Discrete variable: Countable numbers of value (e.g., number of students).'",
+          "source": {
+            "page": 30
+          },
+          "evidence_quotes": [
+            "Countable numbers of value (e.g., number of students)"
+          ]
+        },
+        {
+          "question_id": "q6",
+          "topic_id": "bayes_rule_statement",
+          "knowledge_tags": [
+            "bayes_rule_statement"
+          ],
+          "difficulty": 1,
+          "stem": "What does Bayes' rule compute?",
+          "options": {
+            "A": "The probability distribution over possible values of an unknown quantity given observed data.",
+            "B": "The average of a set of probabilities.",
+            "C": "The maximum likelihood estimate of a parameter.",
+            "D": "The variance of a probability distribution."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'Bayes’ rule: a formula for computing the probability distribution over possible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.'",
+          "source": {
+            "page": 32
+          },
+          "evidence_quotes": [
+            "Bayes’ rule: a formula for computing the probability distribution over possible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦."
+          ]
+        },
+        {
+          "question_id": "q8",
+          "topic_id": "bayes_rule_example_disease_testing",
+          "knowledge_tags": [
+            "bayes_rule_example_disease_testing"
+          ],
+          "difficulty": 3,
+          "stem": "If the prevalence of the disease changes to 1%, what is the probability of Jack being infected after testing positive?",
+          "options": {
+            "A": "26.1%.",
+            "B": "79.5%.",
+            "C": "87.5%.",
+            "D": "97.5%."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is A because the slide states, 'The chance of Jack being infected is 26.1%, even if tested positive.'",
+          "source": {
+            "page": 39
+          },
+          "evidence_quotes": [
+            "The chance of Jack being infected is 26.1%, even if tested positive."
+          ]
+        }
+      ],
+      "warnings": [
+        "q7: quote not found in page 36, quote: Suppose the sensitivity (true positive rate) of the diagnostic is 87.5%."
+      ]
+    },
+    {
+      "topic_id": "core_distributions_for_modeling",
+      "topic": "Core distributions for classification and modeling",
+      "slide_range": [
+        40,
+        59
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "bernoulli_distribution"
+          ],
+          "difficulty": 1,
+          "stem": "What is the Bernoulli distribution used to model?",
+          "options": {
+            "A": "Binary events.",
+            "B": "Continuous variables.",
+            "C": "Multinomial outcomes.",
+            "D": "Categorical variables."
+          },
+          "answer": "A",
+          "rationale": "The Bernoulli distribution is described as 'One of the simplest probability distribution – can be used to model binary events.'",
+          "source": {
+            "page": 40
+          },
+          "evidence_quotes": [
+            "One of the simplest probability distribution – can be used to model binary events."
+          ]
+        },
+        {
+          "question_id": "q2",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "binomial_distribution"
+          ],
+          "difficulty": 1,
+          "stem": "What does the sum of Bernoulli random variables follow when a coin is flipped multiple times?",
+          "options": {
+            "A": "Normal distribution.",
+            "B": "Bernoulli distribution.",
+            "C": "Binomial distribution.",
+            "D": "Poisson distribution."
+          },
+          "answer": "C",
+          "rationale": "The slide states, 'Then the sum of the Bernoulli random variables will follow a Binomial distribution.'",
+          "source": {
+            "page": 41
+          },
+          "evidence_quotes": [
+            "Then the sum of the Bernoulli random variables will follow a Binomial distribution."
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "recap_bayes_rule"
+          ],
+          "difficulty": 2,
+          "stem": "What does Bayes' rule help us compute?",
+          "options": {
+            "A": "The mean of a distribution.",
+            "B": "The probability distribution over possible values of an unknown quantity.",
+            "C": "The variance of a distribution.",
+            "D": "The cumulative distribution function."
+          },
+          "answer": "B",
+          "rationale": "Bayes' rule is defined as 'a formula for computing the probability distribution over possible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.'",
+          "source": {
+            "page": 44
+          },
+          "evidence_quotes": [
+            "Bayes’ rule: a formula for computing the probability distribution over possible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦."
+          ]
+        },
+        {
+          "question_id": "q4",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "recap_binomial"
+          ],
+          "difficulty": 1,
+          "stem": "What is the Bernoulli distribution a special case of?",
+          "options": {
+            "A": "Normal distribution.",
+            "B": "Binomial distribution.",
+            "C": "Categorical distribution.",
+            "D": "Multinomial distribution."
+          },
+          "answer": "B",
+          "rationale": "The slide states, 'The Bernoulli distribution is a special case of the binomial distribution.'",
+          "source": {
+            "page": 46
+          },
+          "evidence_quotes": [
+            "The Bernoulli distribution is a special case of the binomial distribution."
+          ]
+        },
+        {
+          "question_id": "q5",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "binary_prediction_setup"
+          ],
+          "difficulty": 2,
+          "stem": "What function is used to predict the parameter of the Bernoulli distribution in binary prediction?",
+          "options": {
+            "A": "Softmax function.",
+            "B": "Sigmoid function.",
+            "C": "Heaviside function.",
+            "D": "Logistic function."
+          },
+          "answer": "B",
+          "rationale": "The slide mentions, 'let 𝑓 be an unconstrained function, we use the following model: 𝑝 𝑦 𝒙, 𝜽 = Ber(𝑦|𝜎(𝑓 𝒙; 𝜽 )).' Here, 𝜎() is the sigmoid function.",
+          "source": {
+            "page": 48
+          },
+          "evidence_quotes": [
+            "𝜎() is the sigmoid (logistic) function – “sigmoid” means S-shaped."
+          ]
+        },
+        {
+          "question_id": "q6",
+          "topic_id": "categorical_and_multinomial_distribution",
+          "knowledge_tags": [
+            "categorical_and_multinomial_distribution"
+          ],
+          "difficulty": 2,
+          "stem": "What does the categorical distribution generalize?",
+          "options": {
+            "A": "Bernoulli distribution to more than two outcomes.",
+            "B": "Binomial distribution to continuous outcomes.",
+            "C": "Normal distribution to discrete outcomes.",
+            "D": "Poisson distribution to binary outcomes."
+          },
+          "answer": "A",
+          "rationale": "The slide states, 'Generalize the Bernoulli to 𝐶 > 2 values.'",
+          "source": {
+            "page": 50
+          },
+          "evidence_quotes": [
+            "Generalize the Bernoulli to 𝐶 > 2 values."
+          ]
+        },
+        {
+          "question_id": "q7",
+          "topic_id": "softmax_for_categorical_prediction",
+          "knowledge_tags": [
+            "softmax_for_categorical_prediction"
+          ],
+          "difficulty": 2,
+          "stem": "What is the softmax function used for in categorical prediction?",
+          "options": {
+            "A": "To compute the mean of a distribution.",
+            "B": "To model the probability distribution over multiple classes.",
+            "C": "To calculate the variance of a distribution.",
+            "D": "To predict binary outcomes."
+          },
+          "answer": "B",
+          "rationale": "The slide states, 'we need to use a conditional probability distribution: 𝑝 𝑦 𝒙, 𝜽 = Cat(𝑦|softmax(𝑓 𝒙; 𝜽 )).'",
+          "source": {
+            "page": 52
+          },
+          "evidence_quotes": [
+            "we need to use a conditional probability distribution: 𝑝 𝑦 𝒙, 𝜽 = Cat(𝑦|softmax(𝑓 𝒙; 𝜽 ))."
+          ]
+        },
+        {
+          "question_id": "q8",
+          "topic_id": "other_univariate_distributions",
+          "knowledge_tags": [
+            "other_univariate_distributions"
+          ],
+          "difficulty": 3,
+          "stem": "Which distribution is described as less sensitive to outliers than the Gaussian distribution?",
+          "options": {
+            "A": "Laplace distribution.",
+            "B": "Dirac delta distribution.",
+            "C": "Student t-distribution.",
+            "D": "Beta distribution."
+          },
+          "answer": "C",
+          "rationale": "The slide states, 'Student 𝑡-distribution: less sensitive to outliers than the Gaussian distribution.'",
+          "source": {
+            "page": 58
+          },
+          "evidence_quotes": [
+            "Student 𝑡-distribution: less sensitive to outliers than the Gaussian distribution."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "model_fitting_mle_and_erm",
+      "topic": "Model fitting: MLE and ERM",
+      "slide_range": [
+        60,
+        65
+      ],
+      "questions": [
+        {
+          "question_id": "q1",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "estimating_probability_models_model_fitting"
+          ],
+          "difficulty": 1,
+          "stem": "What is the core process of learning parameters from data called?",
+          "options": {
+            "A": "Model fitting",
+            "B": "Parameter estimation",
+            "C": "Data analysis",
+            "D": "Model evaluation"
+          },
+          "answer": "A",
+          "rationale": "The correct answer is 'Model fitting' as it is defined in the slide content: 'The process of estimation 𝜃 from data 𝒟 is called model fitting, or equivalently, “training” – the core of machine learning.'",
+          "source": {
+            "page": 60
+          },
+          "evidence_quotes": [
+            "The process of estimation 𝜃 from data 𝒟 is called model fitting, or equivalently, “training” – the core of machine learning."
+          ]
+        },
+        {
+          "question_id": "q2",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "maximum_likelihood_estimation"
+          ],
+          "difficulty": 1,
+          "stem": "What is the objective of Maximum Likelihood Estimation (MLE)?",
+          "options": {
+            "A": "Minimize the loss function",
+            "B": "Maximize the likelihood of the data",
+            "C": "Estimate the parameters using empirical data",
+            "D": "Fit the model to the training data"
+          },
+          "answer": "B",
+          "rationale": "The correct answer is 'Maximize the likelihood of the data' as stated in the slide: 'The intuitive objective: pick the parameters that assign the highest prob. to the training data (usually labelled) – maximum likelihood estimation.'",
+          "source": {
+            "page": 61
+          },
+          "evidence_quotes": [
+            "The intuitive objective: pick the parameters that assign the highest prob. to the training data (usually labelled) – maximum likelihood estimation."
+          ]
+        },
+        {
+          "question_id": "q3",
+          "topic_id": "mle_bernoulli",
+          "knowledge_tags": [
+            "mle_bernoulli"
+          ],
+          "difficulty": 1,
+          "stem": "In the context of MLE for a Bernoulli distribution, what does the parameter 𝜃 represent?",
+          "options": {
+            "A": "The probability of tails",
+            "B": "The probability of heads",
+            "C": "The expected value of the distribution",
+            "D": "The variance of the distribution"
+          },
+          "answer": "B",
+          "rationale": "The correct answer is 'The probability of heads' as indicated in the slide: 'Let 𝜃 = 𝑝(𝑌 = 1) be the probability of heads.'",
+          "source": {
+            "page": 62
+          },
+          "evidence_quotes": [
+            "Let 𝜃 = 𝑝(𝑌 = 1) be the probability of heads."
+          ]
+        },
+        {
+          "question_id": "q5",
+          "topic_id": "empirical_risk_minimization",
+          "knowledge_tags": [
+            "empirical_risk_minimization"
+          ],
+          "difficulty": 2,
+          "stem": "What does the empirical risk minimization (ERM) aim to minimize?",
+          "options": {
+            "A": "The negative log likelihood",
+            "B": "The empirical loss",
+            "C": "The variance of the model",
+            "D": "The training time"
+          },
+          "answer": "B",
+          "rationale": "The correct answer is 'The empirical loss' as the slide explains: 'ℒ 𝜽 = ∑ ℓ(𝑦 , 𝜽; 𝑥 ) – Empirical risk minimization (ERM).'",
+          "source": {
+            "page": 64
+          },
+          "evidence_quotes": [
+            "ℒ 𝜽 = ∑ ℓ(𝑦 , 𝜽; 𝑥 ) – Empirical risk minimization (ERM)."
+          ]
+        },
+        {
+          "question_id": "q6",
+          "topic_id": "erm_misclassification_rate",
+          "knowledge_tags": [
+            "erm_misclassification_rate"
+          ],
+          "difficulty": 1,
+          "stem": "What is the 0-1 loss function used for in the context of ERM?",
+          "options": {
+            "A": "To measure the variance of predictions",
+            "B": "To evaluate the accuracy of predictions",
+            "C": "To minimize the misclassification rate",
+            "D": "To optimize the training time"
+          },
+          "answer": "C",
+          "rationale": "The correct answer is 'To minimize the misclassification rate' as stated in the slide: 'an intuitive loss selection would be the 0-1 loss... This is defined as the empirical misclassification rate on the training set.'",
+          "source": {
+            "page": 65
+          },
+          "evidence_quotes": [
+            "This is defined as the empirical misclassification rate on the training set."
+          ]
+        },
+        {
+          "question_id": "q7",
+          "topic_id": "maximum_likelihood_estimation",
+          "knowledge_tags": [
+            "maximum_likelihood_estimation"
+          ],
+          "difficulty": 3,
+          "stem": "How is the negative log likelihood (NLL) related to maximizing the likelihood in MLE?",
+          "options": {
+            "A": "Maximizing NLL is equivalent to minimizing likelihood.",
+            "B": "Maximizing likelihood is equivalent to minimizing NLL.",
+            "C": "NLL is independent of likelihood.",
+            "D": "NLL is always greater than likelihood."
+          },
+          "answer": "B",
+          "rationale": "The correct answer is 'Maximizing likelihood is equivalent to minimizing NLL' as the slide states: 'Most optimization algorithms are designed to min cost functions... redefine the objective function to be the (conditional) negative log likelihood (NLL): maximize likelihood = minimize NLL.'",
+          "source": {
+            "page": 61
+          },
+          "evidence_quotes": [
+            "maximize likelihood = minimize NLL."
+          ]
+        },
+        {
+          "question_id": "q8",
+          "topic_id": "empirical_risk_minimization",
+          "knowledge_tags": [
+            "empirical_risk_minimization"
+          ],
+          "difficulty": 3,
+          "stem": "What does the generalization of MLE to ERM involve?",
+          "options": {
+            "A": "Replacing the log loss term with a different loss function.",
+            "B": "Using only labeled data.",
+            "C": "Focusing solely on variance reduction.",
+            "D": "Minimizing the number of parameters."
+          },
+          "answer": "A",
+          "rationale": "The correct answer is 'Replacing the log loss term with a different loss function' as the slide states: 'Generalize MLE: replace log loss term with other loss function!'.",
+          "source": {
+            "page": 64
+          },
+          "evidence_quotes": [
+            "Generalize MLE: replace log loss term with other loss function!"
+          ]
+        }
+      ],
+      "warnings": [
+        "q4: quote not found in page 63, quote: The parameters are 𝜽 = (𝜇, 𝜎²)."
+      ]
+    }
+  ]
+}

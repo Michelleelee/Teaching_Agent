@@ -1,0 +1,619 @@
+{
+  "source_file": "Lecture 2 Decision theory and MAP.pdf",
+  "outline": [
+    "EE5907 Pattern Recognition",
+    "Decision Theory and Classifiers:",
+    "What is Decision Theory?",
+    "Recall: Bayes’ Rule",
+    "Recall: Bayes’ Rule: in Detail",
+    "(Bayesian) Decision Theory: in Detail",
+    "Decision Theory: in Detail",
+    "Classification with Zero-One Loss",
+    "Cost-Sensitive Classification",
+    "Classification with Reject Option",
+    "Class Confusion Matrices",
+    "End of Week 2",
+    "EE5907 Pattern Recognition",
+    "Continuous Assessment #1",
+    "Recap: Class Confusion Matrices",
+    "Plotting the ROC Curve: Example",
+    "The ROC Curve",
+    "Class Imbalance and the ROC Curve",
+    "The Precision-Recall Curve",
+    "The Precision-Recall (PR) Curve",
+    "An Example of PR Curve in Object Detection",
+    "Plotting the PR Curve: Example",
+    "The PR Curve",
+    "The PR Curve and F-scores",
+    "Probabilistic Prediction Problem",
+    "Decision Theory and Classifiers:",
+    "KL Divergence (KL-Div)",
+    "Entropy",
+    "Entropy for Discrete Random Variables",
+    "Mutual Information",
+    "Mutual Information: Interpretation",
+    "Mutual Information: An Example",
+    "Entropy and Mutual Information",
+    "Decision Theory and Classifiers:",
+    "Recall: Frequentist vs. Bayesian",
+    "Frequentist Decision Theory",
+    "The Bayes Risk",
+    "The Bayes Estimator",
+    "The Maximum Risk",
+    "ERM and Frequentist Decision Theory",
+    "Performance of Functions Fitted with ERM",
+    "Regularization and Regularized Risk",
+    "Occam’s Razor",
+    "Population Risk Est. with Validation",
+    "Cross-Validation",
+    "Cross-Validation: Example"
+  ],
+  "outline_with_page_range": [
+    {
+      "title": "EE5907 Pattern Recognition",
+      "page_range": [
+        1
+      ]
+    },
+    {
+      "title": "Decision Theory and Classifiers:",
+      "page_range": [
+        2
+      ]
+    },
+    {
+      "title": "What is Decision Theory?",
+      "page_range": [
+        3
+      ]
+    },
+    {
+      "title": "Recall: Bayes’ Rule",
+      "page_range": [
+        4
+      ]
+    },
+    {
+      "title": "Recall: Bayes’ Rule: in Detail",
+      "page_range": [
+        5
+      ]
+    },
+    {
+      "title": "(Bayesian) Decision Theory: in Detail",
+      "page_range": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "title": "Decision Theory: in Detail",
+      "page_range": [
+        9
+      ]
+    },
+    {
+      "title": "Classification with Zero-One Loss",
+      "page_range": [
+        10,
+        11
+      ]
+    },
+    {
+      "title": "Cost-Sensitive Classification",
+      "page_range": [
+        12
+      ]
+    },
+    {
+      "title": "Classification with Reject Option",
+      "page_range": [
+        13,
+        14
+      ]
+    },
+    {
+      "title": "Class Confusion Matrices",
+      "page_range": [
+        15,
+        16
+      ]
+    },
+    {
+      "title": "End of Week 2",
+      "page_range": [
+        17
+      ]
+    },
+    {
+      "title": "EE5907 Pattern Recognition",
+      "page_range": [
+        18
+      ]
+    },
+    {
+      "title": "Continuous Assessment #1",
+      "page_range": [
+        19
+      ]
+    },
+    {
+      "title": "Recap: Class Confusion Matrices",
+      "page_range": [
+        20,
+        21
+      ]
+    },
+    {
+      "title": "Plotting the ROC Curve: Example",
+      "page_range": [
+        22
+      ]
+    },
+    {
+      "title": "The ROC Curve",
+      "page_range": [
+        23
+      ]
+    },
+    {
+      "title": "Class Imbalance and the ROC Curve",
+      "page_range": [
+        24
+      ]
+    },
+    {
+      "title": "The Precision-Recall Curve",
+      "page_range": [
+        25
+      ]
+    },
+    {
+      "title": "The Precision-Recall (PR) Curve",
+      "page_range": [
+        26
+      ]
+    },
+    {
+      "title": "An Example of PR Curve in Object Detection",
+      "page_range": [
+        27
+      ]
+    },
+    {
+      "title": "Plotting the PR Curve: Example",
+      "page_range": [
+        28
+      ]
+    },
+    {
+      "title": "The PR Curve",
+      "page_range": [
+        29
+      ]
+    },
+    {
+      "title": "The PR Curve and F-scores",
+      "page_range": [
+        30
+      ]
+    },
+    {
+      "title": "Probabilistic Prediction Problem",
+      "page_range": [
+        31
+      ]
+    },
+    {
+      "title": "Decision Theory and Classifiers:",
+      "page_range": [
+        32
+      ]
+    },
+    {
+      "title": "KL Divergence (KL-Div)",
+      "page_range": [
+        33
+      ]
+    },
+    {
+      "title": "Entropy",
+      "page_range": [
+        34
+      ]
+    },
+    {
+      "title": "Entropy for Discrete Random Variables",
+      "page_range": [
+        35,
+        36
+      ]
+    },
+    {
+      "title": "Mutual Information",
+      "page_range": [
+        37
+      ]
+    },
+    {
+      "title": "Mutual Information: Interpretation",
+      "page_range": [
+        38,
+        39
+      ]
+    },
+    {
+      "title": "Mutual Information: An Example",
+      "page_range": [
+        40
+      ]
+    },
+    {
+      "title": "Entropy and Mutual Information",
+      "page_range": [
+        41
+      ]
+    },
+    {
+      "title": "Decision Theory and Classifiers:",
+      "page_range": [
+        42
+      ]
+    },
+    {
+      "title": "Recall: Frequentist vs. Bayesian",
+      "page_range": [
+        43
+      ]
+    },
+    {
+      "title": "Frequentist Decision Theory",
+      "page_range": [
+        44
+      ]
+    },
+    {
+      "title": "The Bayes Risk",
+      "page_range": [
+        45
+      ]
+    },
+    {
+      "title": "The Bayes Estimator",
+      "page_range": [
+        46
+      ]
+    },
+    {
+      "title": "The Maximum Risk",
+      "page_range": [
+        47
+      ]
+    },
+    {
+      "title": "ERM and Frequentist Decision Theory",
+      "page_range": [
+        48,
+        49,
+        50
+      ]
+    },
+    {
+      "title": "Performance of Functions Fitted with ERM",
+      "page_range": [
+        51,
+        52
+      ]
+    },
+    {
+      "title": "Regularization and Regularized Risk",
+      "page_range": [
+        53
+      ]
+    },
+    {
+      "title": "Occam’s Razor",
+      "page_range": [
+        54
+      ]
+    },
+    {
+      "title": "Population Risk Est. with Validation",
+      "page_range": [
+        55
+      ]
+    },
+    {
+      "title": "Cross-Validation",
+      "page_range": [
+        56,
+        57
+      ]
+    },
+    {
+      "title": "Cross-Validation: Example",
+      "page_range": [
+        58
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 1,
+      "title": "EE5907 Pattern Recognition",
+      "content": "Lecture 2 Decision Theory and Classifiers\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 2,
+      "title": "Decision Theory and Classifiers:",
+      "content": "✓ Bayesian Decision Theory.\n✓ The Classification Problem.\n✓ Bayesian Classifiers for Normal Distribution.\n✓ Maximum A Posteriori (MAP).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 3,
+      "title": "What is Decision Theory?",
+      "content": "A set of quantitative methods for reaching optimal decisions.\nIs concerned with the reasoning underlying an agent’s choices,\nwhether this is a mundane choice between taking the bus or\ngetting a taxi, or a more far-reaching choice about whether to\npursue a demanding political career.\nLayman term: how we can decide what action should be taken\nthat could end up with the best result?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 4,
+      "title": "Recall: Bayes’ Rule",
+      "content": "“Bayesian”: refer to inference methods that represent “degrees of\ncertainty” using probability theory, and which leverage Bayes’ rule, to\nupdate the degree of certainty given data.\nLayman term: Update our belief based on prior belief and data so that we infer\nsomething with a certain degree of uncertainty.\nBayes’ rule: a formula for computing the probability distribution over\npossible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦.\n𝑝 𝐻 = ℎ 𝑝(𝑌 = 𝑦|𝐻 = ℎ)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 =\n𝑝(𝑌 = 𝑦)\nFollows the product rule of probability: 𝑝 ℎ 𝑦 𝑝 𝑦 = 𝑝 ℎ 𝑝 𝑦 ℎ = 𝑝(ℎ, 𝑦)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 : posterior distribution / conditional distribution.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 5,
+      "title": "Recall: Bayes’ Rule: in Detail",
+      "content": "𝑝 𝐻 = ℎ 𝑝(𝑌 = 𝑦|𝐻 = ℎ)\n𝑝 𝐻 = ℎ 𝑌 = 𝑦 =\n𝑝(𝑌 = 𝑦)\n𝑝(𝐻): what we know about possible values of 𝐻 before we see any data –\nthe prior distribution (layman terms: prior belief).\n𝑝(𝑌|𝐻 = ℎ): the distribution over possible outcomes 𝑌 we expect to see if\n𝐻 = ℎ – the likelihood (layman terms: the observed data).\nMultiplying the prior distribution and the likelihood C unnormalized joint\ndistribution 𝑝(𝐻 = ℎ, 𝑌 = 𝑦). Convert into a normalized distribution by\ndividing by 𝑝(𝑌 = 𝑦), which is denoted as the marginal likelihood.\n𝑝(𝐻 = ℎ|𝑌 = 𝑦): represents our new belief state (updated belief) about\nthe possible values of 𝐻 – the posterior distribution.\nposterior ∝ prior × likelihood\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 6,
+      "title": "(Bayesian) Decision Theory: in Detail",
+      "content": "In decision theory, we assume the decision maker, or agent, has a set of\npossible actions, 𝒜, to choose from.\nExample: doctor treat someone who may have cancer, actions 𝑎 ∈ 𝒜:\nDo nothing;\nGive patient expensive drugs with bad side effect but can save their life;\nWe can compute (implicitly) the cost of treating a person (test = 0: cancer\nnegative; age = 0: young age; action = 1: apply the drugs).\ncancer\n© Copyright National University of Singapore. All Rights Reserved.\n\ncancer\nEvery action 𝑎 ∈ 𝒜 has cost and benefits, depending on the underlying\nstate of nature ℎ ∈ ℋ. How can we explicitly model such cost / benefit?\nDefine: loss function ℓ(ℎ, 𝑎) – loss incurred if action 𝑎 is taken at state ℎ.\nThe next question: how to leverage this loss?\nEquivalently: how can we actually know quantitatively what is the best action if we\ncompute the loss function?\n© Copyright National University of Singapore. All Rights Reserved.\n\nDefine: loss function ℓ(ℎ, 𝑎) – action 𝑎 taken at state ℎ.\nCompute a posterior expected loss (risk) for each possible 𝑎: (where the\ndata is defined as 𝑥)\n𝜌 𝑎 𝑥 ≜ 𝔼 ℓ ℎ, 𝑎 = ෍ ℓ ℎ, 𝑎 𝑝(ℎ|𝑥)\nℎ 𝑥\n𝑝\nℎ∈ℋ\n∗\nWe thus define the optimal policy 𝜋 𝑥 , which is also called the Bayes\n∗\nestimator or Bayes decision rule 𝛿 (𝑥):\n∗\n𝜋 𝑥 = arg min 𝜌 𝑎 𝑥 = arg min 𝔼 ℓ ℎ, 𝑎\nℎ 𝑥\n𝑝\n𝑎∈𝒜 𝑎∈𝒜\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 9,
+      "title": "Decision Theory: in Detail",
+      "content": "∗ ∗\nThe optimal policy 𝜋 𝑥 , or Bayes decision rule 𝛿 (𝑥):\n∗\n𝜋 𝑥 = arg min 𝜌 𝑎 𝑥 = arg min 𝔼 ℓ ℎ, 𝑎\nℎ 𝑥\n𝑝\n𝑎∈𝒜 𝑎∈𝒜\nIf we define a utility function 𝑈(ℎ, 𝑎) as the desirability of each action at\neach state, then: 𝑈 ℎ, 𝑎 = −ℓ ℎ, 𝑎\nThe optimal policy can be re-written as:\n∗\n𝜋 𝑥 = arg max 𝔼 [𝑈(ℎ, 𝑎)]\nℎ\n𝑎∈𝒜\nThis is defined as the maximum expected utility principle.\nNext, we use Bayesian decision theory to decide the optimal class label to\npredict given an observed input 𝑥 ∈ 𝒳.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 10,
+      "title": "Classification with Zero-One Loss",
+      "content": "Set the following assumptions:\nThe states of nature correspond to class labels: ℋ = 𝒴 = {1, … , 𝐶};\nThe actions correspond to class labels: 𝒜 = 𝒴.\nUnder the above assumptions, a common loss function (and a\n∗\nvery simple one) is the zero-one loss ℓ ℎ, 𝑎 = ℓ (𝑦 , 𝑦ො):\n01\n∗ ∗\nOr mathematically ℓ 𝑦 , 𝑦ො = 𝕀(𝑦 = 𝑦ො)\n01\n© Copyright National University of Singapore. All Rights Reserved.\n\nThe posterior expected loss 𝜌 𝑎 𝑥 ≜ 𝔼 ℓ ℎ, 𝑎 :\nℎ 𝑥\n𝑝\n∗ ∗\n𝜌 𝑎 𝑥 = 𝜌 𝑦ො 𝑥 = 𝑝 𝑦ො ≠ 𝑦 𝑥 = 1 − 𝑝 𝑦ො = 𝑦 𝑥\nThe action that minimizes the expected loss is to choose the\nmost probable action:\n𝜋 𝑥 = arg max 𝑝(𝑦ො|𝑥)\n𝑦ො∈𝒴\nThis corresponds to the mode of the posterior distribution, also\nknown as the maximum a posteriori or MAP estimate.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 12,
+      "title": "Cost-Sensitive Classification",
+      "content": "Problem of the zero-one loss?\nCost of false positive (ℓ ) = cost of false negative (ℓ )\n01 10\nFor cost-sensitive classification, the loss function would be:\nℓ ℓ\n00 01\nℓ ℓ\n10 11\n∗\nSet 𝑝 = 𝑝(𝑦 = 0|𝑥) and 𝑝 = 1 − 𝑝\n0 1 0\nWe would choose label 𝑦ො = 0 iff ℓ 𝑝 + ℓ 𝑝 < ℓ 𝑝 + ℓ 𝑝 .\n00 0 10 1 11 1 01 0\nℓ\nUsually, ℓ = ℓ = 0. Thus, the above simplifies to: 𝑝 < 01\n00 11 1\nℓ +ℓ\n01 10\nExample (Try out): if a false negative costs twice as much as false positive,\nthen we use a decision threshold of 1/3 before declaring a positive.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 13,
+      "title": "Classification with Reject Option",
+      "content": "We may be able to say “I don’t know” instead of returning an\nanswer that we don’t really trust – choosing the reject option.\nImportant in domains such as medicine where we may be risk adverse.\nhttps://www.youtube.com/watch?v=P18EdAKuC1U\n© Copyright National University of Singapore. All Rights Reserved.\n\nSet the following assumptions:\nThe states of nature correspond to class labels: ℋ = 𝒴 = {1, … , 𝐶};\nThe actions correspond to class labels: 𝒜 = 𝒴 ∪ {0}.\nThe loss function is defined as: 0, if 𝑦∗ = 𝑎 and 𝑎 ∈ {1, …, 𝐶}\n𝑙 𝑦∗, 𝑎 = ቐ 𝜆 , if 𝑎 = 0\n𝑟\n𝜆 , otherwise\n𝑒\nHere 𝜆 : cost of the reject action, and 𝜆 : cost of a classification error.\n𝑟 𝑒\nመ\nSet 𝜆 = 1 − 𝜆 /𝜆 , we thus compute the optimal policy as:\n𝑟 𝑒\n∗ መ\n𝑦ො, if 𝑝 > 𝜆\n∗\n𝑎 = ൝\nreject, otherwise\n∗ ∗\nHere 𝑦ො = arg max 𝑝 𝑦 𝑥 and 𝑝 = 𝑝 𝑦 𝑥 = max 𝑝 𝑦 𝑥 = 𝑝(𝑦ො|𝑥).\n𝑦 𝑦\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 15,
+      "title": "Class Confusion Matrices",
+      "content": "We can choose the optimal label in a binary classification problem by\nthresholding the probability – hard threshold!\nInstead of picking a single threshold, consider using a set of different thresholds,\nand comparing the resulting performance.\nFor a threshold 𝜏, the decision rule: 𝑦ො 𝑥 = 𝕀(𝑝 𝑦 = 1 𝑥 > 1 − 𝜏).\n𝜏\n𝐹𝑃 =\nσ𝑁\n𝕀(𝑦ො 𝑥 = 1, 𝑦 = 0), similar for 𝐹𝑁 , 𝑇𝑃 , and 𝑇𝑁 .\n𝜏 𝑛=1 𝑛 𝑛 𝑛 𝜏 𝜏 𝜏\nThe simple form of evaluation: accuracy\n𝑇𝑃 + 𝑇𝑁\nAccuracy =\n𝑇𝑃 + 𝐹𝑁 + 𝐹𝑃 + 𝑇𝑁\nIs this reliable?\nIf have imbalanced testing data (class 0 = 90,\nclass 1 = 10), if the model predict everything\nas class 0, Accuracy = 90%\n© Copyright National University of Singapore. All Rights Reserved.\n\nTrue positive rate (TPR), or\nsensitivity, recall, hit rate:\n𝑇𝑃\n𝜏\n𝑇𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝜏\n𝑇𝑃 + 𝐹𝑁\n𝜏 𝜏\nFalse positive rate (FPR), or false\nalarm rate, type I error rate:\n𝐹𝑃\n𝜏\n𝐹𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝐹𝑃 + 𝑇𝑁\n𝜏 𝜏\nPlot the TPR vs FPR as an implicit\nfunction of 𝜏: Receiver Operating\nCharacteristic (ROC) curve – Plot\nTPR vs FPR with varying 𝜏.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 17,
+      "title": "End of Week 2",
+      "content": "© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 18,
+      "title": "EE5907 Pattern Recognition",
+      "content": "CA1 Introduction\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 19,
+      "title": "Continuous Assessment #1",
+      "content": "Go through Assignment 1 with the instruction file.\nDeadline (strict): 3 Oct 2025.\nLate submission carry penalty marks.\nPlease make sure the submitted codes are runnable, and the\noutputs are available when submitting.\nIndividual assignment, marks will be available at later date.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 20,
+      "title": "Recap: Class Confusion Matrices",
+      "content": "We can choose the optimal label in a binary classification problem by\nthresholding the probability – hard threshold!\nInstead of picking a single threshold, consider using a set of different thresholds,\nand comparing the resulting performance.\nFor a threshold 𝜏, the decision rule: 𝑦ො 𝑥 = 𝕀(𝑝 𝑦 = 1 𝑥 > 1 − 𝜏).\n𝜏\n𝐹𝑃 =\nσ𝑁\n𝕀(𝑦ො 𝑥 = 1, 𝑦 = 0), similar for 𝐹𝑁 , 𝑇𝑃 , and 𝑇𝑁 .\n𝜏 𝑛=1 𝑛 𝑛 𝑛 𝜏 𝜏 𝜏\nThe simple form of evaluation: accuracy\n𝑇𝑃 + 𝑇𝑁\nAccuracy =\n𝑇𝑃 + 𝐹𝑁 + 𝐹𝑃 + 𝑇𝑁\nIs this reliable?\nIf have imbalanced testing data (class 0 = 90,\nclass 1 = 10), if the model predict everything\nas class 0, Accuracy = 90%\n© Copyright National University of Singapore. All Rights Reserved.\n\nTrue positive rate (TPR), or\nsensitivity, recall, hit rate:\n𝑇𝑃\n𝜏\n𝑇𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝜏\n𝑇𝑃 + 𝐹𝑁\n𝜏 𝜏\nFalse positive rate (FPR), or false\nalarm rate, type I error rate:\n𝐹𝑃\n𝜏\n𝐹𝑃𝑅 = 𝑝 𝑦ො = 1|𝑦 = 1, 𝜏 =\n𝐹𝑃 + 𝑇𝑁\n𝜏 𝜏\nPlot the TPR vs FPR as an implicit\nfunction of 𝜏: Receiver Operating\nCharacteristic (ROC) curve – Plot\nTPR vs FPR with varying 𝜏.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 22,
+      "title": "Plotting the ROC Curve: Example",
+      "content": "ROC curve – Plot the TPR vs FPR as an implicit function of 𝜏, i.e., plot\nTPR vs FPR with varying 𝜏.\nHow do we compare different ROC curves?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 23,
+      "title": "The ROC Curve",
+      "content": "Quality of a ROC curve is often summarized using the Area\nUnder the Curve (AUC). Higher AUC scores better; max is 1.\nAnother statistic is the Equal Error\nRate (EER), or the cross-over rate\nDefined as the value which satisfies\n𝐹𝑃𝑅 = 𝐹𝑁𝑅 = 1 − 𝑇𝑃𝑅.\nCompute the EER by drawing a line from\nthe top left to the bottom right and seeing\nwhere it intersects the ROC curve.\nLower EER scores are better; the\nminimum is obviously 0 (top left corner).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 24,
+      "title": "Class Imbalance and the ROC Curve",
+      "content": "In some problems, there is severe class imbalance.\nE.g., in information retrieval, the set of negatives (irrelevant items) is\nusually much larger than the set of positives (relevant items).\nDiscuss: would the ROC curve be affected by class imbalance?\nDiscuss: how would class imbalance affect the effectiveness of ROC?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 25,
+      "title": "The Precision-Recall Curve",
+      "content": "Problems of the ROC curve:\nRequire well-defined “true positives” and “true negatives”;\nHowever, in some problems, “negative” may not be well-defined.\nE.g., detecting objects in images: if the detector works by classifying\npatches, then the # of patches examined — the # of true negatives —\nis a param of the algorithm, instead of the problem definition.\nCan we evaluate the classification computed just from positives?\nPrecision and the precision-recall curve:\nPrecision: replace the FPR with a quantity that is computed just from\npositives.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 26,
+      "title": "The Precision-Recall (PR) Curve",
+      "content": "Precision: fraction of our detections are actually positive:\n𝒫 𝜏 ≜ 𝑝 𝑦 = 1 𝑦ො = 1, 𝜏 = 𝑇𝑃 /(𝑇𝑃 + 𝐹𝑃 )\n𝜏 𝜏 𝜏\nRecall (TPR): fraction of the positives we actually detected:\nℛ 𝜏 ≜ 𝑝 𝑦ො = 1 𝑦 = 1, 𝜏 = 𝑇𝑃 /(𝑇𝑃 + 𝐹𝑁 )\n𝜏 𝜏 𝜏\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 27,
+      "title": "An Example of PR Curve in Object Detection",
+      "content": "Run object detector on all test images (with NMS).\nFor each category, compute Average Precision\n(AP) = area under Precision vs Recall Curve.\nFor each detection (highest score to lowest score):\nIf it matches some GT box with loU > 0.5, mark it as\npositive and eliminate the GT.\nOtherwise mark it as negative.\nPlot a point on PR Curve.\nAverage Precision (AP) = area under PR curve\nMean Average Precision (mAP) = average of AP\nfor each category.\nFor \"COCO mAP\": Compute mAP@thresh for\neach loU threshold (0.5, 0.55, 0.6, ..., 0.95) and\ntake average.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 28,
+      "title": "Plotting the PR Curve: Example",
+      "content": "PR curve – Plot the precision vs recall as an implicit function of 𝜏, i.e., plot\nprecision vs recall with varying 𝜏.\nHow do we compare different PR curves?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 29,
+      "title": "The PR Curve",
+      "content": "The statistics to summarize the PR curve:\nPrecision at 𝐾 score: the precision for a fixed recall level;\nAUC: the area under the PR curve;\nInterpolated precision:\nPossible precision does not drop monotonically with\nrecall. E.g., a classifier has 90% precision at 10% recall,\nand 96% precision at 20% recall.\nMeasure the maximum precision we can achieve with at\nleast a recall of 10% (which would be 96%).\nAverage precision: avg of interpolated precisions\nEqual to the area under the interpolated PR curve.\nThe mean average precision (mAP): the mean of the AP\nover a set of different PR curves.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 30,
+      "title": "The PR Curve and F-scores",
+      "content": "For a given point on the PR curve, can combine\nthe precision value 𝒫 and the recall value ℛ into a\nsingle statistics:\n2\n1 1 1 𝛽 1\n= +\n𝐹 1 + 𝛽2 𝒫 1 + 𝛽2 ℛ\n𝛽\nIf we set 𝛽 = 1, then we get the harmonic mean of\nthe precision and recall, known as the 𝐹 score.\n1\n1 1 1 1\n= +\n𝐹 2 𝒫 𝑅\n1\nQuestions:\nWhy do we use the “harmonic mean” instead of the\n“arithmetic mean” (𝒫 + ℛ)/2?\nWould the PR curve be affected by class imbalance?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 31,
+      "title": "Probabilistic Prediction Problem",
+      "content": "In previous slides: assumed the set of possible actions was to pick a\nsingle class label (or possibly the “reject” action).\nMore often: the set of possible actions is to pick a probability\ndistribution over some value of interest:\nPerform probabilistic prediction, rather than predicting a specific value.\nFor Classification: states of nature → class labels: ℋ = 𝒴 = {1, … , 𝐶};\nactions → class labels: 𝒜 = 𝒴.\nFor Probabilistic prediction: states of nature → ℎ = 𝑝(𝑌|𝑥); action →\n𝑎 = 𝑞 𝑌 𝑥 .\nWhat we want: to pick 𝑞 to minimize𝔼 ℓ ℎ, 𝑎 = 𝔼[ℓ(𝑝, 𝑞)] for a given 𝑥.\nThe key: how to define the loss function ℓ(𝑝, 𝑞)?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 32,
+      "title": "Decision Theory and Classifiers:",
+      "content": "✓ KL-Divergence\n✓ Entropy and Mutual Information\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 33,
+      "title": "KL Divergence (KL-Div)",
+      "content": "Loss function is measured between two “distributions”.\nKullback Leibler divergence (KL divergence) is a measure of how\none probability distribution is different from a second:\n∗\n𝑝 𝑦\n∗\n𝔻 𝑝 ∥ 𝑞 ≜ ෍ 𝑝 𝑦 log\n𝐾𝐿\n𝑞 𝑦ො\n∗\n𝑦 ∈𝒴\nHere 𝑝 is the true distribution and 𝑞 is the predicted distribution.\nKL divergence can be further expanded as:\n∗ ∗ ∗\n𝔻 𝑝 ∥ 𝑞 = σ 𝑝 𝑦 log 𝑝(𝑦 ) − σ 𝑝 𝑦 log 𝑞 𝑦ො = −ℍ 𝑝 +\n𝐾𝐿\nℍ (𝑝, 𝑞). ℍ(𝑝): entropy of 𝑝; ℍ : cross entropy between 𝑝 and 𝑞.\n𝑐𝑒 𝑐𝑒\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 34,
+      "title": "Entropy",
+      "content": "The key component of KL Divergence: entropy.\nThe entropy of a probability distribution can be interpreted as a\nmeasure of uncertainty, or lack of predictability, associated with a\nrandom variable drawn from a given distribution.\nEntropy: define the information content of a data source.\nSuppose we observe a sequence of symbols 𝑋 ~ 𝑝 generated from\n𝑛\ndistribution 𝑝. What does it mean by 𝑝 having high / low entropy?\nIf 𝑝 has high entropy, hard to predict the value of each observation 𝑋 .\n𝑛\nHence dataset 𝒟 = 𝑋 , … , 𝑋 has high information content.\n1 𝑛\nIf 𝑝 is a degenerate distribution with 0 entropy, then every 𝑋 will be the\n𝑛\nsame, so 𝒟 does not contain much information.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 35,
+      "title": "Entropy for Discrete Random Variables",
+      "content": "More specifically, formulate the entropy of a discrete RV 𝑋 with\ndistribution 𝑝 over 𝐾 states (classes) as:\n𝐾\nℍ 𝑋 ≜ − ෍ 𝑝 𝑋 = 𝑘 log 𝑝 𝑋 = 𝑘 = −𝔼 log 𝑝 𝑋\n2 𝑋\n𝑘\nNote that ℍ 𝑋 is equivalent to the notation of ℍ 𝑝 .\nQuestion: when will the distribution obtain the Max / Min Entropy?\n© Copyright National University of Singapore. All Rights Reserved.\n\nℍ 𝑋 ≜ − ෍ 𝑝 𝑋 = 𝑘 log 𝑝 𝑋 = 𝑘 = −𝔼 log 𝑝 𝑋\n2 𝑋\nDiscrete distribution with Maximum entropy is uniform distribution.\nFor a 𝐾-ary RV, the entropy is max-ed if 𝑝(𝑥 = 𝑘) = 1/𝐾; 𝐻 𝑋 = log 𝐾.\n2\nDistribution with min entropy is any delta-function that puts all its\nmass on one state\nSpecial case: binary RVs 𝑋 ∈ 0,1 , 𝑝(𝑋 =\n1) = 𝜃 and 𝑝(𝑋 = 0) = 1 − 𝜃:\nℍ 𝑋 = −[𝑝 𝑋 = 1 log 𝑝 𝑋 = 1 + 𝑝(𝑋 =\n2\n0) log 𝑝 𝑋 = 0 ]\n2\nℍ 𝑋 = − 𝜃 log 𝜃 + 1 − 𝜃 log 1 − 𝜃\n2 2\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 37,
+      "title": "Mutual Information",
+      "content": "KL divergence: measure how dissimilar two distributions were.\nThen can we measure how dependent two RVs are?\nTurn the question of measuring the dependence of two RVs into a\nquestion about the similarity of their distributions.\nThe notion of Mutual Information (MI) btw two RVs, defined as:\n𝑝 𝑥, 𝑦\n𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦 = ෍ ෍ 𝑝 𝑥, 𝑦 log\n𝐾𝐿\n𝑝 𝑥 𝑝(𝑦)\n𝑦 𝑥\nNote: the notation is defined as 𝕀 𝑋; 𝑌 as 𝑋 and/or 𝑌 can represent a\nset of variable – 𝕀(𝑋; 𝑌, 𝑍) is the MI between 𝑋 and 𝑌, 𝑍 .\nMI is always non-negative: 𝕀 𝑋; 𝑌 ≥ 0. Reach the bound of 0 iff\n𝑝 𝑥, 𝑦 = 𝑝 𝑥 𝑝 𝑦 .\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 38,
+      "title": "Mutual Information: Interpretation",
+      "content": "𝑝 𝑥, 𝑦\n𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦 = ෍ ෍ 𝑝 𝑥, 𝑦 log\n𝐾𝐿\n𝑝 𝑥 𝑝(𝑦)\n𝑦 𝑥\nMI is a KL-Div between the joint and factored marginal distributions:\nMI measures the information gain if we update from a model that treats\nthe two variables as independent 𝑝(𝑥)𝑝(𝑦) to one that models their true\njoint density 𝑝(𝑥, 𝑦).\nTo gain further, re-express MI in terms of joint and conditional entropies:\n𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = ℍ 𝑌 − ℍ 𝑌|𝑋 , ℍ 𝑌|𝑋 = ℍ 𝑋, 𝑌 − 𝐻(𝑋)\nMI between 𝑋 and 𝑌 is thus expressed as the reduction in uncertainty\nabout 𝑋 after observing 𝑌, or, by symmetry, the reduction in uncertainty\nabout 𝑌 after observing 𝑋.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑝 𝑥, 𝑦\n𝕀 𝑋; 𝑌 ≜ 𝔻 𝑝 𝑥, 𝑦 ∥ 𝑝 𝑥 𝑝 𝑦 = ෍ ෍ 𝑝 𝑥, 𝑦 log\n𝐾𝐿\n𝑝 𝑥 𝑝(𝑦)\n𝑦 𝑥\n𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = ℍ 𝑌 − ℍ 𝑌|𝑋 , ℍ 𝑌|𝑋 = ℍ 𝑋, 𝑌 − 𝐻(𝑋)\nAn alternative proof that conditioning, on average, reduces entropy!\n𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 ≥ 0 → ℍ 𝑋|𝑌 ≤ ℍ 𝑋\nOne can also obtain the following equivalent results of MI:\n𝕀 𝑋; 𝑌 = ℍ 𝑋, 𝑌 − ℍ 𝑋|𝑌 − ℍ 𝑌|𝑋\n𝕀 𝑋; 𝑌 = ℍ 𝑋 + ℍ 𝑌 − ℍ 𝑋, 𝑌\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 40,
+      "title": "Mutual Information: An Example",
+      "content": "Suppose two RVs 𝑋 and 𝑌 are related to the input integer 𝑛 ∈ 1, … , 8 .\nDefine 𝑋 𝑛 = 1 if 𝑛 is even and 𝑌 𝑛 = 1 if 𝑛 is a prime number. Thus:\n1 1 3 3 3 3 1 1\nℍ 𝑋, 𝑌 = − log + log + log + log = 1.81 𝑏𝑖𝑡𝑠\n8 8 8 8 8 8 8 8\nℍ 𝑋 = ℍ 𝑌 = 1\n1 1 3 3 3 3 1 1\nℍ 𝑌 𝑋 ≜ − σ 𝑝 𝑋, 𝑌 log 𝑝 𝑌 𝑋 = − log + log + log + log = 0.81\n8 4 8 4 8 4 8 4\nVerify that ℍ 𝑌|𝑋 = ℍ 𝑋, 𝑌 − 𝐻 𝑋 = 0.81\n𝕀 𝑋; 𝑌 = ℍ 𝑋 − ℍ 𝑋|𝑌 = 1 − 0.81 = 0.19 𝑏𝑖𝑡𝑠\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 41,
+      "title": "Entropy and Mutual Information",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 42,
+      "title": "Decision Theory and Classifiers:",
+      "content": "✓ The Frequentist Decision\n✓ Application in the Context of Supervised Learning\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 43,
+      "title": "Recall: Frequentist vs. Bayesian",
+      "content": "Frequentist interpretation: probabilities represent long run\nfrequencies of events that can happen multiple times.\nE.g., Flipping the coin many times, we expect it to land heads\nabout half the time.\nBayesian interpretation: quantify uncertainty or ignorance\nabout something\nE.g., The coin is equally likely to land heads/tails on next toss.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 44,
+      "title": "Frequentist Decision Theory",
+      "content": "In the Frequentist decision theory, treat the unknown state\nof nature (denoted by 𝜽 instead of ℎ) as a fixed yet unknown\nquantity, and treat the data 𝑥 as random.\nInstead of conditioning over 𝑥, we average over it to compute the loss\nexpect to incur if apply our estimator to different datasets.\nDefine the frequentist risk of an estimator 𝛿 given an unknown\nstate of nature 𝜽 as the expected loss when applying 𝛿 to data\n𝑥, where the expectation is over the data, sampled from 𝑝(𝑥|𝜽):\n𝑅 𝜽, 𝛿 ≜ 𝔼 ℓ 𝜽, 𝛿 𝑥\n𝑥 𝜽\n𝑝\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 45,
+      "title": "The Bayes Risk",
+      "content": "𝑅 𝜽, 𝛿 ≜ 𝔼 ℓ 𝜃, 𝛿 𝑥\n𝑥 𝜽\n𝑝\nIn general, the true state of nature 𝜽 that generates the data 𝑥\nis unknown, so cannot compute the risk directly. Then how?\nOne solution: to assume a prior 𝜋 for 𝜃 then average it out –\n0\nthe Bayes Risk (integrated risk):\n𝑅 𝛿 ≜ 𝔼 𝑅 𝜽, 𝛿 = න 𝑑𝜽𝑑𝑥𝜋 𝜽 𝑝 𝑥 𝜽 ℓ 𝜽, 𝛿 𝑥\n𝜋 𝜋 0\n0 0 𝜽\nDecision rule that minimize the Bayes risk: Bayes estimator.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 46,
+      "title": "The Bayes Estimator",
+      "content": "Recall: in the Bayesian decision theory, we define the optimal\npolicy, also the Bayes estimator or Bayes decision rule as:\n∗\n𝜋 𝑥 = arg min 𝜌 𝑎 𝑥 = arg min 𝔼 ℓ ℎ, 𝑎\nℎ 𝑥\n𝑝\n𝑎∈𝒜 𝑎∈𝒜\nIn the Frequentist decision theory, the optimal estimator is:\n𝛿 𝑥 = arg min න 𝑑𝜃𝜋 𝜃 𝑝 𝑥 𝜃 ℓ(𝜃, 𝑎) ≡ arg min න 𝑑𝜃𝑝 𝜃 𝑥 ℓ(𝜃, 𝑎)\n0\n𝑎 𝑎\nThe two forms are actually equivalent! What does this mean?\nBayesian approach provides a good way of achieving the frequentist\ngoal – picking the optimal action case-by-case is optimal on average!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 47,
+      "title": "The Maximum Risk",
+      "content": "Use of a prior might seem undesirable in certain cases. We can\ntherefore define the maximum risk as:\n𝑅 𝛿 ≜ sup 𝑅(𝜽, 𝛿)\nmax\n𝜽\nDecision rule that min the max risk: minimax estimator 𝛿 .\n𝑀𝑀\nOne example on the right:\n𝛿 has lower worst-case risk than 𝛿 .\n1 2\n𝛿 is the minimax estimator (even if 𝛿\n1 2\nhas lower risk for most values of 𝜽)/\nThe minimax estimators are overly\nconservative!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 48,
+      "title": "ERM and Frequentist Decision Theory",
+      "content": "We consider how to apply the frequentist decision theory in the\ncontext of supervised learning.\nThe risk: 𝑅 𝜽, 𝛿 ≜ 𝔼 ℓ 𝜽, 𝛿 𝑥 .\n𝑥 𝜽\n𝑝\nUnknown “state of nature” can correspond to the unknown parameters\n∗\nof some model 𝜽 .\nMeanwhile, the discussion w.r.t. data within a dataset 𝑥 ∈ 𝒟, the risk\ncan be rewritten:\n∗ ∗\n𝑅 𝛿, 𝜽 = 𝔼 ℓ 𝜽 , 𝛿 𝒟\n∗\n𝑝(𝒟|𝜃 )\n© Copyright National University of Singapore. All Rights Reserved.\n\nIn supervised learning,\nDifferent unknown state of nature (output 𝑦) for each different input 𝑥,\nEstimator 𝛿 is a prediction function 𝑦ො = 𝑓(𝑥),\n∗ ∗\nThe state of nature (as a whole) is the true distribution 𝑝 (𝑥, 𝑦 ),\n∗\nThus, the risk of an estimator is (in terms of 𝑓 and 𝑝 ) is:\n∗ ∗\n𝑅 𝑓, 𝑝 = 𝑅 𝑓 ≜ 𝔼 [ℓ 𝑦 , 𝑓 𝑥 )\n∗ ∗ 𝑦 𝑥\n𝑝 𝑥 𝑝\nDefined as the population risk, as the expectations are taken w.r.t. the\n∗ ∗\ntrue joint distribution 𝑝 (𝑥, 𝑦 ).\nCan we compute the population risk? If not how?\n© Copyright National University of Singapore. All Rights Reserved.\n\n∗\nIn most cases, quite impossible to obtain the unknown true distribution 𝑝 .\nInstead, can approximate it with the empirical distribution of 𝑁 samples:\n1\n𝑝 𝑥, 𝑦 𝒟 ≜ σ 𝛿 𝑥 − 𝑥 𝛿 𝑦 − 𝑦\n𝒟 𝑥 ,𝑦 ∈𝒟 𝑛 𝑛\n𝒟 𝑛 𝑛\nHere the empirical distribution is exactly the training distribution 𝑝 𝑥, 𝑦 𝒟 = 𝑝 (𝑥, 𝑦). We\n𝒟 𝑡𝑟\nthus obtain the empirical risk (which is a random variable) as:\n𝑁\n1\n𝑅 𝑓, 𝒟 ≜ 𝔼 [ℓ 𝑦, 𝑓 𝑥 = ෍ ℓ 𝑦 , 𝑓 𝑥\n𝑝 𝑥, 𝑦 𝒟 𝑛 𝑛\n𝒟 𝑁\n𝑛=1\nA natural way to choose the predictor is to choose the predictor with minimum risk:\n1\n𝑓Ƹ = arg min 𝑅(𝑓, 𝒟) = arg min\nσ𝑁\nℓ(𝑦 , 𝑓(𝑥 )) = arg min ℒ(𝜃)\n𝐸𝑅𝑀 𝑛 𝑛 𝑛\n𝑓 𝑓 𝑁 𝜃\n𝑁\nℒ 𝜽 = σ ℓ(𝑦 , 𝜽; 𝑥 ) (as defined in Lecture 1)\n𝑛=1 𝑛 𝑛\nThe process of choosing predictor 𝑓 መ is empirical risk minimization (ERM).\n𝐸𝑅𝑀\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 51,
+      "title": "Performance of Functions Fitted with ERM",
+      "content": "What is the theoretical performance of functions that are fitted\nwith the ERM principle?\n∗∗\nLet 𝑓 = arg min 𝑅 𝑓 be the function that achieves the min possible\n𝑓\npopulation risk, where we optimize over ALL possible functions.\n!! ALL possible functions?\n∗\nDefine 𝑓 = arg min 𝑅(𝑓) the best function in hypothesis space ℋ.\n𝑓∈ℋ\n∗\nWe still cannot compute what 𝑓 is – the population risk 𝑅 is unknown!\nWe can only compute by further approx. – minimizing the empirical risk:\n∗\n𝑓 = arg min 𝑅 𝑓, 𝒟 = arg min 𝔼 ℓ 𝑦, 𝑓 𝑥\n𝑁 𝑝\n𝑡𝑟\n𝑓∈ℋ 𝑓∈ℋ\n© Copyright National University of Singapore. All Rights Reserved.\n\n∗\nThe risk of our chosen predictor 𝑓 compared to the best\n𝑁\n∗∗\npossible predictor 𝑓 can be decomposed into two terms:\n∗ ∗∗ ∗ ∗∗ ∗ ∗\n𝔼 𝑅 𝑓 − 𝑅 𝑓 = 𝑅 𝑓 − 𝑅 𝑓 + 𝔼 𝑅 𝑓 − 𝑅 𝑓\n∗\n𝑝 𝑁 𝑝 𝑁\n𝜀 (ℋ) 𝜀 (ℋ, 𝑁)\n𝑎𝑝𝑝 𝑒𝑠𝑡\n𝜀 (ℋ) is the approximate error: measures how closely ℋ can model\n𝑎𝑝𝑝\n∗∗\nthe true optimal function 𝑓 .\n𝜀 (ℋ, 𝑁) is the estimation error or generalization error: measures the\n𝑒𝑠𝑡\ndifference in estimated risk due to having a finite training set.\nApprox. 𝜀 (ℋ, 𝑁) by the difference btw training set and test set error:\n𝑒𝑠𝑡\n∗ ∗\n𝜀 ℋ, 𝑁 ≈ 𝔼 ℓ 𝑦, 𝑓 𝑥 − 𝔼 ℓ 𝑦, 𝑓 𝑥 – Generalization Gap.\n𝑒𝑠𝑡 𝑝 𝑁 𝑝 𝑁\n𝑡𝑟 𝑡𝑒\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 53,
+      "title": "Regularization and Regularized Risk",
+      "content": "To avoid the chance of overfitting, it is common to add a\ncomplexity penalty to the objective function – regularization.\nWith regularization, we obtain the regularized empirical risk:\n𝑅 𝑓, 𝒟 = 𝑅 𝑓, 𝐷 + 𝜆𝐶(𝑓)\n𝜆\n𝐶(𝑓) measures the complexity of the prediction function 𝑓 and 𝜆 ≥ 0 is\nthe hyperparameter that controls the strength of complexity penalty.\nIn practice, the regularization is often applied to the model parameters\ndirectly, thus the regularized ER is rewritten: 𝑅 𝜃, 𝒟 = 𝑅 𝜃, 𝐷 + 𝜆𝐶(𝜃).\n𝜆\nIf the loss function is a log loss term, while the regularizer is a negative\n1\n𝑁\nlog prior, 𝑅 𝜃, 𝒟 = − σ log 𝑝 𝑦 𝑥 , 𝜃 − 𝜆 log 𝑝 𝜃 . Minimizing this\n𝜆 𝑛=1 𝑛 𝑛\n𝑁\nis exactly equivalent to the MAP estimation.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 54,
+      "title": "Occam’s Razor",
+      "content": "Occam's razor is the problem-solving principle that recommends\nsearching for explanations constructed with the smallest possible\nset of elements.\nAlso known as the principle of parsimony or the law of parsimony.\nConsider 2 models, a simple one, 𝑚 , and a more complex one, 𝑚 .\n1 2\nSuppose both can explain the data by suitably optimizing their\n෡ ෡\nparameters, i.e., 𝑝(𝒟|𝜽 , 𝑚 ) and 𝑝(𝒟|𝜽 , 𝑚 ) are both large.\n1 1 2 2\nIntuitively should prefer 𝑚 , as it is simpler and as good as 𝑚 .\n1 2\nIn regularization, it corresponds to the complexity penalty, where\nmore complex models would result in a larger regularization term.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 55,
+      "title": "Population Risk Est. with Validation",
+      "content": "A simple way to estimate the population risk for a supervised\nlearning setup: cross-validation.\nPartition the dataset into two, one used for training models (training set),\nanother, the validation set or holdout set, used for assessing the risk.\nNote that in supervised learning, the real “test data” are inaccessible.\nProcess: fit the model on the training set, use its performance\non the validation set as an approx. to the population risk:\nMake the dependence of the 𝑅 (𝑓, 𝒟) on the dataset more explicit:\n𝜆\n1\n𝑅 𝜽, 𝒟 = ෍ ℓ 𝑦, 𝑓 𝑥; 𝜽 + 𝜆𝐶(𝜽)\n𝜆\n𝐷\n𝑥,𝑦 ∈𝒟\n෡\nAlso define 𝜽 𝒟 = arg min 𝑅 𝜃, 𝒟 , 𝒟 and 𝒟 are partitions.\n𝜆 𝜆 𝑡𝑟 𝑣𝑎𝑙\n𝜃\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 56,
+      "title": "Cross-Validation",
+      "content": "෡\nFor each model, we fit it to the training set to obtain 𝜽 𝒟 . Then use the\n𝜆 𝑡𝑟\nunregularized empirical risk on the validation set as an estimate of the\n𝑣𝑎𝑙 ෡\npopulation risk – validation risk: 𝑅 ≜ 𝑅 𝜽 𝒟 , 𝒟 .\n𝜆 0 𝜆 𝑡𝑟 𝑣𝑎𝑙\nAny shortcomings of this method?\nConsider the training data is very limited – not enough data to train on!\nImpossible to make reliable estimate of future performance.\nSolution?\nCross-validation!\n© Copyright National University of Singapore. All Rights Reserved.\n\nSplit the training data into 𝐾 folds;\nFor each fold 𝑘 ∈ 1, … , 𝐾 , train on\nall but ONE fold, in a round-robin\nfashion (in turns, circled around all\npossible folds).\nFormally, the cross-validation risk is formulated as:\n1\n𝑐𝑣 𝐾 ෡\n𝑅 ≜ σ 𝑅 𝜽 𝒟 , 𝒟\n𝜆 𝑘=1 0 𝜆 −𝑘 𝑘\n𝐾\n𝒟 is the data in the 𝑘-th fold, and 𝒟 is all the other data. If set 𝐾 = 𝑁,\n𝑘 −𝑘\nthe method is known as leave-one-out cross-validation.\nመ\nAlternatively, we can estimate an optimal 𝜆 with CV, then re-estimate the\n෡\nmodel parameters using all data: 𝜽 = arg min 𝑅 (𝜽, 𝒟).\n෡\n𝜆\n𝜽\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 2 Decision theory and MAP.pdf",
+      "page": 58,
+      "title": "Cross-Validation: Example",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    }
+  ]
+}

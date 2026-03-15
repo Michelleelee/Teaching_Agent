@@ -1,0 +1,58 @@
+{
+  "syllabus": [
+    {
+      "topic": "Bayesian Decision Theory Foundations and MAP Classification",
+      "page_range": [
+        2,
+        14
+      ],
+      "sub_points": [
+        "Decision-theoretic formulation of classification: states/classes, actions/decisions, and loss (cost) functions",
+        "Bayes’ rule review and decomposition into prior, likelihood, evidence, and posterior; connection to MAP decision rule",
+        "Bayes optimal decision rule as minimizing conditional risk; relation between MAP and minimum expected loss",
+        "Special cases in classification: zero-one loss (MAP/maximum posterior), cost-sensitive decisions, and reject-option thresholds"
+      ]
+    },
+    {
+      "topic": "Evaluation via Confusion Matrices and Threshold-Based Performance Curves",
+      "page_range": [
+        15,
+        30
+      ],
+      "sub_points": [
+        "Confusion matrix construction and derived metrics (e.g., accuracy, TPR/FPR, precision/recall, specificity)",
+        "ROC curve: generating ROC points by sweeping thresholds; interpreting AUC and operating points",
+        "Impact of class imbalance on ROC interpretation and why alternative metrics may be needed",
+        "Precision–Recall (PR) curve: when PR is preferable, relationship to object detection evaluation, and F-score summaries"
+      ]
+    },
+    {
+      "topic": "Probabilistic Prediction and Information-Theoretic Quantities",
+      "page_range": [
+        31,
+        41
+      ],
+      "sub_points": [
+        "Probabilistic prediction setup: predicting calibrated probabilities vs. hard labels and how decisions depend on thresholds/costs",
+        "KL divergence as a measure of discrepancy between distributions and its role in assessing probabilistic models",
+        "Entropy for (discrete) random variables as uncertainty; interpreting entropy in prediction and coding terms",
+        "Mutual information as dependence measure; interpretation and worked example; linkage between entropy and mutual information"
+      ]
+    },
+    {
+      "topic": "Frequentist Decision Theory, Risk Minimization, and Model Selection",
+      "page_range": [
+        42,
+        58
+      ],
+      "sub_points": [
+        "Frequentist vs. Bayesian viewpoints; frequentist decision theory framing for learning from data",
+        "Risk concepts: Bayes risk, Bayes estimator, and worst-case (maximum) risk perspectives",
+        "Empirical Risk Minimization (ERM): objective, generalization gap, and performance behavior of ERM-fitted functions",
+        "Regularization and regularized risk; Occam’s razor as a principle motivating complexity control",
+        "Estimating population risk and selecting models with validation and cross-validation (including a worked example)"
+      ]
+    }
+  ],
+  "source_file": "Lecture 2 Decision theory and MAP.pdf"
+}

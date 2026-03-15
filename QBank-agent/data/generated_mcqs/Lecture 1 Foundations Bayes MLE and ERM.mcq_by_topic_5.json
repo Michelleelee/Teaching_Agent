@@ -1,0 +1,844 @@
+{
+  "deck_id": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 5,
+  "topics": [
+    {
+      "topic_id": "course_logistics_and_admin",
+      "topic": "Course logistics and administration",
+      "slide_range": [
+        1,
+        14
+      ],
+      "questions": [
+        {
+          "question_id": "cla_q1_late_penalty_threshold",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "assessment_and_grading",
+            "code_of_conduct"
+          ],
+          "difficulty": 3,
+          "stem": "A student submits CA1 121 hours after the deadline and claims they should only lose 50 points (10 points per 24 hours) and still receive some credit. Based on the stated grading policy, what outcome is consistent with the rules, and why?",
+          "options": {
+            "A": "They receive ZERO because submissions \"of 5 days (120 hours) or more\" get ZERO, regardless of the 10-points-per-24-hours rule.",
+            "B": "They lose exactly 50 points because the policy is strictly linear (10 points per 24 hours) with no hard cutoff.",
+            "C": "They lose 60 points because any fraction of a day late is rounded up to the next 24-hour block.",
+            "D": "They receive a warning but keep their grade because the academic integrity policy governs penalties, not lateness."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the lateness policy includes both a per-24-hour deduction and a hard cutoff: it states \"Late submission will be deducted 10 points (out of 100) for every 24 hours\" and also \"ZERO mark for late submission of 5 days (120 hours) or more.\" Since 121 hours is ≥ 120 hours, the hard cutoff applies and the mark is zero.\n\nB is wrong because it ignores the explicit cutoff at 120 hours.\n\nC is wrong because the slides never state rounding up partial days; the only explicit threshold is the \"5 days (120 hours) or more\" zero-mark rule.\n\nD is wrong because the lateness penalty is explicitly defined under assessment policy, while academic integrity concerns misconduct like \"Cheating, plagiarism, unauthorized collaboration\"; it does not replace late-submission rules.",
+          "source": {
+            "page": 7,
+            "pages": [
+              7,
+              11
+            ]
+          },
+          "evidence_quotes": [
+            "Late submission will be deducted 10 points\n(out of 100) for every 24 hours. ZERO mark for late submission of\n5 days (120 hours) or more.",
+            "Cheating, plagiarism, unauthorized collaboration, and ‘helping others commit these\nacts’ are examples of academic misconduct, which can result in disciplinary action."
+          ]
+        },
+        {
+          "question_id": "cla_q2_open_closed_book_alignment",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "assessment_and_grading",
+            "course_updates_new_items"
+          ],
+          "difficulty": 2,
+          "stem": "You want practice that most closely matches the exam condition where you may consult limited prepared material but not the textbook/notes freely. Which activity best aligns with that constraint?",
+          "options": {
+            "A": "Final exam, because it is \"Closed book with one-page double-sided cheat sheet.\"",
+            "B": "Quiz, because it is \"fully open book\" and therefore matches the final’s allowed materials.",
+            "C": "Tutorials, because they are \"Not graded at all\" and therefore use the same closed-book rules as the final.",
+            "D": "CA1, because it has strict deadlines and therefore must be closed book like the final."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the final explicitly specifies a restricted-material condition: \"Closed book with one-page double-sided cheat sheet.\" That matches the stem’s description (limited prepared material, not fully open book).\n\nB is wrong because the quiz is the opposite condition: \"fully open book.\"\n\nC is wrong because tutorials are described in terms of grading relevance (and timing), not exam material rules; nothing states tutorials are closed book.\n\nD is wrong because deadline strictness does not imply closed-book conditions; the slides do not state CA1 is closed book.",
+          "source": {
+            "page": 7,
+            "pages": [
+              7,
+              14
+            ]
+          },
+          "evidence_quotes": [
+            "Final: 60%.\nClosed book with one-page double-sided cheat sheet.",
+            "Quiz format: MCQ, fully open book, max 60 minutes.",
+            "Not graded at all but will be relevant to the finals in the type of\nquestions and the concepts that may be examined."
+          ]
+        },
+        {
+          "question_id": "cla_q3_instructor_timeline_consultation",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "teaching_team",
+            "lecture_format_and_consultation",
+            "welcome_and_onboarding"
+          ],
+          "difficulty": 2,
+          "stem": "A student wants to speak specifically with Dr. XU Yuecong during the portion of the course he teaches. Which consultation slot is explicitly scheduled during his teaching weeks?",
+          "options": {
+            "A": "Mon: 14:00 – 15:30, Week 2, 5, 6.",
+            "B": "Mon: 14:00 – 15:30, Week 8, 10, 12.",
+            "C": "Mon: 13:00 – 14:30, Week 7 (25 Aug).",
+            "D": "Any week from Week 7 – 13, because Dr. XU teaches \"2nd part, Wk 7 – 13\"."
+          },
+          "answer": "A",
+          "rationale": "A is correct because Dr. XU Yuecong teaches Part I in \"Week 1 – 6\" (also described as \"1st part, till Recess\"), and the consultation schedule explicitly includes \"Week 2, 5, 6\" for a Monday slot.\n\nB is wrong because Weeks 8/10/12 are not listed in the consultation schedule and are also outside Dr. XU’s stated teaching weeks.\n\nC is wrong because the slide states \"Week 3 (25 Aug)\", not Week 7.\n\nD is wrong because it contradicts the teaching split: the slides state Dr. Wang Si handles the \"2nd part, Wk 7 – 13\" while Dr. XU is Part I (Weeks 1–6).",
+          "source": {
+            "page": 3,
+            "pages": [
+              2,
+              3,
+              4
+            ]
+          },
+          "evidence_quotes": [
+            "Course will be conducted by Dr. XU Yuecong (1st part, till\nRecess) and Dr. Wang Si (2nd part, Wk 7 – 13).",
+            "Dr. XU Yuecong (Part I, Week 1 – 6) yc.xu@nus.edu.sg",
+            "Consultation hour: walk-in if you have any questions:\nMon: 14:00 – 15:30, Week 2, 5, 6. ECE Conference Room E4-05-39",
+            "Mon: 13:00 – 14:30, Week 3 (25 Aug). ECE Conference Room"
+          ]
+        },
+        {
+          "question_id": "cla_q4_tutorials_vs_assessed_components",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "assessment_and_grading",
+            "course_updates_new_items"
+          ],
+          "difficulty": 2,
+          "stem": "A student plans their workload by prioritizing only items that directly contribute to the course grade. Which plan correctly distinguishes graded components from non-graded support activities while still acknowledging exam relevance?",
+          "options": {
+            "A": "Treat CA1, Quiz, CA2, and Final as graded; treat tutorials as not graded but still relevant to finals.",
+            "B": "Treat tutorials as part of the three continuous assessment components because they help prepare for finals.",
+            "C": "Treat the quiz as not graded because it is open book, and treat tutorials as graded because they are discussed in class.",
+            "D": "Treat only the final as graded because it is closed book; continuous assessment is practice-only."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the assessment slide states: \"Continuous Assessment consists of 3 components\" and then lists \"CA1\", \"Quiz\", and \"CA2\", and also lists \"Final: 60%\"—all explicitly graded. Separately, the tutorials slide states \"Not graded at all but will be relevant to the finals\".\n\nB is wrong because tutorials are explicitly \"Not graded at all\" and therefore cannot be one of the graded CA components.\n\nC is wrong because the quiz is explicitly weighted (\"5%\"), and nothing says tutorials are graded.\n\nD is wrong because the slides explicitly assign weights to CA1 (15%), Quiz (5%), and CA2 (20%), so continuous assessment is graded.",
+          "source": {
+            "page": 7,
+            "pages": [
+              7,
+              14
+            ]
+          },
+          "evidence_quotes": [
+            "Continuous Assessment consists of 3 components.",
+            "CA1: 29 Aug 2025 – 3 Oct 2025 SGT 23:59 (Week 3 – 7): 15%.",
+            "Quiz: 18 Sep 2025 (During lecture on Week 6): 5%.",
+            "CA2: TBA by Dr. Wang Si: 20%.",
+            "Final: 60%.",
+            "Not graded at all but will be relevant to the finals in the type of\nquestions and the concepts that may be examined."
+          ]
+        },
+        {
+          "question_id": "cla_q5_syllabus_access_and_topic_scope",
+          "topic_id": "course_logistics_and_admin",
+          "knowledge_tags": [
+            "welcome_and_onboarding",
+            "updated_syllabus",
+            "learning_outcomes"
+          ],
+          "difficulty": 1,
+          "stem": "You want to verify that the course covers both (i) Bayesian decision theory and (ii) support vector machines, and you also want to know where the official syllabus is posted. Which combined statement is consistent with the slides?",
+          "options": {
+            "A": "The syllabus is on Canvas (Pages tab), and the course includes \"Bayesian decision theory\" and \"support vector machine.\"",
+            "B": "The syllabus is only distributed right before each class, and the course includes SVM but not Bayesian decision theory.",
+            "C": "The syllabus is on the Q&A Google Doc, and the course includes Bayesian decision theory but not SVM.",
+            "D": "The syllabus is announced only in Week 3, and neither Bayesian decision theory nor SVM are part of the learning outcomes."
+          },
+          "answer": "A",
+          "rationale": "A is correct by combining two slide sources: the onboarding slide says \"Syllabus available on Canvas in the Pages tab\". The learning outcomes explicitly list both \"Bayesian decision theory\" and \"support vector machine\" as core techniques.\n\nB is wrong because \"Lecture notes will be available right before each class\" refers to notes, not the syllabus; and Bayesian decision theory is explicitly included.\n\nC is wrong because the Google Doc is labeled \"Q&A\", not the syllabus location; and SVM is explicitly included.\n\nD is wrong because while CA1 is announced Week 3, the syllabus is stated to be on Canvas, and the learning outcomes explicitly include both topics.",
+          "source": {
+            "page": 2,
+            "pages": [
+              2,
+              3,
+              6
+            ]
+          },
+          "evidence_quotes": [
+            "Syllabus available on Canvas in the Pages tab, please check\nthem out.",
+            "Lecture notes will be available right before each class.",
+            "Q&A: https://docs.google.com/document/d/1ph1hVnzrmUsk0-\nfTsilF5OPGm2wHQQw4qrpa-pQa5Ag/edit?usp=sharing",
+            "Comprehend principles and core techniques in pattern\nrecognition such as Bayesian decision theory, linear and non-\nlinear classifiers, principal component analysis, linear\ndiscriminant analysis, clustering and support vector machine."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "pr_and_ml_overview",
+      "topic": "Pattern recognition and machine learning overview",
+      "slide_range": [
+        15,
+        25
+      ],
+      "questions": [
+        {
+          "question_id": "prml_overview_q1_pr_pipeline_uncertainty_probability",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "definition_of_pattern_recognition",
+            "pr_system_diagram",
+            "ml_framework_outputs"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims: “Once you do feature extraction, classification is always 100% certain, so probabilities are unnecessary.” Which response is best supported by the slides, integrating the PR definition/examples with the PR system diagram and typical classification output?",
+          "options": {
+            "A": "Probabilities remain central because losing information/features can prevent 100% certainty, and classification output is usually “The probability of each class!”",
+            "B": "Probabilities are only used in unsupervised learning; supervised classification should output a single hard label like 01→apple without probabilities",
+            "C": "Feature extraction guarantees 100% certainty in all cases; probabilities are only for regression tasks",
+            "D": "If feature extraction is correct, the system should avoid probabilities and rely on fixed pre-determined rules regardless of input data"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly raise uncertainty when information/features are lost (so 100% certainty is not always possible), and they also state that the usual classification output is probabilistic. Evidence: the PR examples ask “Can we always make a decision with 100% certainty?” and answer “Probably not” when features like color are lost, and the ML framework output slide says “The probability of each class!”.\n\nB is wrong because the PR system diagram explicitly ties the 0/1 representation to probability (“What do 0 & 1 represent? Probability!”), contradicting the claim that supervised classification should not use probabilities.\n\nC is wrong because the slides explicitly present a case where 100% certainty is not achievable due to “Lost of certain information / features (color)”.\n\nD is wrong because it confuses ML/PR with non-learning algorithms; the PR/ML slide contrasts ML/PR with “pre-determined rules” that are “fixed regardless the input data,” whereas the PR system diagram and output slide emphasize probabilistic outputs.",
+          "source": {
+            "page": 17,
+            "pages": [
+              17,
+              19,
+              25,
+              20
+            ]
+          },
+          "evidence_quotes": [
+            "Can we always make a decision with 100% certainty?",
+            "Lost of certain information / features (color):\nCan we still make the decision with 100% certainty? Probably not – then\nhow should we determine what the picture actually is?",
+            "What do 0 & 1 represent?\nProbability!",
+            "Note what is the usual output (for classification)?\nThe probability of each class!",
+            "Non-learning algos are bared on pre-determined rules, require human expertise. The\nrules are fixed regardless the input data."
+          ]
+        },
+        {
+          "question_id": "prml_overview_q2_pr_vs_nonlearning_data_centric_pipeline",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "pr_vs_ml",
+            "pr_system_diagram",
+            "definition_of_pattern_recognition"
+          ],
+          "difficulty": 2,
+          "stem": "You are asked to justify why a PR/ML approach is appropriate for an image task rather than a non-learning algorithm. Which justification best aligns with the slides by connecting the PR pipeline idea with the PR vs ML comparison?",
+          "options": {
+            "A": "PR/ML is appropriate because it is “data-centric” and involves steps like “Feature extraction / Classification / Data Preprocessing,” whereas non-learning algorithms rely on “pre-determined rules” fixed regardless of input data",
+            "B": "Non-learning algorithms are preferable because PR/ML requires the human expert to know the solution and rules in advance",
+            "C": "PR/ML is distinct from pattern recognition because ML does not involve finding patterns; it only performs regression",
+            "D": "Non-learning algorithms are data-centric while PR/ML is human-centric, so non-learning methods adapt better to varied inputs"
+          },
+          "answer": "A",
+          "rationale": "A is correct: the PR system diagram explicitly includes a processing pipeline (“Feature extraction / Classification / Data Preprocessing”), and the PR vs ML slide explicitly contrasts non-learning algorithms as rule-based and fixed with ML/PR as “data-centric.”\n\nB is wrong because the slide says the opposite: “For non-learning algos, human expert should know the solution and rules”.\n\nC is wrong because the slide states ML is “Almost identical to PR, since learning implies finding patterns,” contradicting the claim that ML does not involve patterns and only does regression.\n\nD is wrong because it reverses the slide’s stated contrast: “Non-learning algo: human-centric; ML/PR: data-centric.”",
+          "source": {
+            "page": 20,
+            "pages": [
+              20,
+              19
+            ]
+          },
+          "evidence_quotes": [
+            "Non-learning algos are bared on pre-determined rules, require human expertise. The\nrules are fixed regardless the input data.",
+            "For non-learning algos, human expert should know the solution and rules – problems\nthat human cannot solve would NOT be solved.",
+            "Non-learning algo: human-centric; ML/PR: data-centric.",
+            "Almost identical to PR, since learning implies finding patterns.",
+            "Feature extraction /\nClassification /\nData Preprocessing"
+          ]
+        },
+        {
+          "question_id": "prml_overview_q4_supervised_output_probability_link",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "learning_paradigms",
+            "ml_framework_outputs",
+            "pr_system_diagram"
+          ],
+          "difficulty": 1,
+          "stem": "In the slides’ terminology, which pairing of learning paradigm and typical classification output is most consistent?",
+          "options": {
+            "A": "Supervised learning + “The probability of each class!”",
+            "B": "Unsupervised learning + “Labelled data with guidance”",
+            "C": "Reinforcement learning + “The probability of each class!” (as the usual output for classification)",
+            "D": "Supervised learning + “No labelled without guidance”"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the learning paradigms slide defines supervised learning as “Labelled data with guidance;” and the output slide states the usual classification output is “The probability of each class!”—a natural pairing for supervised classification.\n\nB is wrong because it swaps definitions: “Labelled data with guidance;” is stated for supervised, not unsupervised.\n\nC is wrong because reinforcement learning is described in terms of interacting with an environment and trial-and-error, not as the slide’s “usual output (for classification).”\n\nD is wrong because “No labelled without guidance;” is stated for unsupervised learning, not supervised.",
+          "source": {
+            "page": 24,
+            "pages": [
+              24,
+              25
+            ]
+          },
+          "evidence_quotes": [
+            "Supervised learning: Labelled data with guidance;",
+            "Unsupervised learning: No labelled without guidance;",
+            "Reinforcement learning: Interacts with environment, decide\naction, learns by trial-and-error method.",
+            "Note what is the usual output (for classification)?\nThe probability of each class!"
+          ]
+        },
+        {
+          "question_id": "prml_overview_q5_pr_definition_to_system_blocks",
+          "topic_id": "pr_and_ml_overview",
+          "knowledge_tags": [
+            "definition_of_pattern_recognition",
+            "pr_system_diagram",
+            "lecture_introduction_section"
+          ],
+          "difficulty": 2,
+          "stem": "A course designer wants to align the introduction’s stated scope with a concrete PR pipeline. Which mapping from the PR definition to components in the PR system diagram is best supported by the slides?",
+          "options": {
+            "A": "“extract the relevant info” ↔ “Feature extraction /”; “make decision automatically” ↔ “Classification /”",
+            "B": "“perceive a pattern” ↔ “Dimension reduction”; “understand the content of the info” ↔ “Regression”",
+            "C": "“automated recognition of patterns and regularities in data” ↔ “Knowledge Type 1 Knowledge Type 2” only, with no need for feature extraction/classification blocks",
+            "D": "“make decision automatically by machine or computer” ↔ “Data Preprocessing” only, since decisions are made before classification"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the PR definition explicitly includes “extract the relevant info” and “make decision automatically,” and the system diagram explicitly contains “Feature extraction /” and “Classification /” as pipeline blocks—directly corresponding to those functions.\n\nB is wrong because the slide definition does not equate perceiving/understanding with dimension reduction or regression; those are listed as diagram components, but the mapping asserted is not supported by the provided wording.\n\nC is wrong because the PR definition emphasizes extracting information and making decisions; the diagram includes explicit processing blocks (“Feature extraction /” and “Classification /”), so claiming only knowledge types are needed contradicts the pipeline depiction.\n\nD is wrong because it claims decisions are made before classification, but the diagram explicitly includes “Classification /” as a block; the PR definition’s “make decision automatically” aligns with classification rather than preprocessing alone.",
+          "source": {
+            "page": 16,
+            "pages": [
+              15,
+              16,
+              19
+            ]
+          },
+          "evidence_quotes": [
+            "✓ What is Pattern Recognition / Machine Learning?\n✓ Basic terminologies that may be encountered.",
+            "Pattern recognition is to perceive a pattern, extract the relevant info,\nunderstand the content of the info and make decision automatically by\nmachine or computer.",
+            "Feature extraction /\nClassification /\nData Preprocessing"
+          ]
+        }
+      ],
+      "warnings": [
+        "prml_overview_q3_deductive_vs_inductive_train_test_mapping: quote not found in pages [23, 24], quote: Test\ndata"
+      ]
+    },
+    {
+      "topic_id": "probability_foundations_and_bayes_rule",
+      "topic": "Probability foundations and Bayes' rule",
+      "slide_range": [
+        26,
+        39
+      ],
+      "questions": [
+        {
+          "question_id": "prob_bayes_01_union_independence",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "probability_properties_part1",
+            "probability_properties_part2"
+          ],
+          "difficulty": 2,
+          "stem": "Two events A and B satisfy both (i) independence and (ii) mutual exclusivity. Using only the rules given in the slides, which statement must be true?",
+          "options": {
+            "A": "At least one of P(A) or P(B) must be 0.",
+            "B": "P(A ∨ B) = P(A)P(B).",
+            "C": "P(A, B) = P(A) + P(B).",
+            "D": "P(B|A) = P(B) always, regardless of P(A)."
+          },
+          "answer": "A",
+          "rationale": "From the slides: if A and B are independent, then the joint factorizes; if they are mutually exclusive, the union is additive. Mutual exclusivity implies they “cannot happen at the same time”, i.e., the joint probability must be 0. Independence says P(A,B)=P(A)P(B). Combining these gives P(A)P(B)=0, hence at least one of P(A), P(B) is 0.\n\nWhy others are wrong:\n- B confuses union with joint. The slides give a union formula and an independence formula for the joint, not union.\n- C incorrectly replaces the union formula with a statement about the joint.\n- D is not guaranteed because conditional probability is defined as P(A,B)/P(A); if P(A)=0 it is not defined by the given formula, so it cannot be asserted “always”.",
+          "source": {
+            "page": 28,
+            "pages": [
+              28,
+              29
+            ]
+          },
+          "evidence_quotes": [
+            "If 𝐴 and 𝐵 are independent events, 𝑃 𝐴, 𝐵 = 𝑃 𝐴 𝑃(𝐵).",
+            "If 𝐴 and 𝐵 are mutually exclusive (cannot happen at the same time), then\n𝑃 𝐴 ∨ 𝐵 = 𝑃 𝐴 + 𝑃(𝐵);",
+            "Conditional probability of 𝐵 happening given 𝐴 has occurred:\n𝑃(𝐴, 𝐵)\n𝑃(𝐵|𝐴) ≜\n𝑃(𝐴)"
+          ]
+        },
+        {
+          "question_id": "prob_bayes_02_posterior_vs_likelihood",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "bayes_rule_statement",
+            "bayes_rule_detailed_breakdown",
+            "probability_properties_part2"
+          ],
+          "difficulty": 2,
+          "stem": "A student says: “In Bayes’ rule, p(Y|H=h) is the posterior because it conditions on something.” Which option best corrects the student using the slide definitions and also aligns with the conditional-probability notation given?",
+          "options": {
+            "A": "p(H = h|Y = y) is the posterior; p(Y|H = h) is the likelihood.",
+            "B": "p(Y = y) is the posterior because it normalizes the distribution.",
+            "C": "p(H) is the likelihood because it is what we know before we see any data.",
+            "D": "p(H = h, Y = y) is the posterior because it contains both H and Y."
+          },
+          "answer": "A",
+          "rationale": "The slides explicitly label p(Y|H=h) as the likelihood and p(H=h|Y=y) as the posterior/conditional distribution. This also matches the conditional probability notation where conditioning appears after the bar “|”.\n\nWhy others are wrong:\n- B: p(Y=y) is named “the marginal likelihood” (normalizer), not the posterior.\n- C: p(H) is explicitly the prior, not the likelihood.\n- D: the joint p(H=h, Y=y) is described as an “unnormalized joint distribution” when multiplying prior and likelihood, not the posterior.",
+          "source": {
+            "page": 33,
+            "pages": [
+              29,
+              32,
+              33
+            ]
+          },
+          "evidence_quotes": [
+            "Conditional probability of 𝐵 happening given 𝐴 has occurred:\n𝑃(𝐴, 𝐵)\n𝑃(𝐵|𝐴) ≜\n𝑃(𝐴)",
+            "𝑝 𝐻 = ℎ 𝑌 = 𝑦 : posterior distribution / conditional distribution.",
+            "𝑝(𝑌|𝐻 = ℎ): the distribution over possible outcomes 𝑌 we expect to see if 𝐻 = ℎ – the\nlikelihood (layman terms: the observed data).",
+            "𝑝(𝐻 = ℎ|𝑌 = 𝑦): represents our new belief state (updated belief) about the possible\nvalues of 𝐻 – the posterior distribution.",
+            "Convert into a normalized distribution by dividing by 𝑝(𝑌 = 𝑦), which is\ndenoted as the marginal likelihood."
+          ]
+        },
+        {
+          "question_id": "prob_bayes_03_prevalence_effect_disease",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "bayes_rule_example_disease_testing",
+            "bayes_rule_detailed_breakdown"
+          ],
+          "difficulty": 3,
+          "stem": "In the disease-testing example, the sensitivity and specificity stay the same, but the prevalence changes. Which conclusion is supported by the slides about how the posterior P(H|Y) changes when prevalence drops from 10% to 1% (given a positive test)?",
+          "options": {
+            "A": "The posterior decreases from 0.795 to 0.261 because the prior P(H) becomes smaller while the likelihood terms stay the same.",
+            "B": "The posterior increases because a positive test always dominates the prior.",
+            "C": "The posterior stays the same because sensitivity and specificity are unchanged.",
+            "D": "The posterior cannot be computed without knowing P(Y=y)."
+          },
+          "answer": "A",
+          "rationale": "The slides provide two computations with identical likelihood numbers but different priors (prevalence). With P(H)=0.1, the posterior is 0.795; with P(H)=0.01, the posterior is 0.261. The Bayes-rule breakdown states that p(H) is the prior and that the posterior is proportional to prior × likelihood, so reducing the prior (prevalence) reduces the posterior when the likelihood is held fixed.\n\nWhy others are wrong:\n- B contradicts the provided numerical results showing a decrease.\n- C contradicts the provided numerical results; unchanged likelihood does not imply unchanged posterior when the prior changes.\n- D is refuted by the slides’ explicit computations of P(H|Y) (they compute it using the expanded denominator), and by the statement that dividing by p(Y=y) normalizes (it can be computed via the denominator expression shown).",
+          "source": {
+            "page": 36,
+            "pages": [
+              33,
+              36,
+              37,
+              38,
+              39
+            ]
+          },
+          "evidence_quotes": [
+            "𝑝(𝐻): what we know about possible values of 𝐻 before we see any data – the prior\ndistribution (layman terms: prior belief).",
+            "posterior ∝ prior × likelihood",
+            "We know that: 𝑃 𝐻 = 0.1 and 𝑃 𝑌 𝐻 = 0.875, 𝑃 𝑌 𝐻 = 0.975.",
+            "𝑃 𝐻 𝑌 = = = 0.795",
+            "Now suppose the prevalence of the disease in\nthe area where Jack lives is changed to 1%.\nPrior\n𝑃 𝐻 = 0.01",
+            "We know that: 𝑃 𝐻 = 0.01 and 𝑃 𝑌 𝐻 = 0.875, 𝑃 𝑌 𝐻 = 0.975.",
+            "𝑃 𝐻 𝑌 = = = 0.261"
+          ]
+        },
+        {
+          "question_id": "prob_bayes_04_discrete_continuous_green_tea",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "discrete_vs_continuous_random_variables",
+            "probability_properties_part1"
+          ],
+          "difficulty": 1,
+          "stem": "For the green-tea example, which pairing correctly matches the situation to the type of random variable, based on the slide’s discrete/continuous distinction?",
+          "options": {
+            "A": "Any quantity can be sold → continuous; only packets of 10kg → discrete.",
+            "B": "Any quantity can be sold → discrete; only packets of 10kg → continuous.",
+            "C": "Both cases are continuous because weight is measured on the real line.",
+            "D": "Both cases are discrete because the total stock is finite (1000kg)."
+          },
+          "answer": "A",
+          "rationale": "The slide distinguishes “Countable numbers of value” (discrete) from “Infinitely many real values” (continuous) and then explicitly warns that the green-tea weight example can be confusing, contrasting “any quantity can be sold” versus “only be sold in packets of 10kg”. Any quantity implies infinitely many real values (continuous), whereas packets of 10kg restrict outcomes to countable multiples (discrete).\n\nWhy others are wrong:\n- B swaps the mapping.\n- C ignores the slide’s explicit packet-size restriction changing the nature of the variable.\n- D confuses finiteness of a range with countability; the slide’s criterion is countable vs infinitely many real values.",
+          "source": {
+            "page": 30,
+            "pages": [
+              30
+            ]
+          },
+          "evidence_quotes": [
+            "Discrete variable Continuous variable\nCountable numbers of value (e.g., number of students) Infinitely many real values (e.g., time to complete a task)",
+            "Important: Note whether the variable is discrete or continuous! Could be\nconfusing sometimes. Example:\nA large quantity of green tea (e.g., 1000kg) is to be sold. 𝑋 is the weight of green tea to be\nsold. Suppose any quantity can be sold, is 𝑋 discrete or continuous?\nWhat if the green tea can only be sold in packets of 10kg, is 𝑋 now discrete or continuous?"
+          ]
+        },
+        {
+          "question_id": "prob_bayes_05_weather_posterior_interpretation",
+          "topic_id": "probability_foundations_and_bayes_rule",
+          "knowledge_tags": [
+            "bayes_rule_example_weather",
+            "bayes_rule_detailed_breakdown",
+            "probability_interpretations"
+          ],
+          "difficulty": 2,
+          "stem": "In the weather-forecast example, the weatherman forecasts rain (Y=1). Which statement best explains—using the slide’s Bayes framing and the numerical result—why the posterior probability of actual rain is still relatively low?",
+          "options": {
+            "A": "Because the prior probability of rain is very small (5/365 = 0.0137), multiplying by the likelihood and then normalizing yields a posterior of 0.111 even after a rain forecast.",
+            "B": "Because the likelihood P(Y|H)=0.9 is small, the posterior must be small.",
+            "C": "Because Bayes’ rule treats probabilities only as long-run frequencies, it cannot represent uncertainty about tomorrow’s weather.",
+            "D": "Because the posterior equals the likelihood when Y=1, so it must be 0.9."
+          },
+          "answer": "A",
+          "rationale": "The slides present the prior probability of rain as 5/365 = 0.0137 and compute the posterior P(H|Y)=0.111 given a rain forecast. The Bayes-rule breakdown says posterior ∝ prior × likelihood with a normalization by p(Y=y). A small prior can keep the posterior modest even with a fairly high likelihood.\n\nWhy others are wrong:\n- B contradicts the slide: P(Y|H)=0.9 is large, not small.\n- C conflicts with the slide’s Bayesian interpretation: it is used to “quantify uncertainty or ignorance about something” and to “update the degree of certainty given data.”\n- D is a common misconception; the slides explicitly compute P(H|Y)=0.111, not 0.9, and distinguish posterior from likelihood.",
+          "source": {
+            "page": 34,
+            "pages": [
+              27,
+              33,
+              34
+            ]
+          },
+          "evidence_quotes": [
+            "Bayesian interpretation: quantify uncertainty or\nignorance about something",
+            "posterior ∝ prior × likelihood",
+            "In recent years, it has rained only 5 Prior\n𝑃 𝐻 = = 0.0137\ndays each year. Probability 365",
+            "When it actually rains, the weatherman 𝑃 𝑌 𝐻 = 0.9\nhas forecast rain 90% of the time.",
+            "𝑃(𝐻|𝑌) = = 0.111",
+            "The probability it will rain on the day of Marie's wedding, given the\nweatherman is forecasting rain for tomorrow is 0.111"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "core_distributions_for_modeling",
+      "topic": "Core distributions for classification and modeling",
+      "slide_range": [
+        40,
+        59
+      ],
+      "questions": [
+        {
+          "question_id": "cdm_q1_bernoulli_vs_binomial_modeling_choice",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "bernoulli_distribution",
+            "binomial_distribution"
+          ],
+          "difficulty": 2,
+          "stem": "You observe N repeated coin flips and want to model only the total number of heads s (not the entire sequence). Which modeling choice is consistent with the slides’ stated relationship between Bernoulli trials and the distribution of their sum?",
+          "options": {
+            "A": "Model each flip as Bernoulli and the total count s as Binomial, since the sum of Bernoulli random variables follows a Binomial distribution.",
+            "B": "Model s directly as Bernoulli because Bernoulli is the special case of Binomial and therefore applies to any N.",
+            "C": "Model s as Categorical because it generalizes Bernoulli to C > 2 outcomes, and s can take more than two values when N > 1.",
+            "D": "Model s as Gaussian because it is the most widely used distribution of real-valued random variables."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly connect repeated Bernoulli trials to a Binomial distribution over the sum/count: they state that with multiple flips, “the sum of the Bernoulli random variables will follow a Binomial distribution,” and define s as “the total number of heads,” followed by “The distribution of s follows the binomial distribution.”\n\nB is wrong because the slides state the direction of the special-case relationship as “The Bernoulli distribution is a special case of the binomial distribution,” which does not imply that a count over N trials (with N>1) is Bernoulli.\n\nC is wrong because the categorical distribution is introduced to “Generalize the Bernoulli to C > 2 values” for multi-class outcomes, but s is a count derived from repeated Bernoulli trials, and the slides specifically assign that count a Binomial distribution.\n\nD is wrong because the Gaussian slide emphasizes “real-valued random variables y ∈ ℝ,” while s is defined as a count of heads from Bernoulli trials; moreover, the slides already specify Binomial for s.",
+          "source": {
+            "page": 41,
+            "pages": [
+              41,
+              50,
+              55
+            ]
+          },
+          "evidence_quotes": [
+            "Now, if we flip a coin multiple times. Then the sum of the Bernoulli random\nvariables will follow a Binomial distribution.",
+            "Define 𝑠 to be the total number of heads 𝑠 ≜\n∑𝑁\n𝕀(𝑦 = 1).",
+            "The distribution of 𝑠 follows the binomial distribution:",
+            "Generalize the Bernoulli to 𝐶 > 2 values.",
+            "The most widely used distribution of real-valued random variables 𝑦 ∈ ℝ\nis the Gaussian distribution (equivalently, normal distribution)."
+          ]
+        },
+        {
+          "question_id": "cdm_q2_binary_prediction_sigmoid_reason",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "binary_prediction_setup",
+            "sigmoid_function_visualization",
+            "bernoulli_distribution"
+          ],
+          "difficulty": 2,
+          "stem": "In the binary prediction setup, why do the slides introduce the sigmoid function around an unconstrained score f(x; θ) rather than directly using f(x; θ) as the Bernoulli parameter?",
+          "options": {
+            "A": "Because using σ(f(x;θ)) avoids the constraint 0 < f(x;θ) ≤ 1 while still producing a Bernoulli parameter, and σ can be viewed as a “soft” version of the Heaviside step.",
+            "B": "Because σ(f(x;θ)) ensures the outputs sum to 1 across classes, which is required for Bernoulli modeling.",
+            "C": "Because σ(f(x;θ)) converts the model from Bernoulli to Binomial by aggregating multiple trials into a count.",
+            "D": "Because σ(f(x;θ)) is required to compute the posterior distribution p(H=h | Y=y) via Bayes’ rule."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the binary prediction slide states the motivation explicitly—“To avoid requiring 0 < f x; θ ≤ 1, let f be an unconstrained function, we use the following model: p(y|x,θ)=Ber(y|σ(f(x;θ))).” The sigmoid visualization slide adds interpretive support by stating “The sigmoid function can be thought of as a “soft” version of the heaviside step function.”\n\nB is wrong because the “sum to 1 across classes” constraint is stated for categorical prediction with softmax, not for Bernoulli; Bernoulli just needs a single parameter in (0,1].\n\nC is wrong because Binomial is about “flip a coin multiple times” and the “sum of the Bernoulli random variables,” not about applying sigmoid to a score.\n\nD is wrong because Bayes’ rule is presented as a general probability update formula and does not state any requirement to use sigmoid.",
+          "source": {
+            "page": 48,
+            "pages": [
+              48,
+              49,
+              52,
+              41,
+              44
+            ]
+          },
+          "evidence_quotes": [
+            "To avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1, let 𝑓 be an unconstrained function, we\nuse the following model:\n𝑝 𝑦 𝒙, 𝜽 = Ber(𝑦|𝜎(𝑓 𝒙; 𝜽 )).",
+            "𝜎() is the sigmoid (logistic) function – “sigmoid” means S-shaped.",
+            "The sigmoid function can be thought of as a “soft” version of the heaviside\nstep function.",
+            "To avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1 and ∑ 𝑓 𝒙; 𝜽 = 1, let 𝑓 be an\n𝑐 𝑐=1 𝑐\nunconstrained function, we use the following model:",
+            "Now, if we flip a coin multiple times. Then the sum of the Bernoulli random\nvariables will follow a Binomial distribution.",
+            "Bayes’ rule: a formula for computing the probability distribution over\npossible values of an unknown quantity 𝐻 given observed data 𝑌 = 𝑦."
+          ]
+        },
+        {
+          "question_id": "cdm_q3_softmax_vs_sigmoid_constraints",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "softmax_for_categorical_prediction",
+            "softmax_additional_notes",
+            "binary_prediction_setup",
+            "categorical_and_multinomial_distribution"
+          ],
+          "difficulty": 3,
+          "stem": "A student proposes: “For C-class classification, we can just apply the sigmoid σ() independently to each class score f_c(x;θ) and treat the result as class probabilities.” Based on the slides, what is the best critique of this proposal?",
+          "options": {
+            "A": "It fails to enforce the categorical constraint that probabilities across classes sum to 1; the slides introduce softmax specifically to avoid requiring both 0 < f_c(x;θ) ≤ 1 and ∑_c f_c(x;θ)=1, and note softmax outputs sum to 1.",
+            "B": "It is incorrect because sigmoid outputs can be negative, so they cannot be used as probabilities for any class.",
+            "C": "It is incorrect because categorical variables must be modeled with a Binomial distribution when C > 2.",
+            "D": "It is incorrect because softmax is only needed at low temperature T → 0; otherwise argmax should be used instead of probabilities."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the categorical prediction slide explicitly states the two constraints that must be handled for categorical probabilities and introduces softmax as the solution: “To avoid requiring 0 < f(x;θ) ≤ 1 and ∑ f(x;θ) = 1 … we use … Cat(y|softmax(f(x;θ))).” The follow-up softmax notes reinforce that softmax outputs form a valid probability vector: “softmax a ∈ 0,1 , and ∑ softmax a = 1.” This directly critiques the student’s independent-sigmoid idea: it does not address the cross-class normalization requirement.\n\nB is wrong because the slides state “softmax a ∈ 0,1 ,” and for sigmoid they define it as “1/(1+e^{-a})”, which is not negative; the claim about negativity is unsupported and contradicts the probability intent.\n\nC is wrong because the slides present categorical/multinomial as the generalization beyond two outcomes: “Generalize the Bernoulli to C > 2 values. Categorical distribution,” not Binomial.\n\nD is wrong because the slides say softmax at extremes “acts like the argmax function” as T → 0, but they do not say probabilities should be replaced by argmax in general; rather, they emphasize softmax’s probability properties and widespread use in classification.",
+          "source": {
+            "page": 52,
+            "pages": [
+              52,
+              53,
+              48,
+              50
+            ]
+          },
+          "evidence_quotes": [
+            "To avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1 and ∑ 𝑓 𝒙; 𝜽 = 1, let 𝑓 be an\n𝑐 𝑐=1 𝑐\nunconstrained function, we use the following model:\n𝑝 𝑦 𝒙, 𝜽 = Cat(𝑦|softmax(𝑓 𝒙; 𝜽 )).",
+            "1. Properties of Softmax:\na. softmax 𝒂 ∈ 0,1 , and\n∑𝐶\nsoftmax 𝒂 = 1.",
+            "To avoid requiring 0 < 𝑓 𝒙; 𝜽 ≤ 1, let 𝑓 be an unconstrained function, we\nuse the following model:\n𝑝 𝑦 𝒙, 𝜽 = Ber(𝑦|𝜎(𝑓 𝒙; 𝜽 )).",
+            "Generalize the Bernoulli to 𝐶 > 2 values.\nCategorical distribution:"
+          ]
+        },
+        {
+          "question_id": "cdm_q4_multinomial_special_cases_mapping",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "categorical_and_multinomial_distribution",
+            "binomial_distribution",
+            "bernoulli_distribution"
+          ],
+          "difficulty": 2,
+          "stem": "Which mapping of parameter settings correctly matches the slides’ stated special-case relationships among multinomial, categorical, and binomial distributions?",
+          "options": {
+            "A": "If N = 1, multinomial becomes categorical; if C = 2, multinomial is binomial.",
+            "B": "If C = 1, multinomial becomes categorical; if N = 2, multinomial is binomial.",
+            "C": "If N = 1, multinomial becomes binomial; if C = 2, multinomial is categorical.",
+            "D": "If C = 2, multinomial becomes Bernoulli; if N = 1, multinomial becomes binomial."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides state both special cases explicitly: “If N = 1, the multinomial distribution becomes the categorical distribution, if C = 2, the multinomial distribution is the binomial distribution.”\n\nB and C are wrong because they swap or invent conditions not stated on the slides.\n\nD is wrong because while Bernoulli is related to binary outcomes, the slide’s explicit special case for multinomial at C=2 is binomial (not Bernoulli), and at N=1 it is categorical (not binomial).",
+          "source": {
+            "page": 50,
+            "pages": [
+              50
+            ]
+          },
+          "evidence_quotes": [
+            "If 𝑁 = 1, the multinomial distribution becomes the\ncategorical distribution, if 𝐶 = 2, the multinomial distribution is the binomial distribution."
+          ]
+        },
+        {
+          "question_id": "cdm_q5_gaussian_sigma_roles_and_dirac_limit",
+          "topic_id": "core_distributions_for_modeling",
+          "knowledge_tags": [
+            "univariate_gaussian_distribution",
+            "other_univariate_distributions"
+          ],
+          "difficulty": 1,
+          "stem": "Which statement best aligns the role of σ in the Gaussian with the slide’s description of the Dirac delta distribution?",
+          "options": {
+            "A": "σ encodes the variance of the Gaussian, and when σ → 0 the distribution corresponds to a Dirac delta.",
+            "B": "σ encodes the mean of the Gaussian, and when σ → 0 the distribution corresponds to a Student t-distribution.",
+            "C": "σ encodes the variance of the Gaussian, and when σ → 0 the distribution becomes Laplace (double-sided exponential).",
+            "D": "σ encodes the variance of the Gaussian, and when σ → 1 the distribution corresponds to a Dirac delta."
+          },
+          "answer": "A",
+          "rationale": "A is correct by directly combining two slide statements: the Gaussian slide says “σ encodes the variance,” and the other-distributions slide says “Dirac delta: when the σ of Gaussian → 0.”\n\nB is wrong because the Gaussian slide assigns the mean to μ, not σ, and Student t is described differently (“less sensitive to outliers than the Gaussian distribution”), not as a σ→0 limit.\n\nC is wrong because Laplace is described as “double-sided exponential distribution,” not as a σ→0 Gaussian limit.\n\nD is wrong because the Dirac delta condition given is σ→0, not σ→1.",
+          "source": {
+            "page": 55,
+            "pages": [
+              55,
+              58
+            ]
+          },
+          "evidence_quotes": [
+            "Here, 𝜇 encodes the mean of the distribution, 𝜎 encodes the variance,",
+            "Dirac delta: when the 𝜎 of Gaussian → 0.",
+            "Student 𝑡-distribution: less sensitive to\noutliers than the Gaussian distribution.",
+            "Laplace distribution: double-sided\nexponential distribution."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "model_fitting_mle_and_erm",
+      "topic": "Model fitting: MLE and ERM",
+      "slide_range": [
+        60,
+        65
+      ],
+      "questions": [
+        {
+          "question_id": "mfme_01",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "estimating_probability_models_model_fitting",
+            "maximum_likelihood_estimation",
+            "empirical_risk_minimization"
+          ],
+          "difficulty": 2,
+          "stem": "You want to use a standard optimization routine that only supports argmin. Under the slide definitions, which choice correctly makes MLE compatible with argmin while keeping the same optimum parameters?",
+          "options": {
+            "A": "Minimize the (conditional) negative log likelihood: maximize likelihood = minimize NLL.",
+            "B": "Minimize the likelihood p(D|θ) directly, since most algorithms are designed to min cost functions.",
+            "C": "Replace the log loss with an arbitrary loss ℓ(y_n, θ; x_n) (ERM), which is equivalent to MLE for any choice of ℓ.",
+            "D": "Minimize the posterior p(y|x, θ) for each sample independently, because the data are iid."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly state the argmax-to-argmin conversion used in MLE: “Most optimization algorithms are designed to min cost functions (argmin instead of argmax), redefine the objective function to be the (conditional) negative log likelihood (NLL): maximize likelihood = minimize NLL.” This preserves the same optimizer θ as maximizing p(D|θ).\n\nB is wrong: the slides define MLE as “arg max p(D|θ)”; minimizing p(D|θ) would reverse the objective, not preserve it.\n\nC is wrong: ERM is a generalization (“replace log loss term with other loss function!”), but it is not stated to be equivalent to MLE for arbitrary ℓ; MLE corresponds specifically to the log-loss/NLL choice.\n\nD is wrong: iid justifies factorizing the likelihood over samples, not “minimize the posterior p(y|x, θ) for each sample independently.” The slide objective is over the dataset via likelihood/NLL.",
+          "source": {
+            "page": 61,
+            "pages": [
+              61,
+              64
+            ]
+          },
+          "evidence_quotes": [
+            "The intuitive objective: pick the parameters that assign the highest prob.\nto the training data (usually labelled) – maximum likelihood estimation:\n෡\n𝜽 = arg max 𝑝(𝒟|𝜽)\n𝑚𝑙𝑒\n𝜽",
+            "Most optimization algorithms are designed to min cost functions (argmin\ninstead of argmax), redefine the objective function to be the (conditional)\nnegative log likelihood (NLL): maximize likelihood = minimize NLL.",
+            "Generalize MLE: replace log loss term with other loss function!\nℓ 𝜽 = − log 𝑝(𝑦 |𝑥 , 𝜽) → ℓ(𝑦 , 𝜽; 𝑥 )."
+          ]
+        },
+        {
+          "question_id": "mfme_02",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "maximum_likelihood_estimation",
+            "empirical_risk_minimization",
+            "erm_misclassification_rate"
+          ],
+          "difficulty": 3,
+          "stem": "A student claims: “Minimizing empirical misclassification rate is just MLE, because both are sums over n.” Using only the slides, which statement most precisely corrects this claim?",
+          "options": {
+            "A": "ERM generalizes MLE by replacing the log-loss term with another loss; 0-1 loss yields empirical misclassification rate, which is not the same as NLL unless the loss is chosen as −log p(y|x,θ).",
+            "B": "The empirical misclassification rate is exactly the NLL, because both are defined as sums from n=1 to N.",
+            "C": "MLE is an argmin of a loss ℓ(y_n,θ;x_n) while ERM is an argmax of p(D|θ), so they are opposites.",
+            "D": "ERM requires iid sampling but MLE does not, so misclassification minimization cannot be related to MLE."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly position ERM as a generalization of MLE: “Generalize MLE: replace log loss term with other loss function!” and show the replacement “ℓ(𝜽) = − log 𝑝(𝑦 |𝑥 , 𝜽) → ℓ(𝑦 , 𝜽; 𝑥 ).” They then define ERM as “ℒ(𝜽) = ∑ ℓ(𝑦 , 𝜽; 𝑥 ) – Empirical risk minimization (ERM).” Separately, for classification they specify the 0-1 loss and that the resulting empirical risk “is defined as the empirical misclassification rate on the training set.” Thus, misclassification minimization is an ERM instance with 0-1 loss, not automatically the same as MLE/NLL.\n\nB is wrong: sharing a “sum over n” form does not make the loss identical; slides distinguish NLL (sum of −log probabilities) from 0-1 loss.\n\nC is wrong: the slides show MLE can be written as argmin NLL (“maximize likelihood = minimize NLL” and “θ̂ = arg min … NLL(θ)”), so it is not an argmax-vs-argmin opposition.\n\nD is wrong: the slides explicitly state iid as an assumption for MLE, so it cannot be used to separate ERM from MLE in that way.",
+          "source": {
+            "page": 64,
+            "pages": [
+              61,
+              64,
+              65
+            ]
+          },
+          "evidence_quotes": [
+            "Assume: training samples are independently sampled from the same distribution – iid\nassumption (independent and identical distributed).",
+            "Generalize MLE: replace log loss term with other loss function!\nℓ 𝜽 = − log 𝑝(𝑦 |𝑥 , 𝜽) → ℓ(𝑦 , 𝜽; 𝑥 ).",
+            "𝑁\nℒ 𝜽 = ∑ ℓ(𝑦 , 𝜽; 𝑥 ) – Empirical risk minimization (ERM).\n𝑛=1 𝑛 𝑛",
+            "If we are solving a classification problem, an intuitive loss selection would\nbe the 0-1 loss: (𝑓 being some kind of predictor)",
+            "This is defined as the empirical misclassification rate on the training set."
+          ]
+        },
+        {
+          "question_id": "mfme_03",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "estimating_probability_models_model_fitting",
+            "empirical_risk_minimization",
+            "maximum_likelihood_estimation"
+          ],
+          "difficulty": 2,
+          "stem": "Which pairing correctly matches (i) the general training optimization template for model fitting and (ii) a concrete instantiation of ℒ(θ) that corresponds to MLE under the iid assumption?",
+          "options": {
+            "A": "(i) θ̂ = arg min_θ ℒ(θ); (ii) ℒ(θ) = NLL(θ) = −∑_{n=1}^N log p(y_n|x_n,θ).",
+            "B": "(i) θ̂ = arg max_θ ℒ(θ); (ii) ℒ(θ) = ∑_{n=1}^N p(y_n|x_n,θ).",
+            "C": "(i) θ̂ = arg min_θ p(D|θ); (ii) ℒ(θ) = ∑_{n=1}^N ℓ_01(y_n,θ;x_n) (because MLE is classification).",
+            "D": "(i) θ̂ = arg min_θ ℒ(θ); (ii) ℒ(θ) = log p(D|θ) (since logs turn maximization into minimization)."
+          },
+          "answer": "A",
+          "rationale": "A is correct because slide 60 gives the generic training template “θ̂ = arg min ℒ(θ)” and slide 61 gives the MLE-compatible argmin instantiation via NLL: “NLL(θ) ≜ − log p(D|θ) = − ∑ log p(y|x,θ)” and “θ̂ = arg min … NLL(θ).”\n\nB is wrong: the template on slide 60 is argmin, not argmax; and MLE uses log-likelihood/NLL rather than summing probabilities.\n\nC is wrong: MLE is defined as maximizing p(D|θ) (or minimizing NLL), not minimizing p(D|θ); and 0-1 loss is presented as an ERM choice for classification, not as the definition of MLE.\n\nD is wrong: logs alone do not convert max to min; the slide explicitly introduces the negative log likelihood for argmin (“maximize likelihood = minimize NLL”), not minimizing the log-likelihood itself.",
+          "source": {
+            "page": 60,
+            "pages": [
+              60,
+              61
+            ]
+          },
+          "evidence_quotes": [
+            "The training boils down to an optimization of the form:\n෡\n𝜽 = arg min ℒ(𝜽)\n𝜽",
+            "NLL 𝜽 ≜ − log 𝑝 𝒟 𝜽 = − ෍ log 𝑝(𝑦 |𝑥 , 𝜽)\n𝑛 𝑛\n𝑛=1",
+            "෡\n𝜽 = arg min ℒ(𝜽) = arg min NLL 𝜽\n𝜽 𝜽"
+          ]
+        },
+        {
+          "question_id": "mfme_04",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "mle_bernoulli",
+            "maximum_likelihood_estimation",
+            "empirical_risk_minimization"
+          ],
+          "difficulty": 1,
+          "stem": "In the Bernoulli coin-toss example, which estimator description is consistent with the slide’s interpretation of the MLE outcome (and therefore with minimizing the Bernoulli NLL)?",
+          "options": {
+            "A": "The estimate equals the empirical fraction of heads in the sample.",
+            "B": "The estimate equals the empirical fraction of tails in the sample.",
+            "C": "The estimate must be chosen to minimize the 0-1 loss of a classifier f(x;θ).",
+            "D": "The estimate is obtained by maximizing p(y|x,θ) for a single sample rather than using the dataset."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the Bernoulli MLE slide states: “Observe: this is just the empirical fraction of heads, an intuitive result!” and defines θ as “θ = p(Y = 1) be the probability of heads.”\n\nB is wrong: the slide ties θ to heads (Y=1), not tails.\n\nC is wrong: 0-1 loss is introduced under ERM for classification, not as the Bernoulli MLE criterion.\n\nD is wrong: MLE is defined over the training dataset D (and under iid leads to a product/sum over samples), not a single-sample objective.",
+          "source": {
+            "page": 62,
+            "pages": [
+              61,
+              62,
+              65
+            ]
+          },
+          "evidence_quotes": [
+            "Let 𝜃 = 𝑝(𝑌 = 1) be the probability of heads.",
+            "Observe: this is just the empirical fraction of heads, an intuitive result!",
+            "The intuitive objective: pick the parameters that assign the highest prob.\nto the training data (usually labelled) – maximum likelihood estimation:\n෡\n𝜽 = arg max 𝑝(𝒟|𝜽)\n𝑚𝑙𝑒\n𝜽",
+            "If we are solving a classification problem, an intuitive loss selection would\nbe the 0-1 loss: (𝑓 being some kind of predictor)"
+          ]
+        },
+        {
+          "question_id": "mfme_05",
+          "topic_id": "model_fitting_mle_and_erm",
+          "knowledge_tags": [
+            "mle_univariate_gaussian",
+            "maximum_likelihood_estimation",
+            "estimating_probability_models_model_fitting"
+          ],
+          "difficulty": 2,
+          "stem": "A student says: “For the univariate Gaussian MLE, we only need to estimate μ because σ² is fixed by the iid assumption.” Which statement best addresses this using the slides?",
+          "options": {
+            "A": "Incorrect: the slide states the parameters are θ = (μ, σ²), and the dataset is an iid sample; iid is an assumption about sampling, not a statement that σ² is fixed.",
+            "B": "Correct: iid means all samples share the same μ but different σ², so only μ is a parameter.",
+            "C": "Correct: since training is always θ̂ = arg min ℒ(θ), Gaussian MLE cannot estimate more than one parameter.",
+            "D": "Incorrect: because MLE is defined only for labelled data p(y|x,θ), it cannot apply to Y ~ N(μ, σ²)."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the Gaussian slide explicitly declares both parameters to be estimated: “The parameters are 𝜽 = (𝜇, 𝜎²). We estimate with MLE:” and also notes the data are “an iid sample of size N.” The MLE slide separately defines iid as an assumption about how samples are drawn (“independently sampled from the same distribution”), not as fixing σ².\n\nB is wrong: it contradicts the stated parameterization θ=(μ,σ²) and misuses iid.\n\nC is wrong: the argmin template does not limit the number of parameters; it is an optimization over θ, which can be vector-valued (as in θ=(μ,σ²)).\n\nD is wrong: while MLE slide writes p(y|x,θ), the Gaussian slide still explicitly says “We estimate with MLE” for Y~N(μ,σ²), so the slides do apply MLE there.",
+          "source": {
+            "page": 63,
+            "pages": [
+              61,
+              63,
+              60
+            ]
+          },
+          "evidence_quotes": [
+            "Suppose 𝑌~𝑁(𝜇, 𝜎 ) and 𝒟 = 𝑦 : 𝑛 = 1: 𝑁 is an iid sample of size 𝑁.\n𝑛",
+            "The parameters are 𝜽 = (𝜇, 𝜎 ). We estimate with MLE:",
+            "Assume: training samples are independently sampled from the same distribution – iid\nassumption (independent and identical distributed).",
+            "The training boils down to an optimization of the form:\n෡\n𝜽 = arg min ℒ(𝜽)\n𝜽"
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

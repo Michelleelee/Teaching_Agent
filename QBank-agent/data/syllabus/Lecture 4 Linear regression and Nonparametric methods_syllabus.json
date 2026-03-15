@@ -1,0 +1,86 @@
+{
+  "syllabus": [
+    {
+      "topic": "Linear Regression Fundamentals and Problem Setup",
+      "page_range": [
+        2,
+        9
+      ],
+      "sub_points": [
+        "Regression problem definition and how it differs from classification (output type, loss, evaluation)",
+        "Linear regression model form, notation/terminology (features, weights, bias, design matrix), and general multivariate cases",
+        "Relationship between linear regression and logistic regression; when each is appropriate",
+        "Logistic regression as a probabilistic model for classification using a link function (sigmoid) and decision boundary interpretation"
+      ]
+    },
+    {
+      "topic": "Fitting Linear Models: Likelihood, Least Squares, and Geometry",
+      "page_range": [
+        10,
+        17
+      ],
+      "sub_points": [
+        "Parameter estimation workflow for linear regression models (objective functions and optimization perspective)",
+        "Negative log-likelihood (NLL) viewpoint and its connection to common regression assumptions (e.g., Gaussian noise)",
+        "Least-squares estimation (LSE) recap for linear classifiers and extension to linear regression",
+        "Geometric interpretation of LSE (projection onto column space, residual orthogonality) and implications for solutions"
+      ]
+    },
+    {
+      "topic": "Extensions and Diagnostics: Weighted Least Squares and Goodness of Fit",
+      "page_range": [
+        18,
+        23
+      ],
+      "sub_points": [
+        "Weighted least squares to handle heteroscedasticity or varying sample reliability",
+        "Goodness-of-fit metrics (error summaries and variance-explained style measures) and their interpretation",
+        "Residual analysis via residual plots to diagnose model mismatch, nonlinearity, and outliers",
+        "Practical considerations in assessing model adequacy beyond a single scalar metric"
+      ]
+    },
+    {
+      "topic": "Regularization for Linear Regression: Ridge and Lasso",
+      "page_range": [
+        24,
+        35
+      ],
+      "sub_points": [
+        "Limitations of ordinary LSE (overfitting, multicollinearity, ill-conditioning) motivating regularization",
+        "Ridge regression (L2 regularization): objective, shrinkage effect, and selecting/deriving an optimal weight",
+        "Under-determined systems and the small-sample/high-dimensional regime; ridge as a stabilizer and its optimality conditions",
+        "More extreme regularization leading to sparsity: lasso regression (L1) and its Bayesian interpretation via a Laplace prior",
+        "Comparative behavior of ridge vs. lasso (shrinkage vs. feature selection) and practical trade-offs"
+      ]
+    },
+    {
+      "topic": "Tree-Based Methods: Regression/Classification Trees and CART Model Fitting",
+      "page_range": [
+        37,
+        54
+      ],
+      "sub_points": [
+        "Motivation for tree models as nonparametric learners and how they partition feature space",
+        "Regression trees with worked examples and visualization of piecewise-constant/piecewise-simple predictions",
+        "Classification trees and the unified CART perspective across regression and classification",
+        "CART training procedure: node splitting criteria, greedy search, and selecting the optimal tree/model",
+        "Special-case handling and a balanced view of decision trees’ strengths and weaknesses (interpretability vs. variance/instability)"
+      ]
+    },
+    {
+      "topic": "Ensemble Learning for Stabilizing Trees: Bagging and Random Forests",
+      "page_range": [
+        55,
+        64
+      ],
+      "sub_points": [
+        "Instability of single decision trees (e.g., sensitivity to data perturbations) and empirical demonstration (IRIS example)",
+        "Core ensemble ideas: combining multiple models and voting/aggregation mechanisms",
+        "Bagging (bootstrap aggregating): algorithm, bias-variance intuition, and pros/cons in practice",
+        "Random forests: decorrelating base trees via feature subsampling; end-to-end training process and example",
+        "Performance comparison/visualization of random forests vs. bagging and when RF typically provides gains"
+      ]
+    }
+  ],
+  "source_file": "Lecture 4 Linear regression and Nonparametric methods.pdf"
+}

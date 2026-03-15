@@ -1,0 +1,357 @@
+{
+  "source_file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+  "outline": [
+    "EE5907 Pattern Recognition",
+    "Linear Regression",
+    "Regression? Regression vs. Classification?",
+    "Define Linear Regression",
+    "Linear Regression: More Terminologies",
+    "Linear Regression for General Cases",
+    "Logistic Regression and Linear Regression?",
+    "Logistic Regression",
+    "Fitting Linear Regression Models",
+    "Fitting LR Models with NLL",
+    "Recap: LSE Estimation for Linear Classifiers",
+    "LSE Estimation for Linear Regression",
+    "Geometric Interpretation of LSE",
+    "Weighted Least Squares",
+    "Measuring Goodness of Fit",
+    "Goodness of Fit: Visualize the Residual Plot",
+    "Measuring Goodness of Fit",
+    "Limitations of LSE and Ridge Regression",
+    "Ridge Regression",
+    "Optimal Weight for Ridge Regression",
+    "Recap: Under-Determined Systems",
+    "Ridge Regression for Less Samples",
+    "Optimal Weight Under Less Samples",
+    "A More Extreme Regularization",
+    "Lasso Regression: LR with Laplace Prior",
+    "Regression with Ridge and Lasso",
+    "EE5907 Pattern Recognition",
+    "Supplementary",
+    "Question: How can we leverage Trees",
+    "Regression Trees",
+    "Regression Trees: Example",
+    "Regression Trees: Another Example (Vis)",
+    "Similarly: The Classification Trees",
+    "Model Fitting for CART",
+    "Model Fitting for CART: Node Splitting",
+    "Model Fitting for CART: the Optimal Model",
+    "Model Fitting for CART: the Overview",
+    "Model Fitting for CART: the Optimal Model",
+    "CART: A Numerical Example",
+    "CART: Handling the Special Cases",
+    "The Pros and Cons of CART / DT",
+    "Unstable DT: Example with the IRIS dataset",
+    "Can We Stabilize the DT?",
+    "Ensemble Learning: Combining Models",
+    "Ensemble Learning: Voting",
+    "Bagging: an Introduction",
+    "The Cons and Pros of Bagging",
+    "Decorrelate Base Models : Random Forests",
+    "Random Forests: Process and Example",
+    "Visualize the Performance of RF vs. Bagging"
+  ],
+  "slides": [
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 1,
+      "title": "EE5907 Pattern Recognition",
+      "content": "Lecture 4 Linear Regression\n&\n(Supplementary) Nonparametric Methods\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 2,
+      "title": "Linear Regression",
+      "content": "✓ Basic Terminology\n✓ Least Square Estimation for Linear Regression\n✓ Extension: Ridge Regression and Lasso Regression\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 3,
+      "title": "Regression? Regression vs. Classification?",
+      "content": "A set of processes for estimating the relationships between a dependent\nvariable (a real-valued output) and one or more independent variables\n(real-valued inputs).\nWhat is the difference between regression and classification?\nRegression: used to determine continuous values (e.g., price, income, temperature).\nClassification algorithms: used to forecast or classify the distinct values (e.g., Real\nor False, Male or Female, Cold or Hot).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 4,
+      "title": "Define Linear Regression",
+      "content": "In short, predicting the dependent variable 𝑦 ∈ ℝ given a vector\n𝐷\nof independent variables 𝑥 ∈ ℝ .\nLinear regression: the expected value of the output assumed\n𝑇\nto be a linear function of the input: 𝔼 𝑦|𝑥 = 𝒘 𝑥.\nMathematically, it is of the form:\n𝑇 2\n𝑝 𝑦 𝑥, 𝜃 = 𝒩 𝑦|𝑤 + 𝒘 𝑥, 𝜎\n0\n2\nThe parameters of the model are 𝜃 = (𝑤 , 𝒘, 𝜎 ).\n0\nVector of params 𝒘 : the weights or regression coefficients; 𝑤 : the\n1:𝐷 0\noffset or bias term.\nFor simplicity, we can assume 𝑥 = [1, 𝑥 , … , 𝑥 ] to absorb offset term 𝑤\n1 𝐷 0\ninto the weight vector 𝒘.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 5,
+      "title": "Linear Regression: More Terminologies",
+      "content": "If the input is a 1-D input (𝐷 = 1), the model has the form 𝑓 𝑥; 𝒘 = 𝑎𝑥 + 𝑏,\n𝑏 = 𝑤 as the intercept and 𝑎 = 𝑤 as the slope – simple linear regression.\n0 1\n𝐷\nIf input 𝑥 ∈ ℝ is multi-dimensional (𝐷 > 1) – multiple linear regression.\n𝐽\nFurther, if the output 𝑦 ∈ ℝ is also multi-dimensional (𝐽 > 1) – multivariate\nlinear regression. The model satisfies the fact that:\n𝐽\n𝑇 2\n𝑝 𝑦 𝑥, 𝒘 = ෑ 𝒩 𝑦 |𝑤 𝑥, 𝜎\n𝑗 𝑗 𝑗\n𝑗=1\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 6,
+      "title": "Linear Regression for General Cases",
+      "content": "For linear regression: assume linear correlation between input\nand output – is this possible in real-world cases?\nUnfortunately, in general, a straight line will not provide a good\nfit to most datasets!\nHow to leverage linear regression then?\nApply a nonlinear transformation to the input features:\n𝑇 2\n𝑝 𝑦|𝑥, 𝜃 = 𝒩(𝑦|𝒘 𝜙 𝑥 , 𝜎 )\nAs long as the parameters of the feature extractor 𝜙 are fixed,\nthe model remains linear in the parameters.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 7,
+      "title": "Logistic Regression and Linear Regression?",
+      "content": "Another “type” of regression that we may encounter in literature\nis the logistic regression. What is logistic regression?\nLogistic regression is generally NOT used for regression task!!\nInstead, it is more related to the Classification task.\nThe output of logistic regression is usually a class label 𝑦 ∈ {1, … , 𝐶}.\nThen why is it called “Logistic Regression”?\nA related question: can linear regression be used for classification?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 8,
+      "title": "Logistic Regression",
+      "content": "Yes, but not effective:\nClassification – prediction of the probability above or below a threshold.\nProblem with range: linear regression yield predictions below 0 or above 1, does not\nalign with the probability interpretation.\nProblem with threshold: linear regression predictions may not easily map to a clear\nclassification threshold (e.g., 0.5), and this threshold can shift when new data points\nare added, causing instability in predictions.\nLogistic regression is designed\nfor classification building on\nfeatures obtained from linear\nregression!\nHow is it achieved?\n© Copyright National University of Singapore. All Rights Reserved.\n\nThe two key components of logistic regression:\nSigmoid (logistic) function: logistic regression incorporates the\nlogistic / sigmoid function that squeeze output into range [0,1].\nLinear regression: logistic regression builds upon linear\nregression, feeding its output to the logistic / sigmoid function.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 10,
+      "title": "Fitting Linear Regression Models",
+      "content": "How can we fit the linear regression model to given data?\nRecall what we did for the linear classifiers?\nMinimize the cost function that is formulated as the mean square error\n(MSE) or the least squares error (LSE).\n2\n𝑁 𝑇\nE.g., for LSE, we want to minimize: 𝐽 𝒘 = σ 𝑦 − 𝑥 𝒘 .\n𝑖 𝑖 𝑖\nCan we apply similar techniques for fitting the linear regression\nmodels to given data?\nYes, the only difference may be the choice of error (cost function).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 11,
+      "title": "Fitting LR Models with NLL",
+      "content": "To fit a LR model, it is common to minimize the negative log\nlikelihood on the training set.\n𝑁\nRecall NLL: NLL 𝜽 ≜ − log 𝑝 𝒟 𝜽 = − σ log 𝑝(𝑦 |𝑥 , 𝜽).\n𝑛=1 𝑛 𝑛\nNote that we assume a normal distribution of the data.\nThus we can obtain the objective function of the params as:\n𝑁\n1 1 2\n𝑇\n− 𝑦−𝑥 𝒘\nNLL 𝒘, 𝜎 2 = − ෍ log 𝑒 2𝜎2 𝑛\n2𝜋𝜎2\n𝑛=1\n𝑁\n1 𝑁\n2 2\n= ෍ 𝑦 − 𝑦ො + log(2𝜋𝜎 )\n𝑛 𝑛\n2𝜎2 2\n𝑛=1\n© Copyright National University of Singapore. All Rights Reserved.\n\nTo fit a LR model, it is common to minimize the negative log\nlikelihood on the training set.\n𝑁 𝑁\n1 1 2 1 𝑁\n𝑇\n− 𝑦−𝑥 𝒘\nNLL 𝒘, 𝜎 2 = − ෍ log 𝑒 2𝜎2 𝑛 = ෍ 𝑦 − 𝑦ො 2 + log(2𝜋𝜎 2 )\n𝑛 𝑛\n2𝜋𝜎2 2𝜎2 2\n𝑛=1 𝑛=1\n𝑇\nThe predicted response is 𝑦ො ≜ 𝑥 𝒘.\n𝑛 𝑛\nThe Maximum Likelihood Estimation (MLE) point is where ∇ NLL = 0.\n𝑤,𝜎\nHere, we have two parameters to optimize: 𝒘 and 𝜎.Usually, we first\noptimize w.r.t 𝒘 then solve for the optimal 𝜎.\nWe first focus on estimating the weights 𝑤.\nIn such case, the NLL is equivalent to the LSE estimation!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 13,
+      "title": "Recap: LSE Estimation for Linear Classifiers",
+      "content": "2\n𝑁 𝑇\nMinimizing the LSE formulation LSE 𝒘 = 𝐽 𝒘 = σ 𝑦 − 𝑥 𝒘 w.r.t. 𝒘:\n𝑖 𝑖 𝑖\n𝑁 𝑁 𝑁\n𝑇 𝑇\n෍ 𝑥 𝑦 − 𝑥 𝒘ෝ = 0 ⇒ ෍ 𝑥 𝑥 𝒘ෝ = ෍ 𝑥 𝑦\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\n𝑖 𝑖 𝑖\nMathematically, we can define two matrices:\n𝑥 𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n1 11 12 1𝐷 1\n𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n𝑥\n21 22 2𝐷 2\n𝑋 = 2 = , 𝑌 =\n⋮ ⋮ ⋱ ⋮ ⋮\n⋮\n𝑇 𝑥 𝑥 ⋯ 𝑥 𝑦\n𝑥\n𝑁1 𝑁2 𝑁𝐷 𝑁\n𝑁\nI.e., 𝑋 is an 𝑁 × 𝐷 matrix whose rows are the available training feature\nvectors, and 𝑌 is a vector consisting of the corresponding desired outputs.\n© Copyright National University of Singapore. All Rights Reserved.\n\n𝑁 𝑇 𝑇 𝑁 𝑇\nWith the matrices, we have σ 𝑥 𝑥 = 𝑋 𝑋 and σ 𝑥 𝑦 = 𝑋 𝑌.\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖\nHence the equation for optimal weight vector is formulated as:\n𝑇 𝑇 𝑇 −1 𝑇\n𝑋 𝑋 𝑤ෝ = 𝑋 𝑌 ⇒ 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌\nAssuming an over-determined system.\n𝑇 + 𝑇 −1 𝑇\n𝑋 𝑋 is the sample correlation matrix, 𝑋 ≡ 𝑋 𝑋 𝑋 is the\n𝑇\npseudoinverse of 𝑋, which is only valid if the matrix (𝑋 𝑋) is invertible.\nWhen 𝑁 = 𝐷, the optimal weight vector satisfies 𝑋𝑤ෝ = 𝑌.\n+\nIn most cases where 𝑁 > 𝐷, the solution obtained from 𝑤ෝ = 𝑋 𝑌 is the\nvector that minimizes the sum of squared errors.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 15,
+      "title": "LSE Estimation for Linear Regression",
+      "content": "The overall formulation of LSE estimation for the optimal weight 𝑤 in\nlinear regression is exactly the same as that for linear classifier!\nThe difference: elements in 𝑌 (i.e., 𝑦 , … , 𝑦 ) are now continuous values\n1 𝑛\ninstead of discrete class label values.\n𝑇 −1 𝑇\nThe solution 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌 is defined as the ordinary least squares\n(OLS) solution. Is this solution unique?\nTo check if solution is unique, show that the Hessian is positive definite:\n2\n𝜕\n𝑇\n𝐻 𝑤 = LSE 𝑤 = 2𝑋 𝑋, which is positive definite if 𝑋 is full rank (i.e.,\n𝜕𝑤2\nthe columns of 𝑋 are linearly independent).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 16,
+      "title": "Geometric Interpretation of LSE",
+      "content": "Safely assume that 𝑁 ≫ 𝐷 (or at least 𝑁 > 𝐷), thus there are more\nobservations than unknowns – an over-determined system.\n෠ 𝑁\nOur goal: seek a vector 𝑌 ∈ ℝ that lies in the linear subspace spanned\n෠\nby 𝑋 and is as close to ground-truth 𝑌: arg min ∥ 𝑌 − 𝑌 ∥ .\n2\n𝑌෠∈span 𝑋\n෠\nSince 𝑌 ∈ span 𝑋 , there would exists some weight vector 𝑤 such that:\n෠\n𝑌 = 𝑤 𝑥 + ⋯ + 𝑤 𝑥 = 𝑋𝑤.\n1 :,1 𝐷 :,𝐷\n෠\nTo minimize the norm of the residual 𝑌 − 𝑌, we want the residual vector to\nbe orthogonal to every column of 𝑋, thus:\n𝑥 𝑇 𝑌 − 𝑌 ෠ = 0 ⇒ 𝑋 𝑇 𝑌 − 𝑋𝑤 = 0 ⇒ 𝑤 = 𝑋 𝑇 𝑋 −1 𝑋 𝑇 𝑌.\n:,𝑑\nHence the predicted value of 𝑦 is given by 𝑌 ෠ = 𝑋𝑤 = 𝑋 𝑋 𝑇 𝑋 −1 𝑋 𝑇 𝑌.\nHow to interpret this geometrically?\n© Copyright National University of Singapore. All Rights Reserved.\n\n෠ 𝑇 −1 𝑇\n𝑌 = 𝑋𝑤 = 𝑋 𝑋 𝑋 𝑋 𝑌\nThis corresponds to an orthogonal projection of 𝑌 onto the column\nspace of 𝑋.\nSuppose 𝐷 = 3 equations and 𝑁 = 2\nunknowns for the system 𝑌 = 𝑋𝑤. 𝑎 and 𝑎\n1 2\nare the columns of 𝑋, defines a 2-d linear\n3\nsubspace embedded in ℝ .\n3\nThe target vector 𝑏 is a vector in ℝ ; its\northogonal projection onto the linear\n෠ ෠\nsubspace is denoted 𝑏. The line from 𝑏 to 𝑏\nis the vector of residual errors, whose norm\nwe want to minimize.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 18,
+      "title": "Weighted Least Squares",
+      "content": "In some cases, a weight should be associated with each\ndifferent sample.\n1 2\n1 − 𝑦−𝑥 𝑇 𝒘\nPreviously, we have 𝑝 𝑦|𝑥; 𝜃 = 𝒩 𝑦 𝑤 𝑇 𝑥, 𝜎 2 = 𝑒 2 𝑛\n2𝜎\n2𝜋𝜎2\nIn heteroskedastic regression, the variance depends on the input:\n1 2\n1 − 𝑦−𝑥 𝑇 𝒘\n𝑝 𝑦|𝑥; 𝜃 = 𝒩 𝑦 𝑤 𝑇 𝑥, 𝜎(𝑥) 2 = 𝑒 2 𝑛 ;\n2𝜎\n2𝜋𝜎(𝑥)2\n−1\nIn such regression, we reformulate 𝑝 𝑦|𝑥; 𝜃 = 𝒩 𝑦 𝑋𝑤, Λ where\n2\nΛ = diag(1/𝜎 𝑥 ).\n𝑛\nThis is known as a weighted linear regression. The OLS solution is\n𝑇 −1 𝑇\ngiven as: 𝑤ෝ = 𝑋 Λ𝑋 𝑋 Λ𝑌 – weighted least squares estimate.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 19,
+      "title": "Measuring Goodness of Fit",
+      "content": "How to determine if the LR model obtain really fits the data?\nI.e., how to assess the goodness of fit?\nFor the simplest case, let us assume 1-d input, and 1-d output:\nOne intuitive method – Residual plots:\nResidual plots: plotting the residuals 𝑟 = 𝑦 − 𝑦ො vs. the input 𝑥 .\n𝑛 𝑛 𝑛 𝑛\nWhat should we observe if the fit is good?\n2\nThe model assumes that the residuals have a 𝒩(0, 𝜎 ) distribution, so\nthe residual plot should be a cloud of points more or less equally above\nand below the horizontal line at 0, without any obvious trends.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 20,
+      "title": "Goodness of Fit: Visualize the Residual Plot",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 21,
+      "title": "Measuring Goodness of Fit",
+      "content": "For a multi-dimensional input, we can plot 𝑦ො vs. 𝑦 instead of\n𝑛 𝑛\n𝑟 vs. 𝑥 . A good model will have points lie on a diagonal line.\n𝑛 𝑛\n© Copyright National University of Singapore. All Rights Reserved.\n\nThe residual plot is considered a relatively qualitative analysis.\nHow can we assess the goodness quantitatively – and definitively?\nComputing the least squares error value (also known as the Residual\nSum of Squares RSS value) can asses the fit quantitatively.\n𝑁\n2\n𝑇\nLSE 𝒘 = RSS 𝒘 = ෍ 𝑦 − 𝑥 𝒘\n𝑖 𝑖\n𝑖\nAnother measure often used is the Root Mean Squared Error (RMSE):\n1\nRMSE 𝑤 ≜ RSS(𝑤)\n𝑁\nBoth quantities: the smaller the better!\n© Copyright National University of Singapore. All Rights Reserved.\n\nFurther, a more interpretable measure can be computed using the\ncoefficient of determination, formulated as:\nσ 𝑁 𝑦ො − 𝑦 2 RSS\n𝑛=1 𝑛 𝑛\n2\n𝑅 ≜ 1 − = 1 −\nσ𝑁 𝑦ത − 𝑦 2 TSS\n𝑖 𝑛\n1\n𝑁\n𝑦ത = σ 𝑦 is the empirical mean of the responses, RSS the residual\n𝑛=1 𝑛\n𝑁\nsum of squares, TSS is the total sum of squares TSS = σ 𝑁 𝑦 − 𝑦ത 2 .\n𝑛=1 𝑛\n2\n𝑅 measures the variance in the predictions relative to the simple\nconstant prediction of 𝑦ො = 𝑦ത.\n𝑛\nIf a model does no better at predicting than using the mean of the output, 𝑅 2 = 0.\nIf the model perfectly fits the data, then the RSS will be 0, so 𝑅 2 = 1.\nIn general, larger values imply greater reduction in variance (better fit).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 24,
+      "title": "Limitations of LSE and Ridge Regression",
+      "content": "Fitting the LR model with LSE provides an optimal solution\ngiven a set of input data.\nDisadvantage of fitting through LSE?\nProne to overfitting – the solution is optimal ONLY w.r.t. the input data.\nAny possible solutions?\nTo encounter overfitting – add in regularization.\nE.g., Including a zero-mean Gaussian prior on the weights, formulated\n−1\nas: 𝑝 𝑤 = 𝒩 𝑤|0, 𝜆 𝐼 . Optimal weight obtained via MAP estimation.\nThis is called Ridge Regression.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 25,
+      "title": "Ridge Regression",
+      "content": "In detail, the optimal weight is computed via MAP estimation:\n1 1\n𝑇 𝑇\n𝑤ෝ = arg min 𝑌 − 𝑋𝑤 𝑌 − 𝑋𝑤 + 𝑤 𝑤\n𝑚𝑎𝑝\n2𝜎2 2𝜏2\n2\n= arg min RSS 𝑤 + 𝜆 ∥ 𝑤 ∥\n2\n2 2\n𝜆 ≜ 𝜎 /𝜏 is proportional to the strength of the prior; ∥ 𝑤 ∥ is defined\n2\nas the ℓ norm of the vector 𝑤 formulated as:\n2\n𝐷\n∥ 𝑤 ∥ ≜ ෍ 𝑤 2 = 𝑤𝑇𝑤\n2 𝑑\n𝑑=1\nPenalizing weights that become too large in magnitude. In general, this\ntechnique is called ℓ regularization or weight decay.\n𝟐\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 26,
+      "title": "Optimal Weight for Ridge Regression",
+      "content": "The MAP estimate corresponds to minimizing the penalized\nobjective:\n𝑇 2\n𝐽 𝑤 = 𝑌 − 𝑋𝑤 𝑌 − 𝑋𝑤 + 𝜆 ∥ 𝑤 ∥\n2\n𝜆 is a hyperparameter that controls the strength of the regularizer.\nThe derivative of 𝐽 𝑤 w.r.t. 𝑤 is given by:\n𝑇 𝑇\n∇ 𝐽 𝑤 = 2 𝑋 𝑋𝑤 − 𝑋 𝑌 + 𝜆𝑤\n𝑤\nHence the optimal weight 𝑤ෝ is thus formulated as:\n𝑚𝑎𝑝\n−1\n𝑇 −1 𝑇 𝑇\n𝑤ෝ = 𝑋 𝑋 + 𝜆𝐼 𝑋 𝑌 = ෍ 𝑥 𝑥 + 𝜆𝐼 ෍ 𝑦 𝑥\n𝑚𝑎𝑝 𝐷 𝑛 𝑛 𝐷 𝑛 𝑛\n𝑛 𝑛\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 27,
+      "title": "Recap: Under-Determined Systems",
+      "content": "𝑇 𝑇 𝑇 −1 𝑇\n𝑋 𝑋 𝑤ෝ = 𝑋 𝑌 ⇒ 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌\nAssume 𝑁 > 𝐷, i.e., we have more samples than the number of\nfeatures per sample – denoted as a over-determined system.\nQuestion: what if 𝑁 < 𝐷 , i.e., we DON’T have enough samples?\nThere will be more than one unique solution!\n𝑇\nWe then need to constrain the search. Assume (𝑋𝑋 ) is invertible,\n𝑇 𝑇\ndenote 𝑤 = 𝑋 𝑎, then we have 𝑋𝑋 𝑎 = 𝑦 from 𝑋𝑤 = 𝑦.\n𝑇 −1 𝑇 𝑇 −1\nThus 𝑎ො = 𝑋𝑋 𝑦, thus 𝑤ෝ = 𝑋 𝑋𝑋 𝑦\n† 𝑇 𝑇 −1\nHere we denote 𝑋 = 𝑋 𝑋𝑋 as the right inverse of 𝑋.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 28,
+      "title": "Ridge Regression for Less Samples",
+      "content": "Now, what if 𝑁 < 𝐷, which is often the case where we would\nrequire extra regularizations for regression.\n𝑇 𝑇 −1\nNote that without regularization, we have 𝑤ෝ = 𝑋 𝑋𝑋 𝑦.\nFor 𝑁 < 𝐷, the optimal weight is formulated as:\n𝑇 𝑇 −1\n𝑤ෝ = 𝑋 𝑋𝑋 + 𝜆𝐼 𝑌\n𝑚𝑎𝑝 𝑁\nThis is referred to as the dual form of the ridge regression result, where\n𝑇 −1 𝑇\nthe form of 𝑤ෝ = 𝑋 𝑋 + 𝜆𝐼 𝑋 𝑌 is regarded as the primal form.\n𝑚𝑎𝑝 𝐷\nLeave a question, how to obtain the 𝑤ෝ in its dual form?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 29,
+      "title": "Optimal Weight Under Less Samples",
+      "content": "Dual form solution: 𝑤ෝ = 𝑋 𝑇 𝑋𝑋 𝑇 + 𝜆𝐼 −1 𝑌\n𝑁\nIs it still possible to re-use the primal form of ridge\nregression for solving ridge regression?\nYes, by using SVD on the 𝑋 matrix\nHow it works (normally, write a set of code for SVD)\nLet 𝑋 = 𝑈𝑆𝑉 𝑇 be the SVD of 𝑋, where 𝑉 𝑇 𝑉 = 𝐼 , 𝑈𝑈 𝑇 =\n𝐷\n𝑈 𝑇 𝑈 = 𝐼 , and 𝑆 is a diagonal 𝑁 × 𝑁 matrix.\n𝑁\nLet 𝑅 = 𝑈𝑆 an 𝑁 × 𝐷 matrix, thus:\n𝑇 −1 𝑇\n𝑤ෝ = 𝑉 𝑅 𝑅 + 𝜆𝐼 𝑅 𝑌\n𝑚𝑎𝑝 𝑁\nReplace the 𝐷-dim vectors 𝑥 with the 𝑁-dim vectors 𝑟 and\n𝑖 𝑖\nperform our penalized fit as before.\nThe overall time is now 𝑂(𝐷𝑁 2 ) operations, which is less\nthan 𝑂(𝐷 3 ) if 𝐷 > 𝑁.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 30,
+      "title": "A More Extreme Regularization",
+      "content": "Recap: for ridge regression, we assumed a Gaussian prior for the\n−1\nregression coefficients when fitting the LR models: 𝑝 𝑤 = 𝒩 𝑤|0, 𝜆 𝐼 .\n𝐷\nWhy is it a good choice?\nEncourage small parameters – prevents overfitting.\nIs this enough for ALL cases – obviously NOT.\nSometimes we want the parameters to not just be small, but to be exactly\nzero, i.e., we want 𝑤ෝ to be sparse.\nWhy sparse representation? (Or sparse model?) – think first from model point of view:\nLeads to simpler model by learning what parameters can be dropped, lowering their\ntotal number.\nProduce models that are smaller in terms of memory usage.\nHow to achieve such a goal?\n© Copyright National University of Singapore. All Rights Reserved.\n\nGoal: parameters that are exactly zero: minimize the 𝐿0-norm.\n𝐷\n∥ 𝑤 ∥ = ෍ 𝕀 𝑤 > 0\n0 𝑑\n𝑑=1\nFrom the feature point of view, sparse models are also useful\nas it can be used to perform feature selection.\n𝐷\nNote that the prediction has the form 𝑓 𝑥; 𝑤 = σ 𝑤 𝑥 .\n𝑑=1 𝑑 𝑑\nIf any 𝑤 = 0, ignore the corresponding feature 𝑥 .\n𝑑 𝑑\nThis idea can be applied to nonlinear models, such as MLP!\nThe next question: how to compute such sparse estimate?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 32,
+      "title": "Lasso Regression: LR with Laplace Prior",
+      "content": "To achieve a sparse estimate, replace the Gaussian prior on the weights.\nOne feasible solution: apply the Laplace prior over the weights – perform\nMAP estimation using the Laplace distribution:\n𝐷 𝐷\n𝑝 𝑤 𝜆 = ෑ Laplace 𝑤 |0,1/𝜆 ∝ ෑ exp −𝜆 𝑤\n𝑑 𝑑\n𝑑=1 𝑑=1\n𝜆: sparsity param;\n1 𝑤 − 𝜇\nLaplace 𝑤|𝜇, 𝑏 ≜ exp −\n2𝑏 𝑏\nHere 𝜇 and 𝑏 are the location and scale parameters.\n© Copyright National University of Singapore. All Rights Reserved.\n\nCompared to Gaussian, Laplace distribution puts more density on 0 even\nwhen we fix the variance to be the same.\n© Copyright National University of Singapore. All Rights Reserved.\n\nTo perform MAP estimation of a LR with the Laplace prior, minimize the\npenalized objective of:\n2\n𝑃𝑁𝐿𝐿 𝑤 = − log 𝑝 𝒟 𝑤 − log 𝑝 𝑤 𝜆 =∥ 𝑋𝑤 − 𝑌 ∥ + 𝜆 ∥ 𝑤 ∥\n2 1\n𝐷\nThis is often referred as the ℓ -regularization, as ∥ 𝑤 ∥ ≜ σ 𝑤 is the\n1 1 𝑑=1 𝑑\nℓ norm of 𝑤. (Recall, ridge regression leverage ℓ -regularization)\n1 2\nMethod is referred to as lasso, “Least Absolute Shrinkage and Selection Operator”.\nNote that other norms of the weight vector can also be leveraged. In\n1/𝑞\ngeneral, the 𝑞-norm is defined simply as: ∥ 𝑤 ∥ ≜ σ 𝐷 𝑤 𝑞 .\n𝑞 𝑑=1 𝑑\nFor 𝑞 < 1, we can get even sparser solutions, but 𝑞 ≥ 0.\nNote that for any 𝑞 < 1, the problem becomes non-convex. Thus ℓ -norm\n1\nis the tightest convex relation of the ℓ -norm.\n0\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 35,
+      "title": "Regression with Ridge and Lasso",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 36,
+      "title": "EE5907 Pattern Recognition",
+      "content": "Thank you for your listening!\n© Copyright National University of Singapore. All Rights Reserved.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 37,
+      "title": "Supplementary",
+      "content": "Nonparametric PR Methods\n✓ The Classification and Regression Trees / Decision Trees\n✓ Bagging / Bootstrap Aggregating\n✓ Random Forests\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 38,
+      "title": "Question: How can we leverage Trees",
+      "content": "A Quick Review: Trees\nfor Classification or Regression?\nTree data structure is a data structure to store data in hierarchical manner.\nTree data structure has roots, branches, and leaves connected.\nSome basic terminologies:\nParent Node: the predecessor of a node is called the parent node of that node.\nChild Node: the immediate successor of a node is called the child node of that node.\nRoot Node: The top-most node of a tree or the node\nwhich does not have any parent node is the root node.\nLeaf Node or External Node: The nodes which do not\nhave any child nodes are called leaf nodes.\nSibling: Children of the same parent node are siblings.\nLevel of a node: The count of edges on the\npath from the root node to that node. The\nroot node has level 0.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 39,
+      "title": "Regression Trees",
+      "content": "In general, we leverage the Classification and Regression Tree (CART)\nfor classification and regression tasks.\nMore familiar terminology: Decistion Tree (DT)\nFirst consider regression trees:\nInputs are real-valued.\nTree consists of a set of nested decision rules.\nHow does it work in general?\nAt each node 𝑖, the feature dimension 𝑑 of input 𝑥 is compared to threshold 𝑡 , and\n𝑖 𝑖\nthe input then passed down to the left or right branch depending on the comparison.\nAt the leaves of the tree, the model specifics the predicted output for any input that\nfalls into that part of the input space.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 40,
+      "title": "Regression Trees: Example",
+      "content": "Example, consider the following regression tree:\nThe first node: Compare if 𝑥 is less than threshold 𝑡 ;\n1 1\nIf yes: compare if 𝑥 is less than threshold 𝑡 – if yes: bottom left leaf node 𝑅 .\n2 2 1\nThe space is defined by: 𝑅 = {𝑥: 𝑥 ≤ 𝑡 , 𝑥 ≤ 𝑡 }.\n1 1 1 2 2\nThe entire input space is further partitioned into 5 regions using axis parallel splits.\nFormally, a regression tree is defined by:\n𝐽\n𝑓 𝑥; 𝜃 = ෍ 𝑤 𝕀 𝑥 ∈ 𝑅\n𝑗 𝑗\n𝑗=1\n𝑅 is the region specified by the 𝑗-th leaf\n𝑗\nnode and 𝑤 is the predicted output for that\n𝑗\nleaf node.\n𝜃 = 𝑅 , 𝑤 : 𝑗 = 1: 𝐽 , 𝐽 is number of\n𝑗 𝑗\nnodes.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 41,
+      "title": "Regression Trees: Another Example (Vis)",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 42,
+      "title": "Similarly: The Classification Trees",
+      "content": "For classification: the leaves contain a distribution over the\nclass labels, rather than just the mean response.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 43,
+      "title": "Model Fitting for CART",
+      "content": "Model fitting is essentially – loss minimization.\nWhat is the Loss?\nHow to Minimize the Loss?\nTo fit the CART model, we need to minimize the loss:\n𝑁 𝐽\nℒ 𝜃 = ෍ ℓ 𝑦 , 𝑓 𝑥 ; 𝜃 = ෍ ෍ ℓ 𝑦 , 𝑤\n𝑛 𝑛 𝑛 𝑗\n𝑛=1 𝑗=1 𝑥 ∈𝑅\n𝑛 𝑗\nAny problem with this loss (or specifically, in minimizing this loss)?\nIt is not differentiable, due to the need to learn discrete tree structure!\nNote: finding the optimal partitioning of the data is NP-complete. How?\n© Copyright National University of Singapore. All Rights Reserved.\n\nLoss to optimize: ℒ 𝜃 = σ𝑁 ℓ 𝑦 , 𝑓 𝑥 ; 𝜃 = σ 𝐽 σ ℓ 𝑦 , 𝑤 .\n𝑛=1 𝑛 𝑛 𝑗=1 𝑥 ∈𝑅 𝑛 𝑗\n𝑛 𝑗\nThe idea for model fitting for CART: using a greedy procedure, grow the\ntree iteratively, one node at a time.\nSuppose we are at node 𝑖;\nLet 𝒟 = 𝑥 , 𝑦 ∈ 𝑁 be the set of examples that reach this node.\n𝑖 𝑛 𝑛 𝑖\nSubsequent question: how to split this node into left and right branches to minimize\nthe error in EACH child subtree?\nCase 1: the 𝑗-th feature is a real-valued scalar → partition the data at node 𝑖 by\ncomparing to threshold 𝑡. The set of possible thresholds 𝒯 for feature 𝑗 obtained by\n𝑗\nsorting unique values.\nE.g.,, feature 1 has values {4, −10,70, −10}, set 𝒯 = {−10,4,70}. For each possible\n1\n𝐿\nthreshold, left and right splits defined as 𝒟 𝑗, 𝑡 = { 𝑥 , 𝑦 ∈ 𝑁 : 𝑥 ≤ 𝑡} and\n𝑖 𝑛 𝑛 𝑖 𝑛,𝑗\n𝑅\n𝒟 𝑗, 𝑡 = { 𝑥 , 𝑦 ∈ 𝑁 : 𝑥 > 𝑡}.\n𝑖 𝑛 𝑛 𝑖 𝑛,𝑗\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 45,
+      "title": "Model Fitting for CART: Node Splitting",
+      "content": "Loss to optimize: ℒ 𝜃 = σ𝑁 ℓ 𝑦 , 𝑓 𝑥 ; 𝜃 = σ 𝐽 σ ℓ 𝑦 , 𝑤\n𝑛=1 𝑛 𝑛 𝑗=1 𝑥 ∈𝑅 𝑛 𝑗\n𝑛 𝑗\nGreed model fitting via iterative node split:\nCase 2: the 𝑗-th feature is categorical, with 𝐾 possible values → partition the data at\n𝑗\nnode 𝑖 by checking if the feature is equal to each of those possible values or not.\n𝐿\nThis defines a set of 𝐾 possible binary splits: 𝒟 𝑗, 𝑡 = { 𝑥 , 𝑦 ∈ 𝑁 : 𝑥 = 𝑡} and\n𝑗 𝑖 𝑛 𝑛 𝑖 𝑛,𝑗\n𝑅\n𝒟 𝑗, 𝑡 = { 𝑥 , 𝑦 ∈ 𝑁 : 𝑥 ≠ 𝑡}.\n𝑖 𝑛 𝑛 𝑖 𝑛,𝑗\nAlternatively we could allow for a multi-way split.\nThis may cause data fragmentation – too little data might “fall” into each subtree.\nWhat kind of danger would data fragmentation lead to?\nOverfitting!\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 46,
+      "title": "Model Fitting for CART: the Optimal Model",
+      "content": "Greed model fitting via iterative node split:\n𝐿 𝑅\nOnce we have computed 𝒟 𝑗, 𝑡 and 𝒟 𝑗, 𝑡 for each feature 𝑗 and threshold 𝑡 at node 𝑖,\n𝑖 𝑖\nchoose the best feature 𝑗 to split on and the best threshold 𝑡 as:\n𝑖 𝑖\n𝐿 𝑅\n𝒟 𝑗, 𝑡 𝒟 𝑗, 𝑡\n𝑖 𝐿 𝑖 𝑅\n𝑗 , 𝑡 = arg min min 𝑐 𝒟 𝑗, 𝑡 + 𝑐 𝒟 𝑗, 𝑡\n𝑖 𝑖 𝑖 𝑖\n𝑗∈{1,…,𝐷} 𝑡∈𝒯 𝒟 𝒟\n𝑗 𝑖 𝑖\nCan be viewed as choosing based on averaged cost function over split nodes.\n𝐿 𝑅\n𝒟 𝑗,𝑡 𝒟 𝑗,𝑡\n𝑐 𝒟 = 𝑖 𝑐 𝒟 𝐿 𝑗, 𝑡 + 𝑖 𝑐 𝒟 𝑅 𝑗, 𝑡\n𝑖 𝑖 𝑖\n𝒟 𝒟\n𝑖 𝑖\nSo, what have we missed? The cost function 𝑐(𝒟 ) to evaluate the cost of node 𝑖:\n𝑖\nFor regression: one typical example is the MSE\n1\n∗ 2\n𝑐 𝒟 = ෍ 𝑦 − 𝑦ത\n𝑖 ∗ 𝑛\n𝒟\n𝑖 ∗\n𝑛∈𝒟\n𝑖\nHere 𝑦ത is the mean of the response varible for examples reaching node 𝑖.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 47,
+      "title": "Model Fitting for CART: the Overview",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 48,
+      "title": "Model Fitting for CART: the Optimal Model",
+      "content": "𝐿 𝑅\n𝒟 𝑗, 𝑡 𝒟 𝑗, 𝑡\n𝑖 𝐿 𝑖 𝑅\n𝑗 , 𝑡 = arg min min 𝑐 𝒟 𝑗, 𝑡 + 𝑐 𝒟 𝑗, 𝑡\n𝑖 𝑖 𝑖 𝑖\n𝑗∈{1,…,𝐷} 𝑡∈𝒯 𝒟 𝒟\n𝑗 𝑖 𝑖\nFor classification: compute the empirical distribution over class labels for node 𝑖:\n1\n𝜋ො = σ 𝕀 𝑦 = 𝑐 , which then lead us to the Gini index as:\n𝑖𝑐 𝑛∈𝒟 𝑛\n𝒟 𝑖\n𝑖\n𝐶\n2 2\n𝐺 = ෍ 𝜋ො (1 − 𝜋ො ) = ෍ 𝜋ො − ෍ 𝜋ො = 1 − ෍ 𝜋ො\n𝑖 𝑖𝑐 𝑖𝑐 𝑖𝑐 𝑖𝑐 𝑖𝑐\n𝑐=1 𝑐 𝑐 𝑐\nThe Gini index shows the expected error rate. 𝜋ො is the probability of a random entry\n𝑖𝑐\nin the leaf belongs to class 𝑐 and 1 − 𝜋ො is the probability it would be misclassified.\n𝑖𝑐\nAlternatively, define cost as the entropy or deviance of the node:\n𝐶\n𝐻 = ℍ 𝝅ෝ = − ෍ 𝜋ො log 𝜋ො\n𝑖 𝑖 𝑖𝑐 𝑖𝑐\n𝑐=1\nA node that is pure (only example of 1 class) will have ZERO enropy\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 49,
+      "title": "CART: A Numerical Example",
+      "content": "Consider house prices in SG. Our target is to predict the variable price 𝑃.\nThe attributes (input) are house size 𝑆 and number of rooms 𝑅, data as follows:\nNow, how to leverage CART to predict the price of a new house given its house size 𝑠\nand its number of rooms 𝑟? Suppose the CART is simple that it only contains one root\nand all the other nodes are leave nodes.\nI.e., we only split once for the tree.\nQuestion: under which and what criterion should we split the root?\n© Copyright National University of Singapore. All Rights Reserved.\n\nFirst possibility: split via 𝑆. Suppose we set the threshold as 𝜏 = 0.75.\nThe targets of the two nodes are 0.19, 0.23 and 0.28,0.42,0.53,0.75,0.80 .\nWe leverage the MSE as the cost function, and we compute the cost at each node as:\n1\n∗ 2\n𝑐 𝒟 = 𝑀𝑆𝐸 = ෍ 𝑦 − 𝑦ത\n𝑖 ∗ 𝑛\n𝒟\n𝑖 ∗\n𝑛∈𝒟\n𝑖\nTherefore: 𝑐 0.75 𝐿 = 4 × 10 −4, 𝑐 0.75 𝑅 = 0.0385\n2 5\n𝐿 𝑅\n𝑐 0.75 = 𝑐 0.75 + 𝑐 0.75 = 0.0276\n7 7\nWe can sweep through some possible thresholds and their corresponding costs are:\nThe best possible threshold 𝜏 for attribute 𝑆 would be 𝜏 = 2.5.\n© Copyright National University of Singapore. All Rights Reserved.\n\nSecond possibility: split via 𝑅. Similar to how we analyze the split via 𝑆,\nwe can obtain a set of cost function values w.r.t. different thresholds 𝜏.\nWe can view that the least cost function is obtained by splitting via 𝑆 (space) with a\nthreshold of 𝜏 = 2.5. The left branch is where 𝑆 < 2.5 and the right branch is where\n𝑆 ≥ 2.5.\nTherefore, if a house size is of 𝑠 = 3.3 and 𝑟 = 4, the output (price of this house) with\nthis regression tree is obtained by computing the average of all the house with 𝑆 ≥ 2.5:\n0.53 + 0.75 + 0.80\n𝑝 = = 0.6933\n3\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 52,
+      "title": "CART: Handling the Special Cases",
+      "content": "What is the extreme case for trees?\nIf we let the tree become deep enough, it can achieve 0 error on the\ntraining set by partioning the input space into sufficiently small regions.\nResult in overfitting!\nTo prevent this, there are two main approaches.\n1. Stop the tree growing process according to some heuristic, such as\nhaving too few examples at a node, or reaching a maximum depth.\n(Early stop)\n2. Grow the tree to its maximum depth, where no more splits are\npossible, and then to prune it back, by merging split subtrees back into\ntheir parent. (Tree pruning)\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 53,
+      "title": "The Pros and Cons of CART / DT",
+      "content": "Trees are very popular, especially in industrial applications!\nWhy? What are the characteristic that allows them to be applied in the\nindustrial scenarios?\nThink of what characteristics are more required in these scenarios.\nEasy to interpret, thus fast to fit, and scale well to large data sets;\nEasily handle mixed discrete and continuous inputs;\nInsensitive to monotone transformations of the inputs, so there is no\nneed to standardize the data.\nAbility to perform automatic variable selection.\nRelatively robust to outliers.\n© Copyright National University of Singapore. All Rights Reserved.\n\nBut, you may not see trees often in research or in SOTA:\nThe primary disadvantage of trees is that they do not predict\nvery accurately compared to other kinds of model.\nIn part due to the greedy nature of the tree construction.\nAnother side effect of greediness: trees are unstable: small changes to\nthe input data can have large effects on the structure of the tree.\nThis is also related to the hierarchical nature of the tree-growing\nprocess, causing errors at the top to affect the rest of the tree.\nOmitting even a single data point from the training set can result in a\ndramatically different decision surface\nAn example to illustrate the unstable tree.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 55,
+      "title": "Unstable DT: Example with the IRIS dataset",
+      "content": "© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 56,
+      "title": "Can We Stabilize the DT?",
+      "content": "Decision trees (DTs) can be quite unstable, due to their\npredictions may vary a lot if the training data is perturbed.\nI.e., decision trees are a high variance estimator.\nQuestion: how to reduce the variance? (Note that we only care about\nthe variance first, we do not care about the bias)\nA simple way to reduce variance is to combine multiple models.\nThis is called ensemble learning.\nThe ensemble will have similar bias to the base models, but lower\nvariance, generally resulting in improved overall performance\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 57,
+      "title": "Ensemble Learning: Combining Models",
+      "content": "When discuss about “combining” models:\nSuch discussion focus on the combination of the results of the models.\nThe combination for regressors and classifiers could be different,\nthanks to the different type of output (continuous vs. discrete)\nFor regression models, a sensible combination method is averaging:\n1\n𝑓 𝑦 𝑥 = ෍ 𝑓 (𝑦|𝑥)\n𝑚\nℳ\n𝑚∈ℳ\nFor classifiers, it can sometimes be better to take a majority vote of the\noutputs (committee method or voting method).\nHow does the voting works and why does voting improve accuracy?\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 58,
+      "title": "Ensemble Learning: Voting",
+      "content": "Suppose each base model is a binary classifier with the same accuracy 𝜃.\nSuppose class 1 is ALWAYS the correct answer. 𝑌 ∈ {0,1} be the prediction for the\n𝑚\n𝑚-th model, and let 𝑆 =\nσ𝑀\n𝑌 be the number of votes for class 1.\n𝑚=1 𝑚\nFor majority voting: the final prediction would be 1 if 𝑆 > 𝑀/2. Thus the probability\nthat ensemble will predict class 1 is computed:\n𝑀 𝑀\n𝑝 = 𝑃 𝑆 > = 1 − 𝐵( , 𝑀, 𝜃)\n2 2\nHere 𝐵(𝑥, 𝑀, 𝜃) is the cdf of the binomial distribution with parameters 𝑀 and 𝜃\nevaluated at 𝑥. For 𝜃 = 0.51 and 𝑀 = 1000, the result is 𝑝 = 0.73. By increasing 𝑀 =\n10000 the result is further improved to 𝑝 = 0.97.\nThe performance of the voting approach is dramatically improved, because we\nassumed each predictor made independent errors. In practice, their mistakes may be\ncorrelated, but as long as we ensemble sufficiently diverse models, we can still come\nout ahead.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 59,
+      "title": "Bagging: an Introduction",
+      "content": "The original ensemble learning (or called the vanilla ensemble learning)\nwith averaging or voting is somehow too intuitive.\nIt also does not make any significant limitations and/or guidance towards\neach individual model for ensembling.\nA “better” form of ensemble learning: bagging (bootstrap aggregating):\nFit 𝑀 different base models to different randomly sampled versions of the data;\nEncourages the different models to make diverse predictions;\nThe datasets are sampled with replacement (bootstrap sampling)\nA given example may appear multiple times, until we have a total of 𝑁 examples per\nmodel (𝑁 is the number of original data points).\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 60,
+      "title": "The Cons and Pros of Bagging",
+      "content": "Now that we know the general process of bagging – what could be the\n(dis-)advantages of bagging?\nThe key of bagging – each model sees sampled data;\nEach base model only sees on average 63% of the unique input examples! (Why?)\nThe chance that a single term will NOT be selected from a set of size 𝑁 in any of 𝑁\n𝑁\n1\ndraws is 1 − . With large 𝑁 → ∞, this becomes 𝑒 −1 ≈ 0.37.\n𝑁\nThis 37% of the training instances that are NOT used by a given base\nmodel are called out-of-bag instances (oob).\nCan use the predicted performance of the base model on these oob instances as an\nestimate of test set performance.\nThis provides a useful alternative to cross validation\n© Copyright National University of Singapore. All Rights Reserved.\n\nMain advantage of bagging: prevents the ensemble from relying too much\non any individual training data, enhances robustness and generalization.\nBUT, bagging does not always improve performance. In particular, it relies on the\nbase models being unstable estimators, so that omitting some of the data significantly\nchanges the resulting model fit (for trees)\nQuite mixed for others, e.g., bagged DNNs do not usually work well as deep networks\nwill underperform if they only see 63% of the data.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 62,
+      "title": "Decorrelate Base Models : Random Forests",
+      "content": "(more)\nBagging relies on the assumption that re-running the same\nlearning algorithm on different subsets of the data will result\nin sufficiently diverse base models.\nThe key is: diverse base models. In other words, the models should not\ncorrelate with each other.\nAnother technique that further decorrelate the base learners is\nknown as random forests.\nLearning trees based on a randomly chosen subset of input variables\n(at each node of the tree), as well as a randomly chosen subset of\ndata cases.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 63,
+      "title": "Random Forests: Process and Example",
+      "content": "The general process: modify the tree splitting equation so that the feature\nsplit dimension 𝑗 is optimized over a random subset of the features.\nA simple recap of the tree splitting equation:\n𝐿 𝑅\n𝒟 𝑗, 𝑡 𝒟 𝑗, 𝑡\n𝑖 𝐿 𝑖 𝑅\n𝑗 , 𝑡 = arg min min 𝑐 𝒟 𝑗, 𝑡 + 𝑐 𝒟 𝑗, 𝑡\n𝑖 𝑖 𝑖 𝑖\n𝒟 𝒟\n𝑗∈{1,…,𝐷} 𝑡∈𝒯\n𝑗 𝑖 𝑖\nE.g., for a email spam dataset, there are different types of features (57):\n48 features corresponding to the percentage of words in the email that match a given\nword, such as “remove” or “labs”;\n6 features corresponding to the percentage of characters in the email that match a\ngiven character;\n3 features corresponding to the average length, max length, and sum of lengths of\nuninterrupted sequences of capital letters.\n© Copyright National University of Singapore. All Rights Reserved."
+    },
+    {
+      "file": "Lecture 4 Linear regression and Nonparametric methods.pdf",
+      "page": 64,
+      "title": "Visualize the Performance of RF vs. Bagging",
+      "content": "RFs work much better than bagged decision trees, because\nmany input features are irrelevant.\n© Copyright National University of Singapore. All Rights Reserved."
+    }
+  ]
+}

@@ -1,0 +1,1311 @@
+{
+  "deck_id": "Lecture 3 Linear and nonlinear classifiers.pdf",
+  "difficulty_scale": "1-3",
+  "questions_per_topic": 5,
+  "topics": [
+    {
+      "topic_id": "topic_1",
+      "topic": "Tutorial Discussion and Review of Prior Material",
+      "slide_range": [
+        1,
+        5
+      ],
+      "questions": [
+        {
+          "question_id": "mcq_topic1_q1",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+            "Interpretation of classification results through examples and geometric intuition"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims that the bound given for the optimal multiclass classifier implies that the error probability must be at least (M−1)/M whenever there are M classes. Which interpretation is most consistent with the slide statement (and avoids reversing the direction of the inequality)?",
+          "options": {
+            "A": "The slide states an upper bound on the optimal classifier’s error probability: p_err cannot exceed (M−1)/M.",
+            "B": "The slide states a lower bound on the optimal classifier’s error probability: p_err must be at least (M−1)/M.",
+            "C": "The slide states that the optimal classifier’s error probability equals (M−1)/M for any multiclass problem.",
+            "D": "The slide states that the bound applies only to binary (M=2) classification problems."
+          },
+          "answer": "A",
+          "rationale": "The slide explicitly uses the language “is bound by” together with an inequality showing p_err on the left and (M−1)/M on the right, i.e., an upper bound on p_err. Therefore A matches the direction of the inequality. B is the common misconception of flipping the inequality direction (interpreting an upper bound as a lower bound). C incorrectly turns a bound into an equality (the slide says “bound by,” not “equal to”). D contradicts the slide’s explicit “multiclass problem with M classes,” which is not restricted to M=2.",
+          "source": {
+            "page": 2,
+            "pages": [
+              2
+            ]
+          },
+          "evidence_quotes": [
+            "Show that in a multiclass problem with 𝑀 classes, the probability of classification error for\nthe optimal classifier is bound by:\n𝑀 − 1\n𝑝 ≤\n𝑒𝑟𝑟\n𝑀"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q2",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+            "Reinforcement of core pattern recognition workflow: features → model → decision rule"
+          ],
+          "difficulty": 2,
+          "stem": "In Tutorial Q2, the density uses a unit step function u(x). Which conclusion about the role of u(x) is directly supported by the slide and is essential before applying the stated MLE expression to measurements x1,…,xN?",
+          "options": {
+            "A": "It restricts the support to x>0, so measurements with x≤0 are outside the modeled region described by the slide’s u(x).",
+            "B": "It forces the density to be symmetric around x=0, so negative and positive measurements are equally likely.",
+            "C": "It implies the MLE must be computed using only the maximum observation max_k x_k.",
+            "D": "It guarantees the MLE is always θ=0 regardless of the measurements."
+          },
+          "answer": "A",
+          "rationale": "The slide defines the unit step function as 1 if x>0 and 0 if x≤0, and it appears multiplicatively in the density p(x|θ)=…u(x). This directly supports that the model assigns zero density when x≤0, i.e., the modeled support is x>0. B contradicts the explicit piecewise definition (there is no symmetry statement). C is a plausible confusion with other estimators, but the slide’s MLE expression is written in terms of a sum over k=1..N, not a max. D is unsupported and contradicts the presence of a nontrivial MLE formula depending on the measurements.",
+          "source": {
+            "page": 3,
+            "pages": [
+              3
+            ]
+          },
+          "evidence_quotes": [
+            "𝑝 𝑥 𝜃 = 𝜃 2 𝑥 exp −𝜃𝑥 𝑢(𝑥) where 𝑢 𝑥 is the unit step function defined as:",
+            "1 𝑖𝑓 𝑥 > 0\n𝑢 𝑥 = ቊ\n0 𝑖𝑓 𝑥 ≤ 0"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q3",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+            "Interpretation of classification results through examples and geometric intuition"
+          ],
+          "difficulty": 3,
+          "stem": "Both Q1 and Q3 involve interpreting probabilities correctly. Which pairing best matches each fallacy with the kind of incorrect probability interpretation it exemplifies, using only what is stated on the slides?",
+          "options": {
+            "A": "Prosecutor’s fallacy: treating “1% chance of the blood type if innocent” as “99% chance guilty”; Defender’s fallacy: treating “8000 people have the blood type” as “probability 1 in 8000 that the defendant is guilty.”",
+            "B": "Prosecutor’s fallacy: treating “8000 people have the blood type” as “99% chance guilty”; Defender’s fallacy: treating “1% chance of the blood type if innocent” as “probability 1 in 8000 that the defendant is guilty.”",
+            "C": "Prosecutor’s fallacy: using the multiclass error bound p_err ≤ (M−1)/M; Defender’s fallacy: using the Erlang MLE formula for θ.",
+            "D": "Prosecutor’s fallacy: concluding the defendant is innocent because the blood type is rare; Defender’s fallacy: concluding the defendant is guilty because the city is large."
+          },
+          "answer": "A",
+          "rationale": "The slide explicitly quotes the prosecutor’s argument: “There is a 1% chance that the defendant would have the crime blood type if he were innocent. Thus, there is a 99% chance that he is guilty” and labels it “the prosecutor’s fallacy.” It also explicitly quotes the defender’s argument: “The blood type would be found in approximately 8000 people. The evidence has provided a probability of just 1 in 8000 that the defendant is guilty” and labels it “the defender’s fallacy.” Option A matches these quoted misinterpretations exactly. B swaps the two quoted arguments, contradicting the slide. C incorrectly claims the fallacies are about Q1/Q2 formulas, which the slide does not state. D reverses the directions of the conclusions compared to the slide’s quoted statements.",
+          "source": {
+            "page": 4,
+            "pages": [
+              4
+            ]
+          },
+          "evidence_quotes": [
+            "The prosecutor claims: “There is a 1% chance that the defendant would have the crime\nblood type if he were innocent. Thus, there is a 99% chance that he is guilty”. This is\nknown as the prosecutor’s fallacy.",
+            "the defender claims: “The\nblood type would be found in approximately 8000 people. The\nevidence has provided a\nprobability of just 1 in 8000 that the defendant is guilty and thus has no relevance.” This\nis known as the defender’s fallacy."
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q4",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+            "Reinforcement of core pattern recognition workflow: features → model → decision rule"
+          ],
+          "difficulty": 1,
+          "stem": "Which statement correctly identifies what is being estimated in Q2 and what is being bounded in Q1, as described on the slides?",
+          "options": {
+            "A": "Q2 estimates the parameter θ via MLE from N measurements; Q1 bounds the probability of classification error p_err for the optimal classifier in an M-class problem.",
+            "B": "Q2 bounds the probability of classification error p_err; Q1 estimates θ via MLE from N measurements.",
+            "C": "Q2 estimates the number of classes M from measurements; Q1 bounds θ by (M−1)/M.",
+            "D": "Q2 estimates p_err from the unit step function u(x); Q1 bounds u(x) by (M−1)/M."
+          },
+          "answer": "A",
+          "rationale": "Q2 explicitly asks to show the “Maximum Likelihood Estimation (MLE) of θ given N measurements …” and provides an expression for θ_MLE. Q1 explicitly discusses “a multiclass problem with M classes” and states that “the probability of classification error for the optimal classifier is bound by” an inequality involving p_err. Therefore A matches both slides. B swaps the roles. C invents estimation of M and a bound on θ that are not stated. D incorrectly ties p_err to u(x) and claims a bound on u(x), which is not present.",
+          "source": {
+            "page": 2,
+            "pages": [
+              2,
+              3
+            ]
+          },
+          "evidence_quotes": [
+            "Show that in a multiclass problem with 𝑀 classes, the probability of classification error for\nthe optimal classifier is bound by:",
+            "Now show that the Maximum Likelihood Estimation (MLE) of 𝜃 given 𝑁 measurements\n𝑥 , … , 𝑥 of 𝑥 is defined as:"
+          ]
+        },
+        {
+          "question_id": "mcq_topic1_q5",
+          "topic_id": "topic_1",
+          "knowledge_tags": [
+            "Clarification of tutorial questions (Q1–Q3) and common misconceptions",
+            "Interpretation of classification results through examples and geometric intuition"
+          ],
+          "difficulty": 2,
+          "stem": "A student tries to combine Q1 and Q3 by arguing: “Since in Q1 the optimal classifier’s error is bounded, the prosecutor’s conclusion in Q3 must be valid because the blood type is rare (1%).” Which response is best supported by the slides?",
+          "options": {
+            "A": "The slides treat Q3’s reasoning as a named fallacy (“prosecutor’s fallacy”), so rarity alone does not justify the prosecutor’s stated conclusion, regardless of any separate bound in Q1.",
+            "B": "The slides imply that any 1% event automatically yields a 99% probability of the complementary hypothesis, so the prosecutor’s conclusion follows.",
+            "C": "The slides show that the multiclass bound p_err ≤ (M−1)/M can be directly substituted for the 1% blood-type frequency to compute guilt probability.",
+            "D": "The slides indicate that the defender’s argument is correct because 8000 people share the blood type, so the probability of guilt is exactly 1/8000."
+          },
+          "answer": "A",
+          "rationale": "Q3 explicitly labels the prosecutor’s quoted inference as “the prosecutor’s fallacy,” indicating the slide’s stance that the argument is wrong as stated. Nothing on the slides links Q1’s classification-error bound to the legal-probability inference in Q3, so using Q1 to validate the prosecutor’s conclusion is unsupported. B repeats the prosecutor’s erroneous inference as if endorsed, contradicting the “fallacy” label. C invents a substitution between an error bound and a blood-type frequency that is not stated. D repeats the defender’s quoted inference as if correct, but the slide labels it “the defender’s fallacy,” so it cannot be taken as correct per the slide.",
+          "source": {
+            "page": 4,
+            "pages": [
+              2,
+              4
+            ]
+          },
+          "evidence_quotes": [
+            "Show that in a multiclass problem with 𝑀 classes, the probability of classification error for\nthe optimal classifier is bound by:",
+            "The prosecutor claims: “There is a 1% chance that the defendant would have the crime\nblood type if he were innocent. Thus, there is a 99% chance that he is guilty”. This is\nknown as the prosecutor’s fallacy.",
+            "This\nis known as the defender’s fallacy."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_2",
+      "topic": "Foundations of Linear Classifiers: Discriminant Functions and Decision Geometry",
+      "slide_range": [
+        6,
+        12
+      ],
+      "questions": [
+        {
+          "question_id": "topic2_q1_decision_surface_discriminant_equivalence",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Discriminant functions and how they induce decision regions/surfaces",
+            "Role of linear classifiers as baseline models: simplicity, interpretability, and limits"
+          ],
+          "difficulty": 2,
+          "stem": "In binary classification, you decide to replace comparing posteriors with comparing discriminant functions. Which condition on the transformation from posterior to discriminant is required so that the decision surface (boundary) remains unchanged, and what boundary equation then describes the separating surface?",
+          "options": {
+            "A": "Use a monotonically increasing function f(·); the boundary can be written as g_ij(x) ≡ g_i(x) − g_j(x) = 0.",
+            "B": "Use any function f(·) as long as it is differentiable; the boundary must be written as w^T x + w0 = 0.",
+            "C": "Use a monotonically decreasing function f(·); the boundary is p(y1|x) − p(y2|x) = 1.",
+            "D": "Use a linear function f(·) only; the boundary must be expressed as arg min_a ρ(a|x) = 0."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides state that an equivalent function for working with posteriors is defined via a transformation that must preserve ordering: “g_i(x) ≡ f(p(y_i|x)). f(·) is a monotonically increasing function;” This ensures that the comparison p(y_i|x) > p(y_j|x) is equivalent to g_i(x) > g_j(x). The same slide then gives the decision hypersurface representation in terms of discriminants: “Decision hypersurfaces are described as g_ij(x) ≡ g_i(x) − g_j(x) = 0.”\n\nB is wrong because differentiability is never stated as the needed property; the required property is monotonic increase. Also, w^T x + w0 = 0 is specific to a linear discriminant hyperplane (later slide), not the general discriminant-function boundary.\n\nC is wrong because a monotonically decreasing transformation would reverse inequalities, changing the decision rule; and the boundary equation p(y1|x) − p(y2|x) = 1 is not stated (the slide uses equality to 0).\n\nD is wrong because restricting to linear f(·) is not stated; and “arg min_a ρ(a|x)” is part of Bayes decision rule, not a boundary equation set to 0.",
+          "source": {
+            "page": 8,
+            "pages": [
+              8
+            ]
+          },
+          "evidence_quotes": [
+            "Often, more convenient to work with an equivalent function:\n𝑔 𝑥 ≡ 𝑓 𝑝 𝑦 𝑥 . 𝑓 ⋅ is a monotonically increasing function;",
+            "With discriminant function, the above decision test is restated: classify\nas 𝑖-th class if 𝑔 𝑥 > 𝑔 𝑥 , ∀𝑗 ≠ 𝑖.",
+            "Decision hypersurfaces are described as 𝑔 𝑥 ≡ 𝑔 𝑥 − 𝑔 𝑥 = 0.\n𝑖𝑗 𝑖 𝑗"
+          ]
+        },
+        {
+          "question_id": "topic2_q2_hyperplane_orthogonality_inference",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Linear discriminant functions and the decision hyperplane representation",
+            "Geometric visualization of hyperplanes and classification in low-dimensional examples"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims: “Because x1 and x2 are on the decision hyperplane, the weight vector w must lie on the hyperplane.” Based on the derivation using two points on the hyperplane, what is the correct geometric inference?",
+          "options": {
+            "A": "w is orthogonal to the decision hyperplane because w^T(x1 − x2) = 0 for difference vectors lying on the hyperplane.",
+            "B": "w lies on the decision hyperplane because w^T x + w0 = 0 defines points w must satisfy.",
+            "C": "w is parallel to the decision hyperplane because w^T(x1 − x2) = 0 implies w and (x1 − x2) point in the same direction.",
+            "D": "w must be the same as (x1 − x2) because both appear in the equation w^T(x1 − x2) = 0."
+          },
+          "answer": "A",
+          "rationale": "A is correct: from the linear discriminant hyperplane equation, taking two points x1 and x2 on the hyperplane yields “w^T x1 + w0 = w^T x2 + w0 ⇒ w^T(x1 − x2) = 0.” The visualization slide then interprets this as: “Observe: the difference vector x1 − x2 lies on the decision hyperplane. Thus, weight vector w must be orthogonal to the decision hyperplane!”\n\nB is wrong because the equation “g(x) = w^T x + w0” defines the hyperplane in x-space, not a constraint that w itself must satisfy as a point on that hyperplane.\n\nC is wrong because w^T(x1 − x2) = 0 indicates orthogonality, not parallelism.\n\nD is wrong because an inner product equaling zero does not imply vector equality; it implies perpendicularity (as explicitly stated).",
+          "source": {
+            "page": 11,
+            "pages": [
+              10,
+              11
+            ]
+          },
+          "evidence_quotes": [
+            "Suppose 𝑥 and 𝑥 are two points on the decision hyperplane:\n1 2\n𝑇 𝑇 𝑇\n0 = 𝒘 𝑥 + 𝑤 = 𝒘 𝑥 + 𝑤 ⇒ 𝒘 𝑥 − 𝑥 = 0\n1 0 2 0 1 2",
+            "Observe: the difference vector\n𝑥 − 𝑥 lies on the decision\n1 2\nhyperplane.\nThus, weight vector 𝒘 must be\northogonal to the decision\nhyperplane!"
+          ]
+        },
+        {
+          "question_id": "topic2_q3_binary_contiguous_surface_vs_regions",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Discriminant functions and how they induce decision regions/surfaces",
+            "Geometric visualization of hyperplanes and classification in low-dimensional examples"
+          ],
+          "difficulty": 1,
+          "stem": "For a binary classification problem, which statement best captures the relationship between decision regions and the decision surface, under the slide’s stated assumption about region structure?",
+          "options": {
+            "A": "The feature space is partitioned into 2 regions that can be assumed contiguous, and these regions are separated by a decision surface (decision hypersurface).",
+            "B": "The feature space is partitioned into 2 regions that must be non-contiguous, so multiple decision surfaces are always required.",
+            "C": "Binary classification partitions the feature space into C regions, where C is unknown until training finishes.",
+            "D": "Binary classification does not require a decision surface; it is determined only by the Bayes action arg min_a ρ(a|x)."
+          },
+          "answer": "A",
+          "rationale": "A matches the slide’s chain: binary case implies two regions, and with the contiguity assumption they are separated by a decision surface/hypersurface. The slide explicitly states: “First focus the binary classification case: 𝒴 = {1,2}, thus the partition will result in 2 regions.” and “We can safely assume that the two regions are contiguous – they are thus separated by a “decision surface” (also known as a decision hypersurface) in the feature space.”\n\nB is wrong because the slide says we can safely assume contiguity, not non-contiguity.\n\nC is wrong because C is the number of classes; in binary classification C=2 is already fixed by 𝒴={1,2}.\n\nD is wrong because the slide explicitly introduces a decision surface equation for binary classification, so a decision surface is part of the geometric description even though Bayes rule is given.",
+          "source": {
+            "page": 8,
+            "pages": [
+              8
+            ]
+          },
+          "evidence_quotes": [
+            "First focus the binary classification case: 𝒴 = {1,2}, thus the partition\nwill result in 2 regions.",
+            "We can safely assume that the two regions are contiguous – they are\nthus separated by a “decision surface” (also known as a decision\nhypersurface) in the feature space."
+          ]
+        },
+        {
+          "question_id": "topic2_q4_link_general_discriminant_boundary_to_linear_hyperplane",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Discriminant functions and how they induce decision regions/surfaces",
+            "Linear discriminant functions and the decision hyperplane representation"
+          ],
+          "difficulty": 3,
+          "stem": "You are designing a binary classifier. You start from the general discriminant-function view where a decision hypersurface is defined by equality of two class discriminants. You then choose a *linear* discriminant function g(x) = w^T x + w0. Which statement correctly combines these ideas into a consistent geometric conclusion supported by the slides?",
+          "options": {
+            "A": "In the binary case, the decision hypersurface can be expressed as an equality (difference equals 0), and choosing a linear discriminant makes this hypersurface a hyperplane.",
+            "B": "In the binary case, the decision hypersurface must be nonlinear because it comes from posteriors p(y|x), so it cannot be a hyperplane even if g(x) is linear.",
+            "C": "A linear discriminant implies the decision surface is characterized by p(y1|x) − p(y2|x) = 0 only, and cannot be expressed using discriminant differences.",
+            "D": "If the decision hypersurface is a hyperplane, then the correct decision rule is arg min_a ρ(a|x) = 0 rather than comparing g_i(x) values."
+          },
+          "answer": "A",
+          "rationale": "A is correct by integrating two slide statements: (i) the general discriminant boundary form “Decision hypersurfaces are described as g_ij(x) ≡ g_i(x) − g_j(x) = 0.” and (ii) the linear discriminant specialization “For a binary classification task, we may consider leveraging a linear discriminant function:” followed by “The decision hypersurface in the feature space is thus a hyperplane:” with “g(x) = w^T x + w0”. Together, these support: equality-of-discriminants defines the boundary; choosing a linear discriminant yields a hyperplane boundary.\n\nB is wrong because the slides explicitly allow the decision hypersurface to be a hyperplane when leveraging a linear discriminant function.\n\nC is wrong because the slides explicitly show both representations: a posterior-difference equation and a discriminant-difference equation.\n\nD is wrong because while Bayes decision rule is given, the discriminant-based decision test is also explicitly stated (“classify as i-th class if g_i(x) > g_j(x), ∀j ≠ i”), and nothing states setting arg min_a ρ(a|x) = 0 as a decision rule.",
+          "source": {
+            "page": 10,
+            "pages": [
+              8,
+              10
+            ]
+          },
+          "evidence_quotes": [
+            "Decision hypersurfaces are described as 𝑔 𝑥 ≡ 𝑔 𝑥 − 𝑔 𝑥 = 0.\n𝑖𝑗 𝑖 𝑗",
+            "For a binary classification task, we may consider leveraging a\nlinear discriminant function:",
+            "The decision hypersurface in the feature space is thus a hyperplane:",
+            "𝑔 𝑥 = 𝒘 𝑥 + 𝑤 , 𝒘 – the weight vector; 𝑤 – the threshold.\n0 0"
+          ]
+        },
+        {
+          "question_id": "topic2_q5_assumptions_optimality_misclassification_risk",
+          "topic_id": "topic_2",
+          "knowledge_tags": [
+            "Role of linear classifiers as baseline models: simplicity, interpretability, and limits",
+            "Discriminant functions and how they induce decision regions/surfaces"
+          ],
+          "difficulty": 1,
+          "stem": "Which pairing of statements best reflects the slide’s progression from an idealized setting to a more general (risk-aware) setting when discussing linear classifiers?",
+          "options": {
+            "A": "First assume all feature vectors can be classified correctly with a linear classifier; later allow that feature vectors may not be classified correctly, introducing risk of mis-classification.",
+            "B": "First assume feature vectors may not be classified correctly; later assume perfect separability to design an optimality criterion.",
+            "C": "First assume Bayes decision rule is unnecessary for linear classifiers; later introduce Bayes decision rule only when linear classifiers are perfect.",
+            "D": "First assume linear classifiers are perfect; later conclude they are perfect because of computational attractiveness."
+          },
+          "answer": "A",
+          "rationale": "A correctly matches the stated sequence: the slide first introduces an assumption of correct classification by a linear classifier, then relaxes it to allow misclassification risk. Specifically: “First assume that all feature vectors from the available classes can be classified correctly using a linear classifier.” followed by “Further assumptions (more general case) will be that feature vectors may not be classified correctly – the risk of mis-classification.”\n\nB reverses the order stated on the slide.\n\nC introduces claims about Bayes decision rule that are not stated in the linear-classifier slide.\n\nD incorrectly infers that computational attractiveness implies perfection; the slide explicitly says “Of course, linear classifiers are NOT perfect.”",
+          "source": {
+            "page": 7,
+            "pages": [
+              7
+            ]
+          },
+          "evidence_quotes": [
+            "Of course, linear classifiers are NOT perfect.",
+            "First assume that all feature vectors from the available classes\ncan be classified correctly using a linear classifier.",
+            "Further assumptions (more general case) will be that feature vectors\nmay not be classified correctly – the risk of mis-classification."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_3",
+      "topic": "Perceptron Learning Algorithm: Formulation, Optimization View, and Variants",
+      "slide_range": [
+        13,
+        28
+      ],
+      "questions": [
+        {
+          "question_id": "mcq_topic3_q1",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "Perceptron as an iterative update rule for learning a separating hyperplane",
+            "Optimization perspective: loss/cost formulation and relationship to gradient descent",
+            "Implementation details and practical considerations (updates, convergence behavior)"
+          ],
+          "difficulty": 3,
+          "stem": "A student claims: “Because the perceptron update is derived from gradient descent, we can compute the gradient everywhere and smoothly decrease the cost at every step.” Which statement best diagnoses the flaw in this claim using the slides’ optimization view and update rule?",
+          "options": {
+            "A": "The perceptron cost is “continuous and piecewise linear,” so when the set of misclassified vectors changes, “the gradient is not defined” and “the gradient function is discontinuous,” hence gradient descent is only defined where the gradient is continuous.",
+            "B": "The perceptron cost is minimized only when the hyperplane crosses the origin; adding a bias term makes the gradient undefined.",
+            "C": "Gradient descent cannot be used because cost functions have only a single minimum; therefore no iterative scheme is needed.",
+            "D": "The perceptron update must always use a cyclical one-by-one presentation of samples; otherwise the gradient is undefined."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly state both (i) the perceptron cost’s non-smoothness at certain points and (ii) that the iterative minimization is only defined where the gradient is continuous. This directly refutes the student’s claim that the gradient is computable “everywhere.”\n\nB is wrong: the slides say the formulation covers non-origin-crossing hyperplanes by augmenting features (bias handling), not that this causes undefined gradients. The undefined gradient is tied to changes in misclassified vectors, not to whether the hyperplane crosses the origin.\n\nC is wrong: the slides say “most cost functions are much more complicated: there exists local and global minimum, as well as saddle points,” contradicting the claim of a single minimum.\n\nD is wrong: cyclical presentation is a variant, but the gradient undefined issue is explained via the piecewise linear cost and changes in misclassification set, not via whether data are presented cyclically.",
+          "source": {
+            "page": 14,
+            "pages": [
+              14,
+              16
+            ]
+          },
+          "evidence_quotes": [
+            "The perceptron cost function is continuous and piecewise linear.",
+            "At these points the gradient is not defined, and the gradient function is\ndiscontinuous.",
+            "Iterative minimization in the spirit of gradient descent. Defined at all\npoints where the gradient function is continuous:",
+            "In reality, most cost functions are\nmuch more complicated: there\nexists local and global minimum,\nas well as saddle points."
+          ]
+        },
+        {
+          "question_id": "mcq_topic3_q2",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "Perceptron as an iterative update rule for learning a separating hyperplane",
+            "Extensions: algorithmic variants and multi-class generalizations; conditions for linear separability",
+            "Implementation details and practical considerations (updates, convergence behavior)"
+          ],
+          "difficulty": 2,
+          "stem": "You are implementing a perceptron for binary classification with an explicit bias term. Which transformation correctly incorporates a non-origin-crossing hyperplane into an augmented weight–feature dot product, consistent with the later decision rule that uses a bias?",
+          "options": {
+            "A": "Define x′ ≡ (x^T, 1)^T and w′ ≡ (w^T, w0)^T so that w^T x + w0 = w′^T x′.",
+            "B": "Define x′ ≡ (x^T, w0)^T and w′ ≡ (w^T, 1)^T so that w^T x + w0 = w′^T x′.",
+            "C": "Keep x unchanged and enforce w0 = 0, because the hyperplane must cross the origin for perceptron learning to work.",
+            "D": "Absorb the bias by appending −1 to x (instead of 1), because the perceptron decision rule requires w^T x + w0 < 0 for class y1."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides explicitly define the augmented feature and weight vectors and show the equality w^T x + w0 = w′^T x′. This matches the later binary decision rule that explicitly uses “w^T x + w0”.\n\nB is wrong because it swaps where the constant 1 and bias w0 go; the slide states x′ appends 1 and w′ appends w0.\n\nC is wrong because the slides explicitly note the formulation covers the case where the hyperplane does not cross the origin and provides the augmentation trick.\n\nD is wrong because it invents a requirement about appending −1 and misstates the decision rule: the slide’s rule assigns y1 when w^T x + w0 > 0 (not < 0).",
+          "source": {
+            "page": 13,
+            "pages": [
+              13,
+              24
+            ]
+          },
+          "evidence_quotes": [
+            "Note that the formulation covers the case where the hyperplane does\n∗𝑇 ∗\nnot cross the origin (as in the last slide): 𝒘 𝑥 + 𝑤 = 0.\n0",
+            "Under such case, we can further define a 𝐷 + 1 -dim feature vector\n′ 𝑇 𝑇 ′ ∗𝑇 ∗ 𝑇 ∗𝑇 ∗ ′𝑇\n𝑥 ≡ 𝑥 , 1 and 𝒘 ≡ 𝒘 , 𝑤 , thus 𝒘 𝑥 + 𝑤 = 𝒘 𝑥′.\n0 0",
+            "IF 𝑤 𝑥 + 𝑤 > 0, assign 𝑥 to 𝑦 ;\n0 1",
+            "ELSE IF 𝑤 𝑥 + 𝑤 < 0, assign 𝑥 to 𝑦 ;\n0 2"
+          ]
+        },
+        {
+          "question_id": "mcq_topic3_q3",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "Optimization perspective: loss/cost formulation and relationship to gradient descent",
+            "Perceptron as an iterative update rule for learning a separating hyperplane",
+            "Implementation details and practical considerations (updates, convergence behavior)"
+          ],
+          "difficulty": 2,
+          "stem": "Consider the perceptron cost and its minimization. Which statement correctly links (i) the meaning of reaching cost 0 and (ii) the role of the misclassified set M in the update?",
+          "options": {
+            "A": "If the minimum value 0 is reached, then “all training feature vectors are correctly classified”; the update uses only “the subset of mis-classified training vectors” M via a sum over x ∈ M.",
+            "B": "If the minimum value 0 is reached, then at least one training vector remains misclassified, but the margin is maximized; M contains all training vectors to enforce this.",
+            "C": "If the minimum value 0 is reached, it means the hyperplane must cross the origin; M is empty only when w0 = 0.",
+            "D": "If the minimum value 0 is reached, it guarantees correct classification on new unknown data; M is defined as the subset of correctly classified vectors to stabilize learning."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides explicitly interpret cost 0 as all training vectors correctly classified, and define M as the misclassified subset used in the cost (and thus in the gradient-based update that sums over x ∈ M).\n\nB is wrong because the slides do not mention margin maximization; instead, they say cost 0 corresponds to all training vectors correctly classified, and M is misclassified vectors (not all vectors).\n\nC is wrong because the slides explicitly cover the non-origin-crossing case by adding w0 and augmenting x; M being empty is tied to correct classification, not to w0 = 0.\n\nD is wrong because the slides state the goal is applicability to new data, but they do not claim training cost 0 guarantees generalization; also M is explicitly misclassified vectors, not correctly classified ones.",
+          "source": {
+            "page": 14,
+            "pages": [
+              14
+            ]
+          },
+          "evidence_quotes": [
+            "The perceptron cost: 𝐽 𝒘 = σ 𝛿 𝒘 𝑇 𝑥 , where 𝑀 is the subset of\n𝑥∈𝑀 𝑥\nmis-classified training vectors.",
+            "When the cost function takes its minimum value, which is 0, can safely\nassume that a solution has been obtained, since all training feature\nvectors are correctly classified."
+          ]
+        },
+        {
+          "question_id": "mcq_topic3_q4",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "Perceptron as an iterative update rule for learning a separating hyperplane",
+            "Variants of the perceptron algorithm: reward/punishment (cyclical form)",
+            "Implementation details and practical considerations (updates, convergence behavior)"
+          ],
+          "difficulty": 2,
+          "stem": "In the cyclical (reward/punishment) perceptron variant, which update behavior is consistent with both the conditional rules and the interpretation of “reward” vs “punishment”?",
+          "options": {
+            "A": "If the current sample is classified correctly, keep w unchanged; if misclassified, add or subtract an amount proportional to xt depending on whether xt belongs to y1 or y2.",
+            "B": "If the current sample is classified correctly, add ρxt as a reward; if misclassified, take no action to avoid overfitting.",
+            "C": "Always update w by subtracting ρxt regardless of class membership, because punishment must be applied every iteration in cyclical training.",
+            "D": "Update w only after presenting all samples once (batch), because cyclical form forbids one-by-one updates."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides state “If the current training sample is classified correctly, no action is taken.” They also specify the conditional add/subtract rules depending on class membership and misclassification, and interpret this as “reward and punishment schemes” where correct classification yields “no action” and misclassification yields “the cost of correction.”\n\nB is wrong because it reverses the reward logic: the slide defines reward as no action, not adding ρxt.\n\nC is wrong because the slide gives conditional updates and also includes an “otherwise” case of no update; it does not apply punishment every iteration.\n\nD is wrong because the slide explicitly says “The training data enter the algorithm cyclically, one by one,” which is the opposite of batch-only updating.",
+          "source": {
+            "page": 21,
+            "pages": [
+              21
+            ]
+          },
+          "evidence_quotes": [
+            "The training data enter the algorithm cyclically, one by one.",
+            "𝑤 𝑡 + 1 = 𝑤 𝑡 + 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≤ 0 (note similarity);",
+            "𝑤 𝑡 + 1 = 𝑤 𝑡 − 𝜌𝑥 , if 𝑥 ∈ 𝑦 and 𝑤 𝑡 𝑥 ≥ 0;",
+            "𝑤 𝑡 + 1 = 𝑤 𝑡 , otherwise.",
+            "If the current training sample is classified correctly, no action is\ntaken. If the sample is misclassified, the weight vector is\ncorrected by adding/subtracting an amount proportional to 𝑥 .",
+            "The algorithm belongs to a more general algorithmic family: the\nreward and punishment schemes.",
+            "If the classification is correct, the reward is that no action is taken.\nOtherwise, the punishment is the cost of correction."
+          ]
+        },
+        {
+          "question_id": "mcq_topic3_q5",
+          "topic_id": "topic_3",
+          "knowledge_tags": [
+            "Extensions: algorithmic variants and multi-class generalizations; conditions for linear separability",
+            "Perceptron as an iterative update rule for learning a separating hyperplane"
+          ],
+          "difficulty": 1,
+          "stem": "You extend a linear classifier from binary to M-class using the simplest rule in the slides. Which decision criterion matches that rule?",
+          "options": {
+            "A": "Assign x to class i if wi^T x > wj^T x for all j ≠ i.",
+            "B": "Assign x to class i if wi^T x > 0 and wj^T x < 0 for all j ≠ i.",
+            "C": "Assign x to class i if |wi^T x| is smallest among all classes.",
+            "D": "Assign x to class i if wi^T x + w0 > 0; otherwise assign to class i+1."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slide states that for M classes, define a discriminant (weight vector) for each class and classify x as class i when wi^T x exceeds wj^T x for all other classes.\n\nB is wrong because it mixes a binary-style sign test with multi-class; the slide’s multi-class rule is based on pairwise comparison wi^T x > wj^T x, not on positivity/negativity constraints.\n\nC is wrong because the slide does not use absolute values or a “smallest magnitude” criterion.\n\nD is wrong because it incorrectly applies the binary bias-threshold rule and invents a sequential fallback (i+1) not present in the slide’s multi-class comparison rule.",
+          "source": {
+            "page": 27,
+            "pages": [
+              27
+            ]
+          },
+          "evidence_quotes": [
+            "A linear discriminant function (defined by a weight vector 𝒘 ) is defined\n𝑖\nfor each of the 𝑀 classes.",
+            "Input feature (data) 𝑥 is classified as the 𝑖-th class if the following holds:\n𝑇 𝑇\n𝒘 𝑥 > 𝒘 𝑥, ∀𝑗 ≠ 𝑖\n𝑖 𝑗"
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_4",
+      "topic": "Linear Classification via Least-Squares / MSE Criteria",
+      "slide_range": [
+        29,
+        37
+      ],
+      "questions": [
+        {
+          "question_id": "topic4_q1_mse_vs_lse_data_requirement",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Using mean-square error (MSE) as an alternative objective for classification",
+            "Least-squares estimation (LSE): matrix form, solution concepts, and error-squares minimization"
+          ],
+          "difficulty": 2,
+          "stem": "You want to train a linear classifier from a finite training set, but you do not want to assume/know the underlying probability distribution functions. Which training objective/criterion best matches this requirement, and what is the key operational difference compared to MSE as stated in the slides?",
+          "options": {
+            "A": "Use LSE (sum of error squares): it sums errors over training vectors rather than averaging, and it can \"Overcome the need for explicit knowledge of the underlying probability distribution functions (pdfs).\"",
+            "B": "Use MSE: it sums errors over training vectors rather than averaging, and therefore avoids needing any pdf knowledge.",
+            "C": "Use LSE: it explicitly requires the correlation matrix R = E(xx^T) and cross-correlation E(xy) computed from the true underlying pdf.",
+            "D": "Use MSE: it is defined on a finite dataset D = {(y_i, x_i)} and therefore automatically removes any dependence on pdfs."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the LSE slide explicitly states both (i) the operational difference from MSE—\"Errors btw the desired output and the true output are summed over all the training feature vectors, instead of averaging out.\"—and (ii) the motivation—\"Overcome the need for explicit knowledge of the underlying probability distribution functions (pdfs).\" \n\nB is wrong because it attributes LSE’s summation property to MSE; the MSE slide defines an expectation-based objective \"J(w) = E (y(x) − x^T w)^2\" rather than summing over training vectors. \n\nC is wrong because it claims LSE requires the true pdf; the LSE slide says it overcomes that need, while the MSE slide is the one framed in terms of expectations and correlations (e.g., R = E(xx^T), E(xy)). \n\nD is wrong because it conflates the later discussion of finite datasets for estimating g(·) with the definition of MSE; the MSE formulation is given as an expectation, and the explicit pdf-avoidance is stated for LSE, not MSE.",
+          "source": {
+            "page": 31,
+            "pages": [
+              30,
+              31
+            ]
+          },
+          "evidence_quotes": [
+            "Formulation of the MSE between the desired and actual output:\n𝑇 2\n𝐽 𝒘 = 𝔼 𝑦 𝑥 − 𝑥 𝒘",
+            "A criterion closely related to the MSE is the sum of error\nsquares or simply the least squares error (LSE) criterion:",
+            "Errors btw the desired output and the true output are summed over all\nthe training feature vectors, instead of averaging out.",
+            "Overcome the need for explicit knowledge of the underlying probability\ndistribution functions (pdfs)."
+          ]
+        },
+        {
+          "question_id": "topic4_q2_lse_matrix_solution_conditions",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Least-squares estimation (LSE): matrix form, solution concepts, and error-squares minimization",
+            "Over-determined vs under-determined systems and implications for solvability"
+          ],
+          "difficulty": 3,
+          "stem": "Consider fitting a linear classifier via LSE using the matrix solution. Which statement correctly matches (i) the required invertibility assumption and (ii) whether the system is over- or under-determined in the slides’ discussion?",
+          "options": {
+            "A": "In the usual (over-determined) case N > D, the pseudoinverse form ŵ = (X^T X)^{-1} X^T Y is used and is \"only valid if the matrix (X^T X) is invertible.\"",
+            "B": "In the usual (over-determined) case N > D, there will be \"more than one unique solution\" and we therefore must use the right inverse X† = X^T (X X^T)^{-1}.",
+            "C": "When N = D, the solution is obtained by minimizing the sum of squared errors using ŵ = X^T (X X^T)^{-1} y, because X^T X cannot be invertible.",
+            "D": "When N < D (under-determined), the pseudoinverse ŵ = (X^T X)^{-1} X^T Y is guaranteed to exist because X^T X is always invertible in that case."
+          },
+          "answer": "A",
+          "rationale": "A is correct: the LSE estimation slide gives the matrix solution \"X^T X ŵ = X^T Y ⇒ ŵ = (X^T X)^{-1} X^T Y\" and immediately states it is \"only valid if the matrix (X^T X) is invertible.\" The over-/under-determined slide states the discussion assumes \"N > D\" and calls this \"an over-determined system.\" \n\nB is wrong because \"There will be more than one unique solution!\" is stated for the opposite regime: \"what if N < D\" (under-determined), not for N > D. The right-inverse construction \"X† = X^T (X X^T)^{-1}\" is presented specifically in that under-determined discussion. \n\nC is wrong because for N = D the slide states a direct satisfaction condition \"the optimal weight vector satisfies the equation of: X ŵ = Y.\" It does not claim X^T X cannot be invertible, nor does it prescribe the right-inverse under N = D. \n\nD is wrong because the slides do not claim X^T X is always invertible for N < D; instead they introduce a different assumption: \"Assume (X X^T) is invertible\" to construct the right inverse in the under-determined case.",
+          "source": {
+            "page": 34,
+            "pages": [
+              32,
+              34
+            ]
+          },
+          "evidence_quotes": [
+            "Hence the equation for optimal weight vector is formulated as:\n𝑇 𝑇 𝑇 −1 𝑇\n𝑋 𝑋 𝑤ෝ = 𝑋 𝑌 ⇒ 𝑤ෝ = 𝑋 𝑋 𝑋 𝑌",
+            "is usually known as the pseudoinverse of matrix 𝑋, which is only valid if\n𝑇\nthe matrix (𝑋 𝑋) is invertible.",
+            "During the computation of the above equation, we assume 𝑁 > 𝑙, i.e., we\nhave more samples than the number of features per sample.",
+            "We have more than enough equations to determine the linear classifier –\ndenoted as an over-determined system.",
+            "Question: what if 𝑁 < 𝐷, i.e., we do NOT have enough samples?\nThere will be more than one unique solution!",
+            "Assume (𝑋𝑋 𝑇 ) is invertible",
+            "Here we denote 𝑋 † = 𝑋 𝑇 𝑋𝑋 𝑇 −1 as the right inverse of 𝑋."
+          ]
+        },
+        {
+          "question_id": "topic4_q3_n_equals_d_implication",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Least-squares estimation (LSE): matrix form, solution concepts, and error-squares minimization",
+            "Over-determined vs under-determined systems and implications for solvability"
+          ],
+          "difficulty": 1,
+          "stem": "Under which condition stated in the slides does the LSE optimum satisfy the exact linear system X ŵ = Y (rather than being described as minimizing the sum of squared errors in an over-determined setting)?",
+          "options": {
+            "A": "When N = D.",
+            "B": "In most cases where N > D.",
+            "C": "When N < D and (X X^T) is invertible.",
+            "D": "Only when N is large so that the LSE solution tends to the MSE solution."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slide explicitly states: \"In the case where N = D, the optimal weight vector satisfies the equation of: X ŵ = Y.\" \n\nB is wrong because for N > D the slide instead says the solution \"is the vector that minimizes the sum of squared errors.\" \n\nC is wrong because for N < D the slides say there is not a unique solution and introduce a constrained/right-inverse approach, not the statement that X ŵ = Y is satisfied by the LSE optimum as a special case. \n\nD is wrong because \"Note that the LSE solution tends to the MSE solution when N is large!\" is about asymptotic similarity of solutions, not the exact satisfaction condition X ŵ = Y.",
+          "source": {
+            "page": 32,
+            "pages": [
+              32
+            ]
+          },
+          "evidence_quotes": [
+            "In the case where 𝑁 = 𝐷, the optimal weight vector satisfies the\nequation of: 𝑋𝑤ෝ = 𝑌.",
+            "In most cases where 𝑁 > 𝐷, the solution obtained from 𝑤ෝ = 𝑋 𝑌 is the\nvector that minimizes the sum of squared errors.",
+            "Note that the LSE solution tends to the MSE solution when 𝑁 is large!"
+          ]
+        },
+        {
+          "question_id": "topic4_q4_example_bias_term_and_design_matrix",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Worked example of LSE-based classifier fitting",
+            "Least-squares estimation (LSE): matrix form, solution concepts, and error-squares minimization"
+          ],
+          "difficulty": 2,
+          "stem": "In the worked LSE example, the target classifier includes a constant/bias term. Which construction of the training matrix X is consistent with both the classifier form and the matrix definition of X in the LSE derivation?",
+          "options": {
+            "A": "Make X an N×3 matrix by extending each 2D vector with a constant 1 as a third coordinate, so each row is a training feature vector including the bias dimension.",
+            "B": "Make X a 3×N matrix by stacking the 2D vectors as columns and appending a row of 1s, because the derivation requires X to have feature vectors as columns.",
+            "C": "Keep X as N×2 (do not add the constant 1) and instead absorb the bias by changing Y to include an extra constant entry.",
+            "D": "Extend each vector with 1 as a third coordinate, but then define X as a D×N matrix whose rows are the available training feature vectors."
+          },
+          "answer": "A",
+          "rationale": "A is correct by combining two slide facts: (i) the example’s classifier explicitly includes a constant term \"w0 × 1\" and instructs: \"extend each vector with 1 as the 3rd dimension\"; (ii) the LSE derivation defines X’s shape and orientation: \"X is an N × D matrix whose rows are the available training feature vectors.\" With the extra bias coordinate, D becomes 3, making X an N×3 matrix with rows as extended vectors. \n\nB is wrong because it contradicts the stated orientation: the slides say rows are feature vectors (N×D), not columns (D×N). \n\nC is wrong because the example explicitly extends x with 1; it does not modify Y to encode the bias. Also Y is defined as desired outputs (±1), not as a place to store bias parameters. \n\nD is wrong because it mixes the correct extension step with an incorrect definition of X: the slide states X is N×D with rows as feature vectors, not D×N.",
+          "source": {
+            "page": 35,
+            "pages": [
+              32,
+              35
+            ]
+          },
+          "evidence_quotes": [
+            "I.e., 𝑋 is an 𝑁 × 𝐷 matrix whose rows are the available training feature\nvectors, and 𝑌 is a vector consisting of the corresponding desired outputs.",
+            "Goal: a linear classifier of the form 𝑤 𝑥 + 𝑤 𝑥 + 𝑤 × 1 = 0.\n1 1 2 2 0",
+            "With LSE estimation: extend each vector with 1 as the 3rd dimension;"
+          ]
+        },
+        {
+          "question_id": "topic4_q5_bias_variance_and_dataset_dependence",
+          "topic_id": "topic_4",
+          "knowledge_tags": [
+            "Capabilities and practical limits of linear classifiers under MSE/LSE training",
+            "Using mean-square error (MSE) as an alternative objective for classification"
+          ],
+          "difficulty": 3,
+          "stem": "A student argues: “If we train g(x) by minimizing MSE/LSE, then its performance on new data is fixed and does not depend on which finite training set we used.” Which response is most consistent with the slides’ capability analysis and its MSE-based evaluation decomposition?",
+          "options": {
+            "A": "Disagree: the slides emphasize writing g(x;D) to show dependence on the finite dataset, and they state performance can be very good for one training set but very bad for another; the evaluation E_D (g(x;D) − y(x))^2 decomposes into bias and variance contributions.",
+            "B": "Agree: since ŵ is computed to minimize MSE between actual and desired outputs, g is uniquely determined and therefore cannot vary with D; the evaluation has only a bias term.",
+            "C": "Disagree: dependence on D exists only for LSE (because it sums errors), but not for MSE (because it averages errors); therefore the decomposition applies only to LSE.",
+            "D": "Agree: once N > D (over-determined), there is only one unique solution, so g(x;D) is independent of D; any remaining error must be variance only."
+          },
+          "answer": "A",
+          "rationale": "A is correct and integrates two slide ideas: (1) dataset dependence/capabilities: \"To emphasize the dependency of g over D, we write g(x; D).\" and \"the approximation of the real class may be very good for a specific training data set but very bad for another.\" (2) the evaluation criterion and decomposition: the effectiveness is evaluated by \"E_D (g(x; D) − y(x))^2\" and \"The first term is the contribution of the bias and the second is the contribution of the variance.\" \n\nB is wrong because it denies dataset dependence and claims only bias; the slide explicitly introduces dependence on D and explicitly mentions both bias and variance terms. \n\nC is wrong because the dataset-dependence discussion is framed for estimating g(·) from a finite dataset using a suited method \"(MSE/LSE)\"; it is not restricted to LSE. The decomposition is presented for the effectiveness of g(x;D), not tied exclusively to LSE. \n\nD is wrong because (i) the slides do not say over-determined implies independence from D; they say the opposite—results can vary by training set; and (ii) it incorrectly asserts the error must be variance only, contradicting the explicit bias+variance statement.",
+          "source": {
+            "page": 36,
+            "pages": [
+              29,
+              36
+            ]
+          },
+          "evidence_quotes": [
+            "𝒘 is computed to minimize the mean square error (MSE) between the\nactual output and the desired output.",
+            "In practice, (and discussed for LSE estimation), the functions 𝑔 ⋅ are\nestimated using a finite training dataset denoted as 𝒟 = { 𝑦 , 𝑥 , 𝑖 =\n𝑖 𝑖\n1,2, … , 𝑁} and a suited method (MSE/LSE).",
+            "To emphasize the dependency of 𝑔 over 𝒟, we write 𝑔 𝑥; 𝒟 .",
+            "Note that the approximation of the real class may be very good for a\nspecific training data set but very bad for another.",
+            "The effectiveness of 𝑔 𝑥; 𝒟 can be evaluated by computing its mean\nsquare deviation from the desired optimal value (essentially, the MSE):\n2\n𝔼 𝑔 𝑥; 𝒟 − 𝑦 𝑥\n𝒟",
+            "The first term is the contribution of the bias and the second is the\ncontribution of the variance."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_5",
+      "topic": "Generalization and the Bias–Variance Trade-off",
+      "slide_range": [
+        38,
+        43
+      ],
+      "questions": [
+        {
+          "question_id": "topic5_q1_bias_underfitting_train_test",
+          "topic_id": "topic_5",
+          "knowledge_tags": [
+            "Definitions of bias and variance and how they relate to model complexity",
+            "Trade-off between underfitting and overfitting in supervised learning"
+          ],
+          "difficulty": 2,
+          "stem": "A student observes a model that performs poorly on the training set and also poorly on unseen (test) data. Based on the slides, which diagnosis is most consistent with this pattern, and what does it imply about the model’s ability to capture the underlying relationship?",
+          "options": {
+            "A": "High bias (underfitting); the model is not able to capture the complexity of the true underlying relationship.",
+            "B": "High variance (overfitting); the model is too complex and has learned to fit the noise in the training data.",
+            "C": "Low bias and low variance; the model generalizes well but the dataset must be noisy.",
+            "D": "High variance; the model should have poor training performance because it fails to fit the training data."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly connect (i) the performance pattern (poor on both training and unseen) with high bias, and (ii) high bias with underfitting due to inability to capture the true relationship’s complexity. \n\nB is wrong because high variance is characterized by a different performance pattern: training performance is usually decent, but unseen performance is much poorer. \n\nC is wrong because the slides do not support the claim that low bias and low variance would yield poor training and test performance; instead, the provided diagnostic for poor performance on both sets is high bias. \n\nD is wrong because it contradicts the slide’s statement that with high variance, training performance is usually quite decent (not poor).",
+          "source": {
+            "page": 39,
+            "pages": [
+              39,
+              40
+            ]
+          },
+          "evidence_quotes": [
+            "A model with high bias is said to be underfitting the data, as it is not\nable to capture the complexity of the true underlying relationship.",
+            "High bias: poor performance on both training data and unseen data.",
+            "A model with high variance is said to be overfitting the data, as it is\ntoo complex and has learned to fit the noise in the training data as\nwell as the underlying patterns.",
+            "High variance: much poorer performance on unseen data compared to\nthe training data. (Usually training performance is quite descent)"
+          ]
+        },
+        {
+          "question_id": "topic5_q2_variance_overfitting_train_vs_test_gap",
+          "topic_id": "topic_5",
+          "knowledge_tags": [
+            "Definitions of bias and variance and how they relate to model complexity",
+            "Trade-off between underfitting and overfitting in supervised learning"
+          ],
+          "difficulty": 2,
+          "stem": "Two models are trained on the same finite dataset. Model M1 has quite decent training performance but much poorer performance on unseen data. Model M2 has poor performance on both training and unseen data. Which pairing of (model → issue) is consistent with the slides?",
+          "options": {
+            "A": "M1 → high variance (overfitting); M2 → high bias (underfitting).",
+            "B": "M1 → high bias (underfitting); M2 → high variance (overfitting).",
+            "C": "M1 → irreducible noise; M2 → optimal complexity.",
+            "D": "M1 → unbiased model; M2 → high variance (overfitting)."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides give two distinct diagnostic signatures: high variance corresponds to a large train–test performance gap with decent training performance, while high bias corresponds to poor performance on both training and unseen data. \n\nB swaps these signatures and is therefore inconsistent with the stated diagnostics. \n\nC is wrong because the slides describe irreducible noise only as a component of test error, not as a diagnostic label for a specific train/test performance pattern; and “optimal complexity” is not described as yielding poor performance on both sets. \n\nD is wrong because the slide’s condition for being unbiased is an expectation equality, not a statement about train/test performance patterns; and M2’s pattern matches high bias rather than high variance.",
+          "source": {
+            "page": 40,
+            "pages": [
+              39,
+              40
+            ]
+          },
+          "evidence_quotes": [
+            "High variance: much poorer performance on unseen data compared to\nthe training data. (Usually training performance is quite descent)",
+            "A model with high variance is said to be overfitting the data, as it is\ntoo complex and has learned to fit the noise in the training data as\nwell as the underlying patterns.",
+            "High bias: poor performance on both training data and unseen data.",
+            "A model with high bias is said to be underfitting the data, as it is not\nable to capture the complexity of the true underlying relationship."
+          ]
+        },
+        {
+          "question_id": "topic5_q3_complexity_change_bias_variance_tradeoff",
+          "topic_id": "topic_5",
+          "knowledge_tags": [
+            "Definitions of bias and variance and how they relate to model complexity",
+            "Trade-off between underfitting and overfitting in supervised learning",
+            "Impact of training procedure and hypothesis class on expected generalization error"
+          ],
+          "difficulty": 3,
+          "stem": "You are allowed to change only model complexity (same finite dataset). You decide to increase complexity to reduce underfitting. According to the slides, which combined change in bias and variance should you expect, and what dilemma does this illustrate?",
+          "options": {
+            "A": "Bias decreases and variance increases; this illustrates the bias-variance dilemma where it is difficult to simultaneously minimize both.",
+            "B": "Bias increases and variance decreases; this illustrates that increasing complexity always reduces overfitting.",
+            "C": "Both bias and variance decrease; this illustrates that higher complexity always improves test error.",
+            "D": "Both bias and variance increase; this illustrates that complexity harms both fitting and generalization."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly state the direction of change with complexity: increasing complexity decreases bias but increases variance, and that this constitutes a dilemma/trade-off making it difficult to minimize both simultaneously. \n\nB is wrong because it reverses the stated relationship between complexity and bias/variance. \n\nC is wrong because it claims both terms decrease with increased complexity, contradicting the slide’s statement that variance increases as complexity increases. \n\nD is wrong because it claims both increase, contradicting the slide’s statement that bias decreases as complexity increases.",
+          "source": {
+            "page": 41,
+            "pages": [
+              41
+            ]
+          },
+          "evidence_quotes": [
+            "For a finite data set, there is a trade-off between these two terms.",
+            "Increasing the bias decreases the variance and vice versa. This is known\nas the bias-variance dilemma.",
+            "It is difficult to simultaneously minimize both bias and variance.",
+            "As the complexity of a model increases, its bias decreases, but its variance increases.",
+            "Conversely, as the complexity of a model decreases, its bias increases, but its\nvariance decreases."
+          ]
+        },
+        {
+          "question_id": "topic5_q4_test_error_decomposition_reasoning",
+          "topic_id": "topic_5",
+          "knowledge_tags": [
+            "Definitions of bias and variance and how they relate to model complexity",
+            "Trade-off between underfitting and overfitting in supervised learning",
+            "Impact of training procedure and hypothesis class on expected generalization error"
+          ],
+          "difficulty": 2,
+          "stem": "A team argues: “If we keep increasing model complexity, test error must always go down because bias goes down.” Using the slide statements, what is the best rebuttal?",
+          "options": {
+            "A": "Test error includes variance (and irreducible noise), and variance increases with complexity; therefore decreasing bias alone does not guarantee lower test error.",
+            "B": "The model becomes unbiased as complexity increases, so test error must monotonically decrease.",
+            "C": "Variance is unrelated to generalization; only bias matters for test error.",
+            "D": "Irreducible noise decreases as complexity increases, so test error always decreases."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides provide two key facts to combine: (i) the decomposition “Test error = Bias Squared + Variance + Irreducible Noise.” and (ii) “As the complexity of a model increases, its bias decreases, but its variance increases.” Therefore, increasing complexity can reduce the bias term while increasing the variance term, so test error is not guaranteed to decrease. \n\nB is wrong because the slides do not state that increasing complexity makes the model unbiased; they only state bias decreases while variance increases, and emphasize difficulty minimizing both. \n\nC is wrong because variance is explicitly a component of test error in the provided decomposition. \n\nD is wrong because the slides do not state that irreducible noise decreases with complexity; they only list it as a term in test error.",
+          "source": {
+            "page": 43,
+            "pages": [
+              41,
+              43
+            ]
+          },
+          "evidence_quotes": [
+            "Test error = Bias Squared + Variance + Irreducible Noise.",
+            "As the complexity of a model increases, its bias decreases, but its variance increases.",
+            "It is difficult to simultaneously minimize both bias and variance."
+          ]
+        },
+        {
+          "question_id": "topic5_q5_unbiased_vs_low_test_error_misconception",
+          "topic_id": "topic_5",
+          "knowledge_tags": [
+            "Definitions of bias and variance and how they relate to model complexity",
+            "Impact of training procedure and hypothesis class on expected generalization error"
+          ],
+          "difficulty": 1,
+          "stem": "A student claims: “If a model is unbiased, then it will have low test error.” Which response is most consistent with the slides?",
+          "options": {
+            "A": "Not necessarily: even if the model is unbiased, test error also includes variance and irreducible noise.",
+            "B": "Yes: unbiasedness implies both low variance and zero irreducible noise.",
+            "C": "Yes: unbiasedness means the model will have poor performance on both training and unseen data.",
+            "D": "Not necessarily: unbiasedness means the model has high variance and must overfit."
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides define unbiasedness via an expectation equality, but also state that test error contains multiple components: bias squared, variance, and irreducible noise. Thus, having zero/low bias alone does not ensure low test error if variance and/or irreducible noise are large. \n\nB is wrong because the slides never claim unbiasedness implies low variance or zero irreducible noise; in fact, variance is a separate term in the test error decomposition. \n\nC is wrong because “poor performance on both training data and unseen data” is given as a signature of high bias, not unbiasedness. \n\nD is wrong because unbiasedness is not equated with high variance in the slides; variance is separately defined and can vary independently of the unbiasedness condition.",
+          "source": {
+            "page": 39,
+            "pages": [
+              39,
+              43
+            ]
+          },
+          "evidence_quotes": [
+            "We say 𝑔(⋅) is unbiased when 𝔼 𝑔 𝑥; 𝒟 = 𝑦 𝑥 .\n𝒟",
+            "Test error = Bias Squared + Variance + Irreducible Noise.",
+            "High bias: poor performance on both training data and unseen data."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_6",
+      "topic": "Motivation for Nonlinear Classifiers: Limitations of Linear Decision Boundaries",
+      "slide_range": [
+        44,
+        48
+      ],
+      "questions": [
+        {
+          "question_id": "topic6_q1",
+          "topic_id": "topic_6",
+          "knowledge_tags": [
+            "perceptron decision rule",
+            "linear decision boundary",
+            "binary classification",
+            "limitations/linear inseparability"
+          ],
+          "difficulty": 2,
+          "stem": "A student applies the perceptron decision rule to a dataset and finds that for some inputs, any choice of parameters still misclassifies many points. Which explanation best matches the motivation given in the slides for moving beyond linear classifiers?",
+          "options": {
+            "A": "Some classification tasks have no single straight line that separates the two classes, so even an optimally designed linear classifier can yield poor (majority erroneous) performance.",
+            "B": "The perceptron decision rule cannot perform binary classification because it does not assign inputs to two classes.",
+            "C": "If data are linearly separable, a linear classifier will necessarily have errors because the true output will not always equal the desired output.",
+            "D": "Poor performance only occurs when the inseparable data are the majority; if inseparable data are the minority, linear classifiers always achieve 0 errors."
+          },
+          "answer": "A",
+          "rationale": "A is supported by the slides’ stated concern that even with an optimally designed linear classifier, performance can be poor due to linear inseparability, and by the XOR example where no straight line separates classes. B contradicts the perceptron’s explicit binary assignment rule. C contradicts the statement that for linearly separable data the outcome is “ultimately 0 errors.” D contradicts the slide’s framing as a question: it does not claim minority inseparable points guarantee 0 errors; rather it asks whether poor performance can still happen and gives XOR as an example.",
+          "source": {
+            "page": 47,
+            "pages": [
+              45,
+              47,
+              48
+            ]
+          },
+          "evidence_quotes": [
+            "The goal of the perceptron algorithm: obtain a linear classifier\nthat is applicable to new (and unknown) data:\nI.e., classify the new data into the two classes (binary classification).",
+            "IF 𝑤 𝑥 + 𝑤 > 0, assign 𝑥 to 𝑦 ;\n0 1",
+            "ELSE IF 𝑤 𝑥 + 𝑤 < 0, assign 𝑥 to 𝑦 ;\n0 2",
+            "Linear separable – ultimately 0 errors, what about linearly inseparable?",
+            "Are there cases where even when we design a linear classifier, in an optimal way,\nwould result in poor performance – majority erroneous classification?\nOne example: The XOR problem.",
+            "It is apparent that NO single straight line exists that\nseparates the two classes."
+          ]
+        },
+        {
+          "question_id": "topic6_q2",
+          "topic_id": "topic_6",
+          "knowledge_tags": [
+            "error minimization",
+            "linear classifier",
+            "desired output vs actual output",
+            "limitations/linear inseparability"
+          ],
+          "difficulty": 3,
+          "stem": "Consider the error-minimization view of linear classifiers. Which statement best captures the tension highlighted by the slides when the data are linearly inseparable (e.g., XOR)?",
+          "options": {
+            "A": "Even if we compute w to minimize the error between actual output and desired output, a linear classifier may still yield poor performance (majority erroneous classification) on linearly inseparable problems like XOR.",
+            "B": "Minimizing error guarantees that the true output will always equal the desired output, even for linearly inseparable data.",
+            "C": "The error-minimization approach replaces binary classification with multi-class classification, which is why XOR is difficult.",
+            "D": "If a dataset is linearly inseparable, the perceptron decision rule becomes undefined because w^T x + w0 cannot be computed."
+          },
+          "answer": "A",
+          "rationale": "A integrates two slide ideas: (i) the linear classifier is fit by minimizing error between actual and desired outputs, and (ii) there exist linearly inseparable cases where even an optimally designed linear classifier can have poor performance, with XOR as an example. B overclaims: the slides explicitly allow errors (“but with errors” and “will not always be equal”). C introduces multi-class, which is not supported; slides repeatedly frame “binary classification.” D is incorrect because the decision rule is a computable expression; the limitation discussed is separability/performance, not undefined computation.",
+          "source": {
+            "page": 46,
+            "pages": [
+              46,
+              47,
+              48
+            ]
+          },
+          "evidence_quotes": [
+            "Our goal: design a linear classifier so that the desired outputs\nof the data are ±1 – but with errors.",
+            "The true output will not always be equal to the desired output.",
+            "Given input 𝑥, the actual output is 𝒘 𝑥, the desired output is 𝑦(𝑥).\n𝒘 is computed to minimize the error between the acutual output and\nthe desired output.",
+            "Are there cases where even when we design a linear classifier, in an optimal way,\nwould result in poor performance – majority erroneous classification?\nOne example: The XOR problem.",
+            "It is apparent that NO single straight line exists that\nseparates the two classes."
+          ]
+        },
+        {
+          "question_id": "topic6_q3",
+          "topic_id": "topic_6",
+          "knowledge_tags": [
+            "XOR vs AND/OR",
+            "linear separability",
+            "limitations of linear decision boundaries",
+            "binary classification framing"
+          ],
+          "difficulty": 2,
+          "stem": "You want to motivate nonlinear classifiers using Boolean-function classification tasks. Which choice correctly pairs the example with the separability property emphasized in the slides?",
+          "options": {
+            "A": "XOR is nonlinearly separable (no single straight line separates the classes), while AND and OR are linearly separable.",
+            "B": "XOR is linearly separable, while AND and OR are nonlinearly separable.",
+            "C": "All Boolean functions (including XOR, AND, OR) are linearly separable because they are binary classification tasks.",
+            "D": "XOR is nonlinearly separable only because its outputs are ±1 rather than 0 or 1."
+          },
+          "answer": "A",
+          "rationale": "A matches the explicit comparison: XOR has no single straight line separating classes, whereas AND and OR are linearly separable. B reverses the slide’s claim. C confuses “binary classification task” with “linearly separable”; the slides explicitly distinguish them and state XOR is not separable by a straight line. D invents a cause not stated: XOR is described with outputs “0 or 1,” and its non-separability is attributed to the absence of a separating straight line.",
+          "source": {
+            "page": 48,
+            "pages": [
+              48
+            ]
+          },
+          "evidence_quotes": [
+            "Boolean functions can be interpreted as classification\ntasks: depending on the input binary data, the output\nis either 0 or 1 – binary classification task.",
+            "It is apparent that NO single straight line exists that\nseparates the two classes.",
+            "Compare with other Boolean functions: AND and OR;\nBoth are linearly separable."
+          ]
+        },
+        {
+          "question_id": "topic6_q4",
+          "topic_id": "topic_6",
+          "knowledge_tags": [
+            "limitations/linear inseparability",
+            "XOR as canonical failure case",
+            "motivation for nonlinear methods",
+            "MLP/RBF as next steps"
+          ],
+          "difficulty": 2,
+          "stem": "A lecturer wants to transition from linear classifiers to nonlinear classifiers. Based on the slides, which sequence best reflects the intended narrative flow from limitation to proposed solution families?",
+          "options": {
+            "A": "Raise the question of poor performance for linearly inseparable data (XOR), then move to nonlinear classifier topics including MLP (trained with BP) and RBF networks.",
+            "B": "Start with RBF networks, then introduce XOR as a case that is linearly separable, and finally recap the perceptron decision rule.",
+            "C": "Show that linearly separable data always have errors, then use XOR to show how to reduce errors to zero with a single straight line.",
+            "D": "Use AND/OR as examples of nonlinearly separable problems, then propose backpropagation as a linear-classifier training rule."
+          },
+          "answer": "A",
+          "rationale": "A aligns with the slides: they explicitly pose the limitation question about linearly inseparable data and cite XOR, and the subsequent nonlinear-classifier agenda lists MLP, backpropagation training, and RBF networks. B contradicts the slide ordering and incorrectly claims XOR is linearly separable. C contradicts both “Linear separable – ultimately 0 errors” and “NO single straight line exists” for XOR. D contradicts that AND/OR are linearly separable and mischaracterizes backpropagation as a linear-classifier training rule (slides present it as “Training the MLP with Backpropagation (BP)”).",
+          "source": {
+            "page": 44,
+            "pages": [
+              44,
+              47,
+              48
+            ]
+          },
+          "evidence_quotes": [
+            "✓ Analysis of the XOR problem.",
+            "✓ The Multi-Layer Perceptron (MLP).",
+            "✓ Training the MLP with Backpropagation (BP).",
+            "✓ The Radial Basis Function Networks (RBF).",
+            "Linear separable – ultimately 0 errors, what about linearly inseparable?",
+            "One example: The XOR problem.",
+            "It is apparent that NO single straight line exists that\nseparates the two classes.",
+            "Compare with other Boolean functions: AND and OR;\nBoth are linearly separable.",
+            "The question now: how to tackle the XOR problem\nand extend further to other nonlinearly separable\nclassification cases?"
+          ]
+        },
+        {
+          "question_id": "topic6_q5",
+          "topic_id": "topic_6",
+          "knowledge_tags": [
+            "perceptron decision boundary",
+            "linear separability vs inseparability",
+            "XOR limitation",
+            "binary classification"
+          ],
+          "difficulty": 1,
+          "stem": "Suppose you insist on using a single straight-line decision boundary of the form shown in the perceptron recap to separate two classes. For which task do the slides indicate this approach cannot succeed (i.e., no single straight line separates the classes)?",
+          "options": {
+            "A": "XOR",
+            "B": "AND",
+            "C": "OR",
+            "D": "Any binary classification task, because binary outputs cannot be separated by a straight line"
+          },
+          "answer": "A",
+          "rationale": "A is explicitly identified as having no single straight line separating the classes. B and C are explicitly stated to be linearly separable. D is a common misconception: the slides say Boolean functions are binary classification tasks, but only XOR is highlighted as not separable by a single straight line, while AND/OR are separable.",
+          "source": {
+            "page": 48,
+            "pages": [
+              45,
+              48
+            ]
+          },
+          "evidence_quotes": [
+            "IF 𝑤 𝑥 + 𝑤 > 0, assign 𝑥 to 𝑦 ;\n0 1",
+            "ELSE IF 𝑤 𝑥 + 𝑤 < 0, assign 𝑥 to 𝑦 ;\n0 2",
+            "It is apparent that NO single straight line exists that\nseparates the two classes.",
+            "Compare with other Boolean functions: AND and OR;\nBoth are linearly separable.",
+            "Boolean functions can be interpreted as classification\ntasks: depending on the input binary data, the output\nis either 0 or 1 – binary classification task."
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "topic_id": "topic_7",
+      "topic": "Two-Layer Perceptron and Multi-Layer Perceptrons (MLPs): Representation and Training",
+      "slide_range": [
+        49,
+        69
+      ],
+      "questions": [
+        {
+          "question_id": "topic_7_q2_hypercube_union_limitation",
+          "topic_id": "topic_7",
+          "knowledge_tags": [
+            "Two-layer perceptron architecture and how hidden layers enable non-linear separation",
+            "Two-layer perceptron architecture and how hidden layers enable non-linear separation"
+          ],
+          "difficulty": 3,
+          "stem": "Consider the geometric interpretation of a two-layer perceptron: hidden neurons create hyperplanes that map input regions to hypercube vertices, and the output neuron applies a hyperplane in that mapped space. Which statement best captures both (i) what the network can represent and (ii) why it can still fail on some unions of regions?",
+          "options": {
+            "A": "It can separate classes that are unions of polyhedral regions, but it may fail for some unions because success depends on whether the mapped vertices are linearly separable by the output hyperplane.",
+            "B": "It can separate any union of polyhedral regions because the hidden layer maps inputs to hypercube vertices, which are always linearly separable.",
+            "C": "It cannot separate unions of polyhedral regions at all; mapping to hypercube vertices forces all regions to collapse into a single class.",
+            "D": "It can separate any union of polyhedral regions only if the activation function is linear, because linearity preserves hyperplanes through layers."
+          },
+          "answer": "A",
+          "rationale": "A matches two connected slide claims: (1) representational capability: “A 2-layer perceptron (a single hidden layer) can separate classes consisting of unions of the polyhedral regions.” (2) limitation mechanism: “but NOT any union of such regions – depends on the relative positions of the vertices of 𝐻 , where the classes are mapped, and on whether they are linearly separable.” The reason is tied to the output neuron being a hyperplane that “separates the hypercube into 2 parts.”\n\nB is wrong because the slides explicitly negate it (“but NOT any union of such regions”).\n\nC is wrong because the slides explicitly say it can separate some unions.\n\nD is wrong because linear activation collapses the model to a basic perceptron (“The 2-layer perceptron will be just the same as the basic perceptron!”), and the slide’s union-separation discussion relies on hidden-layer-created hyperplanes and mapped vertices, not on linearity enabling more unions.",
+          "source": {
+            "page": 55,
+            "pages": [
+              55,
+              53
+            ]
+          },
+          "evidence_quotes": [
+            "Hidden layer neurons divides the input 𝑙-dim space into polyhedra, formed by\nhyperplane intersections.",
+            "All vectors located within one of these polyhedral regions are mapped onto a specific\nvertex of the unit 𝐻 hypercube.\n𝑝",
+            "Output neuron realizes another hyperplane, separates the hypercube into 2 parts.",
+            "A 2-layer perceptron (a single hidden layer) can separate classes consisting of unions\nof polyhedral regions, but NOT any union of such regions – depends on the relative\npositions of the vertices of 𝐻 , where the classes are mapped, and on whether they\n𝑝\nare linearly separable.",
+            "The 2-layer perceptron will be just the same as\nthe basic perceptron!"
+          ]
+        },
+        {
+          "question_id": "topic_7_q3_training_step_vs_sigmoid",
+          "topic_id": "topic_7",
+          "knowledge_tags": [
+            "Training MLPs by optimizing a cost function; motivation for smooth activations",
+            "Activation function constraints: continuity/differentiability and implications for learning",
+            "Backpropagation: gradient computation through layers and iterative parameter updates; brief view beyond the basic MLP"
+          ],
+          "difficulty": 2,
+          "stem": "You want to train an MLP by iteratively minimizing a cost function via gradient-based weight updates. Based on the slides, what is the most direct obstacle when using McCulloch–Pitts (hard limiter step) activations, and what remedy is proposed (without changing the overall goal of minimizing the cost)?",
+          "options": {
+            "A": "Obstacle: the step function is not differentiable at some input (x=0); remedy: use a continuous differentiable activation such as a sigmoid/logistic that behaves similarly to the step function.",
+            "B": "Obstacle: the sigmoid is not differentiable at some input; remedy: replace it with the hard limiter step function so gradients exist everywhere.",
+            "C": "Obstacle: the cost function cannot be written as a sum over training pairs; remedy: define J as a single error term rather than a sum of ℰ(i).",
+            "D": "Obstacle: backpropagation requires starting gradient computation from the first layer; remedy: propagate gradients forward from r=1 to r=L."
+          },
+          "answer": "A",
+          "rationale": "A directly integrates the training objective with the activation-function constraint: the slides state the training goal is to compute weights so that a cost is minimized iteratively, but note a “Problem?” because “Currently, our MLPs are developed around the McCulloch-Pitts neurons – the hard limiter step function as activation function!” The next slide explains the issue: “The problem: not differentiable at some input (𝑥 = 0)!” and proposes “finding a continuous differentiable activation function that behaves similar to the step function,” specifically “The family of sigmoid functions; Representative: the logistic function”.\n\nB contradicts the slides: it is the step function that is not differentiable at x=0, while the logistic has a derivative formula shown.\n\nC contradicts the backprop slide defining cost as a sum: “𝐽 = ෍ ℰ(𝑖)”.\n\nD contradicts the direction of backprop: “The computations start from 𝑟 = 𝐿 and propagate backward… This is the reason the algorithm derived is known as the backpropagation algorithm.”",
+          "source": {
+            "page": 60,
+            "pages": [
+              60,
+              61,
+              63,
+              64
+            ]
+          },
+          "evidence_quotes": [
+            "The core idea of the perceptron algorithm: adjust the synaptic\nparams (weights) to minimize a cost function of its output.",
+            "Problem?\nCurrently, our MLPs are developed around the McCulloch-Pitts\nneurons – the hard limiter step function as activation function!",
+            "The problem: not differentiable at some input (𝑥 = 0)!",
+            "Possible solution: finding a continuous differentiable activation\nfunction that behaves similar to the step function.",
+            "The family of sigmoid functions;\nRepresentative: the logistic function:",
+            "Assume a multi-layer neural architecture with the sigmoid activation. The\ngoal: an iterative training algorithm that computes the synaptic weights of\nthe network so that the cost function (chosen) is minimized).",
+            "Generally, the cost function can be formulated as:\n𝑁\n𝐽 = ෍ ℰ(𝑖)\n𝑖=1",
+            "The computations start from 𝑟 = 𝐿 and propagate backward for 𝑟 = 𝐿 , 𝐿 , … , 1. I.e.,\n1 2\nthe computation start from the last layer and propagate towards the first layer."
+          ]
+        },
+        {
+          "question_id": "topic_7_q4_backprop_chain_rule_dependency",
+          "topic_id": "topic_7",
+          "knowledge_tags": [
+            "Backpropagation: gradient computation through layers and iterative parameter updates; brief view beyond the basic MLP",
+            "Training MLPs by optimizing a cost function; motivation for smooth activations"
+          ],
+          "difficulty": 2,
+          "stem": "In backpropagation, why is the gradient computation for a hidden-layer weight (r < L) structurally different from that for a last-layer weight (r = L), according to the slides’ dependency/chain-rule explanation?",
+          "options": {
+            "A": "Because for r=L the dependence of ℰ(i) on v^L_j(i) is explicit and the derivative is straightforward, whereas for r<L the value of v^{r-1}_j(i) influences all v^r_k(i) in the next layer, requiring a summed chain-rule contribution.",
+            "B": "Because for r=L the gradient must be self-defined due to indifferentiability, whereas for r<L it is always analytic and never needs the chain rule.",
+            "C": "Because for r=L the cost is not a sum over training pairs, while for r<L it becomes a sum; this changes the gradient structure.",
+            "D": "Because for r<L gradients propagate forward from the first layer to the last, while for r=L they propagate backward from the last to the first."
+          },
+          "answer": "A",
+          "rationale": "A is exactly the distinction described: for the last layer, the slides state “in the last layer, the dependence of ℰ(𝑖) on v (𝑖) is explicit, and the computation of the derivative is straightforward.” For earlier layers, they state “For 𝑟 < 𝐿, due to the successive dependence among the layers, the value of 𝑣 (𝑖) … influences all 𝑣 𝑖 … of the next layer. Employing the chain rule, we have:” followed by a summation.\n\nB is wrong because the ‘self-define the gradient’ remark is a general implementation note and is not stated as the reason for last-layer vs hidden-layer differences; the slide’s stated reason is explicit vs successive dependence.\n\nC is wrong because J is defined as a sum over training pairs generally (“𝐽 = ෍ ℰ(𝑖)”), not only for hidden layers.\n\nD is wrong because the algorithm computes deltas starting from the last layer and propagating backward, not forward (“The computations start from 𝑟 = 𝐿 and propagate backward…”).",
+          "source": {
+            "page": 64,
+            "pages": [
+              64,
+              62
+            ]
+          },
+          "evidence_quotes": [
+            "For 𝑟 = 𝐿 (last layer): 𝛿 𝑖 = .",
+            "Thus, in the last layer, the dependence of ℰ(𝑖) on\n𝐿\n𝑣 (𝑖) is explicit, and the computation of the derivative\n𝑗\nis straightforward.",
+            "For 𝑟 < 𝐿, due to the successive dependence among the layers, the value of 𝑣 (𝑖)\n𝑗\n𝑟\ninfluences all 𝑣 𝑖 , 𝑘 = 1,2, … , 𝑘 of the next layer. Employing the chain rule, we have:",
+            "The computations start from 𝑟 = 𝐿 and propagate backward for 𝑟 = 𝐿 , 𝐿 , … , 1. I.e.,\n1 2\nthe computation start from the last layer and propagate towards the first layer.",
+            "In such cases, it is necessary to self-\ndefine the gradient in the coding"
+          ]
+        },
+        {
+          "question_id": "topic_7_q5_global_hyperplane_vs_local_responses",
+          "topic_id": "topic_7",
+          "knowledge_tags": [
+            "Two-layer perceptron architecture and how hidden layers enable non-linear separation",
+            "Beyond the basic MLP: global hyperplane vs local/tuned responses"
+          ],
+          "difficulty": 1,
+          "stem": "A student argues: “Since a two-layer perceptron uses multiple hidden hyperplanes, its final decision boundary cannot be a single hyperplane; therefore it must be local/tuned like biological neurons.” Which statement best aligns with the slides while addressing this confusion between intermediate mappings and the final classifier form?",
+          "options": {
+            "A": "The slides indicate the basic MLP with sigmoidal activation produces a global hyperplane, even though hidden layers create mappings via hyperplanes; locality/tuning is presented as biological evidence beyond this basic model.",
+            "B": "The slides state the output neuron always produces a local/tuned decision region in input space, matching biological orientation-sensitive cells.",
+            "C": "The slides state that because hidden layers create multiple hyperplanes, the final classifier must be non-hyperplanar and therefore universally applicable.",
+            "D": "The slides state that global hyperplanes only occur when the activation is the hard limiter step function, not with sigmoids."
+          },
+          "answer": "A",
+          "rationale": "A resolves the misconception by combining two slide points: (i) hidden layers create hyperplanes/mappings (“The mapping of the input space onto the vertices of the hypercube is via the creation of 𝑝 hyperplanes. Each of which is created by a neuron in the hidden layer.”) and (ii) despite that, the basic MLP discussed “with sigmoidal activation function produces a global hyperplane.” The slides then contrast this with biological evidence that some neurons are “local” or tuned, explicitly framed as “Beyond the Basic MLP,” not as a property already guaranteed by the basic MLP.\n\nB is wrong because the slides do not claim the output neuron ‘always produces local/tuned’ regions; they say the basic MLP produces a global hyperplane and only discuss local responses as biological evidence.\n\nC is wrong because the slides explicitly question universality (“Is such hyperplane universally applicable?”) and also note limitations of two-layer perceptrons on unions of regions.\n\nD is wrong because the global hyperplane statement is explicitly tied to “sigmoidal activation function,” not the step function.",
+          "source": {
+            "page": 69,
+            "pages": [
+              69,
+              55
+            ]
+          },
+          "evidence_quotes": [
+            "The MLP we discussed (viewed as a basic MLP network) with\nsigmoidal activation function produces a global hyperplane.",
+            "Is such hyperplane universally applicable?",
+            "there is\nevidence that responses of some neurons are \"local\" or tuned\nto some region of input space.",
+            "The mapping of the input space onto the vertices of the\nhypercube is via the creation of 𝑝 hyperplanes. Each of\nwhich is created by a neuron in the hidden layer."
+          ]
+        }
+      ],
+      "warnings": [
+        "topic_7_q1_xor_mapping_linearized: quote not found in pages [49, 53]"
+      ]
+    },
+    {
+      "topic_id": "topic_8",
+      "topic": "Radial Basis Function (RBF) Networks: Concepts and Hybrid Training",
+      "slide_range": [
+        70,
+        77
+      ],
+      "questions": [
+        {
+          "question_id": "topic_8_q1_locality_mechanism",
+          "topic_id": "topic_8",
+          "knowledge_tags": [
+            "RBF network structure and intuition: localized basis functions for non-linear modeling",
+            "Choice and behavior of radial basis functions (e.g., Gaussian-like responses)"
+          ],
+          "difficulty": 2,
+          "stem": "A student claims: “An RBF hidden unit is ‘locally sensitive’ because its output depends on the input x only through the distance to its center c.” Which expression best matches this claim and the slide-defined hidden-unit computation?",
+          "options": {
+            "A": "Compute d = ∥x − c∥ and then o = g(d) = g∥x − c∥",
+            "B": "Compute o using a sigmoidal activation function that forms a hyperplane",
+            "C": "Compute o as a weighted sum of hidden neuron outputs (a linear combiner)",
+            "D": "Compute o = 1/(d^2 + σ^2) but with d defined as ∥x + c∥"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slides explicitly define the hidden-unit operation in two steps: first a distance to the center, then applying an RBF to that distance: “𝑑 =∥ 𝑥 − 𝑐 ∥” and “𝑜 = 𝑔 𝑑 = 𝑔 ∥ 𝑥 − 𝑐 ∥”. This also aligns with the locality description that the response “decays as a function of the distance from the input to the center”.\n\nB is wrong because it describes the MLP hidden layer (“MLP: sigmoidal activation function – hyperplane”), not the RBF hidden layer.\n\nC is wrong because it describes the output layer, not the hidden-unit computation (“The output layer neuron is a linear combiner”).\n\nD is wrong because although an “Inverse multi-quadratic function” is a valid RBF, it incorrectly defines distance as ∥x + c∥ rather than the slide’s ∥x − c∥.",
+          "source": {
+            "page": 70,
+            "pages": [
+              70,
+              71
+            ]
+          },
+          "evidence_quotes": [
+            "For each of the RBF unit (hidden layer neuron),\nthe operation is formulated as:\n𝑑 =∥ 𝑥 − 𝑐 ∥\n𝑖 𝑖\n𝑜 = 𝑔 𝑑 = 𝑔 ∥ 𝑥 − 𝑐 ∥",
+            "The hidden layer consists of the locally tuned or locally\nsensitive neurons, whose response (output) is localized and\ndecays as a function of the distance from the input to the\ncenter of neuron's receptive field.",
+            "MLP: sigmoidal activation function – hyperplane\nRBF: radial basis function – hyper-ellipse"
+          ]
+        },
+        {
+          "question_id": "topic_8_q2_parameters_vs_training_steps",
+          "topic_id": "topic_8",
+          "knowledge_tags": [
+            "Training pipeline as a hybrid process (e.g., selecting centers/widths then fitting output layer)",
+            "RBF network structure and intuition: localized basis functions for non-linear modeling"
+          ],
+          "difficulty": 3,
+          "stem": "You are asked to design a hybrid training plan that matches BOTH (i) the set of parameters that determine an RBF network and (ii) the two-step hybrid process described. Which plan is most consistent with the slides?",
+          "options": {
+            "A": "Step 1 (unsupervised): determine the RBF centers c_j; Step 2 (supervised): estimate the weights w_j; treat σ as a basis-function width parameter that also determines the network",
+            "B": "Step 1 (supervised): estimate the centers c_j by least squares; Step 2 (unsupervised): estimate weights w_j by k-means; σ is not a determining parameter",
+            "C": "Step 1 (unsupervised): determine weights w_j by random selection; Step 2 (supervised): determine centers c_j by least squares; σ is replaced by the output-layer bias",
+            "D": "Step 1 (supervised): determine both centers c_j and weights w_j jointly; Step 2 (unsupervised): pick σ via sequential forward selection"
+          },
+          "answer": "A",
+          "rationale": "A is correct because it matches both slide statements: (1) the hybrid process: “There are two steps for determining the RBF: 1. Determine the RBF centers. 2. Estimation of the weights.” and “The RBF centers are determined in an unsupervised manner; The weight estimation is computed in a supervised manner.” (2) the network-determining parameters include centers, weights, and width: “The center vectors 𝑐 ; … The weights 𝑤 … The width of the basis function 𝜎.”\n\nB is wrong because it reverses the supervision roles (centers are said to be unsupervised; weights supervised) and contradicts that σ is a determining parameter.\n\nC is wrong because weights are not listed among the unsupervised center-finding methods (random selection is listed for centers), and centers are not said to be determined by LS; also σ is explicitly a parameter, not replaced by a bias.\n\nD is wrong because the slides emphasize a two-step hybrid split (unsupervised centers, supervised weights), not “both jointly” in supervised training, and sequential forward selection is listed under center determination methods, not σ selection.",
+          "source": {
+            "page": 74,
+            "pages": [
+              73,
+              74
+            ]
+          },
+          "evidence_quotes": [
+            "What are the parameters that determine the RBF network?\nThe center vectors 𝑐 ;\n𝑗\nThe weights 𝑤 corresponding to each RBF hidden neuron;\n𝑗\nThe width of the basis function 𝜎.",
+            "There are two steps for determining the RBF:\n1. Determine the RBF centers.\n2. Estimation of the weights.\nUsually, the overall training process is a hybrid process:\nThe RBF centers are determined in an unsupervised manner;\nThe weight estimation is computed in a supervised manner.",
+            "For determine the RBF centers, possible methods are:\nRandom selection;\nSequential forward selection (merge from individual neurons);\nClustering (e.g., 𝑘-means, to be discussed in Second half of course!)",
+            "For the weight estimation, recall LS estimation (least squares) in linear\nnetwork – the link between the hidden and output layer neurons are linear:"
+          ]
+        },
+        {
+          "question_id": "topic_8_q3_hidden_vs_output_layer_inputs",
+          "topic_id": "topic_8",
+          "knowledge_tags": [
+            "RBF network structure and intuition: localized basis functions for non-linear modeling",
+            "Training pipeline as a hybrid process (e.g., selecting centers/widths then fitting output layer)"
+          ],
+          "difficulty": 2,
+          "stem": "During weight estimation for an RBF network, a student sets up least squares using the original raw input x as the design matrix. Based on the slides, what is the most accurate correction?",
+          "options": {
+            "A": "Use the hidden-layer outputs (after applying the radial basis function) as the inputs to least squares, because the hidden-to-output links are linear",
+            "B": "Use the original input x because the hidden layer is linear and the output layer is nonlinear",
+            "C": "Use only distances d = ∥x − c∥ (without applying g) because least squares cannot use nonlinear features",
+            "D": "Least squares is not applicable because the output layer is not a linear combiner"
+          },
+          "answer": "A",
+          "rationale": "A is correct: the slides state the output layer is linear and LS applies to the linear link from hidden to output, but the LS ‘input’ is the hidden-layer RBF output, not the original x: “the link between the hidden and output layer neurons are linear” and “Note that the input now is not the original input, but the output from the radial basis function (after the hidden layer neuron).”\n\nB is wrong because it inverts the slide description: the output layer is the “linear combiner”, while the hidden layer applies an RBF.\n\nC is wrong because the slide explicitly says the LS input is “the output from the radial basis function”, i.e., after applying g(·), not merely the distance.\n\nD is wrong because the slide explicitly states: “The output layer neuron is a linear combiner, i.e., weighted sum of the hidden layer neuron outputs.”",
+          "source": {
+            "page": 74,
+            "pages": [
+              73,
+              74
+            ]
+          },
+          "evidence_quotes": [
+            "The output layer neuron is a linear combiner, i.e., weighted\nsum of the hidden layer neuron outputs.",
+            "For the weight estimation, recall LS estimation (least squares) in linear\nnetwork – the link between the hidden and output layer neurons are linear:",
+            "Note that the input now is not the original input, but the output from the\nradial basis function (after the hidden layer neuron)."
+          ]
+        },
+        {
+          "question_id": "topic_8_q4_gaussian_output_expression",
+          "topic_id": "topic_8",
+          "knowledge_tags": [
+            "Choice and behavior of radial basis functions (e.g., Gaussian-like responses)",
+            "RBF network structure and intuition: localized basis functions for non-linear modeling"
+          ],
+          "difficulty": 1,
+          "stem": "Assuming Gaussian RBFs in the hidden layer and a linear combiner output layer, which expression matches the slide’s stated network output form f(x)?",
+          "options": {
+            "A": "f(x) = ∑_{j=1}^m w_j exp(−∥x − c_j∥^2 / (2σ^2))",
+            "B": "f(x) = exp(−∥x − c∥^2 / (2σ^2)) with no summation or weights",
+            "C": "f(x) = ∑_{j=1}^m exp(−∥x − c_j∥^2 / (2σ^2)) / w_j",
+            "D": "f(x) = ∑_{j=1}^m w_j (1/(∥x − c_j∥^2 + σ^2)) only when Gaussian is used"
+          },
+          "answer": "A",
+          "rationale": "A is correct because the slide gives the output as a weighted sum of Gaussian hidden-unit responses: “𝑓 𝑥 = ෍ 𝑤 𝑜 𝑥 = ෍ 𝑤 exp − ∥ 𝑥 − 𝑐 ∥^2 / (2𝜎^2)”.\n\nB is wrong because it omits the linear combiner/weights and the multiple hidden neurons (the slide explicitly uses a sum over j and weights w_j).\n\nC is wrong because the slide uses multiplication by w_j, not division.\n\nD is wrong because it swaps in the inverse multi-quadratic form; the slide’s Gaussian case uses the exponential, not 1/(d^2+σ^2).",
+          "source": {
+            "page": 73,
+            "pages": [
+              73
+            ]
+          },
+          "evidence_quotes": [
+            "The output layer neuron is a linear combiner, i.e., weighted\nsum of the hidden layer neuron outputs. Assume the Gaussian\nfunction is used for the hidden layer neurons, the output is:\n𝑚 𝑚\n2\n∥ 𝑥 − 𝑐 ∥\n𝑗\n𝑓 𝑥 = ෍ 𝑤 𝑜 𝑥 = ෍ 𝑤 exp −\n𝑗 𝑗 𝑗\n2𝜎2\n𝑗=1 𝑗=1"
+          ]
+        },
+        {
+          "question_id": "topic_8_q5_mlp_vs_rbf_geometry_and_locality",
+          "topic_id": "topic_8",
+          "knowledge_tags": [
+            "RBF network structure and intuition: localized basis functions for non-linear modeling",
+            "Choice and behavior of radial basis functions (e.g., Gaussian-like responses)"
+          ],
+          "difficulty": 2,
+          "stem": "A classmate argues that MLP and RBF hidden units create the same type of decision geometry because both are “just nonlinear activations.” Using the slides’ descriptions, which statement best distinguishes them in a way that also explains why RBF units are localized?",
+          "options": {
+            "A": "MLP hidden units use a “sigmoidal activation function – hyperplane”, while RBF hidden units use a “radial basis function – hyper-ellipse” and their response “decays as a function of the distance from the input to the center”",
+            "B": "Both MLP and RBF hidden units produce hyperplanes, but RBF adds a linear combiner output layer which creates locality",
+            "C": "RBF units are localized because their centers are always determined by supervised least squares, unlike MLP",
+            "D": "RBF units are localized only when using the inverse multi-quadratic function; Gaussian RBFs are not localized"
+          },
+          "answer": "A",
+          "rationale": "A is correct because it combines two slide-backed distinctions: (i) the geometric/functional difference in hidden-layer activations (“MLP: sigmoidal activation function – hyperplane” vs “RBF: radial basis function – hyper-ellipse”), and (ii) the locality mechanism (“response (output) is localized and decays as a function of the distance from the input to the center”).\n\nB is wrong because it contradicts the slide’s explicit hyperplane vs hyper-ellipse distinction and incorrectly attributes locality to the output layer rather than distance-to-center behavior in the hidden layer.\n\nC is wrong because centers are stated to be determined “in an unsupervised manner,” not by supervised least squares.\n\nD is wrong because the slides describe locality as a property of RBF hidden neurons generally, and Gaussian is explicitly presented as a “Common choice of RBF”; nothing states Gaussian is not localized.",
+          "source": {
+            "page": 70,
+            "pages": [
+              70,
+              71,
+              72,
+              74
+            ]
+          },
+          "evidence_quotes": [
+            "MLP: sigmoidal activation function – hyperplane\nRBF: radial basis function – hyper-ellipse",
+            "The hidden layer consists of the locally tuned or locally\nsensitive neurons, whose response (output) is localized and\ndecays as a function of the distance from the input to the\ncenter of neuron's receptive field.",
+            "Common choice of RBF include:\nGaussian function:",
+            "The RBF centers are determined in an unsupervised manner;\nThe weight estimation is computed in a supervised manner."
+          ]
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+{
+  "target_difficulty": 1,
+  "total_answered": 157,
+  "summaries": [
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 3/5 correct (accuracy=0.60), target_diff=1.",
+        "Achieved 60% accuracy in the recent attempts.",
+        "Correctly answered 3 out of 5 questions in the window.",
+        "All attempts were focused on the topic of probability foundations and Bayes rule."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "good",
+      "evidence": [
+        "Last 5 questions: 4/5 correct (accuracy=0.80), target_diff=1.",
+        "Achieved 4 out of 5 correct answers, resulting in an 80% accuracy.",
+        "Correctly answered 2 out of 3 questions at difficulty level 1.",
+        "Successfully answered both questions at difficulty level 2."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "Only 1 out of 5 questions answered correctly, resulting in an accuracy of 0.20.",
+        "Struggled with higher difficulty questions, scoring 0 correct out of 3 attempts at difficulty level 2.",
+        "Current performance indicates a need for improvement in understanding key topics."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "model_fitting_mle_and_erm",
+        "core_distributions_for_modeling"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Achieved 2 correct answers out of 5 attempts (accuracy=0.40)",
+        "Only 1 correct answer out of 2 attempts at difficulty level 1",
+        "Struggled with higher difficulty questions, scoring 0 correct at difficulty level 3"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "core_distributions_for_modeling",
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Achieved only 2 correct answers out of 5 attempts (accuracy=0.40).",
+        "All correct answers were from questions with difficulty level 2.",
+        "No correct answers were recorded for difficulty level 1 or 3."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "Only 1 out of 5 questions answered correctly (20% accuracy).",
+        "Struggled with higher difficulty questions, scoring 0 out of 3 on difficulty level 2.",
+        "Correct answer achieved only on a question from difficulty level 1."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "model_fitting_mle_and_erm",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 3/5 correct (accuracy=0.60), target_diff=1.",
+        "Achieved 3 correct answers out of 5 attempts (60% accuracy).",
+        "Correctly answered 1 out of 2 questions at difficulty level 1.",
+        "Performed well on questions related to probability foundations and Bayes rule."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "model_fitting_mle_and_erm",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 3/5 correct (accuracy=0.60), target_diff=1.",
+        "Achieved 60% accuracy in the recent attempts.",
+        "Correct answers were all from difficulty level 2.",
+        "No correct answers from difficulty level 1 or 3."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Achieved only 2 correct answers out of 5 attempts (accuracy=0.40).",
+        "Struggled with difficulty level 1, getting 0 correct out of 2 attempts.",
+        "Performed better on difficulty level 2 with 2 correct out of 3 attempts."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Achieved only 2 correct answers out of 5 attempts, resulting in an accuracy of 0.40.",
+        "Struggled with questions at difficulty level 1, with 0 correct answers out of 2 attempts.",
+        "Performed better on difficulty level 2, with 2 correct answers out of 3 attempts."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "good",
+      "evidence": [
+        "Last 5 questions: 4/5 correct (accuracy=0.80), target_diff=1.",
+        "Achieved 4 out of 5 correct answers, resulting in 80% accuracy.",
+        "All correct answers were from questions with difficulty level 2.",
+        "No attempts were made on difficulty level 1 or 3."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "model_fitting_mle_and_erm"
+      ]
+    },
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 3/5 correct (accuracy=0.60), target_diff=1.",
+        "Achieved 3 correct answers out of 5 attempts (60% accuracy).",
+        "Struggled with questions at difficulty level 1, getting 0 correct.",
+        "Performed well on difficulty level 2, with 3 out of 4 correct."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "model_fitting_mle_and_erm",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 3/5 correct (accuracy=0.60), target_diff=1.",
+        "Correct answers: 3 out of 5 attempts (60% accuracy)",
+        "Correct answers on probability_foundations_and_bayes_rule: 2 out of 3 attempts",
+        "Correct answer on pr_and_ml_overview: 1 out of 1 attempt"
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "1 correct answer out of 5 attempts (20% accuracy)",
+        "All attempts were on the topic of probability foundations and Bayes' rule, with no correct answers on this topic."
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "User A answered 2 questions correctly out of 5 attempts.",
+        "User B and User D both answered incorrectly on their attempts.",
+        "User A had a correct answer on a different topic (pr_and_ml_overview) but struggled with the main focus topic."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "1 correct answer out of 5 attempts (20% accuracy)",
+        "Struggled with questions on probability foundations and Bayes' rule",
+        "Multiple incorrect attempts on the same topics"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "ok",
+      "evidence": [
+        "Last 5 questions: 4/5 correct (accuracy=0.80), target_diff=1.",
+        "Correct answers: 4 out of 5 attempts in the last window.",
+        "Accuracy of 80% indicates a reasonable understanding of the material."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Correct answers: 2 out of 5 attempts (40% accuracy)",
+        "Two correct answers in the topic 'probability_foundations_and_bayes_rule' and 'pr_and_ml_overview'"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Correct answers: 2 out of 5 attempts (40% accuracy)",
+        "User B answered correctly on question 3 but incorrectly on question 1",
+        "User D answered incorrectly on question 1 but had a correct response on question 3"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Correct answers: 2 out of 5 attempts (40% accuracy)",
+        "User A answered correctly on 2 questions but got 1 wrong on Bayes' rule",
+        "User B answered correctly on 1 question but got 1 wrong on a basic overview question"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "User A answered correctly on question 1 (probability_foundations_and_bayes_rule)",
+        "User B answered incorrectly on question 1 (pr_and_ml_overview)",
+        "User D answered correctly on question 5 (pr_and_ml_overview)"
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "Only 1 out of 5 questions answered correctly (20% accuracy)",
+        "Multiple incorrect attempts on the same topics"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "probability_foundations_and_bayes_rule",
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 0/5 correct (accuracy=0.00), target_diff=1.",
+        "0 correct answers out of 5 attempts",
+        "All attempts were made on difficulty level 1 questions"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 0/5 correct (accuracy=0.00), target_diff=1.",
+        "0 correct answers out of 5 attempts",
+        "All attempts were at difficulty level 1",
+        "Incorrect answers for both focus topics: 'pr_and_ml_overview' and 'probability_foundations_and_bayes_rule'"
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 0/5 correct (accuracy=0.00), target_diff=1.",
+        "0 out of 5 questions answered correctly",
+        "All attempts were incorrect across different difficulties"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "User B answered question 5 correctly (OK)",
+        "User A answered question 1 incorrectly (WRONG)",
+        "User answered question 1 incorrectly (WRONG)"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "User A answered correctly on the probability foundations and Bayes rule question.",
+        "Users B and D answered incorrectly on multiple questions related to the pr_and_ml_overview topic."
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 2/5 correct (accuracy=0.40), target_diff=1.",
+        "Correct answers: 2/5 (accuracy=0.40)",
+        "Difficulty level 1: 1 correct out of 3 attempts",
+        "Difficulty level 2: 1 correct out of 2 attempts"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 1/5 correct (accuracy=0.20), target_diff=1.",
+        "1 out of 5 questions answered correctly (20% accuracy)",
+        "All attempts were at difficulty level 1, with only one correct answer"
+      ],
+      "difficulty_delta": 0,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    },
+    {
+      "performance": "weak",
+      "evidence": [
+        "Last 5 questions: 0/5 correct (accuracy=0.00), target_diff=1.",
+        "0 correct answers out of 5 attempts",
+        "All attempts were on difficulty level 1",
+        "Incorrect answers on both focus topics: 'pr_and_ml_overview' and 'probability_foundations_and_bayes_rule'"
+      ],
+      "difficulty_delta": -1,
+      "focus_topics": [
+        "pr_and_ml_overview",
+        "probability_foundations_and_bayes_rule"
+      ]
+    }
+  ],
+  "topic_stats": {
+    "model_fitting_mle_and_erm": {
+      "n_attempted": 29,
+      "n_correct": 18,
+      "ema_acc": 0.7618631867715494,
+      "last_answer_ts": 1772763946.4352298
+    },
+    "probability_foundations_and_bayes_rule": {
+      "n_attempted": 55,
+      "n_correct": 20,
+      "ema_acc": 0.37772429654416584,
+      "last_answer_ts": 1773370754.201965
+    },
+    "pr_and_ml_overview": {
+      "n_attempted": 45,
+      "n_correct": 10,
+      "ema_acc": 0.313000537996499,
+      "last_answer_ts": 1773370788.942026
+    },
+    "core_distributions_for_modeling": {
+      "n_attempted": 1,
+      "n_correct": 1,
+      "ema_acc": 0.575,
+      "last_answer_ts": 1773370011.302851
+    }
+  },
+  "popup_throttle": {
+    "last_popup_ts_by_topic": {
+      "probability_foundations_and_bayes_rule": 1772763969.9301672,
+      "pr_and_ml_overview": 1773369930.40748
+    },
+    "prompts_last_hour": [
+      1773368884.084992,
+      1773369930.40748
+    ]
+  }
+}

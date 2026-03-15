@@ -1,0 +1,111 @@
+{
+  "syllabus": [
+    {
+      "topic": "Course Orientation, Assessment, and Resources",
+      "page_range": [
+        1,
+        4
+      ],
+      "sub_points": [
+        "Course positioning within Pattern Recognition (EE5907) and expectations for Week 7",
+        "Module outline and logistics for the lecture sequence",
+        "Continuous assessment structure and evaluation components",
+        "Primary textbooks, reference materials, and how to use them for study"
+      ]
+    },
+    {
+      "topic": "Pattern Representation Learning and Feature Extraction (Motivation & Use Cases)",
+      "page_range": [
+        5,
+        12
+      ],
+      "sub_points": [
+        "Role of representation learning in pattern recognition pipelines (from raw data to decision making)",
+        "Feature extraction goals: dimensionality reduction, noise suppression, invariances, and better separability",
+        "Application examples where feature learning is essential (e.g., images, signals, high-dimensional measurements)",
+        "Unsupervised feature learning as a setting: learning structure from unlabeled data"
+      ]
+    },
+    {
+      "topic": "Principal Component Analysis (PCA): Concepts and Geometric Intuition",
+      "page_range": [
+        13,
+        18
+      ],
+      "sub_points": [
+        "Definition and purpose of PCA as an unsupervised linear dimensionality reduction method",
+        "Geometric interpretation: variance maximization, orthogonal directions, projections onto subspaces",
+        "Principal components as new axes capturing maximum data spread in descending order",
+        "Connection between projection, information retention, and low-dimensional embeddings"
+      ]
+    },
+    {
+      "topic": "PCA: Algebraic Formulation, Derivation, and Computation",
+      "page_range": [
+        19,
+        29
+      ],
+      "sub_points": [
+        "Algebraic definition of principal components via optimization (maximize variance under orthonormal constraints)",
+        "Derivation linking PCA to eigen-decomposition of the covariance matrix and/or SVD of the data matrix",
+        "Step-by-step computation workflow: centering, covariance formation, eigenvectors/eigenvalues, choosing k",
+        "Practical computation considerations: numerical stability, high-dimensional settings, and SVD-based PCA",
+        "Worked examples illustrating manual/algorithmic PC computation"
+      ]
+    },
+    {
+      "topic": "PCA: Visualization, Reconstruction, and Use in Classification",
+      "page_range": [
+        30,
+        37
+      ],
+      "sub_points": [
+        "Visualization of PCs and interpretation of loading vectors / directions of variation",
+        "Low-rank reconstruction using top-k PCs; reconstruction error and variance explained intuition",
+        "Using PCA as a preprocessing step for classification (feature reduction before a classifier)",
+        "Key remarks and practical tips (e.g., scaling/centering and selecting number of components)",
+        "Limitations: linearity, sensitivity to scaling/outliers, interpretability, and inability to capture parts-based structure"
+      ]
+    },
+    {
+      "topic": "Nonnegative Matrix Factorization (NMF): Motivation, Formulation, and Optimization",
+      "page_range": [
+        38,
+        46
+      ],
+      "sub_points": [
+        "Motivation for NMF as an unsupervised, parts-based, interpretable representation with nonnegativity constraints",
+        "Matrix factorization model X ≈ WH and meaning of basis matrix W and coefficient matrix H",
+        "Objective functions (e.g., Frobenius norm / divergence-based losses) and constraints",
+        "Optimization approaches: gradient descent viewpoint and multiplicative update rules",
+        "Worked examples computing/estimating W and H and interpreting the resulting factors"
+      ]
+    },
+    {
+      "topic": "NMF: Basis Visualization, Reconstruction, and Comparative Discussion",
+      "page_range": [
+        47,
+        50
+      ],
+      "sub_points": [
+        "Visualizing learned basis components (e.g., basis images) and interpreting parts-based factors",
+        "Reconstruction of data using W and H; comparison to PCA-style reconstruction",
+        "Discussion of when NMF is preferable (nonnegative data, interpretability) and typical trade-offs (nonconvexity, local minima)",
+        "Summary of key takeaways contrasting PCA vs. NMF for representation learning"
+      ]
+    },
+    {
+      "topic": "Further Reading and Self-Study",
+      "page_range": [
+        51,
+        51
+      ],
+      "sub_points": [
+        "Recommended papers for deeper understanding of PCA/NMF and representation learning",
+        "Guidance for independent study: what to focus on (theory, algorithms, applications)",
+        "Pointers for connecting these methods to later topics in pattern recognition and modern feature learning"
+      ]
+    }
+  ],
+  "source_file": "WS-Week7-PCA-NMF_clean.pdf"
+}

@@ -1,0 +1,470 @@
+{
+  "deck_id": "Lecture 1 Foundations Bayes MLE and ERM.pdf",
+  "topics": [
+    {
+      "topic": "Course logistics and administration",
+      "topic_id": "course_logistics_and_admin",
+      "slide_range": [
+        1,
+        14
+      ],
+      "concepts": [
+        {
+          "knowledge_tag": "course_identity",
+          "display_name": "Course identity (EE5907 Pattern Recognition)",
+          "supporting_slides": [
+            1
+          ],
+          "extraction_intent": "Extract the course name/code and any explicitly stated context (e.g., department/program) shown on the title slide."
+        },
+        {
+          "knowledge_tag": "welcome_and_onboarding",
+          "display_name": "Welcome and onboarding notes",
+          "supporting_slides": [
+            2
+          ],
+          "extraction_intent": "Extract any explicit welcome messages, expectations, or initial instructions stated on this slide."
+        },
+        {
+          "knowledge_tag": "lecture_format_and_consultation",
+          "display_name": "Lecture format and consultation arrangements",
+          "supporting_slides": [
+            3
+          ],
+          "extraction_intent": "Extract the stated lecture format and consultation/office-hour details (times, modes, policies) if present."
+        },
+        {
+          "knowledge_tag": "teaching_team",
+          "display_name": "Lecturers / teaching team",
+          "supporting_slides": [
+            4
+          ],
+          "extraction_intent": "Extract names, roles, and any contact/affiliation details explicitly listed for lecturers."
+        },
+        {
+          "knowledge_tag": "instructor_background_and_course_background",
+          "display_name": "Instructor and course background",
+          "supporting_slides": [
+            5
+          ],
+          "extraction_intent": "Extract any explicitly stated background information about the instructor and/or the course positioning."
+        },
+        {
+          "knowledge_tag": "learning_outcomes",
+          "display_name": "Learning outcomes",
+          "supporting_slides": [
+            6
+          ],
+          "extraction_intent": "Extract the enumerated learning outcomes and any measurable verbs/criteria used."
+        },
+        {
+          "knowledge_tag": "assessment_and_grading",
+          "display_name": "Assessment components and grading scheme",
+          "supporting_slides": [
+            7,
+            8
+          ],
+          "extraction_intent": "Extract assessment items, weightings, grading rules, and any stated policies (late, collaboration, etc.) if present."
+        },
+        {
+          "knowledge_tag": "references_and_readings",
+          "display_name": "References / reading list",
+          "supporting_slides": [
+            9,
+            10
+          ],
+          "extraction_intent": "Extract the listed references (titles/authors/editions) and any guidance on required vs optional readings."
+        },
+        {
+          "knowledge_tag": "code_of_conduct",
+          "display_name": "Code of conduct / academic integrity",
+          "supporting_slides": [
+            11
+          ],
+          "extraction_intent": "Extract explicitly stated conduct rules, integrity expectations, and any consequences described."
+        },
+        {
+          "knowledge_tag": "updated_syllabus",
+          "display_name": "Updated syllabus (parts 1 and 2)",
+          "supporting_slides": [
+            12,
+            13
+          ],
+          "extraction_intent": "Extract the syllabus structure (topics, weeks, deliverables) and any explicitly stated updates/changes."
+        },
+        {
+          "knowledge_tag": "course_updates_new_items",
+          "display_name": "New items / additional notes",
+          "supporting_slides": [
+            14
+          ],
+          "extraction_intent": "Extract any explicitly stated new elements, announcements, or additions highlighted on this slide."
+        }
+      ]
+    },
+    {
+      "topic": "Pattern recognition and machine learning overview",
+      "topic_id": "pr_and_ml_overview",
+      "slide_range": [
+        15,
+        25
+      ],
+      "concepts": [
+        {
+          "knowledge_tag": "lecture_introduction_section",
+          "display_name": "Introduction section framing",
+          "supporting_slides": [
+            15
+          ],
+          "extraction_intent": "Extract any explicitly stated goals, scope, or roadmap for the introduction section."
+        },
+        {
+          "knowledge_tag": "definition_of_pattern_recognition",
+          "display_name": "What is pattern recognition (definitions)",
+          "supporting_slides": [
+            16,
+            17,
+            18
+          ],
+          "extraction_intent": "Extract definitions and explicitly stated characteristics/examples of pattern recognition provided on these slides."
+        },
+        {
+          "knowledge_tag": "pr_system_diagram",
+          "display_name": "Pattern recognition system diagram",
+          "supporting_slides": [
+            19
+          ],
+          "extraction_intent": "Extract the labeled components/blocks and data flow described in the PR system diagram."
+        },
+        {
+          "knowledge_tag": "pr_vs_ml",
+          "display_name": "Pattern recognition vs machine learning",
+          "supporting_slides": [
+            20
+          ],
+          "extraction_intent": "Extract explicitly stated distinctions/overlaps between PR and ML (terminology, scope, examples) on this slide."
+        },
+        {
+          "knowledge_tag": "ai_ml_dl_concepts",
+          "display_name": "AI vs ML vs DL concepts",
+          "supporting_slides": [
+            21
+          ],
+          "extraction_intent": "Extract the explicitly stated relationships or hierarchy among AI/ML/DL and any definitions shown."
+        },
+        {
+          "knowledge_tag": "common_ml_framework",
+          "display_name": "Common ML framework (overview)",
+          "supporting_slides": [
+            22
+          ],
+          "extraction_intent": "Extract the framework elements (inputs, model, objective, training/evaluation steps) explicitly depicted or listed."
+        },
+        {
+          "knowledge_tag": "deductive_vs_inductive_reasoning",
+          "display_name": "Deductive vs inductive reasoning in inference",
+          "supporting_slides": [
+            23
+          ],
+          "extraction_intent": "Extract definitions and explicitly stated contrasts between deductive and inductive reasoning."
+        },
+        {
+          "knowledge_tag": "learning_paradigms",
+          "display_name": "Different learning paradigms",
+          "supporting_slides": [
+            24
+          ],
+          "extraction_intent": "Extract the named learning paradigms and any brief descriptions/examples explicitly provided."
+        },
+        {
+          "knowledge_tag": "ml_framework_outputs",
+          "display_name": "Common ML framework outputs",
+          "supporting_slides": [
+            25
+          ],
+          "extraction_intent": "Extract the explicitly stated output types (e.g., predictions, labels, probabilities) and any mapping to tasks."
+        }
+      ]
+    },
+    {
+      "topic": "Probability foundations and Bayes' rule",
+      "topic_id": "probability_foundations_and_bayes_rule",
+      "slide_range": [
+        26,
+        39
+      ],
+      "concepts": [
+        {
+          "knowledge_tag": "foundation_section_marker",
+          "display_name": "Foundation section framing",
+          "supporting_slides": [
+            26
+          ],
+          "extraction_intent": "Extract any explicitly stated scope/roadmap for the foundations portion of the lecture."
+        },
+        {
+          "knowledge_tag": "probability_interpretations",
+          "display_name": "Two interpretations of probability",
+          "supporting_slides": [
+            27
+          ],
+          "extraction_intent": "Extract the two interpretations named and any explicitly stated definitions or contrasts."
+        },
+        {
+          "knowledge_tag": "probability_properties_part1",
+          "display_name": "Properties of probability (I)",
+          "supporting_slides": [
+            28
+          ],
+          "extraction_intent": "Extract the listed probability properties/axioms/rules explicitly stated on this slide."
+        },
+        {
+          "knowledge_tag": "probability_properties_part2",
+          "display_name": "Properties of probability (II)",
+          "supporting_slides": [
+            29
+          ],
+          "extraction_intent": "Extract additional probability properties/rules and any stated conditions or examples."
+        },
+        {
+          "knowledge_tag": "discrete_vs_continuous_random_variables",
+          "display_name": "Discrete vs continuous random variables",
+          "supporting_slides": [
+            30,
+            31
+          ],
+          "extraction_intent": "Extract definitions and any explicitly stated distinctions (e.g., PMF vs PDF, notation) for discrete and continuous RVs."
+        },
+        {
+          "knowledge_tag": "bayes_rule_statement",
+          "display_name": "Bayes' rule (statement)",
+          "supporting_slides": [
+            32
+          ],
+          "extraction_intent": "Extract the Bayes' rule formula and the named terms (prior, likelihood, posterior, evidence) if explicitly labeled."
+        },
+        {
+          "knowledge_tag": "bayes_rule_detailed_breakdown",
+          "display_name": "Bayes' rule (detailed form)",
+          "supporting_slides": [
+            33
+          ],
+          "extraction_intent": "Extract any step-by-step derivation, expanded notation, or term-by-term explanation explicitly shown."
+        },
+        {
+          "knowledge_tag": "bayes_rule_example_weather",
+          "display_name": "Bayes' rule example: weather forecast",
+          "supporting_slides": [
+            34,
+            35
+          ],
+          "extraction_intent": "Extract the problem setup (events/variables), given probabilities, and computed posterior(s) explicitly presented."
+        },
+        {
+          "knowledge_tag": "bayes_rule_example_disease_testing",
+          "display_name": "Bayes' rule example: disease testing",
+          "supporting_slides": [
+            36,
+            37,
+            38,
+            39
+          ],
+          "extraction_intent": "Extract the test scenario definitions (e.g., sensitivity/specificity if stated), given rates, and posterior calculation steps/results."
+        }
+      ]
+    },
+    {
+      "topic": "Core distributions for classification and modeling",
+      "topic_id": "core_distributions_for_modeling",
+      "slide_range": [
+        40,
+        59
+      ],
+      "concepts": [
+        {
+          "knowledge_tag": "bernoulli_distribution",
+          "display_name": "Bernoulli distribution",
+          "supporting_slides": [
+            40
+          ],
+          "extraction_intent": "Extract the Bernoulli definition, parameterization, and any stated PMF/mean/variance if present."
+        },
+        {
+          "knowledge_tag": "binomial_distribution",
+          "display_name": "Binomial distribution",
+          "supporting_slides": [
+            41,
+            42
+          ],
+          "extraction_intent": "Extract the binomial definition, parameters, and any stated PMF/relationships to Bernoulli trials."
+        },
+        {
+          "knowledge_tag": "week1_end_marker",
+          "display_name": "End of Week 1 marker",
+          "supporting_slides": [
+            43
+          ],
+          "extraction_intent": "Extract any explicitly stated summary notes, transition statements, or administrative reminders on this slide."
+        },
+        {
+          "knowledge_tag": "recap_bayes_rule",
+          "display_name": "Recap: Bayes' rule",
+          "supporting_slides": [
+            44
+          ],
+          "extraction_intent": "Extract the recap statements/formulas emphasized for Bayes' rule."
+        },
+        {
+          "knowledge_tag": "recap_bernoulli",
+          "display_name": "Recap: Bernoulli distribution",
+          "supporting_slides": [
+            45
+          ],
+          "extraction_intent": "Extract the recap statements/formulas emphasized for the Bernoulli distribution."
+        },
+        {
+          "knowledge_tag": "recap_binomial",
+          "display_name": "Recap: Binomial distribution",
+          "supporting_slides": [
+            46
+          ],
+          "extraction_intent": "Extract the recap statements/formulas emphasized for the binomial distribution."
+        },
+        {
+          "knowledge_tag": "binomial_example",
+          "display_name": "Binomial distribution example",
+          "supporting_slides": [
+            47
+          ],
+          "extraction_intent": "Extract the example problem statement, given values, and computed probability/result explicitly shown."
+        },
+        {
+          "knowledge_tag": "binary_prediction_setup",
+          "display_name": "Predicting a binary variable",
+          "supporting_slides": [
+            48
+          ],
+          "extraction_intent": "Extract the stated modeling setup for binary prediction (inputs/outputs, probability of class) and any equations shown."
+        },
+        {
+          "knowledge_tag": "sigmoid_function_visualization",
+          "display_name": "Sigmoid function visualization",
+          "supporting_slides": [
+            49
+          ],
+          "extraction_intent": "Extract the sigmoid definition (if shown) and any explicitly labeled properties from the visualization."
+        },
+        {
+          "knowledge_tag": "categorical_and_multinomial_distribution",
+          "display_name": "Categorical and multinomial distributions",
+          "supporting_slides": [
+            50,
+            51
+          ],
+          "extraction_intent": "Extract definitions, parameterization, and any PMF forms or relationships between categorical and multinomial stated."
+        },
+        {
+          "knowledge_tag": "softmax_for_categorical_prediction",
+          "display_name": "Softmax for categorical prediction",
+          "supporting_slides": [
+            52
+          ],
+          "extraction_intent": "Extract the softmax mapping/equation and the stated connection to predicting categorical variables."
+        },
+        {
+          "knowledge_tag": "softmax_additional_notes",
+          "display_name": "Additional notes on softmax",
+          "supporting_slides": [
+            53
+          ],
+          "extraction_intent": "Extract any explicitly stated clarifications, variants, or implementation notes about softmax."
+        },
+        {
+          "knowledge_tag": "softmax_properties_illustration",
+          "display_name": "Illustration of softmax properties",
+          "supporting_slides": [
+            54
+          ],
+          "extraction_intent": "Extract the explicitly stated properties (e.g., normalization, monotonicity) and how the illustration demonstrates them."
+        },
+        {
+          "knowledge_tag": "univariate_gaussian_distribution",
+          "display_name": "Univariate Gaussian distribution",
+          "supporting_slides": [
+            55,
+            56,
+            57
+          ],
+          "extraction_intent": "Extract the Gaussian definition, parameters, PDF form, and any stated mean/variance or shape properties."
+        },
+        {
+          "knowledge_tag": "other_univariate_distributions",
+          "display_name": "Other common univariate distributions",
+          "supporting_slides": [
+            58,
+            59
+          ],
+          "extraction_intent": "Extract the names of the distributions listed and any brief definitions or key properties explicitly stated."
+        }
+      ]
+    },
+    {
+      "topic": "Model fitting: MLE and ERM",
+      "topic_id": "model_fitting_mle_and_erm",
+      "slide_range": [
+        60,
+        65
+      ],
+      "concepts": [
+        {
+          "knowledge_tag": "estimating_probability_models_model_fitting",
+          "display_name": "Estimating probability models (model fitting)",
+          "supporting_slides": [
+            60
+          ],
+          "extraction_intent": "Extract the stated goal of model fitting and any outlined steps/criteria for estimating probability models."
+        },
+        {
+          "knowledge_tag": "maximum_likelihood_estimation",
+          "display_name": "Maximum likelihood estimation (MLE)",
+          "supporting_slides": [
+            61
+          ],
+          "extraction_intent": "Extract the MLE objective definition and any notation (likelihood/log-likelihood, parameters, dataset) explicitly introduced."
+        },
+        {
+          "knowledge_tag": "mle_bernoulli",
+          "display_name": "MLE for Bernoulli distribution",
+          "supporting_slides": [
+            62
+          ],
+          "extraction_intent": "Extract the Bernoulli MLE derivation steps or final estimator as explicitly shown on the slide."
+        },
+        {
+          "knowledge_tag": "mle_univariate_gaussian",
+          "display_name": "MLE for univariate Gaussian distribution",
+          "supporting_slides": [
+            63
+          ],
+          "extraction_intent": "Extract the Gaussian MLE derivation steps or final estimators (for parameters) as explicitly shown."
+        },
+        {
+          "knowledge_tag": "empirical_risk_minimization",
+          "display_name": "Empirical risk minimization (ERM)",
+          "supporting_slides": [
+            64
+          ],
+          "extraction_intent": "Extract the ERM definition/objective, including any risk/loss notation and dataset averaging if explicitly stated."
+        },
+        {
+          "knowledge_tag": "erm_misclassification_rate",
+          "display_name": "ERM for minimizing misclassification rate",
+          "supporting_slides": [
+            65
+          ],
+          "extraction_intent": "Extract the misclassification rate definition and how it is posed as an ERM objective on this slide."
+        }
+      ]
+    }
+  ]
+}

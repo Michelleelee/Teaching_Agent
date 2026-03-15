@@ -1,0 +1,674 @@
+{
+  "source_file": "WS-Week10-GMM-Boosting_clean.pdf",
+  "outline": [
+    "Pattern Recognition EE5907:",
+    "• Pattern Representation Learning",
+    "➢ We will discuss:",
+    "Soft Clustering",
+    "A real-world example: Customer segmentation in",
+    "6",
+    "• Formally a Mixture Model is the weighted sum of a",
+    "• GMM: the weighted sum of a number of",
+    "• Fit a Set of KGaussians to the unlabeled data",
+    "• We define:",
+    "• Identify a log-likelihood function:",
+    "𝑁",
+    "Similarly, after computing the log-likelihood and take partials to 0,",
+    "• Initialize the parameters (𝝁 𝜮 𝜋 , , )",
+    "1. Randomly select 3 Gaussians with equal 𝜋 = 1/3",
+    "𝜋 = 0.506",
+    "𝜋 = 0.374",
+    "𝜋 = 0.345",
+    "𝜋 = 0.331",
+    "𝜋 = 0.322",
+    "𝜋 = 0.315",
+    "𝜋 = 0.234",
+    "Limitations of GMM",
+    "Quick Question",
+    "(Supervised)",
+    "• Combines multiple weak classifiers to form a",
+    "General Training Process of",
+    "• It is a sequential procedure:",
+    "Weak learners from the family of lines",
+    "𝑓 (𝒙)",
+    "𝑓 (𝒙) Misclassified samples are 𝐹 𝒙 = 𝛼 𝑓 (𝒙)",
+    "𝑓 (𝑥) 𝑓 (𝑥) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+    "𝑓 (𝒙) 𝑓 (𝒙) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+    "𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+    "• For different cost function and minimization algorithm,",
+    "Adaboost - Adaptive Boosting",
+    "{ 𝒙 , 𝑦 , … , 𝒙 , 𝑦 𝑦 ∈ {−1, +1} Training dataset D = }, where",
+    "Boosting with Object Detection",
+    "Haar filters and integral image",
+    "After extracting the features for each image patch using the Haar filters,",
+    "Feature",
+    "Thresholded Feature",
+    "Thresholded Feature Strong classifier",
+    "Thresholded Feature Strong",
+    "• Motivation: Some negative (background) samples may be",
+    "65",
+    "Facial Feature Localization Profile Detection",
+    "Can you find the head in this image?",
+    "• Features are extracted at fixed positions, and thus",
+    "• Friedman, Hastie, Tibshirani."
+  ],
+  "outline_with_page_range": [
+    {
+      "title": "Pattern Recognition EE5907:",
+      "page_range": [
+        1
+      ]
+    },
+    {
+      "title": "• Pattern Representation Learning",
+      "page_range": [
+        2
+      ]
+    },
+    {
+      "title": "➢ We will discuss:",
+      "page_range": [
+        3
+      ]
+    },
+    {
+      "title": "Soft Clustering",
+      "page_range": [
+        4
+      ]
+    },
+    {
+      "title": "A real-world example: Customer segmentation in",
+      "page_range": [
+        5
+      ]
+    },
+    {
+      "title": "6",
+      "page_range": [
+        6
+      ]
+    },
+    {
+      "title": "• Formally a Mixture Model is the weighted sum of a",
+      "page_range": [
+        7
+      ]
+    },
+    {
+      "title": "• GMM: the weighted sum of a number of",
+      "page_range": [
+        8
+      ]
+    },
+    {
+      "title": "• Fit a Set of KGaussians to the unlabeled data",
+      "page_range": [
+        9
+      ]
+    },
+    {
+      "title": "• We define:",
+      "page_range": [
+        10
+      ]
+    },
+    {
+      "title": "• Identify a log-likelihood function:",
+      "page_range": [
+        11
+      ]
+    },
+    {
+      "title": "𝑁",
+      "page_range": [
+        12,
+        13
+      ]
+    },
+    {
+      "title": "Similarly, after computing the log-likelihood and take partials to 0,",
+      "page_range": [
+        14
+      ]
+    },
+    {
+      "title": "• Initialize the parameters (𝝁 𝜮 𝜋 , , )",
+      "page_range": [
+        15
+      ]
+    },
+    {
+      "title": "1. Randomly select 3 Gaussians with equal 𝜋 = 1/3",
+      "page_range": [
+        16
+      ]
+    },
+    {
+      "title": "𝜋 = 0.506",
+      "page_range": [
+        17
+      ]
+    },
+    {
+      "title": "𝜋 = 0.374",
+      "page_range": [
+        18
+      ]
+    },
+    {
+      "title": "𝜋 = 0.345",
+      "page_range": [
+        19
+      ]
+    },
+    {
+      "title": "𝜋 = 0.331",
+      "page_range": [
+        20
+      ]
+    },
+    {
+      "title": "𝜋 = 0.322",
+      "page_range": [
+        21
+      ]
+    },
+    {
+      "title": "𝜋 = 0.315",
+      "page_range": [
+        22
+      ]
+    },
+    {
+      "title": "𝜋 = 0.234",
+      "page_range": [
+        23
+      ]
+    },
+    {
+      "title": "Limitations of GMM",
+      "page_range": [
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "title": "Quick Question",
+      "page_range": [
+        28
+      ]
+    },
+    {
+      "title": "(Supervised)",
+      "page_range": [
+        29
+      ]
+    },
+    {
+      "title": "• Combines multiple weak classifiers to form a",
+      "page_range": [
+        30
+      ]
+    },
+    {
+      "title": "General Training Process of",
+      "page_range": [
+        31
+      ]
+    },
+    {
+      "title": "• It is a sequential procedure:",
+      "page_range": [
+        32
+      ]
+    },
+    {
+      "title": "Weak learners from the family of lines",
+      "page_range": [
+        33
+      ]
+    },
+    {
+      "title": "𝑓 (𝒙)",
+      "page_range": [
+        34
+      ]
+    },
+    {
+      "title": "𝑓 (𝒙) Misclassified samples are 𝐹 𝒙 = 𝛼 𝑓 (𝒙)",
+      "page_range": [
+        35
+      ]
+    },
+    {
+      "title": "𝑓 (𝑥) 𝑓 (𝑥) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "page_range": [
+        36
+      ]
+    },
+    {
+      "title": "𝑓 (𝒙) 𝑓 (𝒙) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "page_range": [
+        37
+      ]
+    },
+    {
+      "title": "𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "page_range": [
+        38,
+        39
+      ]
+    },
+    {
+      "title": "• For different cost function and minimization algorithm,",
+      "page_range": [
+        40
+      ]
+    },
+    {
+      "title": "Adaboost - Adaptive Boosting",
+      "page_range": [
+        41,
+        42,
+        43
+      ]
+    },
+    {
+      "title": "{ 𝒙 , 𝑦 , … , 𝒙 , 𝑦 𝑦 ∈ {−1, +1} Training dataset D = }, where",
+      "page_range": [
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "title": "Boosting with Object Detection",
+      "page_range": [
+        47,
+        48
+      ]
+    },
+    {
+      "title": "Haar filters and integral image",
+      "page_range": [
+        49,
+        50,
+        51
+      ]
+    },
+    {
+      "title": "After extracting the features for each image patch using the Haar filters,",
+      "page_range": [
+        52
+      ]
+    },
+    {
+      "title": "Feature",
+      "page_range": [
+        53
+      ]
+    },
+    {
+      "title": "Thresholded Feature",
+      "page_range": [
+        54
+      ]
+    },
+    {
+      "title": "Thresholded Feature Strong classifier",
+      "page_range": [
+        55
+      ]
+    },
+    {
+      "title": "Thresholded Feature Strong",
+      "page_range": [
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    {
+      "title": "• Motivation: Some negative (background) samples may be",
+      "page_range": [
+        60
+      ]
+    },
+    {
+      "title": "65",
+      "page_range": [
+        61
+      ]
+    },
+    {
+      "title": "Facial Feature Localization Profile Detection",
+      "page_range": [
+        62
+      ]
+    },
+    {
+      "title": "Can you find the head in this image?",
+      "page_range": [
+        63
+      ]
+    },
+    {
+      "title": "• Features are extracted at fixed positions, and thus",
+      "page_range": [
+        64
+      ]
+    },
+    {
+      "title": "• Friedman, Hastie, Tibshirani.",
+      "page_range": [
+        65
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 1,
+      "title": "Pattern Recognition EE5907:",
+      "content": "EE5907: Pattern Recognition\n&\nMachine Learning\nEE5026:\nfor Data Analytics\nDr. WANG Si\nEmail: si.wang@nus.edu.sg\nOffice: E1a-04-01"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 2,
+      "title": "• Pattern Representation Learning",
+      "content": "– Unsupervised Representation Learning (week 7)\n– Supervised Representation Learning (week 8)\n– Unified Framework: Graph Embedding (week 8)\n• Patter Recognition Models\n– Clustering (K-means, Agglomerative)(week 9)\n– Gaussian Mixture Model and Boosting (week 10)\n– Support Vector Machines (week 11)\n• Deep Learning (week 12)\n• Revision and Q&A (week 13)\n2\nSome slides are from Antonio Torralba"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 3,
+      "title": "➢ We will discuss:",
+      "content": "➢ GMM (definition, assumption, optimization, etc.)\n➢ Boosting (AdaBoost & GentleBoost)\n➢ Object Detection using Boosting\n➢ At the end of this lecture, you should be able to:\n➢ Know the rationales behind GMM and Boosting\n➢ Build GMM and Boosting\n➢ Understand strengths and limitations\n3"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 4,
+      "title": "Soft Clustering",
+      "content": "4"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 5,
+      "title": "A real-world example: Customer segmentation in",
+      "content": "an E-commerce Platform\nA customer might behave like both a “bargain hunter” and a\n“frequent shopper”\n5"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 6,
+      "title": "6",
+      "content": ""
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 7,
+      "title": "• Formally a Mixture Model is the weighted sum of a",
+      "content": "number of probability density functions (pdfs) where\nthe weights are determined by a distribution,\n𝑝 𝒙 = 𝜋 𝑓 𝒙 + 𝜋 𝑓 𝒙 + ⋯ + 𝜋 𝑓 𝒙\n1 1 2 2 𝐾 𝐾\n𝐾\n= ෍ 𝜋 𝑓 (𝒙)\n𝑖 𝑖\n𝑖=1\n𝐾\nwhere σ 𝜋 = 1\n𝑖=1 𝑖\n7"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 8,
+      "title": "• GMM: the weighted sum of a number of",
+      "content": "Gaussians where the weights are determined\nby a distribution,\n𝑝 𝒙 = 𝜋 𝑁 𝒙 𝒖 , 𝜮 + 𝜋 𝑁 𝒙 𝒖 , 𝜮 + ⋯ + 𝜋 𝑁 𝒙 𝒖 , 𝜮\n1 1 1 2 2 2 𝐾 𝐾 𝐾\n𝐾\n= ෍ 𝜋 𝑁 𝒙 𝒖 , 𝜮\n𝑖 𝑖 𝑖\n𝑖=1\n𝐾\nwhere σ 𝜋 = 1\n𝑖=1 𝑖\n8"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 9,
+      "title": "• Fit a Set of KGaussians to the unlabeled data",
+      "content": "• Maximum Likelihood over a GMM\n• Assumption: the underlying data is generated from\nmixture of Gaussians.\n9"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 10,
+      "title": "• We define:",
+      "content": "𝜋 = 𝑃(𝝎 ) where 𝝎 is a Gaussian component (𝒖 , 𝜮 ),\nσ𝐾\n𝜋 = 1\n𝑖 𝑖 𝑖 𝑖 𝑖 𝑖=1 𝑖\n(Prior)\n𝑝 𝒙 𝝎 𝑃(𝝎 ) 𝑝 𝒙 𝝎 𝑃(𝝎 ) Bayes’ Theorem:\n𝑖 𝑖 𝑖 𝑖\n𝑧 = 𝑃 𝝎 𝒙 = =\n𝑖 𝑖 𝑝(𝒙) σ𝐾 𝑃(𝝎 )𝑝 𝒙 𝝎 P(A|B)=P(B|A)P(A)/P(B)\n(Posterior) 𝑗=1 𝑗 𝑗\n𝑛\n𝑧 = 𝑃 𝝎 𝒙\n𝑘 𝑘 𝑛\n• Identify a likelihood function:\n𝑁\n𝑝 𝒙 ,… , 𝒙 𝝅, 𝝎 = ෑ𝑝(𝒙 |𝝅, 𝝎) 𝑥 was drawn independently\n𝟏 𝑵 𝑛 𝑛\n𝑛=1\n𝑁 𝐾\n= ෑ ෍ 𝑝 𝒙 𝝎 𝑃(𝝎 )\n𝑛 𝑘 𝑘\n𝑛=1 𝑘=1\n10"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 11,
+      "title": "• Identify a log-likelihood function:",
+      "content": "𝑁 𝑁\nln𝑝 𝒙 ,… , 𝒙 𝝅, 𝝎 = lnෑ𝑝(𝒙 |𝝅, 𝝎)= ෍ ln𝑝(𝒙 |𝝅, 𝝎)\n𝟏 𝑵 𝑛 𝑛\n𝑛=1 𝑛=1\n• Compute and set partials to 0:\n𝜕 ln𝑝 𝒙 , …, 𝒙 𝝅, 𝝁, 𝜮 𝜕 ln𝑝 𝒙 , …, 𝒙 𝝅, 𝝁, 𝜮 𝜕 ln𝑝 𝒙 , …, 𝒙 𝝅, 𝝁, 𝜮\n𝟏 𝑵 𝟏 𝑵 𝟏 𝑵\n= 0 = 0 = 0\n𝜕𝜋 𝜕𝝁 𝜕𝜮\n𝑘 𝑘 𝑘\n𝑁\n𝜕 ln𝑝 𝒙 , …, 𝒙 𝝅, 𝝁, 𝜮 𝜕 ln𝑝(𝒙 |𝝅, 𝝁, 𝜮)\n𝟏 𝑵 𝑛\n= ෍ 𝜕 ln𝑓(𝑥) 1 𝜕𝑓(𝑥)\n𝜕𝝁 𝜕𝝁\n=\n𝑘 𝑘\n𝑛=1 𝜕𝑥 𝑓(𝑥) 𝜕𝑥\n1 𝜕𝑝(𝒙 |𝝅,𝝁,𝜮)\n= σ𝑁 𝑛\n𝑛=1\n𝑝(𝒙 |𝝅,𝝁,𝜮) 𝜕𝝁\n𝑛 𝑘\n𝐾 𝒙 𝝁 , 𝜮\n1 𝜕 σ 𝑝 𝑃(𝝎 )\n= σ𝑁 𝑖=1 𝑛 𝑖 𝑖 𝑖\n𝑛=1\n𝑝(𝑥 |𝜋,𝜇,Σ) 𝜕𝝁\n𝑛 𝑘\nsee next slide\n11"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 12,
+      "title": "𝑁",
+      "content": "𝜕 ln𝑝 𝒙 ,… , 𝒙 𝝅, 𝝁, 𝜮 1 𝜕𝑝 𝒙 𝝁 , 𝜮 𝑃(𝝎 )\n𝟏 𝑵 𝑛 𝑘 𝑘 𝑘\n= ෍\n𝜕𝝁 𝑝(𝒙 |𝝅, 𝝁, 𝜮) 𝜕𝝁\n𝑘 𝑛 𝑘\n𝑛=1\n𝜕 ln𝑓(𝑥) 1 𝜕𝑓(𝑥)\n=\n𝑁\n𝜕𝑥 𝑓(𝑥) 𝜕𝑥\n𝑃(𝝎 )𝑝 𝒙 𝝁 , 𝜮 𝜕 ln𝑝 𝒙 𝝁 , 𝜮\n𝑘 𝑛 𝑘 𝑘 𝑛 𝑘 𝑘\n= ෍\n𝑝(𝒙 |𝝅, 𝝁, 𝜮) 𝜕𝝁\n𝑛 𝑘\n𝑛=1 Bayes’ Theorem:\n𝑁 P(A|B)=P(B|A)P(A)/P(B)\n𝜕 ln𝑁(𝒙 |𝝁 , 𝜮 )\n𝑛 𝑘 𝑘\n= ෍ 𝑃(𝝎 |𝒙 )\n𝑘 𝑛\n𝜕𝝁\n𝑘\n𝑛=1\n𝑛\n𝑧\n𝑘\n1 𝑥 − 𝜇 2\n𝑛 𝑘\nIf univariate: 𝑁 𝑥 𝜇 , Σ = exp(− )\n𝑛 𝑘 𝑘\n2Σ\n2𝜋Σ\n𝑘\n𝑘\n𝜕 ln𝑝 𝑥 ,… , 𝑥 𝜋, 𝜇, Σ 1 𝜕 𝑥 −𝜇 2\n1 𝑁 = σ𝑁 𝑧 𝑛 − 𝑛 𝑘\n𝑛=1 𝑘\n𝜕𝜇 2Σ 𝜕𝜇\n𝑘 𝑘 𝑘\n𝑁 𝑛\n𝑁 σ 𝑧 𝑥\n𝑛 𝑥 𝑛 − 𝜇 𝑘 𝜇 ∗ = 𝑛=1 𝑘 𝑛\n= ෍ 𝑧 = 0\nset partials to 0 𝑘 Σ 𝑘 σ𝑁 𝑧 𝑛\n𝑘 12\n𝑛=1 𝑛=1 𝑘\n\n𝜕 ln𝑝 𝒙 ,… , 𝒙 𝝅, 𝝁, 𝜮 1 𝜕𝑝 𝒙 𝝁 , 𝜮 𝑃(𝝎 )\n𝟏 𝑵 𝑛 𝑘 𝑘 𝑘\n= ෍\n𝜕𝝁 𝑝(𝒙 |𝝅, 𝝁, 𝜮) 𝜕𝝁\n𝑘 𝑛 𝑘\n𝑛=1\n𝜕 ln𝑓(𝑥) 1 𝜕𝑓(𝑥)\n=\n𝑁\n𝜕𝑥 𝑓(𝑥) 𝜕𝑥\n𝑃(𝝎 )𝑝 𝒙 𝝁 , 𝜮 𝜕 ln𝑝 𝒙 𝝁 , 𝜮\n𝑘 𝑛 𝑘 𝑘 𝑛 𝑘 𝑘\n= ෍\n𝑝(𝒙 |𝝅, 𝝁, 𝜮) 𝜕𝝁\n𝑛 𝑘\n𝑛=1 Bayes’ Theorem:\n𝑁 P(A|B)=P(B|A)P(A)/P(B)\n𝜕 ln𝑁(𝒙 |𝝁 , 𝜮 )\n𝑛 𝑘 𝑘\n= ෍ 𝑝(𝝎 |𝒙 )\n𝑘 𝑛\n𝜕𝝁\n𝑘\n𝑛=1\n𝑛\n𝑧\n𝑘\n1 1\nIf multivariate: 𝑁 𝒙 𝝁 , 𝜮 = exp(− 𝒙 − 𝝁 𝑇𝜮 −1 (𝒙 − 𝝁 ))\n𝑛 𝑘 𝑘 𝑛 𝑘 𝑘 𝑛 𝑘\n2(𝜋)𝑑det(𝜮 ) 2\n𝑘\n𝜕 ln𝑝 𝒙 ,… , 𝒙 𝝅, 𝝁, 𝜮 1 𝜕 𝒙 −𝝁 𝑇𝜮 −1 (𝒙 −𝝁 )\n𝟏 𝑵 = σ𝑁 𝑧 𝑛 − 𝑛 𝑘 𝑘 𝑛 𝑘\n𝑛=1 𝑘\n𝜕𝝁 2 𝜕𝝁\n𝑘 𝑘\n𝑁 σ 𝑁 𝑧 𝑛 𝒙\n∗ 𝑛=1 𝑘 𝑛\n𝑛 −1 𝝁 =\nset partials to 0 = ෍ 𝑧 𝜮 (𝒙 − 𝝁 ) = 𝟎\n𝑘 𝑘 𝑛 𝑘 𝑘 σ𝑁\n𝑧\n𝑛\n13\n𝑛=1 𝑛=1 𝑘"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 14,
+      "title": "Similarly, after computing the log-likelihood and take partials to 0,",
+      "content": "we have\nσ 𝑁 𝑧 𝑛 𝒙 𝔼 [𝒙]\n𝑘\n∗ 𝑛=1 𝑘 𝑛\n𝝁 = (Weighted average of x, using 𝑧 𝑛 as weights)\n𝑘 σ𝑁\n𝑧\n𝑛 𝑘\n𝑛=1 𝑘\nσ 𝑁 𝑧 𝑛 (𝒙 − 𝝁 ∗ )(𝒙 − 𝝁 ∗ ) 𝑇 𝔼 [(𝒙 − 𝝁 ∗ )(𝒙 − 𝝁 ∗ )𝑇]\n𝑘 𝑘 𝑘\n∗ 𝑛=1 𝑘 𝑛 𝑘 𝑛 𝑘\n𝜮 = (Weighted average covariance of x)\n𝑘 σ𝑁\n𝑧\n𝑛\n𝑛=1 𝑘\n𝑁 𝑛\nσ 𝑧\n∗ 𝑛=1 𝑘 We don’t know\n𝜋 =\n(Effective proportion)\n𝑘\n𝑁 𝜔 , 𝜋\n𝑘 𝑘\n𝒙 𝝎\n𝑝 𝑃(𝝎 )\nWhere 𝑧 𝑛 = 𝑃 𝝎 𝒙 = 𝑛 𝑖 𝑖\n𝑘 𝑘 𝑛\nσ𝐾\n𝑃(𝝎 )𝑝\n𝒙 𝝎\n𝑗=1 𝑗 𝑛 𝑗\n14"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 15,
+      "title": "• Initialize the parameters (𝝁 𝜮 𝜋 , , )",
+      "content": "• Initialize the parameters (𝝁 , 𝜮 , 𝜋 )\n𝑘 𝑘 𝑘\n• Expectation-step: computes the posterior probabilities\n𝑛\n(𝑧 ) based on current estimated distributions (𝝁 , 𝜮 ,\n𝑘 𝑘 𝑘\n𝜋 ) derived from previous M-step\n𝑘\n• Maximization-step: updates the parameters (𝝁 , 𝜮 , 𝜋 )\n𝑘 𝑘 𝑘\n𝑛\nmaximizing the log-likelihood using 𝑧 obtained from\n𝑘\nprevious E-step\n15"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 16,
+      "title": "1. Randomly select 3 Gaussians with equal 𝜋 = 1/3",
+      "content": "𝑘\n𝑛\n2. Calculate 𝑧 = 𝑃 𝝎 𝒙\n𝑘 𝑘 𝑛\n𝑝 𝒙 𝝎 𝑃(𝝎 )\n𝑛 𝑘 𝑘\n=\nσ3\n𝑃(𝝎 )𝑝 𝒙 𝝎\n𝑗=1 𝑗 𝑛 𝑗\n𝑁(𝒙 |𝝁 , 𝜮 )𝜋\n𝑛 𝑘 𝑘 𝑘\n=\nσ3\n𝜋 𝑁(𝒙 |𝝁 , 𝜮 )\n𝑗=1 𝑗 𝑛 𝑗 𝑗\n3. Update parameters\nσ𝑁 𝑧 𝑛 𝒙\n𝝁𝑛𝑒𝑤 = 𝑛=1 𝑘 𝑛\n𝑘 σ𝑁 𝑧𝑛\n𝑛=1 𝑘\nσ𝑁 𝑧 𝑛 (𝒙 − 𝝁 𝑛𝑒𝑤 )(𝒙 − 𝝁 𝑛𝑒𝑤 )𝑇\n𝜮𝑛𝑒𝑤 = 𝑛=1 𝑘 𝑛 𝑘 𝑛 𝑘\n𝑘 σ𝑁 𝑧𝑛\n𝑛=1 𝑘\nσ𝑁 𝑧𝑛\n𝜋𝑛𝑒𝑤 = 𝑛=1 𝑘\n𝑘\n𝑁 16"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 17,
+      "title": "𝜋 = 0.506",
+      "content": "1\n𝜋 = 0.273\n2\n𝜋 = 0.221\n3\n17"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 18,
+      "title": "𝜋 = 0.374",
+      "content": "1\n𝜋 = 0.306\n2\n𝜋 = 0.320\n3\n18"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 19,
+      "title": "𝜋 = 0.345",
+      "content": "1\n𝜋 = 0.307\n2\n𝜋 = 0.348\n3\n19"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 20,
+      "title": "𝜋 = 0.331",
+      "content": "1\n𝜋 = 0.288\n2\n𝜋 = 0.381\n3\n20"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 21,
+      "title": "𝜋 = 0.322",
+      "content": "1\n𝜋 = 0.285\n2\n𝜋 = 0.393\n3\n21"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 22,
+      "title": "𝜋 = 0.315",
+      "content": "1\n𝜋 = 0.287\n2\n𝜋 = 0.398\n3\n22"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 23,
+      "title": "𝜋 = 0.234",
+      "content": "1\n𝜋 = 0.334\n2\n𝜋 = 0.432\n3\n23"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 24,
+      "title": "Limitations of GMM",
+      "content": "▪ Assume Gaussian clusters\n▪ Predefine K\nPossible Solution: Elbow method?\n24\n\n▪ Predefine K\nPossible Solutions:\n1. Elbow method with Log-likelihood (log L)\n2. Bayesian Information Criterion (BIC)\n𝐵𝐼𝐶 = −2𝑙𝑜𝑔𝐿 + 𝐾𝑙𝑜𝑔𝑁\nData loss Regularization\n3. Akaike Information Criterion (AIC)\n𝐴𝐼𝐶 = −2𝑙𝑜𝑔𝐿 + 2𝐾\n25\n\n▪ Sensitive to initialization\nInitial Fitted\nPossible Solution: K-means for initialization\n✓ Initial 𝝁 :\n𝑘\ncentroid from K-means\n✓ Initial 𝜮 :\n𝑘\nCovariance matrix for each\ncluster after K-means\n✓ Initial 𝜋 :\n𝑘\nProportion of points in each\ncluster after K-means\n26\n\n▪ Sensitive to outliers\n▪ Scales poorly compared to simpler methods like K-means\n27"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 28,
+      "title": "Quick Question",
+      "content": "Suppose you fit a Gaussian Mixture Model (GMM) with\nthree components (𝐾=3) to a dataset. After training, you\nfind that a particular data point (x₁) has the following\nprobabilities of belonging to each cluster:\n•Cluster 1: 0.2\n•Cluster 2: 0.5\n•Cluster 3: 0.3\nWhich of the following do these probabilities represent?\n1\nA.𝑧\n𝑘\nB.𝜋\n𝑘\nC.𝑁 𝒙 𝒖 , 𝜮\n1 𝑘 𝑘\nD. None of the above\n28"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 29,
+      "title": "(Supervised)",
+      "content": "29"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 30,
+      "title": "• Combines multiple weak classifiers to form a",
+      "content": "strong classifier:\nStrong from a family of weak classifiers\nWeak classifier\nclassifier\ne.g., decision stump,\n(one-level decision tree)\nWeight\nFeature logistic regression (limited features),\nvector\nlinear SVM,\nKNN (smaller K),\n…\nWeak Classifier: low prediction accuracy, slightly better than random guessing\nStrong Classifier: high prediction accuracy\n31"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 31,
+      "title": "General Training Process of",
+      "content": "Equal weight\nSmaller\nweights\nLarger\nweights\n32"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 32,
+      "title": "• It is a sequential procedure:",
+      "content": "Each data point 𝒙\n𝑡\nhas a class label:\n+1 ( )\ny =\nt\n-1 ( )\nand a weight:\nw =1\nt\n33"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 33,
+      "title": "Weak learners from the family of lines",
+      "content": "Each data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\nand a weight:\nw =1\nt\np(error) = 0.5 it is at chance\n34"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 34,
+      "title": "𝑓 (𝒙)",
+      "content": "1\n𝐹 𝒙 = 𝛼 𝑓 (𝒙)\n1 1\nwhere 𝛼 is larger if training\n1\nerror for 𝑓 (𝒙) is smaller\n1\nEach data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\nand a weight:\nw =1\nt\nThis one seems to be the best\nThis is a ‘weak classifier’: It performs slightly better than chance. 35"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 35,
+      "title": "𝑓 (𝒙) Misclassified samples are 𝐹 𝒙 = 𝛼 𝑓 (𝒙)",
+      "content": "𝐹 𝒙 = 𝛼 𝑓 (𝒙) 𝑓 (𝒙) Misclassified samples are\n1 1 1\nassigned with larger weights.\nwhere 𝛼 is larger if training\n1\nerror for 𝑓 (𝒙) is small\n1\nEach data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\nWe update the weights:\nw w exp{-y f (x )}\nt t t 1 t\ny f (x ) >0: larger (similar),\nt 1 t\nsmaller weight\ny f (x ) <0: smaller (dissimilar),\nt 1 t\nlarger weight\n36"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 36,
+      "title": "𝑓 (𝑥) 𝑓 (𝑥) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "content": "𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙 𝑓 (𝑥) 𝑓 (𝑥)\n1 1 2 2 1 2\nwhere 𝛼 is larger if training\n2\nerror for 𝑓 (𝒙) is small\n2\nEach data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\nWe update the weights:\nw w exp{-y f (x )}\nt t t 2 t\nSimilarly, we learn another weak classifier\n37"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 37,
+      "title": "𝑓 (𝒙) 𝑓 (𝒙) 𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "content": "𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙 𝑓 (𝒙) 𝑓 (𝒙)\n1 1 2 2 1 2\nwhere 𝛼 is larger if training\n2\nerror for 𝑓 (𝒙) is small\n2\nEach data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\nWe update the weights:\nw w exp{-y f (x )}\nt t t 2 t\nReweighting\n38"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 38,
+      "title": "𝐹 𝒙 = 𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙",
+      "content": "1 1 2 2\n𝑓 (𝒙) 𝑓 (𝒙)\n+𝛼 𝑓 𝒙 1 2\n3 3\nwhere 𝛼 is larger if training\n3\nerror for 𝑓 (𝒙) is small\n3\nEach data point has\na class label:\n+1 ( )\ny =\nt\n-1 ( )\n𝑓 (𝒙) We update the weights:\n3\nw w exp{-y f (x )}\nt t t 3 t\nSimilarly, we learn another weak classifier\n39\n\n1 1 2 2 f f\n1\n2\n+𝛼 𝑓 𝒙 + 𝛼 𝑓 𝒙\n3 3 4 4\nf\n4\nf\n3\nThe strong (non- linear) classifier is built as the combination of all\nthe weak (linear) classifiers.\n40"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 40,
+      "title": "• For different cost function and minimization algorithm,",
+      "content": "the result is a different flavor of Boosting\n• We shall discuss Adaboost\n– Proposed by Y. Freund & R. Schapire in 1995\n– First practical and widely used boosting\n– Exponential loss\n• A variant of Adaboost: gentleBoost\n– More stable and robust alternative to AdaBoost\n– Squared error\n41"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 41,
+      "title": "Adaboost - Adaptive Boosting",
+      "content": "Training dataset D = { 𝒙 , 𝑦 , … , 𝒙 , 𝑦 }, where 𝑦 ∈ {−1, +1}\n1 1 𝑁 𝑁 𝑖\n(1) 1\n1. Start with weights 𝑤 = , 𝑖 = 1,2, … , 𝑁, 𝐹 𝒙 = 0\n𝑖\n𝑁\n2. Repeat for m=1, 2,…, M:\n(a) Train a weak classifier 𝑓 𝒙 ∈ {−1, +1} using the weighted dataset, such\n𝑚\nthat the following weighted classification error is minimized:\n𝑁\n(𝑚)\n𝜖 = ෍ 𝑤 [1 ]\n𝑚 𝑖 𝑓 𝑚 𝒙 𝑖 ≠𝑦 𝑖\n𝑖=1\n1 1−𝜖\n(b) Update 𝐹 𝒙 ← 𝐹 𝒙 + 𝛼 𝑓 (𝒙), where 𝛼 = ln( 𝑚)\n𝑚 𝑚 𝑚\n2 𝜖\n𝑚\n(𝑚+1) (𝑚)\n(c) Update 𝑤 ← 𝑤 exp(−𝛼 𝑦 𝑓 𝒙 ) and renormalize the weights\n𝑖 𝑖 𝑚 𝑖 𝑚 𝑖\n(𝑚)\n𝑤 exp(−𝛼 𝑦 𝑓 𝒙 )\n(𝑚+1) 𝑖 𝑚 𝑖 𝑚 𝑖\n𝑤 ←\n3. H(x)=sign(F(x))\n𝑖 σ𝑁 𝑤 (𝑚) exp(−𝛼 𝑦 𝑓 𝒙 )\n𝑖=1 𝑖 𝑚 𝑖 𝑚 𝑖\n42\n\n𝑁\n1 1−𝜖\nWhy 𝛼 = ln 𝑚 ? where 𝜖 = ෍ 𝑤 (𝑚) [1 ]\n𝑚 𝑚 𝑖 𝑓 𝑚 𝒙 𝑖 ≠𝑦 𝑖\n2 𝜖\n𝑚\n𝑖=1\n−𝑦𝐹 𝒙\n𝐽(𝐹) = 𝔼[𝑒 ]\nObjective Function:\n−𝑦𝐹 𝒙\nObjective Function of 𝑓 𝒙 : 𝐽 𝑓 = 𝐽 𝐹 = 𝔼[𝑒 𝑚 ]\n𝑚 𝑖 𝑚 𝑚\n1\n(1)\n𝑤 = −𝑦 𝐹 𝒙 +𝛼 𝑓 𝒙\n𝑖 𝑁 = 𝔼[𝑒 𝑚−1 𝑚 𝑚 ]\n(1)\n𝑤 exp(−𝛼 𝑦 𝑓 𝒙 ) exp(−𝑦 𝐹 𝒙 )\n(2) 𝑖 1 𝑖 1 𝑖 𝑖 1 𝑖\n𝑤 = =\n𝑖 σ 𝑖 𝑁 =1 𝑤 𝑖 (1) exp(−𝛼 1 𝑦 𝑖 𝑓 1 𝒙 𝑖 ) σ 𝑖 𝑁 =1 exp(−𝑦 𝑖 𝐹 1 𝒙 𝑖 ) = 𝔼[𝑒 −𝑦𝐹 𝑚−1 𝒙 𝑒 −𝑦𝛼 𝑚 𝑓 𝑚 𝒙 ]\n(2)\n𝑤 exp(−𝛼 𝑦 𝑓 𝒙 ) exp(−𝑦 𝐹 𝒙 )\n(3) 𝑖 1 𝑖 1 𝑖 𝑖 2 𝑖\n𝑤 = =\n𝑖 σ 𝑖 𝑁 =1 𝑤 𝑖 (2) exp(−𝛼 1 𝑦 𝑖 𝑓 1 𝒙 𝑖 ) σ 𝑖 𝑁 =1 exp(−𝑦 𝑖 𝐹 2 𝒙 𝑖 ) 𝑒 −𝑦 𝑖 𝐹 𝑚−1 𝒙 𝑖\n… =σ 𝑁 𝑒 −𝛼 𝑚 𝑦 𝑖 𝑓 𝑚 𝒙 𝑖\n𝑖=1\n𝑁 −𝑦 𝐹 𝒙\nσ 𝑒 𝑖 𝑚−1 𝑖\n𝑖=1\n(𝑚) exp(−𝑦 𝐹 𝒙 )\n𝑤 = 𝑖 𝑚−1 𝑖\n𝑖 σ 𝑖 𝑁 =1 exp(−𝑦 𝑖 𝐹 𝑚−1 𝒙 𝑖 ) =σ 𝑁 𝑤 (𝑚) 𝑒 −𝛼 𝑚 𝑦 𝑖 𝑓 𝑚 𝒙 𝑖\n𝑖=1 𝑖\n43\n\n𝑁\n1 1−𝜖\nWhy 𝛼 = ln 𝑚 ? where 𝜖 = ෍ 𝑤 (𝑚) [1 ]\n𝑚 𝑚 𝑖 𝑓 𝑚 𝒙 𝑖 ≠𝑦 𝑖\n2 𝜖\n𝑚\n𝑖=1\n𝑁\n(𝑚)\n−𝛼 𝑦 𝑓 𝒙\nObjective Function of 𝑓 𝒙 : 𝐽(𝑓 ) = ෍ 𝑤 𝑒 𝑚 𝑖 𝑚 𝑖\n𝑚 𝑖 𝑚 𝑖\n𝑖=1\nSplit into correctly and incorrectly classified samples:\n𝐽(𝑓\n𝑚\n) = ෍ 𝑤\n𝑖\n(𝑚) 𝑒−𝛼 𝑚 + ෍ 𝑤\n𝑖\n(𝑚) 𝑒𝛼 𝑚 1= σ\n𝑖\n𝑁\n=1\n𝑤\n𝑖\n(𝑚)\n𝑓 𝒙 =𝑦 𝑓 𝒙 ≠𝑦\n𝑚 𝑖 𝑖 𝑚 𝑖 𝑖\n𝜖\n1 − 𝜖\n𝑚\n𝑚\n𝑑𝐽(𝑓 𝑚 ) 𝑑( 1 − 𝜖 𝑚 𝑒−𝛼 𝑚 + 𝜖 𝑚 𝑒𝛼 𝑚) 1 1 − 𝜖 𝑚\n= 0 = 0 𝛼 = ln\n𝑑𝛼 𝑑𝛼 𝑚 2 𝜖\n𝑚 𝑚 𝑚\n45"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 44,
+      "title": "{ 𝒙 , 𝑦 , … , 𝒙 , 𝑦 𝑦 ∈ {−1, +1} Training dataset D = }, where",
+      "content": "Training dataset D = { 𝒙 , 𝑦 , … , 𝒙 , 𝑦 }, where 𝑦 ∈ {−1, +1}\n1 1 𝑁 𝑁 𝑖\n(1) 1\n1. Start with weights 𝑤 = , 𝑖 = 1,2, … , 𝑁, 𝐹 𝒙 = 0\n𝑖\n𝑁\n2. Repeat for m=1, 2,…, M:\n(a) Fit the regression stump 𝑓 𝒙 by weighted least-squares of 𝑦 to 𝒙 with\n𝑚 𝑖 𝑖\n(𝑚)\nweights 𝑤\n𝑖\nf (x)\nm\nb=E (y |x> )\nw\nIndicator\na=E (y | x< )\nw\nfunction\nx\n\nFour parameters:\n46\n\nTraining dataset D = { 𝒙 , 𝑦 , … , 𝒙 , 𝑦 }, where 𝑦 ∈ {−1, +1}\n1 1 𝑁 𝑁 𝑖\n(1) 1\n1. Start with weights 𝑤 = , 𝑖 = 1,2, … , 𝑁, 𝐹 𝒙 = 0\n𝑖\n𝑁\n2. Repeat for m=1, 2,…, M:\n(a) Fit the regression stump 𝑓 𝒙 by weighted least-squares of 𝑦 to 𝒙 with\n𝑚 𝑖 𝑖\n(𝑚)\nweights 𝑤\n𝑖\n𝑁 𝑁\n(𝑚) (𝑚)\n2 2\n𝐽 𝑓 = ෍ 𝑤 (𝑦 − 𝑓 (𝒙 )) = ෍ 𝑤 (1 − 𝑦 𝑓 (𝒙 ))\n𝑚 𝑖 𝑖 𝑚 𝑖 𝑖 𝑖 𝑚 𝑖\n𝑖=1 𝑖=1\nwhich is an approximation of 𝐽 𝑓 =\nσ𝑁\n𝑤\n(𝑚)\n𝑒\n−𝑦\n𝑖\n𝑓\n𝑚\n𝒙\n𝑖\n𝑚 𝑖=1 𝑖\n𝑁\n≈ ෍ 𝑤 (𝑚) (1 − 𝑦 𝑓 (𝒙 ))2\n𝑖 𝑖 𝑚 𝑖\n𝑖=1\n47\n\nTraining dataset D = { 𝒙 , 𝑦 , … , 𝒙 , 𝑦 }, where 𝑦 ∈ {−1, +1}\n1 1 𝑁 𝑁 𝑖\n(1) 1\n1. Start with weights 𝑤 = , 𝑖 = 1,2, … , 𝑁, 𝐹 𝒙 = 0\n𝑖\n𝑁\n2. Repeat for m=1, 2,…, M:\n(a) Fit the regression stump 𝑓 𝒙 by weighted least-squares of 𝑦 to 𝒙 with\n𝑚 𝑖 𝑖\nweights 𝑤\n𝑖\n(b) Update 𝐹 𝒙 ← 𝐹 𝒙 + 𝑓 (𝒙)\n𝑚\n(𝑚+1)\n(c) Update 𝑤 ← exp(−𝑦 𝐹 𝒙 ) and renormalize the weights\n𝑖 𝑖 𝑖\n(𝑚+1) exp(−𝑦 𝐹 𝒙 )\n𝑤 = 𝑖 𝑚 𝑖\n3. H(x)=sign(F(x))\n𝑖 σ𝑁\nexp(−𝑦 𝐹 𝒙 )\n𝑖=1 𝑖 𝑚 𝑖\n48"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 47,
+      "title": "Boosting with Object Detection",
+      "content": "Object detection is formulated as a classification problem.\nThe image is partitioned into a set of overlapping windows,\n… and a decision is taken at each window about if it contains a target object or not.\nDecision\nBackground boundary\nWhere are the screens?\nComputerscreen\nBag of image patches\nIn some feature space\n51\n\n• Formulation: binary classification\n… …\nx x x … x x x … x\nImage patch x =\n1 2 3 N N+1 N+2 N+M\nLabels y = -1 +1 -1 -1 ? ? ?\nTraining data: each image patch is labeled\nTest data\nas containing the object or background\n• Extract critical features for each image patch\n--Train a weak detector that picks the best feature sequentially\n--Aggregate the weak detectors\n52"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 49,
+      "title": "Haar filters and integral image",
+      "content": "Viola and Jones, ICCV 2001\nRectangular regions of an image that compare\nintensity differences between adjacent regions\neyes nose\n53\n\nViola and Jones, ICCV 2001\nIntermediate representation to compute rectangle features rapidly\n𝑖𝑖 𝑥, 𝑦 = ෍ 𝑖(𝑥′,𝑦′)\n1 2\n𝑥′≤𝑥,𝑦′≤𝑦\n3 4 ?\n(1,1) (1,2)\n(2,2)\n(2,1)\nSuppose A, B, C, D are the\nintegral images\n54\n\nViola and Jones, ICCV 2001\nIntermediate representation to compute rectangle features rapidly\n𝑖𝑖 𝑥, 𝑦 = ෍ 𝑖(𝑥′,𝑦′)\n1 2\n𝑥′≤𝑥,𝑦′≤𝑦\n3 4 ?\n(1,1) (1,2)\n(2,2)\n(2,1)\nSuppose A, B, C, D are the\nintegral images.\nUsing the integral image, any rectangular sum\nSum4=D-Sum1-Sum2-Sum3=D-\ncan be computed in four array references A-(B-A)-(C-A)\nindependently of the block size.\n=D+A-B-C 55"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 52,
+      "title": "After extracting the features for each image patch using the Haar filters,",
+      "content": "the filtered responses highlight significant structures like edges,\ncorners, etc.\nCropped filtered\n…\n56"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 53,
+      "title": "Feature",
+      "content": "output\n57"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 54,
+      "title": "Thresholded Feature",
+      "content": "Feature Thresholded\noutput output\nWeak ‘detector’\nProduces many false alarms.\n58"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 55,
+      "title": "Thresholded Feature Strong classifier",
+      "content": "Feature Thresholded Strong classifier\noutput output at iteration 1\n59"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 56,
+      "title": "Thresholded Feature Strong",
+      "content": "Feature Thresholded Strong\noutput output classifier\nSecond weak ‘detector’\nProduces a different set of false\nalarms.\n60\n\nFeature Thresholded Strong\noutput output classifier\n+\nStrong classifier\nat iteration 2\n61\n\nFeature Thresholded Strong\noutput output classifier\n+\n…\nStrong classifier\nat iteration 10\n62\n\nFeature Thresholded Strong\noutput output classifier\n+\n…\nAdding\nfeatures\nFinal\nclassification\nStrong classifier\nat iteration 200\n63"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 60,
+      "title": "• Motivation: Some negative (background) samples may be",
+      "content": "rejected based on only few features\n• How?\nReduce false positive rate\nComputational complexity of\nSelect a threshold with a very low\nthe 3-features classifier with\nfalse negative rate for each stage\nthe performance of the 100-\nfeatures classifier\n64"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 61,
+      "title": "65",
+      "content": ""
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 62,
+      "title": "Facial Feature Localization Profile Detection",
+      "content": "Male vs.\nfemale\n66"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 63,
+      "title": "Can you find the head in this image?",
+      "content": "67"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 64,
+      "title": "• Features are extracted at fixed positions, and thus",
+      "content": "not deformable (not perfect for deformable objects)\n• Difficulty in handling severe occlusion\n• Extension to “deformable model” + “and/or model”?\n68"
+    },
+    {
+      "file": "WS-Week10-GMM-Boosting_clean.pdf",
+      "page": 65,
+      "title": "• Friedman, Hastie, Tibshirani.",
+      "content": "Additive Logistic Regression: a Statistical View of Boosting (1998).\n• Robert E. Schapire.\nThe boosting approach to machine learning: An overview.\nIn D. D. Denison, M. H. Hansen, C. Holmes, B. Mallick, B. Yu, editors,\nNonlinear Estimation and Classification. Springer, 2003.\n• Ron Meir and Gunnar Rätsch.\nAn introduction to boosting and leveraging.\nIn Advanced Lectures on Machine Learning (LNAI2600), 2003.\n69"
+    }
+  ]
+}

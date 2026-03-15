@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Evaluation Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                        card: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #debug-console {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.8);
+            color: #0f0;
+            font-family: monospace;
+            z-index: 9999;
+            pointer-events: none;
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        body {
+            background-color: #020617;
+
+            color: #f8fafc;
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+            /* Avoid main scrollbar, handle scroll inside panes */
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom scrollbar for content areas */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #pdf-render-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+            background: #1e293b;
+            border-radius: 0.5rem;
+        }
+
+        canvas {
+            max-width: 100%;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="h-screen w-screen flex flex-col items-center p-4 gap-4">
+    <div id="debug-console"></div>
+    <script>
+        const logError = (msg) => {
+            const el = document.getElementById('debug-console');
+            if (el) el.innerHTML += `<div>${msg}</div>`;
+        };
+        window.onerror = (msg, url, line, col, error) => {
+            logError(`ERROR: ${msg} (${line}:${col})`);
+            return false;
+        };
+        window.addEventListener('unhandledrejection', event => {
+            logError(`PROMISE_REJECTED: ${event.reason}`);
+        });
+        const oldConf = console.error;
+        console.error = function () {
+            logError("CONSOLE.ERROR: " + Array.from(arguments).join(" "));
+            oldConf.apply(console, arguments);
+        };
+        const oldLog = console.log;
+        console.log = function () {
+            logError("LOG: " + Array.from(arguments).join(" "));
+            oldLog.apply(console, arguments);
+        };
+    </script>
+
+    <div id="app" class="w-full h-full flex flex-col gap-4 max-w-[1600px] mx-auto">
+        <!-- Header & Stats -->
+        <header class="glass-panel rounded-xl p-4 flex items-center justify-between shadow-lg flex-shrink-0">
+            <div class="flex items-center gap-4">
+                <div
+                    class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl">
+                    Q
+                </div>
+                <div>
+                    <h1
+                        class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+                        EvalVision Dashboard
+                    </h1>
+                    <p class="text-xs text-slate-400">{{ evalData ? evalData.deck_id : 'No file loaded' }}</p>
+                </div>
+            </div>
+
+            <!-- Upload Controls -->
+            <div class="flex gap-4" v-if="!dataLoaded || !pdfLoaded">
+                <label
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg cursor-pointer text-sm font-medium transition-colors shadow-lg shadow-blue-500/20">
+                    Upload JSON
+                    <input type="file" accept=".json" @change="handleJsonUpload" class="hidden">
+                </label>
+                <label
+                    class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg cursor-pointer text-sm font-medium transition-colors shadow-lg shadow-indigo-500/20">
+                    Upload PDF
+                    <input type="file" accept=".pdf" @change="handlePdfUpload" class="hidden">
+                </label>
+            </div>
+
+            <!-- Summary Stats -->
+            <div v-else class="flex gap-6 items-center">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white">{{ stats.total }}</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Total</div>
+                </div>
+                <div class="w-px h-8 bg-slate-700"></div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-emerald-400">{{ stats.excellent }}</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Excellent</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-400">{{ stats.moderate }}</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Moderate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-yellow-500">{{ stats.tooEasy }}</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Too Easy</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-red-400">{{ stats.problem }}</div>
+                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Problem</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <div class="flex-1 flex gap-4 min-h-0 relative" v-if="dataLoaded">
+
+            <!-- Left Pane: PDF Viewer -->
+            <div class="w-1/2 glass-panel rounded-xl p-4 flex flex-col min-h-0 relative">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        Slide Preview
+                    </h2>
+                    <div class="flex items-center gap-2 text-xs">
+                        <button @click="prevPdfPage"
+                            class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded">&larr;</button>
+                        <span class="text-slate-400">Page {{ currentPdfPage }} / {{ totalPdfPages }}</span>
+                        <button @click="nextPdfPage"
+                            class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded">&rarr;</button>
+                    </div>
+                </div>
+
+                <div id="pdf-render-container" class="custom-scroll flex-1 relative">
+                    <canvas id="pdf-canvas"></canvas>
+                    <div v-if="!pdfLoaded"
+                        class="absolute inset-0 flex items-center justify-center bg-slate-900/80 rounded-lg">
+                        <div class="text-slate-400 text-sm flex flex-col items-center gap-2">
+                            <svg class="w-8 h-8 opacity-50 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                            </svg>
+                            Please upload the corresponding PDF to view sides.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Pane: Question details -->
+            <div class="w-1/2 glass-panel rounded-xl flex flex-col min-h-0 custom-scroll overflow-y-auto">
+
+                <!-- Navigation Header -->
+                <div
+                    class="sticky top-0 z-10 p-4 border-b border-white/5 bg-[#1e293b]/95 backdrop-blur flex justify-between items-center">
+                    <button @click="prevQuestion" :disabled="currentQIndex === 0"
+                        class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-sm font-medium transition flex items-center gap-1">
+                        &larr; Prev
+                    </button>
+                    <div class="text-sm font-semibold text-slate-300">
+                        Question {{ currentQIndex + 1 }} <span class="text-slate-500 font-normal">of {{
+                            flattenedQuestions.length }}</span>
+                    </div>
+                    <button @click="nextQuestion" :disabled="currentQIndex === flattenedQuestions.length - 1"
+                        class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-sm font-medium transition flex items-center gap-1">
+                        Next &rarr;
+                    </button>
+                </div>
+
+                <div class="p-6 flex flex-col gap-6" v-if="currentQuestion">
+
+                    <!-- Topic & Meta -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">{{
+                                currentQuestion._topicName }}</span>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-300">Diff:
+                                    {{ currentQuestion.difficulty }}</span>
+                                <span
+                                    class="px-2 py-0.5 rounded text-xs font-semibold select-none flex items-center gap-1"
+                                    :class="getDiagnosisColor(currentQuestion.diagnosis)">
+                                    {{ currentQuestion.diagnosis }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-slate-500">Lines/Pages: {{ currentQuestion.source_page.join(', ') }}
+                        </div>
+                    </div>
+
+                    <!-- Stem -->
+                    <div class="text-lg font-medium leading-relaxed">
+                        {{ currentQuestion.stem }}
+                    </div>
+
+                    <!-- Options -->
+                    <div class="flex flex-col gap-3 mt-2">
+                        <div v-for="(optText, optKey) in currentQuestion.options" :key="optKey"
+                            class="p-3 rounded-lg border flex gap-3 cursor-default transition-colors"
+                            :class="currentQuestion.correct_answer === optKey ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-100' : 'bg-slate-800/40 border-slate-700/50 text-slate-300'">
+                            <div class="font-bold flex-shrink-0 w-6 h-6 flex items-center justify-center rounded bg-black/20"
+                                :class="currentQuestion.correct_answer === optKey ? 'text-emerald-400' : 'text-slate-400'">
+                                {{ optKey }}
+                            </div>
+                            <div class="leading-relaxed text-sm">{{ optText }}</div>
+                        </div>
+                    </div>
+
+                    <!-- Student Responses -->
+                    <div>
+                        <h3
+                            class="text-sm font-semibold tracking-wider text-slate-400 mb-3 mt-4 border-b border-white/10 pb-2">
+                            Simulated Student Evaluations</h3>
+                        <div class="flex flex-col gap-4">
+                            <template
+                                v-for="(label, key) in {'student_A': 'Student A (Weak)', 'student_B': 'Student B (Partial)', 'student_C': 'Student C (Good)'}"
+                                :key="key">
+                                <div
+                                    class="bg-slate-800/50 rounded-lg p-4 border border-white/5 relative overflow-hidden group">
+                                    <div class="absolute top-0 left-0 w-1 h-full"
+                                        :class="currentQuestion[key]?.selected_option === currentQuestion.correct_answer ? 'bg-emerald-500' : 'bg-red-500'">
+                                    </div>
+
+                                    <div class="flex justify-between items-start mb-2 pl-2">
+                                        <div class="font-semibold text-sm">{{ label }}</div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="px-2 py-0.5 text-[10px] uppercase tracking-wider rounded font-bold"
+                                                :class="{'bg-green-500/20 text-green-400': currentQuestion[key]?.confidence==='high', 'bg-yellow-500/20 text-yellow-400': currentQuestion[key]?.confidence==='medium', 'bg-red-500/20 text-red-400': currentQuestion[key]?.confidence==='low'}">
+                                                {{ currentQuestion[key]?.confidence }} conf
+                                            </div>
+                                            <div class="w-6 h-6 flex items-center justify-center rounded bg-slate-900 border border-white/10 text-xs font-mono font-bold"
+                                                :class="currentQuestion[key]?.selected_option === currentQuestion.correct_answer ? 'text-emerald-400' : 'text-red-400'">
+                                                {{ currentQuestion[key]?.selected_option }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Collapsable Reasoning -->
+                                    <details class="pl-2 mt-2 group/details">
+                                        <summary
+                                            class="text-xs text-indigo-400 cursor-pointer font-medium select-none flex items-center gap-1 hover:text-indigo-300 transition-colors">
+                                            <svg class="w-3 h-3 transition-transform group-open/details:rotate-90"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                            View Reasoning
+                                        </summary>
+                                        <p
+                                            class="text-sm text-slate-300 leading-relaxed mt-2 p-3 bg-slate-900/50 rounded-lg border border-slate-700/50">
+                                            {{ currentQuestion[key]?.reasoning }}
+                                        </p>
+                                    </details>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Memory Traces (if injected) -->
+                    <div v-if="currentQuestion.memory_traces && Object.keys(currentQuestion.memory_traces).length > 0">
+                        <h3
+                            class="text-sm font-semibold tracking-wider text-slate-400 mb-3 border-b border-white/10 pb-2 flex justify-between items-center">
+                            Memory Traces
+                            <span
+                                class="text-[10px] bg-indigo-500/30 text-indigo-300 px-2 py-0.5 rounded-full">Included</span>
+                        </h3>
+                        <div class="flex flex-col gap-3">
+                            <div v-for="(trace, sKey) in currentQuestion.memory_traces" :key="sKey"
+                                class="text-xs bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
+                                <strong class="capitalize text-indigo-300 block mb-1">{{ sKey.replace('_', ' ')
+                                    }}:</strong>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                    <li v-for="(sentence, i) in (Array.isArray(trace) ? trace : [trace])" :key="i">{{
+                                        sentence }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Empty State -->
+        <div v-else class="flex-1 flex flex-col items-center justify-center gap-4 opacity-50">
+            <svg class="w-24 h-24 text-slate-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                </path>
+            </svg>
+            <h2 class="text-2xl font-semibold">Ready to Analyze</h2>
+            <p class="text-slate-400 max-w-md text-center">Upload your <code>mcq_eval_result.json</code> and the
+                corresponding slide deck PDF to begin visualization.</p>
+        </div>
+
+    </div>
+
+    <script>
+        const { createApp, ref, shallowRef, computed, watch, nextTick } = Vue;
+
+        createApp({
+            setup() {
+                const evalData = ref(null);
+                const pdfDoc = shallowRef(null);
+                const currentPdfPage = ref(1);
+                const totalPdfPages = ref(0);
+
+                const pdfRenderCtx = shallowRef(null);
+                let pdfRenderTask = null;
+
+                const flattenedQuestions = ref([]);
+                const currentQIndex = ref(0);
+
+                const dataLoaded = computed(() => evalData.value !== null);
+                const pdfLoaded = computed(() => pdfDoc.value !== null);
+
+                const currentQuestion = computed(() => {
+                    if (!flattenedQuestions.value.length) return null;
+                    return flattenedQuestions.value[currentQIndex.value];
+                });
+
+                const stats = computed(() => {
+                    if (!evalData.value || !evalData.value.summary) return {};
+                    const s = evalData.value.summary;
+                    return {
+                        total: s.total_questions || 0,
+                        excellent: s.excellent_diagnostic || 0,
+                        moderate: s.moderate_difficulty || 0,
+                        tooEasy: s.too_easy || 0,
+                        problem: (s.question_problem || 0) + (s.unclear_evidence || 0)
+                    }
+                });
+
+                const handleJsonUpload = (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        try {
+                            const data = JSON.parse(ev.target.result);
+                            evalData.value = data;
+
+                            // Flatten topics into single question array
+                            let allQ = [];
+                            if (data.topics) {
+                                data.topics.forEach(t => {
+                                    if (t.results) {
+                                        t.results.forEach(q => {
+                                            q._topicName = t.topic;
+                                            allQ.push(q);
+                                        });
+                                    }
+                                });
+                            }
+                            flattenedQuestions.value = allQ;
+                            currentQIndex.value = 0;
+                            syncPdfToQuestion();
+                        } catch (err) {
+                            alert("Failed to parse JSON.");
+                        }
+                    };
+                    reader.readAsText(file);
+                };
+
+                const handlePdfUpload = (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    const fileReader = new FileReader();
+                    fileReader.onload = async function () {
+                        const typedarray = new Uint8Array(this.result);
+                        try {
+                            const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                            pdfDoc.value = pdf;
+                            totalPdfPages.value = pdf.numPages;
+                            currentPdfPage.value = 1;
+                            renderPdfPage();
+                            syncPdfToQuestion();
+                        } catch (err) {
+                            alert("Failed to load PDF.");
+                            console.error(err);
+                        }
+                    };
+                    fileReader.readAsArrayBuffer(file);
+                };
+
+                const renderPdfPage = async () => {
+                    if (!pdfDoc.value) return;
+
+                    // Wait for canvas to mount if not ready
+                    await nextTick();
+                    const canvas = document.getElementById('pdf-canvas');
+                    if (!canvas) return;
+
+                    const ctx = canvas.getContext('2d');
+
+                    try {
+                        const page = await pdfDoc.value.getPage(currentPdfPage.value);
+
+                        // Cancel prev
+                        if (pdfRenderTask) {
+                            await pdfRenderTask.promise.catch(() => { });
+                        }
+
+                        const viewport = page.getViewport({ scale: 1.5 });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        const renderContext = {
+                            canvasContext: ctx,
+                            viewport: viewport
+                        };
+
+                        pdfRenderTask = page.render(renderContext);
+                        await pdfRenderTask.promise;
+                    } catch (err) {
+                        if (err.name !== 'RenderingCancelledException') {
+                            console.error("PDF Render Error:", err);
+                        }
+                    }
+                };
+
+                const prevPdfPage = () => {
+                    if (currentPdfPage.value > 1) {
+                        currentPdfPage.value--;
+                        renderPdfPage();
+                    }
+                };
+
+                const nextPdfPage = () => {
+                    if (currentPdfPage.value < totalPdfPages.value) {
+                        currentPdfPage.value++;
+                        renderPdfPage();
+                    }
+                };
+
+                const goToPdfPage = (num) => {
+                    if (num >= 1 && num <= totalPdfPages.value) {
+                        currentPdfPage.value = num;
+                        renderPdfPage();
+                    }
+                };
+
+                const prevQuestion = () => {
+                    if (currentQIndex.value > 0) {
+                        currentQIndex.value--;
+                        syncPdfToQuestion();
+                    }
+                };
+
+                const nextQuestion = () => {
+                    if (currentQIndex.value < flattenedQuestions.value.length - 1) {
+                        currentQIndex.value++;
+                        syncPdfToQuestion();
+                    }
+                };
+
+                const syncPdfToQuestion = () => {
+                    if (!pdfLoaded.value || !currentQuestion.value) return;
+                    const pages = currentQuestion.value.source_page;
+                    if (pages && pages.length > 0) {
+                        goToPdfPage(pages[0]);
+                    }
+                };
+
+                const getDiagnosisColor = (diagnosis) => {
+                    if (!diagnosis) return 'bg-slate-700 text-slate-300';
+                    if (diagnosis.includes('非常好的')) return 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+                    if (diagnosis.includes('适中')) return 'bg-blue-500/20 text-blue-400 border border-blue-500/30';
+                    if (diagnosis.includes('太简单')) return 'bg-yellow-500/20 text-yellow-500 border border-yellow-500/30';
+                    return 'bg-red-500/20 text-red-500 border border-red-500/30';
+                };
+
+                const loadFromUrl = async () => {
+                    const params = new URLSearchParams(window.location.search);
+                    const jsonPath = params.get('json');
+                    const pdfPath = params.get('pdf');
+
+                    if (jsonPath) {
+                        try {
+                            const res = await fetch(jsonPath);
+                            const data = await res.json();
+
+                            evalData.value = data;
+                            let allQ = [];
+                            if (data.topics) {
+                                data.topics.forEach(t => {
+                                    if (t.results) {
+                                        t.results.forEach(q => {
+                                            q._topicName = t.topic;
+                                            allQ.push(q);
+                                        });
+                                    }
+                                });
+                            }
+                            flattenedQuestions.value = allQ;
+                            currentQIndex.value = 0;
+                            syncPdfToQuestion();
+                        } catch (e) {
+                            console.error("Failed to fetch JSON from URL", e);
+                        }
+                    }
+
+                    if (pdfPath) {
+                        try {
+                            const pdfRes = await fetch(pdfPath);
+                            if (!pdfRes.ok) throw new Error("PDF fetch failed: " + pdfRes.statusText);
+                            const arrayBuffer = await pdfRes.arrayBuffer();
+                            const typedarray = new Uint8Array(arrayBuffer);
+
+                            const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                            pdfDoc.value = pdf;
+                            totalPdfPages.value = pdf.numPages;
+                            currentPdfPage.value = 1;
+                            renderPdfPage();
+                            syncPdfToQuestion();
+                        } catch (e) {
+                            console.error("Failed to fetch PDF from URL", e);
+                        }
+                    }
+                };
+
+                Vue.onMounted(() => {
+                    loadFromUrl();
+                });
+
+                return {
+                    evalData,
+                    pdfDoc,
+                    stats,
+                    dataLoaded,
+                    pdfLoaded,
+                    flattenedQuestions,
+                    currentQIndex,
+                    currentQuestion,
+                    currentPdfPage,
+                    totalPdfPages,
+                    handleJsonUpload,
+                    handlePdfUpload,
+                    prevPdfPage,
+                    nextPdfPage,
+                    prevQuestion,
+                    nextQuestion,
+                    getDiagnosisColor
+                };
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+
+</html>

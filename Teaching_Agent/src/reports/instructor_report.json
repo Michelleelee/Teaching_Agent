@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-03-06 11:20:45",
+  "student_id": null,
+  "session_count": null,
+  "total_attempts": 80,
+  "overall_accuracy": 0.475,
+  "topic_metrics": [
+    {
+      "topic_id": "core_distributions_for_modeling",
+      "total_attempts": 3,
+      "correct": 1,
+      "accuracy": 0.333,
+      "avg_response_time_sec": 3.45,
+      "common_wrong_answers": {
+        "D": 1,
+        "B": 1
+      },
+      "question_breakdown": {
+        "q2": {
+          "total": 3,
+          "correct": 1,
+          "accuracy": 0.33
+        }
+      }
+    },
+    {
+      "topic_id": "probability_foundations_and_bayes_rule",
+      "total_attempts": 31,
+      "correct": 11,
+      "accuracy": 0.355,
+      "avg_response_time_sec": 7.58,
+      "common_wrong_answers": {
+        "D": 4,
+        "B": 8,
+        "C": 1,
+        "": 2,
+        "a": 1,
+        "A. I think an event can happen, can also not happen ,all is possible": 1,
+        "A": 2,
+        "B.": 1
+      },
+      "question_breakdown": {
+        "q1": {
+          "total": 20,
+          "correct": 9,
+          "accuracy": 0.45
+        },
+        "q3": {
+          "total": 11,
+          "correct": 2,
+          "accuracy": 0.18
+        }
+      }
+    },
+    {
+      "topic_id": "model_fitting_mle_and_erm",
+      "total_attempts": 33,
+      "correct": 18,
+      "accuracy": 0.545,
+      "avg_response_time_sec": 7.05,
+      "common_wrong_answers": {
+        "D": 7,
+        "B": 2,
+        "C": 4,
+        "A": 2
+      },
+      "question_breakdown": {
+        "q3": {
+          "total": 11,
+          "correct": 3,
+          "accuracy": 0.27
+        },
+        "q5": {
+          "total": 11,
+          "correct": 8,
+          "accuracy": 0.73
+        },
+        "q4": {
+          "total": 11,
+          "correct": 7,
+          "accuracy": 0.64
+        }
+      }
+    },
+    {
+      "topic_id": "pr_and_ml_overview",
+      "total_attempts": 13,
+      "correct": 8,
+      "accuracy": 0.615,
+      "avg_response_time_sec": 8.08,
+      "common_wrong_answers": {
+        "D": 3,
+        "B": 1,
+        "C": 1
+      },
+      "question_breakdown": {
+        "q1": {
+          "total": 8,
+          "correct": 5,
+          "accuracy": 0.62
+        },
+        "q4": {
+          "total": 5,
+          "correct": 3,
+          "accuracy": 0.6
+        }
+      }
+    }
+  ],
+  "weakest_topics": [
+    "core_distributions_for_modeling",
+    "probability_foundations_and_bayes_rule"
+  ],
+  "anomalies": [
+    "[WARNING] Question probability_foundations_and_bayes_rule:q3 has only 18% accuracy across 11 attempts. Consider reviewing question quality.",
+    "[WARNING] Question model_fitting_mle_and_erm:q3 has only 27% accuracy across 11 attempts. Consider reviewing question quality."
+  ]
+}
