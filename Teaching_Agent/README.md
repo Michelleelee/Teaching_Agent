@@ -3,7 +3,7 @@
 ## 目录结构
 
 ```
-pydantic-ai-tutorial/
+Teaching_Agent/
 ├── src/
 │   ├── qbank_agent/              ← QBank-agent 子包（软链接）
 │   ├── qbank_pipeline.py         ← 全自动题库 orchestrator（核心入口）
@@ -21,7 +21,7 @@ pydantic-ai-tutorial/
 
 ```bash
 # 1. 进入项目目录
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent
 
 # 2. 安装依赖（使用你当前 conda 环境的 pip）
 pip install -r requirements.txt
@@ -29,11 +29,13 @@ pip install -r requirements.txt
 # 3. 确保 .env 文件中有 OpenAI API Key
 #    在 src/ 目录下创建 .env 文件（如果没有的话）
 echo "OPENAI_API_KEY=你的key" > src/.env
+
+# 4. 同步在 QBank-agent/qbank_agent/config.py 中设置 OPENAI_API_KEY（与 .env 保持一致）
 ```
 
 > **注意**：所有命令都必须在 `src/` 目录下执行：
 > ```bash
-> cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+> cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 > ```
 
 ---
@@ -56,7 +58,7 @@ echo "OPENAI_API_KEY=你的key" > src/.env
 从 PDF 课件一键生成题库并部署到 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 python qbank_pipeline.py generate
 ```
 
@@ -80,7 +82,7 @@ python qbank_pipeline.py generate
 分析真实学生答题数据，自动找出质量差的题目并演化替换。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 python qbank_pipeline.py maintain
 ```
 
@@ -108,7 +110,7 @@ python qbank_pipeline.py maintain
 当你手动修改了题库 JSON 文件后，用这个命令重建 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 python qbank_pipeline.py reindex
 ```
 
@@ -119,7 +121,7 @@ python qbank_pipeline.py reindex
 ### 4. 启动学生学习会话
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 python watch_slide_adaptive_new.py --student alice
 ```
 
@@ -150,7 +152,7 @@ python watch_slide_adaptive_new.py --student alice
 
 ### Q: 如何查看当前题库有多少题？
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/pydantic-ai-tutorial/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
 python -c "
 import json
 from pathlib import Path
