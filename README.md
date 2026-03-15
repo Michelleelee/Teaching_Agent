@@ -25,7 +25,7 @@ Teaching_Agent/
 
 ```bash
 # 1. 进入项目目录
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent
+cd Teaching_Agent/Teaching_Agent
 
 # 2. 安装依赖（使用你当前 conda 环境的 pip）
 pip install -r requirements.txt
@@ -39,7 +39,7 @@ echo "OPENAI_API_KEY=你的key" > src/.env
 
 > **注意**：所有命令都必须在 `src/` 目录下执行：
 > ```bash
-> cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+> cd Teaching_Agent/Teaching_Agent/src
 > ```
 
 ---
@@ -62,7 +62,7 @@ echo "OPENAI_API_KEY=你的key" > src/.env
 从 PDF 课件一键生成题库并部署到 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+cd Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py generate
 ```
 
@@ -86,7 +86,7 @@ python qbank_pipeline.py generate
 分析真实学生答题数据，自动找出质量差的题目并演化替换。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+cd Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py maintain
 ```
 
@@ -114,7 +114,7 @@ python qbank_pipeline.py maintain
 当你手动修改了题库 JSON 文件后，用这个命令重建 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+cd Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py reindex
 ```
 
@@ -125,7 +125,7 @@ python qbank_pipeline.py reindex
 ### 4. 启动学生学习会话
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+cd Teaching_Agent/Teaching_Agent/src
 python watch_slide_adaptive_new.py --student alice
 ```
 
@@ -151,12 +151,12 @@ python watch_slide_adaptive_new.py --student alice
 ### Q: `ModuleNotFoundError` 怎么办？
 确保用 conda 环境的 pip 安装依赖：
 ```bash
-/Users/michelle/miniconda3/bin/pip install -r requirements.txt
+~/miniconda3/bin/pip install -r requirements.txt
 ```
 
 ### Q: 如何查看当前题库有多少题？
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
+cd Teaching_Agent/Teaching_Agent/src
 python -c "
 import json
 from pathlib import Path
