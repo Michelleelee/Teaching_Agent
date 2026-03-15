@@ -4,24 +4,28 @@
 
 ```
 Teaching_Agent/
-├── src/
-│   ├── qbank_agent/              ← QBank-agent 子包（软链接）
-│   ├── qbank_pipeline.py         ← 全自动题库 orchestrator（核心入口）
-│   ├── watch_slide_adaptive_new.py  ← 实时自适应教学 Agent
-│   ├── build_qbank_index_openai.py  ← ChromaDB 索引构建（已集成到 pipeline）
-│   ├── chroma_qbank_openai/      ← ChromaDB 向量数据库
-│   ├── data/
-│   │   ├── student_events.jsonl  ← 学生答题记录
-│   │   └── student_profile.json  ← 学生画像
-│   └── *.json                    ← 当前使用的题库 JSON
-└── requirements.txt
+├── README.md                     ← 顶层说明（当前文件）
+├── QBank-agent/                  ← 原始 QBank-Agent 流水线工程
+│   ├── main.py
+│   ├── qbank_agent/              ← 包含 config.py（需要配置 API Key）
+│   └── ...
+├── Teaching_Agent/               ← rename 后的正式工程（含 src/）
+│   ├── src/
+│   │   ├── qbank_agent/          ← QBank-agent 子包软链接
+│   │   ├── qbank_pipeline.py     ← 全自动题库 orchestrator
+│   │   ├── watch_slide_adaptive_new.py
+│   │   ├── build_qbank_index_openai.py
+│   │   ├── chroma_qbank_openai/
+│   │   └── data/
+│   └── requirements.txt
+└── 其它辅助文件（current_slide.txt、压缩包等）
 ```
 
 ## 环境准备
 
 ```bash
 # 1. 进入项目目录
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent
 
 # 2. 安装依赖（使用你当前 conda 环境的 pip）
 pip install -r requirements.txt
@@ -30,12 +34,12 @@ pip install -r requirements.txt
 #    在 src/ 目录下创建 .env 文件（如果没有的话）
 echo "OPENAI_API_KEY=你的key" > src/.env
 
-# 4. 同步在 QBank-agent/qbank_agent/config.py 中设置 OPENAI_API_KEY（与 .env 保持一致）
+# 4. 同步在 Teaching_Agent/QBank-agent/qbank_agent/config.py 中设置 OPENAI_API_KEY（与 .env 保持一致）
 ```
 
 > **注意**：所有命令都必须在 `src/` 目录下执行：
 > ```bash
-> cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+> cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 > ```
 
 ---
@@ -58,7 +62,7 @@ echo "OPENAI_API_KEY=你的key" > src/.env
 从 PDF 课件一键生成题库并部署到 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py generate
 ```
 
@@ -82,7 +86,7 @@ python qbank_pipeline.py generate
 分析真实学生答题数据，自动找出质量差的题目并演化替换。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py maintain
 ```
 
@@ -110,7 +114,7 @@ python qbank_pipeline.py maintain
 当你手动修改了题库 JSON 文件后，用这个命令重建 ChromaDB。
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 python qbank_pipeline.py reindex
 ```
 
@@ -121,7 +125,7 @@ python qbank_pipeline.py reindex
 ### 4. 启动学生学习会话
 
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 python watch_slide_adaptive_new.py --student alice
 ```
 
@@ -152,7 +156,7 @@ python watch_slide_adaptive_new.py --student alice
 
 ### Q: 如何查看当前题库有多少题？
 ```bash
-cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/src
+cd /Users/michelle/pydanticai/pydanticai/Teaching_Agent/Teaching_Agent/src
 python -c "
 import json
 from pathlib import Path
